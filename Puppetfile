@@ -1,7 +1,7 @@
 forge "http://forge.puppetlabs.com"
 
 mod 'puppetlabs/apt'
-mod 'puppetlabs/mysql'
+mod 'puppetlabs/mysql', '1.0.0'
 mod 'puppetlabs/stdlib'
 mod 'maestrodev/wget'
 mod 'logstash',
