@@ -33,6 +33,8 @@ fi
 
 apt-get update
 apt-get install -y rubygems
+apt-get remove -y ruby1.8
+apt-get install -y ruby1.9
 
 gem install bundler --no-ri --no-rdoc
 

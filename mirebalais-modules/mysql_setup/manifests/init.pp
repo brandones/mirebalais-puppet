@@ -4,7 +4,6 @@ class mysql_setup (
 ){
 
   class { 'mysql::server':
-    attempt_compatibility_mode => true,
     manage_service => false,
     config_hash    => {
       'root_password' => $root_password,
