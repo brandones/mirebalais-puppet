@@ -46,9 +46,9 @@ fi
 
 
 apt-get update
-apt-get install -y rubygems
-apt-get install -y ruby1.9
 apt-get remove -y ruby1.8
+apt-get install -y ruby1.9.1-dev
+
 
 gem install bundler --no-ri --no-rdoc
 
