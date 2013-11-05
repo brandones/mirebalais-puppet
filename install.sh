@@ -4,7 +4,7 @@ if [ -z "$1" ]
 then
   echo "You need to provide the environment to install in:"
   echo "./install.sh ENVIRONMENT"
-  echo "ENVIRONMENT can be test|production"
+  echo "ENVIRONMENT can be local|test|production"
   exit 1
 fi
 
@@ -13,7 +13,7 @@ then
     mkdir /etc/puppet-decrypt
 fi
 
-if [ "$1" != "test" ]
+if [ "$1" != "local" ]
 then
   if [ ! -f /etc/puppet-decrypt/encryptor_secret_key ] || [ ! -f /etc/ssl/private/hum.key ]
   then
