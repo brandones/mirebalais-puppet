@@ -10,6 +10,7 @@ replication_db_password: foo
 backup_db_user: backup
 backup_db_password: foo
 tomcat: tomcat6
+site_domain: foo.org
 
 mirth_db: mirthdb
 mirth_db_user: mirth

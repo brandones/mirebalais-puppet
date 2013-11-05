@@ -1,4 +1,6 @@
 ---
+site_domain: emr.hum.ht
+
 mirebalais_release: 'stable/'
 mysql_server_id: 1
 mysql_root_password: ENC[I813eH2Q9IHPZiqwu6DwaPeECPtMT7y41YwwqrTT1nI=]
