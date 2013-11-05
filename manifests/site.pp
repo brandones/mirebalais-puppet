@@ -12,7 +12,6 @@ node default {
   include mirth
   include tomcat
   include openmrs
-  include awstats
 }
 
 node /^((?!replication).*)$/ inherits default {
