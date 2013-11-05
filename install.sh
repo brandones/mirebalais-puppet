@@ -8,6 +8,11 @@ then
   exit 1
 fi
 
+if [ ! -d /etc/puppet-decrypt ]
+then
+    mkdir /etc/puppet-decrypt
+fi
+
 if [ "$1" != "test" ]
 then
   if [ ! -f /etc/puppet-decrypt/encryptor_secret_key ] || [ ! -f /etc/ssl/private/hum.key ]
@@ -34,12 +39,6 @@ else
     if [ !  -f /etc/puppet-decrypt/encryptor_secret_key ]
     then
 	echo "Creating a dummy secret key"
-	
-	if [ ! -d /etc/puppet-decrypt ]
-	    then
-	    mkdir /etc/puppet-decrypt
-	    fi
-
 	ssh-keygen -N testmeout -f /etc/puppet-decrypt/encryptor_secret_key
     fi
 fi 
@@ -48,7 +47,6 @@ fi
 apt-get update
 apt-get remove -y ruby1.8
 apt-get install -y ruby1.9.1-dev
-
 
 gem install bundler --no-ri --no-rdoc
 
