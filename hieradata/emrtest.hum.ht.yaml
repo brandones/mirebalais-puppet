@@ -1,4 +1,6 @@
 ---
+site_domain: emrtest.hum.ht
+
 mirebalais_release: 'stable/'
 mysql_root_password: ENC[oWqIfmn/ER4CYIvjJSpIzQ==]
 
