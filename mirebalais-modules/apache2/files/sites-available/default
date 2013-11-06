@@ -28,12 +28,4 @@
 
 	CustomLog ${APACHE_LOG_DIR}/access.log combined
 
-	#
-	# Directives to allow use of AWStats as a CGI
-	#
-	Alias /awstatsclasses "/usr/local/awstats/wwwroot/classes/"
-	Alias /awstatscss "/usr/local/awstat/wwwroot/css/"
-	Alias /awstatsicons "/usr/local/awstats/wwwroot/icon/"
-	ScriptAlias /awstats/ "/usr/local/awstats/wwwroot/cgi-bin/"
-
 </VirtualHost>
