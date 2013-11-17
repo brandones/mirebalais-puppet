@@ -18,6 +18,31 @@
 		allow from all
 	</Directory>
 
+	# start AWSTATS configuraion 
+	Alias /awstatsclasses "/usr/share/awstats/lib/"
+	Alias /awstatsicons "/usr/share/awstats/icon/"
+	Alias /awstatscss "/usr/share/doc/awstats/examples/css"
+	ScriptAlias /awstats/ "/usr/lib/cgi-bin/"
+
+	<Directory "/usr/share/awstats/">
+		   Options None
+		   AllowOverride None
+		   Order allow,deny
+		   Allow from all
+	</Directory>
+
+	# open up cgi-bin (for awstats)
+	<Directory "/usr/lib/cgi-bin/">
+		   AllowOverride AuthConfig
+		   AuthType Basic
+		   AuthName "Enter username and password"
+		   AuthUserFile /usr/lib/cgi-bin/.htpasswd
+		   AuthGroupFile /dev/null
+		   require user logs
+	</Directory>
+
+	# end AWSTATS configuration
+
 	ErrorLog ${APACHE_LOG_DIR}/error.log
 
 	# Possible values include: debug, info, notice, warn, error, crit,
