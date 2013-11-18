@@ -1,4 +1,5 @@
 ---
+openmrs_auto_update_database: true
 site_domain: emrtest.hum.ht
 
 mirebalais_release: 'stable/'
