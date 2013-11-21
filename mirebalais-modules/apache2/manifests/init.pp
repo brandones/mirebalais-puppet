@@ -14,7 +14,8 @@ class apache2 (
 
   file { '/etc/logrotate.d/apache2':
     ensure  => file,
-    source  => 'puppet:///modules/apache2/logrotate',
+    content  => template('apache2/logrotat.erb'),
+    require => Package['awstats']
   }
 
   file { '/etc/apache2/workers.properties':

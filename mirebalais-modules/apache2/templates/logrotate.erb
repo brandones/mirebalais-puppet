@@ -6,6 +6,10 @@
   compress
   notifempty
   missingok
+  sharedscripts
+  prerotate
+  /usr/local/cgi-bin/awstats.pl -config=$site_domain -update > /dev/null
+  endscript 
 }
 
 /var/log/apache2/*.log {
