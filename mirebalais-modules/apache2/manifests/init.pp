@@ -14,7 +14,7 @@ class apache2 (
 
   file { '/etc/logrotate.d/apache2':
     ensure  => file,
-    content  => template('apache2/logrotat.erb'),
+    content  => template('apache2/logrotate.erb'),
     require => Package['awstats']
   }
 
