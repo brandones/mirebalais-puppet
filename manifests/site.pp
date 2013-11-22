@@ -23,6 +23,7 @@ node /^((?!replication).*)$/ inherits default {
 node 'emr.hum.ht' inherits default {
   include ntpdate
   include apache2
+  include awstats
   include logging
   include mysql_setup::db_setup
   include mysql_setup::backup
@@ -34,14 +35,22 @@ node 'emr.hum.ht' inherits default {
 node 'emrreplication.hum.ht' inherits default {
   include ntpdate
   include apache2
+  include awstats
   include logging
   include logging::kibana
   include mysql_setup::slave
 }
 
 node 'emrtest.hum.ht' inherits default {
+  include apache2
+  include awstats
   include ntpdate
   include mysql_setup::db_setup
   include mirth::channel_setup
   include openmrs::initial_setup
+}
+
+node 'humdemo.pih-emr.org' inherits default {
+  include apache2
+  include awstats
 }
