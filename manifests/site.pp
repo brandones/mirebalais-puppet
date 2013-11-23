@@ -50,3 +50,7 @@ node 'emrtest.hum.ht' inherits default {
   include openmrs::initial_setup
 }
 
+node 'humdemo.pih-emr.org' inherits default {
+  include apache2
+  include awstats
+}
