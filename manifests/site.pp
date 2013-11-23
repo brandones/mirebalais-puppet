@@ -53,4 +53,8 @@ node 'emrtest.hum.ht' inherits default {
 node 'humdemo.pih-emr.org' inherits default {
   include apache2
   include awstats
+  include mysql_setup::db_setup
+  include mirth::channel_setup
+  include openmrs::initial_setup
 }
+
