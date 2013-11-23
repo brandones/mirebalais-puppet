@@ -8,7 +8,7 @@
   missingok
   sharedscripts
   prerotate
-  /usr/local/cgi-bin/awstats.pl -config=$site_domain -update > /dev/null
+  /usr/local/cgi-bin/awstats.pl -config=<%= @site_domain %> -update > /dev/null
   endscript 
 }
 

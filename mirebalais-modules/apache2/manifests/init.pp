@@ -1,8 +1,9 @@
 class apache2 (
   $tomcat = hiera('tomcat'),
   $services_ensure = hiera('services_ensure'),
-  $services_enable = hiera('services_enable')
-  ){
+  $services_enable = hiera('services_enable'),
+  $site_domain = hiera('site_domain')  
+){
 
   package { 'apache2':
     ensure => installed,

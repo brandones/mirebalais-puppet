@@ -2,7 +2,7 @@ class openmrs (
     $openmrs_db = hiera('openmrs_db'),
     $openmrs_db_user = decrypt(hiera('openmrs_db_user')),
     $openmrs_db_password = decrypt(hiera('openmrs_db_password')),
-    $auto_update_database = hiera('openmrs_auto_update_database'),
+    $openmrs_auto_update_database = hiera('openmrs_auto_update_database'),
     $mirebalais_release = hiera('mirebalais_release'),
     $tomcat = hiera('tomcat'),
     $remote_zlidentifier_url = hiera('remote_zlidentifier_url'),
