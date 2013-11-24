@@ -12,5 +12,5 @@ register_test_patient: true
 my_account_feature: true
 notifiable_diseases_report: true
 enable_new_patient_header: true
-
+dispense_medication: true
 
