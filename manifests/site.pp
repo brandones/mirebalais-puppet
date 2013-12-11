@@ -20,6 +20,12 @@ node /^((?!replication).*)$/ inherits default {
   include openmrs::initial_setup
 }
 
+node /^((?!reporting).*)$/ inherits default {
+  include mysql_setup::db_setup
+  include mirth::channel_setup
+  include openmrs::initial_setup
+}
+
 node 'emr.hum.ht' inherits default {
   include ntpdate
   include apache2
@@ -33,6 +39,15 @@ node 'emr.hum.ht' inherits default {
 }
 
 node 'emrreplication.hum.ht' inherits default {
+  include ntpdate
+  include apache2
+  include awstats
+  include logging
+  include logging::kibana
+  include mysql_setup::slave
+}
+
+node 'reporting.hum.ht' inherits default {
   include ntpdate
   include apache2
   include awstats
