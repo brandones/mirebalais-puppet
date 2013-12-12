@@ -23,7 +23,7 @@ mkdir -p ${DIR}/current
 mkdir -p ${DIR}/sequences
 
 
-mysqldump -u${USER} -p${PASS} --opt --flush-logs --single-transaction openmrs | bzcat -zc > ${DIR}/sequences/${FILENAME}
+mysqldump -u${USER} -p${PASS} --opt --flush-logs --single-transaction --master-data=2 openmrs | bzcat -zc > ${DIR}/sequences/${FILENAME}
 
 # link the current to the latest dump
 rm -f ${DIR}/current/mirebalais_current_backup.sql.bz2
