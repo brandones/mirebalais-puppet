@@ -20,12 +20,6 @@ node /^((?!replication).*)$/ inherits default {
   include openmrs::initial_setup
 }
 
-node /^((?!reporting).*)$/ inherits default {
-  include mysql_setup::db_setup
-  include mirth::channel_setup
-  include openmrs::initial_setup
-}
-
 node 'emr.hum.ht' inherits default {
   include ntpdate
   include apache2
@@ -47,12 +41,19 @@ node 'emrreplication.hum.ht' inherits default {
   include mysql_setup::slave
 }
 
-node 'reporting.hum.ht' inherits default {
+node 'reporting.hum.ht' {
+  class { 'apt':
+    always_apt_update => true,
+  }
+
+  include wget
+  include java
+  include mysql
+  include mysql_setup  
+  include tomcat
+  include openmrs
   include ntpdate
-  include apache2
-  include awstats
-  include logging
-  include logging::kibana
+  include apache2  
   include mysql_setup::slave
 }
 
