@@ -53,7 +53,8 @@ node 'reporting.hum.ht' {
   include tomcat
   include openmrs
   include ntpdate
-  include apache2  
+  include apache2
+  include awstats  
   include mysql_setup::slave
 }
 
