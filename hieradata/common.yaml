@@ -53,11 +53,11 @@ order_radiology_retrospective: true
 edit_consult_notes: true
 edit_transfer_and_discharge_notes: true
 enter_retrospective_consult_note_in_active_visit: true
+enable_new_patient_header: true
 
 register_test_patient: false
 my_account_feature: false
 notifiable_diseases_report: false
-enable_new_patient_header: false
 dispense_medicine: false
 schedule_appointment: false
 
