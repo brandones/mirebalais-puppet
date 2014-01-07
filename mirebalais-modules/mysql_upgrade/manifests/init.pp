@@ -10,7 +10,7 @@ class mysql_upgrade () {
   apt::source { 'mysql':
     ensure      => present,
     location    => 'http://bamboo.pih-emr.org/mysql-repo',
-    release     => 'stable',
+    release     => 'stable/',
     repos       => '',
     include_src => false,
     require => [ Service['mysqld'] ],
@@ -21,7 +21,7 @@ class mysql_upgrade () {
     require => [ Apt::Source['mysql'] ],
   }
 
-  package { 'mysql-5.6':
+  package { 'mysql':
     ensure  => latest,
     require => [ Package['libaio1'] ],
   }
@@ -31,7 +31,7 @@ class mysql_upgrade () {
     owner   => mysql,
     group   => mysql,
     recurse => inf,
-    require => [ Package['mysql-5.6'] ],
+    require => [ Package['mysql'] ],
   }
 
   file { '/etc/my.cnf':
