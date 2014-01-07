@@ -47,7 +47,7 @@ class mysql_upgrade () {
     require => [ File['/etc/my.cnf'] ],
   }
 
-  exec { 'update_db'
+  exec { 'update_db':
     command => '/opt/mysql/server-5.6/scripts/mysql_install_db --user=mysql --datadir=/var/lib/mysql',
     require => [ File['/etc/init.d/mysql.server'] ],
   }
