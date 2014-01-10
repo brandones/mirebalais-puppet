@@ -47,9 +47,16 @@ class mysql_upgrade ($root_password = decrypt(hiera('mysql_root_password'))) {
     require => [ File['/etc/mysql/my.cnf'] ],
   }
 
-  exec { 'update_db':
-    command => 'mysql_upgrade -u root -p ${root_password}',
+   service { 'mysqlserver':
+    ensure  => running,
+    name    => 'mysql.server',
+    enable  => true,
     require => [ File['/etc/init.d/mysql.server'] ],
+  }
+
+  exec { 'update_db':
+    command => 'mysql_upgrade',
+    require => [ Service['mysqlserver'] ],
   }
 
   file { '/opt/mysql/server-5.6/my.cnf':
