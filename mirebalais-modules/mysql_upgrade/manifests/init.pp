@@ -34,7 +34,7 @@ class mysql_upgrade () {
     require => [ Package['mysql'] ],
   }
 
-  file { '/etc/my.cnf':
+  file { '/etc/mysql/my.cnf':
     ensure  => file,
     content => template('mysql_upgrade/my.cnf.erb'),
     require => [ File['/opt/mysql/server-5.6/'] ],
@@ -44,11 +44,11 @@ class mysql_upgrade () {
     source  => '/opt/mysql/server-5.6/support-files/mysql.server',
     ensure  => present,
     recurse => inf,
-    require => [ File['/etc/my.cnf'] ],
+    require => [ File['/etc/mysql/my.cnf'] ],
   }
 
   exec { 'update_db':
-    command => '/opt/mysql/server-5.6/scripts/mysql_install_db --user=mysql --datadir=/var/lib/mysql',
+    command => 'mysql_upgrade',
     require => [ File['/etc/init.d/mysql.server'] ],
   }
 
