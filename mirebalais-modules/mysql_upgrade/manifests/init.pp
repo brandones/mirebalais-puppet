@@ -40,22 +40,53 @@ class mysql_upgrade ($root_password = decrypt(hiera('mysql_root_password'))) {
     require => [ File['/opt/mysql/server-5.6/'] ],
   } ~>
 
+  package { 'mysql-common':
+    ensure  => absent,
+    require => [ File['/etc/mysql/my.cnf'] ],
+  }
+
+  package { 'mysql-server-5.5':
+    ensure  => absent,
+    require => [ Package['mysql-common'] ],
+  }
+
+  package { 'mysql-server-core-5.5':
+    ensure  => absent,
+    require => [ Package['mysql-server-5.5'] ],
+  }
+
+  package { 'mysql-client-5.5':
+    ensure  => absent,
+   require => [ Package['mysql-server-core-5.5'] ],
+  }
+
+  package { 'mysql-client-core-5.5':
+    ensure  => absent,
+    require => [ Package['mysql-client-5.5'] ],
+  }
+
+
   file { '/etc/init.d/mysql.server':
     source  => '/opt/mysql/server-5.6/support-files/mysql.server',
     ensure  => present,
     recurse => inf,
-    require => [ File['/etc/mysql/my.cnf'] ],
+    require => [ Package['mysql-client-core-5.5'] ],
+  }
+
+  exec { 'concat_path':
+    command => 'echo "PATH=\'$PATH:/opt/mysql/server-5.6/bin\'" >> /etc/environment',
+    require => [ File['/etc/init.d/mysql.server'] ],
   }
 
    service { 'mysqlserver':
     ensure  => running,
     name    => 'mysql.server',
     enable  => true,
-    require => [ File['/etc/init.d/mysql.server'] ],
+    require => [ Exec['concat_path'] ],
   }
 
   exec { 'update_db':
-    command => 'mysql_upgrade -u root -p ${root_password}',
+    command => 'mysql_upgrade -u root -p${root_password}',
     require => [ Service['mysqlserver'] ],
   }
 
