@@ -1,4 +1,4 @@
-class mysql_upgrade () {
+class mysql_upgrade ($root_password = decrypt(hiera('mysql_root_password'))) {
 
 
   service { 'mysqld':
@@ -48,7 +48,7 @@ class mysql_upgrade () {
   }
 
   exec { 'update_db':
-    command => 'mysql_upgrade',
+    command => 'mysql_upgrade -u root -p ${root_password}',
     require => [ File['/etc/init.d/mysql.server'] ],
   }
 
