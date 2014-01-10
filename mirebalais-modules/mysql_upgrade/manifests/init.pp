@@ -78,11 +78,16 @@ class mysql_upgrade ($root_password = decrypt(hiera('mysql_root_password'))) {
     require => [ File['/etc/init.d/mysql.server'] ],
   }
 
+  exec { 'refresh_environment':
+    command => 'source /etc/environment',
+    require => [ Exec['concat_path'] ],
+  }
+
    service { 'mysqlserver':
     ensure  => running,
     name    => 'mysql.server',
     enable  => true,
-    require => [ Exec['concat_path'] ],
+    require => [ Exec['refresh_environment'] ],
   }
 
   exec { 'update_db':
