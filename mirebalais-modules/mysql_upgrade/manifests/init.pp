@@ -73,25 +73,16 @@ class mysql_upgrade ($root_password = decrypt(hiera('mysql_root_password'))) {
     require => [ Package['mysql-client-core-5.5'] ],
   }
 
-  exec { 'concat_path':
-    command => 'echo "PATH=\'$PATH:/opt/mysql/server-5.6/bin\'" >> /etc/environment',
-    require => [ File['/etc/init.d/mysql.server'] ],
-  }
-
-  exec { 'refresh_environment':
-    command => 'source /etc/environment',
-    require => [ Exec['concat_path'] ],
-  }
-
-   service { 'mysqlserver':
+  service { 'mysqlserver':
     ensure  => running,
     name    => 'mysql.server',
     enable  => true,
-    require => [ Exec['refresh_environment'] ],
+    require => [ File['/etc/init.d/mysql.server'] ],
   }
 
   exec { 'update_db':
     command => 'mysql_upgrade -u root -p${root_password}',
+    environment => 'PATH=\'$PATH:/opt/mysql/server-5.6/bin\'',
     require => [ Service['mysqlserver'] ],
   }
 
@@ -100,6 +91,10 @@ class mysql_upgrade ($root_password = decrypt(hiera('mysql_root_password'))) {
     require => [ Exec['update_db'] ],
   }
 
+   exec { 'concat_path':
+    command => 'echo "PATH=\'$PATH:/opt/mysql/server-5.6/bin\'" >> /etc/environment',
+    require => [ File['/opt/mysql/server-5.6/my.cnf'] ],
+  }
 
 
   
