@@ -12,4 +12,5 @@ register_test_patient: true
 my_account_feature: true
 notifiable_diseases_report: true
 dispense_medicine: true
+appointment_scheduling_old_ui: true
 
