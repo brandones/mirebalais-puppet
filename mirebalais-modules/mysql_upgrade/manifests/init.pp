@@ -1,4 +1,6 @@
-class mysql_upgrade ($root_password = decrypt(hiera('mysql_root_password'))) {
+class mysql_upgrade (
+  $root_password = decrypt(hiera('mysql_root_password'))
+) {
 
 
   service { 'mysqld':
@@ -81,7 +83,7 @@ class mysql_upgrade ($root_password = decrypt(hiera('mysql_root_password'))) {
   }
 
   exec { 'update_db':
-    command => 'mysql_upgrade -u root -p${root_password}',
+    command => "mysql_upgrade -u root -p'${root_password}'",
     path => '/opt/mysql/server-5.6/bin',
     require => [ Service['mysqlserver'] ],
   }
