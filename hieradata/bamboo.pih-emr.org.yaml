@@ -17,6 +17,5 @@ my_account_feature: true
 notifiable_diseases_report: true
 dispense_medicine: true
 appointment_scheduling_old_ui: true
-clinician_create_retro_consult_note: true
 
 java_debug_parameters: '-Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5000'
