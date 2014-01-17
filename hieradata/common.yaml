@@ -55,6 +55,7 @@ edit_transfer_and_discharge_notes: true
 enter_retrospective_consult_note_in_active_visit: true
 enable_new_patient_header: true
 clinician_create_retro_consult_note: true
+reportingui_ad_hoc_analysis: false
 
 register_test_patient: false
 my_account_feature: false
