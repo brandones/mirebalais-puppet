@@ -45,6 +45,7 @@ consult_note_dispositions: true
 emergency_checkin: true
 surgical_operative_note: true
 inpatients_list: true
+awaiting_admission: false
 no_active_visit_view: true
 edit_visit_dates: true
 live_checkin: true
