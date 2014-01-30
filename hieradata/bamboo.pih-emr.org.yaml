@@ -19,5 +19,6 @@ dispense_medicine: true
 appointment_scheduling_old_ui: true
 reportingui_ad_hoc_analysis: true
 awaiting_admission: true
+new_appointment_scheduling_ui: true
 
 java_debug_parameters: '-Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5000'
