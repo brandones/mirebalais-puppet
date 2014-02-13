@@ -17,7 +17,7 @@ node default {
 node /^((?!replication).*)$/ inherits default {
   # include mysql_setup::db_setup
   include mirth::channel_setup
-  include openmrs::initial_setup
+  # include openmrs::initial_setup
 }
 
 node 'emr.hum.ht' inherits default {
@@ -29,7 +29,7 @@ node 'emr.hum.ht' inherits default {
   # include mysql_setup::backup
   # include mysql_setup::replication
   include mirth::channel_setup
-  include openmrs::initial_setup
+  # include openmrs::initial_setup
 }
 
 node 'emrreplication.hum.ht' inherits default {
@@ -72,6 +72,6 @@ node 'humdemo.pih-emr.org' inherits default {
   include awstats
   # include mysql_setup::db_setup
   include mirth::channel_setup
-  include openmrs::initial_setup
+  # include openmrs::initial_setup
 }
 
