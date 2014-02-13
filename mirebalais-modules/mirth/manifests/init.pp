@@ -55,7 +55,9 @@ class mirth(
   }
 
   if $services_enable {
-    $require = [ File['/etc/init.d/mcservice'], File['/usr/local/mirthconnect/conf/mirth.properties'], File['/usr/local/mirthconnect/appdata'], Database[$mirth_db] ]
+    $require = [ File['/etc/init.d/mcservice'], File['/usr/local/mirthconnect/conf/mirth.properties'], File['/usr/local/mirthconnect/appdata'] 
+#, Database[$mirth_db] 
+]
   } else {
     $require = []
 
