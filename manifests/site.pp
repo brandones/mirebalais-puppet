@@ -7,15 +7,15 @@ node default {
 
   include wget
   include java
-  include mysql
-  include mysql_setup
+  # include mysql
+  # include mysql_setup
   include mirth
   include tomcat
   include openmrs
 }
 
 node /^((?!replication).*)$/ inherits default {
-  include mysql_setup::db_setup
+  # include mysql_setup::db_setup
   include mirth::channel_setup
   include openmrs::initial_setup
 }
@@ -25,9 +25,9 @@ node 'emr.hum.ht' inherits default {
   include apache2
   include awstats
   include logging
-  include mysql_setup::db_setup
-  include mysql_setup::backup
-  include mysql_setup::replication
+  # include mysql_setup::db_setup
+  # include mysql_setup::backup
+  # include mysql_setup::replication
   include mirth::channel_setup
   include openmrs::initial_setup
 }
@@ -38,7 +38,7 @@ node 'emrreplication.hum.ht' inherits default {
   include awstats
   include logging
   include logging::kibana
-  include mysql_setup::slave
+  # include mysql_setup::slave
 }
 
 node 'reporting.hum.ht' {
@@ -48,21 +48,21 @@ node 'reporting.hum.ht' {
 
   include wget
   include java
-  include mysql
-  include mysql_setup  
+  # include mysql
+  # include mysql_setup  
   include tomcat
   include openmrs
   include ntpdate
   include apache2
   include awstats  
-  include mysql_setup::slave
+  # include mysql_setup::slave
 }
 
 node 'emrtest.hum.ht' inherits default {
   include apache2
   include awstats
   include ntpdate
-  include mysql_setup::db_setup
+  # include mysql_setup::db_setup
   include mirth::channel_setup
   include openmrs::initial_setup
 }
@@ -70,7 +70,7 @@ node 'emrtest.hum.ht' inherits default {
 node 'humdemo.pih-emr.org' inherits default {
   include apache2
   include awstats
-  include mysql_setup::db_setup
+  # include mysql_setup::db_setup
   include mirth::channel_setup
   include openmrs::initial_setup
 }
