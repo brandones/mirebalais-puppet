@@ -75,14 +75,9 @@ class mysql_setup_56 (
   }
 
   exec { 'update_db':
-    command => "mysql_upgrade -u root -p'${root_password}'",
-    path => '/opt/mysql/server-5.6/bin',
+    command => "mysql_install_db --user=root -p'${root_password}' --datadir=/var/lib/mysql",
+    path => '/opt/mysql/server-5.6/scripts',
     require => [ Service['mysqlserver'] ],
-  }
-
-  file { '/opt/mysql/server-5.6/my.cnf':
-    ensure  => absent,
-    require => [ Exec['update_db'] ],
   }
 
    exec { 'concat_path':
