@@ -75,7 +75,7 @@ class mysql_setup_56 (
   }
 
   exec { 'update_db':
-    command => "mysql_install_db --user=root -p'${root_password}' --datadir=/var/lib/mysql",
+    command => "mysql_install_db --user=mysql --datadir=/var/lib/mysql",
     path => ["/opt/mysql/server-5.6/scripts", "/opt/mysql/server-5.6/bin"],
     require => [ Service['mysqld'] ],
   }
