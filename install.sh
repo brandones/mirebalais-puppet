@@ -4,7 +4,7 @@ if [ -z "$1" ]
 then
   echo "You need to provide the environment to install in:"
   echo "./install.sh ENVIRONMENT"
-  echo "ENVIRONMENT can be local|test|production"
+  echo "ENVIRONMENT can be local|production"
   exit 1
 fi
 
