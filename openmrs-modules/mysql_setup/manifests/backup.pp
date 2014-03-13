@@ -7,14 +7,14 @@ class mysql_setup::backup (
     $tomcat = hiera('tomcat')
   ){
 
-  database_user { "${backup_user}@localhost":
+  mysql_user { "${backup_user}@localhost":
     ensure        => present,
     password_hash => mysql_password($backup_password),
     provider      => 'mysql',
     require       => Class['mysql::config'],
   }
 
-  database_grant { "${backup_user}@localhost":
+  mysql_grant { "${backup_user}@localhost":
     privileges => [ 'Select_priv', 'Reload_priv', 'Lock_tables_priv', 'Repl_client_priv', 'Repl_slave_priv', 'Show_view_priv' ],
     require    => Database_user["${backup_user}@localhost"],
   }
