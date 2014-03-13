@@ -11,6 +11,7 @@ node default {
   include mysql_setup
   include mysql_setup::db_setup
   include apache2
+  include awstats
   include tomcat
   include openmrs
   include openmrs::initial_setup
