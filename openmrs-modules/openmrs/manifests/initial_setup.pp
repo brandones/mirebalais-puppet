@@ -8,7 +8,6 @@ class openmrs::initial_setup(
   exec { 'tomcat-start':
     command     => "service ${tomcat} start",
     user        => 'root',
-    subscribe   => Openmrs::Liquibase_migrate['migrate update to latest'],
     refreshonly => true
   }
 }
