@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'mirebalais::components::java' do
+describe 'openmrs::components::java' do
   let (:facts) do
     {
       'lsbdistcodename' => 'precise',

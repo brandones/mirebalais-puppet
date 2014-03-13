@@ -1,0 +1,80 @@
+filter {
+ grep {
+  add_field => ["event_type", "ERROR"]
+  add_tag => ['error']
+  match => ["@message", "ERROR"]
+  drop => false
+  type => "tomcat"
+ }
+
+ grep {
+  add_field => ["event_type", "WARN"]
+  add_tag => ['warning']
+  match => ["@message", "WARN"]
+  drop => false
+  type => "tomcat"
+ }
+
+ grok {
+  pattern => ['%{COMBINEDAPACHELOG}']
+  type => "apache-access"
+ }
+
+ multiline {
+  pattern => "^[^\s]+Exception"
+  type => "tomcat"
+  what => "previous"
+ }
+
+ multiline {
+  pattern => "^\t"
+  type => "tomcat"
+  what => "previous"
+ }
+
+ multiline {
+  pattern => "^Caused by"
+  type => "tomcat"
+  what => "previous"
+ }
+
+}
+
+input {
+ file {
+  path => ['/var/log/apache2/ssl_access.log']
+  type => "apache-access"
+ }
+
+ file {
+  path => ['/var/log/apache2/error.log']
+  type => "apache-error"
+ }
+
+ file {
+  path => ['/var/log/mysql.err']
+  type => "mysql-error"
+ }
+
+ file {
+  path => ['/var/log/*.log', '/var/log/messages', '/var/log/syslog']
+  type => "syslog"
+ }
+
+ file {
+  path => ['/usr/local/tomcat6/logs/catalina.out']
+  type => "tomcat"
+ }
+
+}
+
+output {
+ email {
+  body => "%{@message}"
+  match => ["error", "event_type,ERROR"]
+  options => ["authenticationType", "plain", "userName", "<%= @smtp_username %>", "port", "587", "starttls", true, "password", "<%= @smtp_password %>", "smtpIporHost", "smtp.gmail.com"]
+  subject => "Found ERROR on %{@source_host}"
+  to => "openmrs-error-log@pih.org"
+  type => "tomcat"
+ }
+}

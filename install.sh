@@ -20,7 +20,7 @@ then
     echo "Please provide a username to fetch private data"
     read user
 
-    scp $user@dev.pih-emr.org:/etc/mirebalais/* .
+    scp $user@dev.pih-emr.org:/etc/pih-emr/* .
 
     mv encryptor_secret_key /etc/puppet-decrypt/
     mv hum.key /etc/ssl/private/
@@ -55,7 +55,7 @@ bundle
 
 librarian-puppet install
 
-echo "modulepath = /etc/puppet/modules:/etc/puppet/mirebalais-modules" > puppet.conf
+echo "modulepath = /etc/puppet/modules:/etc/puppet/openmrs-modules" > puppet.conf
 echo "environment = $1" >> puppet.conf
 
 puppet apply -v \

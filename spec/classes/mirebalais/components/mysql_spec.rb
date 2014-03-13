@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'mirebalais::components::mysql' do
+describe 'openmrs::components::mysql' do
   context 'environment = production_slave' do
     let (:facts) do
       {

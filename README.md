@@ -1,5 +1,5 @@
-Puppet project for automatically create required infrastructure for Mirebalais OpenMRS-based app.
+Puppet project for automatically create required infrastructure for OpenMRS-based app.
 
-More info:
-- https://github.com/PIH/openmrs-module-mirebalais
-- http://mirebalaisemr.blogspot.com.br/
+TBD:  Add more documentation along with describing the use of the command
+
+./install.sh local|test|production
