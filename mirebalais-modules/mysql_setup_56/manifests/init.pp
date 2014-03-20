@@ -73,18 +73,14 @@ class mysql_setup_56 (
     require => [ File['/etc/init.d/mysql.server'] ],
   }
 
-    service { 'mysqld':
+  exec { 'concat_path':
+    command => 'ln -s /opt/mysql/server-5.6/bin/mysql /usr/bin/mysql',
+    require => [ Exec['update_db'] ],
+  }
+  service { 'mysqld':
     ensure  => running,
     name    => 'mysql.server',
     enable  => true,
-    require => [ Exec['update_db'] ],
   }
 
-   exec { 'concat_path':
-    command => 'ln -s /opt/mysql/server-5.6/bin/mysql /usr/bin/mysql',
-    require => [ Service['mysqld'] ],
-  }
-
-
-  
 }
