@@ -81,7 +81,7 @@ class mysql_setup_56 (
   }
 
    exec { 'concat_path':
-    command => 'echo "PATH=\'$PATH:/opt/mysql/server-5.6/bin\'" >> /etc/environment',
+    command => 'ln -s /opt/mysql/server-5.6/bin/mysql /usr/bin/mysql',
     require => [ Service['mysqld'] ],
   }
 
