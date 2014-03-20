@@ -67,22 +67,22 @@ class mysql_setup_56 (
     require => [ Package['mysql-client-core-5.5'] ],
   }
 
-  service { 'mysqld':
-    ensure  => running,
-    name    => 'mysql.server',
-    enable  => true,
-    require => [ File['/etc/init.d/mysql.server'] ],
-  }
-
   exec { 'update_db':
     command => "mysql_install_db --user=mysql --datadir=/var/lib/mysql",
     path => ["/opt/mysql/server-5.6/scripts", "/opt/mysql/server-5.6/bin"],
-    require => [ Service['mysqld'] ],
+    require => [ File['/etc/init.d/mysql.server'] ],
+  }
+
+    service { 'mysqld':
+    ensure  => running,
+    name    => 'mysql.server',
+    enable  => true,
+    require => [ Exec['update_db'] ],
   }
 
    exec { 'concat_path':
     command => 'echo "PATH=\'$PATH:/opt/mysql/server-5.6/bin\'" >> /etc/environment',
-    require => [ Exec['update_db'] ],
+    require => [ Service['mysqld'] ],
   }
 
 
