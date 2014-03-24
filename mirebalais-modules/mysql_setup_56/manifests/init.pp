@@ -50,7 +50,7 @@ class mysql_setup_56 (
   }
 
   package { 'mysql-client-5.5':
-    ensure  => absent,
+   ensure  => absent,
    require => [ Package['mysql-server-core-5.5'] ],
   }
 
@@ -59,30 +59,32 @@ class mysql_setup_56 (
     require => [ Package['mysql-client-5.5'] ],
   }
 
+  exec { 'install_db':
+    command => "mysql_install_db --user=mysql --datadir=/var/lib/mysql",
+    path => ["/opt/mysql/server-5.6/scripts", "/opt/mysql/server-5.6/bin"],
+    creates => "/etc/init.d/mysql.server",
+    require => [ Package['mysql-client-core-5.5'] ],   
+  }
 
+  exec { 'create_symlink':
+    command => 'ln -s /opt/mysql/server-5.6/bin/mysql /usr/bin/mysql',
+    creates => "/etc/init.d/mysql.server",
+    require => [ Exec['install_db'] ],
+  }
+    
   file { '/etc/init.d/mysql.server':
     source  => '/opt/mysql/server-5.6/support-files/mysql.server',
     ensure  => present,
     recurse => inf,
-    require => [ Package['mysql-client-core-5.5'] ],
+    require => [ Exec['create_symlink'] ],
   }
 
-  exec { 'update_db':
-    command => "mysql_install_db --user=mysql --datadir=/var/lib/mysql",
-    path => ["/opt/mysql/server-5.6/scripts", "/opt/mysql/server-5.6/bin"],
-    require => [ File['/etc/init.d/mysql.server'] ],
-  }
-
-  exec { 'concat_path':
-    command => 'ln -s /opt/mysql/server-5.6/bin/mysql /usr/bin/mysql',
-    require => [ Exec['update_db'] ],
-
-  }
   service { 'mysqld':
     ensure  => running,
     name    => 'mysql.server',
     enable  => true,
-    require => [ Exec['concat_path'] ],
+    require => [ File['/etc/init.d/mysql.server'] ],
+    
   }
 
 }
