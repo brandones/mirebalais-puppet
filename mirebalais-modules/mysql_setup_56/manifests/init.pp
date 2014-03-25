@@ -2,6 +2,15 @@ class mysql_setup_56 (
   $root_password = decrypt(hiera('mysql_root_password'))
 ) {
 
+  class { 'mysql::server':
+    manage_service => false,
+    config_hash    => {
+      'root_password' => $root_password,
+      'config_file'   => '/tmp/my.cnf',
+      'restart'       => false
+    },
+  } ->
+
   apt::source { 'mysql':
     ensure      => present,
     location    => 'http://bamboo.pih-emr.org/mysql-repo',
@@ -66,17 +75,17 @@ class mysql_setup_56 (
     require => [ Package['mysql-client-core-5.5'] ],   
   }
 
-  exec { 'create_symlink':
-    command => 'ln -s /opt/mysql/server-5.6/bin/mysql /usr/bin/mysql',
-    creates => "/etc/init.d/mysql.server",
-    require => [ Exec['install_db'] ],
+  file { '/usr/bin/mysql':
+      ensure => link,
+      target => '/opt/mysql/server-5.6/bin/mysql',
+      require => [ Exec['install_db'] ],
   }
-    
+ 
   file { '/etc/init.d/mysql.server':
     source  => '/opt/mysql/server-5.6/support-files/mysql.server',
     ensure  => present,
     recurse => inf,
-    require => [ Exec['create_symlink'] ],
+    require => [ File['/usr/bin/mysql'] ],
   }
 
   service { 'mysqld':
