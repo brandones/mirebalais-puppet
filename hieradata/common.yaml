@@ -64,6 +64,7 @@ notifiable_diseases_report: false
 appointment_scheduling_old_ui: false
 new_appointment_scheduling_ui: false
 new_paper_record_label_template: false
+radiology_contrast_studies: false
 
 hide_edit_patient_demographics_button: true
 hide_edit_patient_contact_info_button: true
