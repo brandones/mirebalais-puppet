@@ -9,7 +9,7 @@ class mysql_setup::db_setup(
 
   database { $openmrs_db :
     ensure  => present,
-    require => Service['mysqld'],
+    require => [Service['mysqld'], Package['mirebalais']],
     charset => 'utf8',
   } ->
 
@@ -27,12 +27,13 @@ class mysql_setup::db_setup(
   database_grant { "root@localhost/${openmrs_db}":
     privileges => ['all'],
     require    => Service['mysqld'],
+    notify     => Openmrs::Liquibase_migrate ['migrate base schema'];
   }
 
   database { $mirth_db :
     ensure  => present,
     charset => 'utf8',
-    require => Service['mysqld'],
+    require => [Service['mysqld'], Package['mirebalais']],
   }
 
   database_user { "${mirth_db_user}@localhost":
