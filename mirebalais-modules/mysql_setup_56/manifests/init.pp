@@ -2,15 +2,6 @@ class mysql_setup_56 (
   $root_password = decrypt(hiera('mysql_root_password'))
 ) {
 
-  class { 'mysql::server':
-    manage_service => false,
-    config_hash    => {
-      'root_password' => $root_password,
-      'config_file'   => '/tmp/my.cnf',
-      'restart'       => false
-    },
-  } ->
-
   apt::source { 'mysql':
     ensure      => present,
     location    => 'http://bamboo.pih-emr.org/mysql-repo',
@@ -39,7 +30,7 @@ class mysql_setup_56 (
 
   file { '/etc/mysql/my.cnf':
     ensure  => file,
-    content => template('mysql_upgrade/my.cnf.erb'),
+    content => template('mysql_setup_56/my.cnf.erb'),
     require => [ File['/opt/mysql/server-5.6/'] ],
   } ~>
 
@@ -88,11 +79,17 @@ class mysql_setup_56 (
     require => [ File['/usr/bin/mysql'] ],
   }
 
+  file { '/root/.my.cnf':
+    ensure  => file,
+    content => template('mysql_setup_56/root.my.cnf.erb'),
+    require => [ File['/etc/init.d/mysql.server'] ],
+  } ~>
+
   service { 'mysqld':
     ensure  => running,
     name    => 'mysql.server',
     enable  => true,
-    require => [ File['/etc/init.d/mysql.server'] ],
+    require => [ File['/root/.my.cnf'] ],
     
   }
 
