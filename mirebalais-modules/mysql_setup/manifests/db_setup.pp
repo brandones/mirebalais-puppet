@@ -33,7 +33,7 @@ class mysql_setup::db_setup(
     table => '*.*',
     user => "root@localhost",
     require => [Service['mysqld'],  Package['mirebalais']],
-    notify  => Openmrs::Liquibase_migrate ['migrate base schema'];
+    notify  => Openmrs::Liquibase_migrate ['setup base schema'];
   }
 
   mysql_database { $mirth_db :

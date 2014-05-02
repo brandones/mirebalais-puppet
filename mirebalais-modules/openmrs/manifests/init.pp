@@ -33,7 +33,8 @@ class openmrs (
 
   package { 'mirebalais':
     ensure  => latest,
-    require => [ Service[$tomcat], Apt::Source['mirebalais'], File['/etc/apt/apt.conf.d/99auth'] ],
+    require => [ Apt::Source['mirebalais'], File['/etc/apt/apt.conf.d/99auth'] ],
+    notify => Service[$tomcat]
   }
 
   file { "/home/${tomcat}/.OpenMRS":
@@ -50,7 +51,7 @@ class openmrs (
     owner   => $tomcat,
     group   => $tomcat,
     mode    => '0644',
-    require => File["/home/${tomcat}/.OpenMRS"]
+    require => File["/home/${tomcat}/.OpenMRS"],
   }
 
   file { "/home/${tomcat}/.OpenMRS/feature_toggles.properties":
@@ -59,7 +60,7 @@ class openmrs (
     owner   => $tomcat,
     group   => $tomcat,
     mode    => '0644',
-    require => File["/home/${tomcat}/.OpenMRS"]
+    require => File["/home/${tomcat}/.OpenMRS"],
   }
 
   file { "/home/${tomcat}/.OpenMRS/mirebalais-runtime.properties":
@@ -68,6 +69,7 @@ class openmrs (
     owner   => $tomcat,
     group   => $tomcat,
     mode    => '0644',
-    require => File["/home/${tomcat}/.OpenMRS"]
+    require => File["/home/${tomcat}/.OpenMRS"],
+    notify => Service[$tomcat]
   }
 }

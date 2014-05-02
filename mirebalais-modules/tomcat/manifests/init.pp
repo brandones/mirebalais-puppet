@@ -78,6 +78,6 @@ class tomcat (
 
   service { $tomcat:
     enable  => $services_enable,
-    require => [ Exec['tomcat-unzip'], File["/usr/local/${tomcat}"], File["/etc/init.d/${tomcat}"] ],
+    require => [ Exec['tomcat-unzip'], File["/usr/local/${tomcat}"], File["/etc/init.d/${tomcat}"], Package['mirebalais'] ],
   }
 }
