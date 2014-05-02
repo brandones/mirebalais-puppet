@@ -24,7 +24,6 @@ class mysql_setup_56 (
 
   user { 'mysql':
     ensure => 'present',
-    home   => "/home/mysql",
     shell  => '/bin/sh',
   }
 
