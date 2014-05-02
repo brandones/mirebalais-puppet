@@ -1,3 +1,5 @@
+# this init.pp should be used instead of the init.pp in mysql_setup if you wish to install mysql 5.6 instead of mysql 5.5
+
 class mysql_setup_56 (
   $root_password = decrypt(hiera('mysql_root_password'))
 ) {
