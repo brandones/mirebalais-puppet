@@ -25,7 +25,7 @@ node 'emr.hum.ht' inherits default {
   include awstats
   include logging
   include mysql_setup::db_setup
-  #include mysql_setup::backup
+  include mysql_setup::backup
   include mysql_setup::replication
   include mirth::channel_setup
   include openmrs::initial_setup
