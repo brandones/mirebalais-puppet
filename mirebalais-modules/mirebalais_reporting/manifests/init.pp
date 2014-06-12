@@ -5,7 +5,7 @@ class mirebalais_reporting (
 	# install file to customize apps for production (removing export apps) or reporting server (only including export apps)
   	file { "/home/${tomcat}/.OpenMRS/appframework-config.json":
 		ensure => present,
-		source => "puppet:///modules/mirebalais_reporting/appframework-config-${site_doman}.json",
+		source => "puppet:///modules/mirebalais_reporting/appframework-config-${site_domain}.json",
 		owner   => $tomcat,
 		group   => $tomcat,
 		mode    => '0644',
