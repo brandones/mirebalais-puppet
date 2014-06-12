@@ -4,10 +4,6 @@ node default {
   class { 'apt':
     always_apt_update => true,
   }
-  
-  class { 'newrelic': 
-    license => 'ee619f9f928541a5fde6afb4a28016e9a89f137f',
-  }
 
   include wget
   include java
@@ -33,6 +29,7 @@ node 'emr.hum.ht' inherits default {
   include mysql_setup::replication
   include mirth::channel_setup
   include openmrs::initial_setup
+  include newrelic
 }
 
 node 'emrreplication.hum.ht' inherits default {
@@ -48,7 +45,6 @@ node 'reporting.hum.ht' {
   class { 'apt':
     always_apt_update => true,
   }
-
   include wget
   include java
   include mysql_setup_56  
@@ -58,6 +54,7 @@ node 'reporting.hum.ht' {
   include apache2
   include awstats  
   include mysql_setup::slave
+  include newrelic
 }
 
 node 'emrtest.hum.ht' inherits default {
@@ -67,6 +64,7 @@ node 'emrtest.hum.ht' inherits default {
   include mysql_setup::db_setup
   include mirth::channel_setup
   include openmrs::initial_setup
+  include newrelic
 }
 
 node 'humdemo.pih-emr.org' inherits default {
@@ -75,5 +73,6 @@ node 'humdemo.pih-emr.org' inherits default {
   include mysql_setup::db_setup
   include mirth::channel_setup
   include openmrs::initial_setup
+  include newrelic
 }
 
