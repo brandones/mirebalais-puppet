@@ -3,9 +3,9 @@ class mirebalais_reporting (
 	$tomcat = hiera('tomcat'),
 ){
 	# install file to customize apps for production (removing export apps) or reporting server (only including export apps)
-  	file { '/home/${tomcat}/.OpenMRS/appframework-config.json':
+  	file { "/home/${tomcat}/.OpenMRS/appframework-config.json":
 		ensure => present,
-		source => 'puppet:///modules/mirebalais_reporting/appframework-config-reporting.hum.ht.json',
+		source => "puppet:///modules/mirebalais_reporting/appframework-config-${site_doman}.json",
 		owner   => $tomcat,
 		group   => $tomcat,
 		mode    => '0644',
