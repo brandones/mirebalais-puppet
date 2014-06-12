@@ -1,0 +1,78 @@
+{
+    "appsEnabledByDefault": false,
+
+    "appConfiguration": {
+        "mirebalais.homepage": {
+	    "enabled": true
+	},
+	"reportingui.reports": {
+            "enabled": true
+        }
+    },
+
+    "extensionsEnabledByDefault": false,
+
+    "extensionConfiguration": {
+	"mirebalais.configureStandardHeader": {
+  		"enabled": true
+	}, 
+	"mirebalais.defaultEncounterTemplate": {
+  		"enabled": true
+	}, 
+	"mirebalais.consultEncounterTemplate": {
+  		"enabled": true
+	}, 
+	"mirebalais.noDetailsEncounterTemplate": {
+  		"enabled": true
+	}, 
+	"reportingui.reports.homepagelink": {
+	    	"enabled": true
+	},	
+	"mirebalaisreports.dataExports.1": {
+		"enabled": true
+	},
+	"mirebalaisreports.dataExports.2": {
+		"enabled": true
+	},
+	"mirebalaisreports.dataExports.3": {
+		"enabled": true
+	},	
+	"mirebalaisreports.dataExports.4": {
+		"enabled": true
+	},
+	"mirebalaisreports.dataExports.5": {
+		"enabled": true
+	},
+	"mirebalaisreports.dataExports.6": {
+		"enabled": true
+	},
+	"mirebalaisreports.dataExports.7": {
+		"enabled": true
+	},
+	"mirebalaisreports.dataExports.8": {
+		"enabled": true
+	},	
+	"mirebalaisreports.dataExports.9": {
+		"enabled": true
+	},
+	"mirebalaisreports.dataExports.10": {
+		"enabled": true
+	},   			      
+        "mirebalaisreports.dataExports.usersAndProviders": {
+            	"enabled": true
+        },
+	"mirebalaisreports.dataExports.lqasDiagnoses": {
+            	"enabled": true
+        },
+	"mirebalaisreports.dataExports.allPatientsWithIds": {
+            	"enabled": true
+        },
+	"mirebalaisreports.dataExports.appointments": {
+            	"enabled": true
+        },
+	"reportingui.dataExports.adHoc": {
+		"enabled": true
+	}
+
+    }
+}
