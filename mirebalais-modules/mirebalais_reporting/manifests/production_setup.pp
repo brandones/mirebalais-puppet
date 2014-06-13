@@ -4,7 +4,7 @@ class mirebalais_reporting::production_setup (
     $tomcat = hiera('tomcat')
   ){
 
-  file { 'mysqlreportingdbdump.sh':
+  file { 'mirebalaisreportingdbdump.sh':
     ensure  => present,
     path    => '/usr/local/sbin/mysqlreportingdbdump.sh',
     mode    => '0700',
@@ -15,10 +15,10 @@ class mirebalais_reporting::production_setup (
 
   cron { 'mysql-reporting-db-dump':
     ensure  => present,
-    command => '/usr/local/sbin/mysqlreportingdbdump.sh',
+    command => '/usr/local/sbin/mirebalaisreportingdbdump.sh',
     user    => 'root',
     hour    => 2,
     minute  => 30,
-    require => File['mysqlreportingdbdump.sh'],
+    require => File['mirebalaisreportingdbdump.sh'],
   }
 }
