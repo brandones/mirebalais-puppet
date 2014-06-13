@@ -13,6 +13,7 @@ class openmrs (
     $lacolline_password = decrypt(hiera('lacolline_password')),
     $junit_username = hiera('junit_username'),
     $junit_password = decrypt(hiera('junit_password')),
+    $custom_appframework_config_filename = hiera('custom_appframework_config_filename');
   ){
 
   file { '/etc/apt/apt.conf.d/99auth':
@@ -70,4 +71,15 @@ class openmrs (
     mode    => '0644',
     require => File["/home/${tomcat}/.OpenMRS"]
   }
+
+   # install file to customize apps for production (removing export apps) or reporting server (only including export apps)
+   file { "/home/${tomcat}/.OpenMRS/appframework-config.json":
+	ensure => present,
+	source => "puppet:///modules/openmrs/appframework-config-${$custom_appframework_config_filename}.json",
+	owner   => $tomcat,
+	group   => $tomcat,
+	mode    => '0644',
+	require => File["/home/${tomcat}/.OpenMRS"]
+   }
+
 }

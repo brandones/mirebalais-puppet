@@ -12,6 +12,7 @@ backup_db_user: backup
 backup_db_password: foo
 tomcat: tomcat6
 site_domain: foo.org
+custom_appframework_config_filename: custom-appframework-config-common.json
 
 mirth_db: mirthdb
 mirth_db_user: mirth

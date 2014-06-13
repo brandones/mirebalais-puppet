@@ -1,11 +1,12 @@
 ---
 openmrs_auto_update_database: true
 site_domain: reporting.hum.ht
+custom_appframework_config_filename: custom-appframework-config-reporting.json
 
-mirebalais_release: 'stable/'
+mirebalais_release: 'unstable/'
 
 mysql_server_id: 3
-mysql_master_ip: 192.168.1.202
+mysql_master_ip: 
 mysql_root_password: ENC[I813eH2Q9IHPZiqwu6DwaPeECPtMT7y41YwwqrTT1nI=]
 openmrs_db_password: ENC[spcYc6R/l+JkjPm5P//qw0LVQCdrD8zEfIEZr/AJ4rU=]
 replication_db_password: ENC[92IfbImaUmA3wqYSG5kWWwexEU8HqCrqQzSXAMKRPz0=]
