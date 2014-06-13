@@ -3,6 +3,10 @@
 # Script to source the DB dump created by the production server on the reporting server
 #
 
+USER='<%= @openmrs_db_user %>'
+PASSWORD='<%= @openmrs_db_password %>'
+DB='<%= @openmrs_db %>'
+
 PATH='/home/backups'
 FILENAME='mirebalais_nightly_reporting_dump.sql.bz2'
 FILENAME_DECOMPRESSED='mirebalais_nightly_reporting_dump.sql'
@@ -14,7 +18,7 @@ service tomcat6 stop
 bzip2 -d $PATH/$FILENAME
 
 # Source the database
-mysql -u $openmrs_db_user -p$openmrs_db_password $openmrs_db < $PATH/$FILENAME_DECOMPRESSED
+mysql -u ${USER} -p${PASSWORD} ${DB} < $PATH/$FILENAME_DECOMPRESSED
 
 # Clean remove db file
 rm $PATH/$FILENAME_DECOMPRESSED

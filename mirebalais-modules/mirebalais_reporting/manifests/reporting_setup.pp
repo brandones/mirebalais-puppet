@@ -11,7 +11,7 @@ class mirebalais_reporting::reporting_setup (
     		shell  => '/bin/sh',
   	}
 
-	file { 'mysqlreportingdbsource.sh':
+	file { 'mirebalaisreportingdbsource.sh':
 	    ensure  => present,
 	    path    => '/usr/local/sbin/mysqlreportingsourcedbdump.sh',
 	    mode    => '0700',
@@ -20,12 +20,12 @@ class mirebalais_reporting::reporting_setup (
 	    content => template('mirebalais_reporting/mirebalaisreportingdbsource.sh.erb'),
 	  }
 
-	  cron { 'mysql-reporting-db-source':
+	  cron { 'mirebalais-reporting-db-source':
 	    ensure  => present,
-	    command => '/usr/local/sbin/mysqlreportingdbsource.sh',
+	    command => '/usr/local/sbin/mirebalaisreportingdbsource.sh',
 	    user    => 'root',
 	    hour    => 5,
 	    minute  => 00,
-	    require => File['mysqlreportingdbsource.sh'],
+	    require => File['mirebalaisreportingdbsource.sh'],
 	  }
 }
