@@ -15,10 +15,10 @@ FILENAME_DECOMPRESSED='mirebalais_nightly_reporting_dump.sql'
 service tomcat6 stop
 
 # Unzip database
-bzip2 -d $PATH/$FILENAME
+bzip2 -d $DIR/$FILENAME
 
 # Source the database
-mysql -u ${USER} -p${PASSWORD} ${DB} < $DIR/$FILENAME_DECOMPRESSED
+mysql -u $USER -p$PASSWORD $DB < $DIR/$FILENAME_DECOMPRESSED
 
 # Clean remove db file
 rm $DIR/$FILENAME_DECOMPRESSED

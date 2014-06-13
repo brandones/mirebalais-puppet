@@ -13,7 +13,7 @@ class mirebalais_reporting::reporting_setup (
 
 	file { 'mirebalaisreportingdbsource.sh':
 	    ensure  => present,
-	    path    => '/usr/local/sbin/mysqlreportingsourcedbdump.sh',
+	    path    => '/usr/local/sbin/mirebalaisreportingsourcedbdump.sh',
 	    mode    => '0700',
 	    owner   => 'root',
 	    group   => 'root',
