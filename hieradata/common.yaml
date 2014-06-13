@@ -40,6 +40,10 @@ services_enable: true
 junit_username: junit
 junit_password: Junit123
 
+reporting_server_user: backups
+reporting_server_url: 192.168.1.217
+reporting_server_backup_dir: haiti/mirebalais/db
+
 # feature toggle settings
 consult_note_confirm_diagnoses: true
 consult_note_dispositions: true

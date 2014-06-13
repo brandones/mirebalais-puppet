@@ -1,0 +1,28 @@
+#!/bin/sh
+#
+# Script to take a DB dump on the production server (ignoring reporting and some other tables) and copy it to the reporting server
+#
+
+USER='<%= @backup_user %>'
+PASS='<%= @backup_password %>'
+DIR=/home/<%= @tomcat %>/backups
+
+REMOTE_DB='<%= @reporting_server_user %>@<%= @reporting_server_url %>:<%= @reporting_server_db_dump_dir %>'
+
+FILENAME=mirebalais_nightly_reporting_dump.sql.bz2
+
+# create the needed directories
+mkdir -p ${DIR}/reporting
+
+mysqldump -u${USER} -p${PASS} --opt --flush-logs --single-transaction --ignore-table=openmrs.pacsintegration_inbound_queue \
+	--ignore-table=openmrs.pacsintegration_outbound_queue --ignore-table=openmrs.reporting_idset --ignore-table=openmrs.reporting_report_design \
+	--ignore-table=openmrs.reporting_report_design_resource --ignore-table=openmrs.reporting_report_processor \
+	--ignore-table=openmrs.reporting_report_request --ignore-table=openmrs.scheduler_task_config 
+	--ignore-table=openmrs.scheduler_task_config_property --ignore-table=openmrs.serialized_object openmrs | bzcat -zc > ${DIR}/reporting/${FILENAME}
+
+#scp
+scp ${DIR}/reporting/${FILENAME} ${REMOTE_DB}/${FILENAME}
+rm ${DiR}/reporting/${FILENAME}
+
+
+

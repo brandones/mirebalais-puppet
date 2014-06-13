@@ -54,7 +54,6 @@ node 'reporting.hum.ht' {
   include apache2
   include awstats  
   #include mysql_setup::slave 
-  #include mirebalais_reporting
   include newrelic
 }
 
@@ -74,6 +73,7 @@ node 'humdemo.pih-emr.org' inherits default {
   include mysql_setup::db_setup
   include mirth::channel_setup
   include openmrs::initial_setup
+  include mirebalais_reporting::production_setup
   include newrelic
 }
 
