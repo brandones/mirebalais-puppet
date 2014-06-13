@@ -75,7 +75,7 @@ class openmrs (
    # install file to customize apps for production (removing export apps) or reporting server (only including export apps)
    file { "/home/${tomcat}/.OpenMRS/appframework-config.json":
 	ensure => present,
-	source => "puppet:///modules/openmrs/appframework-config-${$custom_appframework_config_filename}.json",
+	source => "puppet:///modules/openmrs/${$custom_appframework_config_filename}.json",
 	owner   => $tomcat,
 	group   => $tomcat,
 	mode    => '0644',
