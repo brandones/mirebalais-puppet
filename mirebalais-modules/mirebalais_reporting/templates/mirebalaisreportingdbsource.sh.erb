@@ -1,0 +1,24 @@
+#!/bin/sh
+#
+# Script to source the DB dump created by the production server on the reporting server
+#
+
+PATH='/home/backups'
+FILENAME='mirebalais_nightly_reporting_dump.sql.bz2'
+FILENAME_DECOMPRESSED='mirebalais_nightly_reporting_dump.sql'
+
+# Stop tomcat
+service tomcat6 stop
+
+# Unzip database
+bzip2 -d $PATH/$FILENAME
+
+# Source the database
+mysql -u $openmrs_db_user -p$openmrs_db_password $openmrs_db < $PATH/$FILENAME_DECOMPRESSED
+
+# Clean remove db file
+rm $PATH/$FILENAME_DECOMPRESSED
+
+# Start tomcat
+service tomcat6 start
+

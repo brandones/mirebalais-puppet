@@ -53,8 +53,7 @@ node 'reporting.hum.ht' {
   include ntpdate
   include apache2
   include awstats  	
-  include mirebalais_reporting::reporting_setup
-  #include mysql_setup::slave 
+  include mirebalais_reporting::reporting_setup 
   include newrelic
 }
 
