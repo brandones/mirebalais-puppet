@@ -52,7 +52,8 @@ node 'reporting.hum.ht' {
   include openmrs
   include ntpdate
   include apache2
-  include awstats  
+  include awstats  	
+  include mirebalais_reporting::reporting_setup
   #include mysql_setup::slave 
   include newrelic
 }

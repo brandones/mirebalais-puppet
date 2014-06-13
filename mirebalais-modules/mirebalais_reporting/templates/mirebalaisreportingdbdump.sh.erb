@@ -7,7 +7,7 @@ USER='<%= @backup_user %>'
 PASS='<%= @backup_password %>'
 DIR=/home/<%= @tomcat %>/backups
 
-REMOTE_DB='<%= @reporting_server_user %>@<%= @reporting_server_url %>:<%= @reporting_server_db_dump_dir %>'
+REMOTE_DB='backups@192.168.1.217:haiti/mirebalais/db'
 
 FILENAME=mirebalais_nightly_reporting_dump.sql.bz2
 
@@ -17,12 +17,12 @@ mkdir -p ${DIR}/reporting
 mysqldump -u${USER} -p${PASS} --opt --flush-logs --single-transaction --ignore-table=openmrs.pacsintegration_inbound_queue \
 	--ignore-table=openmrs.pacsintegration_outbound_queue --ignore-table=openmrs.reporting_idset --ignore-table=openmrs.reporting_report_design \
 	--ignore-table=openmrs.reporting_report_design_resource --ignore-table=openmrs.reporting_report_processor \
-	--ignore-table=openmrs.reporting_report_request --ignore-table=openmrs.scheduler_task_config 
+	--ignore-table=openmrs.reporting_report_request --ignore-table=openmrs.scheduler_task_config \
 	--ignore-table=openmrs.scheduler_task_config_property --ignore-table=openmrs.serialized_object openmrs | bzcat -zc > ${DIR}/reporting/${FILENAME}
 
-#scp
+#scp (note that public/private key sharing still needs to be set up manually between production and reporting)
 scp ${DIR}/reporting/${FILENAME} ${REMOTE_DB}/${FILENAME}
-rm ${DiR}/reporting/${FILENAME}
+rm ${DIR}/reporting/${FILENAME}
 
 
 
