@@ -13,7 +13,7 @@ class openmrs (
     $lacolline_password = decrypt(hiera('lacolline_password')),
     $junit_username = hiera('junit_username'),
     $junit_password = decrypt(hiera('junit_password')),
-    $custom_appframework_config_filename = hiera('custom_appframework_config_filename');
+    $custom_appframework_config_filename = hiera('custom_appframework_config_filename')
   ){
 
   file { '/etc/apt/apt.conf.d/99auth':
