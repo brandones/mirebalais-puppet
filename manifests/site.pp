@@ -29,6 +29,7 @@ node 'emr.hum.ht' inherits default {
   include mysql_setup::replication
   include mirth::channel_setup
   include openmrs::initial_setup
+  include mirebalais_reporting::production_setup
   include newrelic
 }
 
@@ -73,7 +74,6 @@ node 'humdemo.pih-emr.org' inherits default {
   include mysql_setup::db_setup
   include mirth::channel_setup
   include openmrs::initial_setup
-  include mirebalais_reporting::production_setup
   include newrelic
 }
 
