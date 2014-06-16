@@ -12,4 +12,9 @@ class ntpdate {
     subscribe   => File['/etc/ntp.conf'],
     refreshonly => true
   }
+
+  file { '/etc/timezone':
+       ensure => present,
+       content => "America/New_York\n"
+  }
 }
