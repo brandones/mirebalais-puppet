@@ -14,6 +14,7 @@ FILENAME='mirebalais_nightly_reporting_dump.sql.7z'
 # create the needed directories
 mkdir -p ${DIR}/reporting
 
+# Dump, encrypt, and compress backup for reporting
 mysqldump -u${USER} -p${PASS} --opt --flush-logs --single-transaction --ignore-table=openmrs.pacsintegration_inbound_queue \
 	--ignore-table=openmrs.pacsintegration_outbound_queue --ignore-table=openmrs.reporting_idset --ignore-table=openmrs.reporting_report_design \
 	--ignore-table=openmrs.reporting_report_design_resource --ignore-table=openmrs.reporting_report_processor \
