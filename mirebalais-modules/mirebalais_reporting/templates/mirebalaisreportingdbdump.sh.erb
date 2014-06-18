@@ -9,20 +9,18 @@ DIR=/home/<%= @tomcat %>/backups
 
 REMOTE_SERVER='backups@192.168.1.217:/home/backups'
 
-FILENAME='mirebalais_nightly_reporting_dump.sql.bz2'
+FILENAME='mirebalais_nightly_reporting_dump.sql.7z'
 
 # create the needed directories
 mkdir -p ${DIR}/reporting
 
+# Dump, encrypt, and compress backup for reporting
 mysqldump -u${USER} -p${PASS} --opt --flush-logs --single-transaction --ignore-table=openmrs.pacsintegration_inbound_queue \
 	--ignore-table=openmrs.pacsintegration_outbound_queue --ignore-table=openmrs.reporting_idset --ignore-table=openmrs.reporting_report_design \
 	--ignore-table=openmrs.reporting_report_design_resource --ignore-table=openmrs.reporting_report_processor \
 	--ignore-table=openmrs.reporting_report_request --ignore-table=openmrs.scheduler_task_config \
-	--ignore-table=openmrs.scheduler_task_config_property --ignore-table=openmrs.serialized_object openmrs | bzcat -zc > ${DIR}/reporting/${FILENAME}
+	--ignore-table=openmrs.scheduler_task_config_property --ignore-table=openmrs.serialized_object openmrs | 7z a -p${PASS} -si -t7z ${DIR}/reporting/${FILENAME} -mx9
 
 #scp (note that public/private key sharing needs to be set up manually between production and reporting, this is not handled via puppet)
 scp ${DIR}/reporting/${FILENAME} ${REMOTE_SERVER}/${FILENAME}
 rm ${DIR}/reporting/${FILENAME}
-
-
-

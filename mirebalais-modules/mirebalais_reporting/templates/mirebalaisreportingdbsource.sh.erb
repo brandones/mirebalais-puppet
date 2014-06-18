@@ -8,21 +8,20 @@ PASSWORD='<%= @openmrs_db_password %>'
 DB='<%= @openmrs_db %>'
 
 DIR='/home/backups'
-FILENAME='mirebalais_nightly_reporting_dump.sql.bz2'
+FILENAME='mirebalais_nightly_reporting_dump.sql.7z'
 FILENAME_DECOMPRESSED='mirebalais_nightly_reporting_dump.sql'
 
 # Stop tomcat
 service tomcat6 stop
 
-# Unzip database
-bzip2 -d $DIR/$FILENAME
+# Unzip and unencrypt database
+7z e -p${PASSWORD} -so ${DIR}/${FILENAME} > ${DIR}/${FILENAME_DECOMPRESSED}
 
 # Source the database
-mysql -u $USER -p$PASSWORD $DB < $DIR/$FILENAME_DECOMPRESSED
+mysql -u ${USER} -p${PASSWORD} ${DB} < ${DIR}/${FILENAME_DECOMPRESSED}
 
 # Clean remove db file
-rm $DIR/$FILENAME_DECOMPRESSED
+rm ${DIR}/${FILENAME_DECOMPRESSED}
 
-# Start tomcat
+# Restart tomcat
 service tomcat6 start
-
