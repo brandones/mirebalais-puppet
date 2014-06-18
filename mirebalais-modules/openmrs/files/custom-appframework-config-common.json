@@ -1,4 +1,11 @@
 {
     "appsEnabledByDefault":true,
+
+    "appConfiguration": {
+    	"coreApps.findPatient": {
+		"enabled": false
+	}
+    },
+
     "extensionsEnabledByDefault": true
 }
