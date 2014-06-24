@@ -29,7 +29,8 @@ socket    = /var/run/mysqld/mysqld.sock
 nice    = 0
 
 [mysqld]
-bind-address = 0.0.0.0
+bind-address = <%= @mysql_bind_address %>
+
 #
 # * Basic Settings
 #
