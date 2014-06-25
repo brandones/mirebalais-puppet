@@ -1,4 +1,6 @@
 ---
+mirebalais_release: 'stable/'
+
 openmrs_auto_update_database: true
 site_domain: humdemo.pih-emr.org
 

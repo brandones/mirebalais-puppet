@@ -3,7 +3,7 @@ openmrs_auto_update_database: true
 site_domain: reporting.hum.ht
 custom_appframework_config_filename: custom-appframework-config-reporting.json
 
-mirebalais_release: 'unstable/'
+mirebalais_release: 'stable/'
 
 mysql_server_id: 3
 mysql_master_ip: 
