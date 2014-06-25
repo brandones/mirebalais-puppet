@@ -28,4 +28,4 @@ remote_zlidentifier_password: ENC[IuAJgqs6Ci5Hw5xs/DYiZg==]
 smtp_username: thoughtworkspih@gmail.com
 smtp_password: ENC[1M1OLSCVq1Dk7BXp9vFQFQ==]
 
-java_memory_parameters: '-Xmx4G -Xms1024m -XX:PermSize=256m -XX:MaxPermSize=512m -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC'
+java_memory_parameters: '-Xmx8G -Xms1024m -XX:PermSize=256m -XX:MaxPermSize=512m -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC'
