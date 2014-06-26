@@ -19,5 +19,6 @@ appointment_scheduling_old_ui: true
 reportingui_ad_hoc_analysis: true
 awaiting_admission: true
 radiology_contrast_studies: true
+new_patient_search_widget: false
 
 java_debug_parameters: '-Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5000'
