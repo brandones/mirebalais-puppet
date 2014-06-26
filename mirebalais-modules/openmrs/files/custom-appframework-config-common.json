@@ -2,7 +2,7 @@
     "appsEnabledByDefault":true,
 
     "appConfiguration": {
-    	"coreApps.findPatient": {
+    	"coreapps.findPatient": {
 		"enabled": false
 	}
     },
