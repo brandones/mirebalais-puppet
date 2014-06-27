@@ -1,5 +1,5 @@
 {
-    "appsEnabledByDefault": true,
+    "appsEnabledByDefault": false,
 
     "appConfiguration": {
         "mirebalais.homepage": {
@@ -10,7 +10,7 @@
         }
     },
 
-    "extensionsEnabledByDefault": true,
+    "extensionsEnabledByDefault": false,
 
     "extensionConfiguration": {
 	"mirebalais.configureStandardHeader": {
