@@ -20,12 +20,16 @@ class mirebalais_reporting::reporting_setup (
 	    content => template('mirebalais_reporting/mirebalaisreportingdbsource.sh.erb'),
 	  }
 
+	  package { '7z':
+	  	  ensure => installed,
+	  }
+
 	  cron { 'mirebalais-reporting-db-source':
 	    ensure  => present,
 	    command => '/usr/local/sbin/mirebalaisreportingdbsource.sh',
 	    user    => 'root',
 	    hour    => 5,
 	    minute  => 00,
-	    require => File['mirebalaisreportingdbsource.sh'],
+	    require => File['mirebalaisreportingdbsource.sh'],Package['7z']
 	  }
 }

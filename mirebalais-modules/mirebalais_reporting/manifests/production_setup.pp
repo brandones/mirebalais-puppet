@@ -13,12 +13,16 @@ class mirebalais_reporting::production_setup (
     content => template('mirebalais_reporting/mirebalaisreportingdbdump.sh.erb'),
   }
 
+  package { '7z':
+  	  ensure => installed
+  }
+
   cron { 'mysql-reporting-db-dump':
     ensure  => present,
     command => '/usr/local/sbin/mirebalaisreportingdbdump.sh',
     user    => 'root',
     hour    => 2,
     minute  => 30,
-    require => File['mirebalaisreportingdbdump.sh'],
+    require => File['mirebalaisreportingdbdump.sh'],Package['7z']
   }
 }
