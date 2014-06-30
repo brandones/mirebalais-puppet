@@ -19,13 +19,17 @@ class mysql_setup::backup (
     require    => Database_user["${backup_user}@localhost"],
   }
 
+  package { '7z' :
+  	  ensure => installed
+  }
+
   cron { 'mysql-backup':
     ensure  => present,
     command => '/usr/local/sbin/mysqlbackup.sh',
     user    => 'root',
     hour    => 1,
     minute  => 30,
-    require => File['mysqlbackup.sh'],
+    require => File['mysqlbackup.sh'],Package['7z']
   }
 
   file { 'mysqlbackup.sh':
