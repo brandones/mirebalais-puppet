@@ -19,8 +19,8 @@ class mysql_setup::backup (
     require    => Database_user["${backup_user}@localhost"],
   }
 
-  package { '7z' :
-  	  ensure => installed
+  package { 'p7zip-full' :
+  	  ensure => 'installed'
   }
 
   cron { 'mysql-backup':

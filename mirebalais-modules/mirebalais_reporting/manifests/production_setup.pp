@@ -13,8 +13,8 @@ class mirebalais_reporting::production_setup (
     content => template('mirebalais_reporting/mirebalaisreportingdbdump.sh.erb'),
   }
 
-  package { '7z':
-  	  ensure => installed
+  package { 'p7zip-full':
+  	  ensure => 'installed'
   }
 
   cron { 'mysql-reporting-db-dump':

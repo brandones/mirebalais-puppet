@@ -20,8 +20,8 @@ class mirebalais_reporting::reporting_setup (
 	    content => template('mirebalais_reporting/mirebalaisreportingdbsource.sh.erb'),
 	  }
 
-	  package { '7z':
-	  	  ensure => installed,
+	  package { 'p7zip-full':
+	  	  ensure => 'installed'
 	  }
 
 	  cron { 'mirebalais-reporting-db-source':
