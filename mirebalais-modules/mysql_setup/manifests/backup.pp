@@ -29,7 +29,7 @@ class mysql_setup::backup (
     user    => 'root',
     hour    => 1,
     minute  => 30,
-    require => [ File['mysqlbackup.sh'], Package['7z'] ]
+    require => [ File['mysqlbackup.sh'], Package['p7zip-full'] ]
   }
 
   file { 'mysqlbackup.sh':

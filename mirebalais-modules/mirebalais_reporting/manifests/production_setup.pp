@@ -13,9 +13,7 @@ class mirebalais_reporting::production_setup (
     content => template('mirebalais_reporting/mirebalaisreportingdbdump.sh.erb'),
   }
 
-  package { 'p7zip-full':
-  	  ensure => 'installed'
-  }
+  # note that we don't install p7zip-full here because it is already installed as part of the mysql_setup::backup package
 
   cron { 'mysql-reporting-db-dump':
     ensure  => present,
@@ -23,6 +21,6 @@ class mirebalais_reporting::production_setup (
     user    => 'root',
     hour    => 2,
     minute  => 30,
-    require => [ File['mirebalaisreportingdbdump.sh'], Package['7z'] ]
+    require => [ File['mirebalaisreportingdbdump.sh'], Package['p7zip-full'] ]
   }
 }
