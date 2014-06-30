@@ -23,6 +23,6 @@ class mirebalais_reporting::production_setup (
     user    => 'root',
     hour    => 2,
     minute  => 30,
-    require => File['mirebalaisreportingdbdump.sh'],Package['7z']
+    require => [ File['mirebalaisreportingdbdump.sh'], Package['7z'] ]
   }
 }

@@ -30,6 +30,6 @@ class mirebalais_reporting::reporting_setup (
 	    user    => 'root',
 	    hour    => 5,
 	    minute  => 00,
-	    require => File['mirebalaisreportingdbsource.sh'],Package['7z']
+	    require => [ File['mirebalaisreportingdbsource.sh'],Package['7z'] ]
 	  }
 }
