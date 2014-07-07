@@ -42,30 +42,11 @@ junit_username: junit
 junit_password: Junit123
 
 # feature toggle settings
-consult_note_confirm_diagnoses: true
-consult_note_dispositions: true
-emergency_checkin: true
-surgical_operative_note: true
-inpatients_list: true
 awaiting_admission: false
-no_active_visit_view: true
-edit_visit_dates: true
-live_checkin: true
-import_mpi_patients: true
-order_radiology_retrospective: true
-edit_consult_notes: true
-edit_transfer_and_discharge_notes: true
-enter_retrospective_consult_note_in_active_visit: true
-enable_new_patient_header: true
-dispense_medicine: true
-new_paper_record_label_template: true
-new_appointment_scheduling_ui: true
-
 reportingui_ad_hoc_analysis: false
 register_test_patient: false
 my_account_feature: false
 notifiable_diseases_report: false
-appointment_scheduling_old_ui: false
 radiology_contrast_studies: false
 new_patient_search_widget: false
 

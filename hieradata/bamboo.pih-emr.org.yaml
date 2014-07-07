@@ -16,7 +16,6 @@ mirth_inbound_from_pacs_mirebalais_port: 6662
 register_test_patient: true
 my_account_feature: true
 notifiable_diseases_report: true
-appointment_scheduling_old_ui: true
 reportingui_ad_hoc_analysis: true
 awaiting_admission: true
 radiology_contrast_studies: true

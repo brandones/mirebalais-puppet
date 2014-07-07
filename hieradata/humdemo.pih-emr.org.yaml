@@ -13,7 +13,6 @@ lacolline_password: ENC[OV3IH5U9urv6gEb76vnyYA==]
 register_test_patient: true
 my_account_feature: true
 notifiable_diseases_report: true
-appointment_scheduling_old_ui: true
 awaiting_admission: true
 reportingui_ad_hoc_analysis: true
 new_patient_search_widget: true
