@@ -57,6 +57,15 @@
 	},
 	"mirebalaisreports.dataExports.10": {
 		"enabled": true
+	},
+	"mirebalaisreports.dataExports.11": {
+		"enabled": true
+	},
+	"mirebalaisreports.dataExports.12": {
+		"enabled": true
+	},
+	"mirebalaisreports.dataExports.13": {
+		"enabled": true
 	},   			      
         "mirebalaisreports.dataExports.usersAndProviders": {
             	"enabled": true
