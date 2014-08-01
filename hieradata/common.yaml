@@ -48,8 +48,9 @@ register_test_patient: false
 my_account_feature: false
 notifiable_diseases_report: false
 radiology_contrast_studies: false
-new_patient_search_widget: false
 print_wristband: false
+
+new_patient_search_widget: true
 
 hide_edit_patient_demographics_button: true
 hide_edit_patient_contact_info_button: true
