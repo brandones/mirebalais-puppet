@@ -10,9 +10,6 @@
     "extensionsEnabledByDefault": true,
 
     "extensionConfiguration": {
-	"reportingui.reports.homepagelink": {
-	    	"enabled": false
-	},	
 	"mirebalaisreports.dataExports.1": {
 		"enabled": false
 	},
