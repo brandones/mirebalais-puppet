@@ -101,6 +101,11 @@ class mysql_setup_56 (
     require => [ Exec['install_db'] ],
   }
 
+  # make sure the old upstart startup file for mysql 5.5 is not present
+  file { '/etc/init/mysql.conf':
+       ensure => absent
+  }
+
   service { 'mysqld':
     ensure  => running,
     name    => 'mysql.server',
