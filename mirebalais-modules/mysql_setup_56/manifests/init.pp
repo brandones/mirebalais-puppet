@@ -103,7 +103,6 @@ class mysql_setup_56 (
 
   service { 'mysqld':
     ensure  => running,
-    provider => upstart,
     name    => 'mysql.server',
     enable  => true,
     require => [ Exec['install_db'], File['/etc/init.d/mysql.server/'], File['/opt/mysql/server-5.6/'], File['/etc/mysql/conf.d'], File['/etc/mysql/my.cnf']  ],
