@@ -50,6 +50,7 @@ notifiable_diseases_report: false
 radiology_contrast_studies: false
 print_wristband: false
 death_note: false
+printable_surgical_note: false
 
 new_patient_search_widget: true
 
