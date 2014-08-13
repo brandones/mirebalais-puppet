@@ -42,7 +42,6 @@ junit_username: junit
 junit_password: Junit123
 
 # feature toggle settings
-awaiting_admission: false
 reportingui_ad_hoc_analysis: false
 register_test_patient: false
 my_account_feature: false
@@ -52,6 +51,7 @@ print_wristband: false
 death_note: false
 printable_surgical_note: false
 
+awaiting_admission: true
 new_patient_search_widget: true
 
 hide_edit_patient_demographics_button: true

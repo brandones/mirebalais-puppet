@@ -13,6 +13,5 @@ lacolline_password: ENC[OV3IH5U9urv6gEb76vnyYA==]
 register_test_patient: true
 my_account_feature: true
 notifiable_diseases_report: true
-awaiting_admission: true
 reportingui_ad_hoc_analysis: true
 print_wristband: true
