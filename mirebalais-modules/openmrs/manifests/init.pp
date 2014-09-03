@@ -13,6 +13,7 @@ class openmrs (
     $lacolline_password = decrypt(hiera('lacolline_password')),
     $junit_username = hiera('junit_username'),
     $junit_password = decrypt(hiera('junit_password')),
+    $schedule_reports = hiera('schedule_reports'),
     $custom_appframework_config_filename = hiera('custom_appframework_config_filename')
   ){
 

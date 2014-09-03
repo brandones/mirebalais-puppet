@@ -41,6 +41,8 @@ services_enable: true
 junit_username: junit
 junit_password: Junit123
 
+schedule_reports: false
+
 # feature toggle settings
 reportingui_ad_hoc_analysis: false
 register_test_patient: false
