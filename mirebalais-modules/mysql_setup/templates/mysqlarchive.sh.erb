@@ -1,0 +1,22 @@
+#!/bin/sh
+#
+# Mirebalais backup cleanup and archiving script
+#
+
+DIR=/home/<%= @tomcat %>/backups
+
+FILENAME=mirebalais_backup_20*.sql.7z
+RELEASENAME=mirebalais_backup_release_*.sql.7z
+ARCHIVEFILE=mirebalais_backup_201???01-*.sql.7z
+
+# Delete all pre-release backups older than 15 days
+find ${DIR}/sequences/${RELEASENAME} -mtime +15 -exec rm {} \;
+
+# Create the archive directory
+mkdir -p ${DIR}/archive
+
+# Archive backups from the 1st of the month
+mv ${DIR}/sequences/${ARCHIVEFILE} archive/. 2>/dev/null
+
+# Delete any of the nightly backups older than 90 days
+find . ${DIR}/sequences/${FILENAME} -mtime +90 -exec rm {} \;

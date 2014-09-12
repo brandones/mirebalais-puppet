@@ -40,4 +40,21 @@ class mysql_setup::backup (
     group   => 'root',
     content => template('mysql_setup/mysqlbackup.sh.erb'),
   }
+
+  cron { 'mysql-archive':
+    ensure  => present,
+    command => '/usr/local/sbin/mysqlarchive.sh',
+    user     => 'root',
+    monthday => 1,
+    require => [ File['mysqlarchive.sh'] ]
+  }
+
+  file { 'mysqlarchive.sh':
+    ensure  => present,
+    path    => '/usr/local/sbin/mysqlarchive.sh',
+    mode    => '0700',
+    owner   => 'root',
+    group   => 'root',
+    content => template('mysql_setup/mysqlarchive.sh.erb'),
+  }
 }
