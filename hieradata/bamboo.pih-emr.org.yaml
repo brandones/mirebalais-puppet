@@ -23,5 +23,6 @@ radiology_contrast_studies: true
 print_wristband: true
 death_note: true
 printable_surgical_note: true
+request_appointments: true
 
 java_debug_parameters: '-Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5000'
