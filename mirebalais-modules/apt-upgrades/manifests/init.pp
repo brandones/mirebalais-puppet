@@ -1,5 +1,5 @@
 class { 'apt::unattended_upgrades' :
-  origins  	      => ['${distro_id} ${distro_codename}-security']
+  origins  	      => ['${distro_id} ${distro_codename}-security'],
   blacklist           => ['mirebalais'],
   update              => '1',
   download            => '1',
