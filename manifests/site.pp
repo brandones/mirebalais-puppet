@@ -5,7 +5,7 @@ node default {
     always_apt_update => true,
   }
 
-  include apt-upgrades
+  include apt_upgrades
   include wget
   include java
   include mysql_setup_56
