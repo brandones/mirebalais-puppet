@@ -1,4 +1,4 @@
-class apt_ugrades() 
+class apt_upgrades() 
 {
 
 	class { 'apt::unattended_upgrades' :
