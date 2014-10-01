@@ -1,3 +1,6 @@
-package { 'sendmail':
-	ensure => installed
+class mail()
+{
+	package { 'sendmail':
+		ensure => installed
+	}
 }
