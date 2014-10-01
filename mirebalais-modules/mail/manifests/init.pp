@@ -1,0 +1,3 @@
+package { 'sendmail':
+	ensure => installed
+}
