@@ -20,7 +20,7 @@ then
     echo "Please provide a username to fetch private data"
     read user
 
-    scp $user@dev.pih-emr.org:/etc/mirebalais/* .
+    scp $user@amigo.pih-emr.org:/etc/mirebalais/* .
 
     mv encryptor_secret_key /etc/puppet-decrypt/
     mv hum.key /etc/ssl/private/
