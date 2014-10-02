@@ -4,7 +4,7 @@ class mail()
 		ensure => installed
 	}
 	
-	package { 'mailx':
+	package { 'bsd-mailx':
 		ensure => installed
 	}
 }
