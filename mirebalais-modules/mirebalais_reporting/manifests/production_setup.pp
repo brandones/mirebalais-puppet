@@ -21,6 +21,7 @@ class mirebalais_reporting::production_setup (
     user    => 'root',
     hour    => 2,
     minute  => 30,
+    environment => 'MAILTO=emrsysadmin@pih.org',
     require => [ File['mirebalaisreportingdbdump.sh'], Package['p7zip-full'] ]
   }
 }

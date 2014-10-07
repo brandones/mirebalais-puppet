@@ -29,6 +29,7 @@ class mysql_setup::backup (
     user    => 'root',
     hour    => 1,
     minute  => 30,
+    environment => 'MAILTO=emrsysadmin@pih.org',
     require => [ File['mysqlbackup.sh'], Package['p7zip-full'] ]
   }
 
@@ -46,6 +47,7 @@ class mysql_setup::backup (
     command => '/usr/local/sbin/mysqlarchive.sh',
     user     => 'root',
     monthday => 1,
+    environment => 'MAILTO=emrsysadmin@pih.org',
     require => [ File['mysqlarchive.sh'] ]
   }
 
