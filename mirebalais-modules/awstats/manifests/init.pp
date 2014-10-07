@@ -19,7 +19,8 @@ class awstats(
     cron { 'update awstats':
     	 command => "/usr/lib/cgi-bin/awstats.pl -config=$site_domain -update > /dev/null",
 	 user => root,
-	 hour => 0
+	 hour => 0,
+	 environment => "MAILTO=emrsysadmin@pih.org"
     }
 
     exec { 'generate initial awstats':
