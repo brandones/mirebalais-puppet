@@ -17,6 +17,7 @@ class awstats(
     }
 
     cron { 'update awstats':
+    	 ensure => present,
     	 command => "/usr/lib/cgi-bin/awstats.pl -config=$site_domain -update > /dev/null",
 	 user => root,
 	 hour => 0,
