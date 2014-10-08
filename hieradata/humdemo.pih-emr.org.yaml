@@ -14,4 +14,4 @@ register_test_patient: true
 my_account_feature: true
 notifiable_diseases_report: true
 reportingui_ad_hoc_analysis: true
-print_wristband: false
+
