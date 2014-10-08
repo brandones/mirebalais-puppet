@@ -1,6 +1,121 @@
 Exec { path => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/', '/usr/local/bin/' ] }
 
 node default {
+
+  class { 'apt':
+    always_apt_update => true,
+  }
+
+  include mail
+  include ntpdate
+  include apt_upgrades
+  include wget
+
+  include java
+  include mysql_setup_56
+  include apache2
+  include tomcat
+
+  include openmrs
+  include openmrs::initial_setup
+  include mysql_setup::db_setup
+
+}
+
+node 'emr.hum.ht' {
+
+  class { 'apt':
+    always_apt_update => true,
+  }
+
+  include mail
+  include ntpdate
+  include apt_upgrades
+  include wget
+
+  include java
+  include mysql_setup_56
+  include apache2
+  include tomcat
+
+  include openmrs
+  include openmrs::initial_setup
+  include mysql_setup::db_setup
+
+  include mirth
+  include mirth::channel_setup
+  
+  include awstats
+  include newrelic
+  include logging
+
+  include mysql_setup::backup
+  include mirebalais_reporting::production_setup
+}
+
+node 'emrtest.hum.ht', 'humdemo.pih-emr.org', 'bamboo.pih-emr.org {
+  
+  class { 'apt':
+    always_apt_update => true,
+  }
+
+  include mail
+  include ntpdate
+  include apt_upgrades
+  include wget
+
+  include java
+  include mysql_setup_56
+  include apache2
+  include tomcat
+
+  include openmrs
+  include openmrs::initial_setup
+  include mysql_setup::db_setup
+
+  include mirth
+  include mirth::channel_setup
+  
+  include awstats
+  include newrelic
+  include logging
+}
+
+node 'reporting.hum.ht' {
+
+  class { 'apt':
+    always_apt_update => true,
+  }
+
+  include mail
+  include ntpdate
+  include apt_upgrades
+  include wget
+
+  include java
+  include mysql_setup_56
+  include apache2
+  include tomcat
+
+  include openmrs
+  include openmrs::initial_setup
+  include mysql_setup::db_setup
+
+  include mirth
+  include mirth::channel_setup
+  
+  include awstats
+  include newrelic
+  include logging 
+	
+  include mirebalais_reporting::reporting_setup 
+}
+
+
+
+// TODO: do we still use/need this?
+
+node 'emrreplication.hum.ht' inherits default {
   class { 'apt':
     always_apt_update => true,
   }
@@ -13,29 +128,6 @@ node default {
   include mirth
   include tomcat
   include openmrs
-}
-
-node /^((?!replication).*)$/ inherits default {
-  include mysql_setup::db_setup
-  include mirth::channel_setup
-  include openmrs::initial_setup
-}
-
-node 'emr.hum.ht' inherits default {
-  include ntpdate
-  include apache2
-  include awstats
-  include logging
-  include mysql_setup::db_setup
-  include mysql_setup::backup
-  include mysql_setup::replication
-  include mirth::channel_setup
-  include openmrs::initial_setup
-  include mirebalais_reporting::production_setup
-  include newrelic
-}
-
-node 'emrreplication.hum.ht' inherits default {
   include ntpdate
   include apache2
   include awstats
@@ -43,39 +135,3 @@ node 'emrreplication.hum.ht' inherits default {
   include logging::kibana
   include mysql_setup::slave
 }
-
-node 'reporting.hum.ht' {
-  class { 'apt':
-    always_apt_update => true,
-  }
-  include wget
-  include java
-  include mysql_setup_56  
-  include tomcat
-  include openmrs
-  include ntpdate
-  include apache2
-  include awstats  	
-  include mirebalais_reporting::reporting_setup 
-  include newrelic
-}
-
-node 'emrtest.hum.ht' inherits default {
-  include apache2
-  include awstats
-  include ntpdate
-  include mysql_setup::db_setup
-  include mirth::channel_setup
-  include openmrs::initial_setup
-  include newrelic
-}
-
-node 'humdemo.pih-emr.org' inherits default {
-  include apache2
-  include awstats
-  include mysql_setup::db_setup
-  include mirth::channel_setup
-  include openmrs::initial_setup
-  include newrelic
-}
-
