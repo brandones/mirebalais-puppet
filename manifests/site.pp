@@ -5,7 +5,7 @@ node default {
     always_apt_update => true,
   }
 
-  include mail
+  include mailx
   include apt_upgrades
   include wget
   include java
