@@ -6,7 +6,7 @@ node default {
     always_apt_update => true,
   }
 
-  include mail
+  include mailx
   include ntpdate
   include apt_upgrades
   include wget
@@ -28,7 +28,7 @@ node 'emr.hum.ht' {
     always_apt_update => true,
   }
 
-  include mail
+  include mailx
   include ntpdate
   include apt_upgrades
   include wget
@@ -58,7 +58,7 @@ node 'emrtest.hum.ht', 'humdemo.pih-emr.org', 'bamboo.pih-emr.org {
     always_apt_update => true,
   }
 
-  include mail
+  include mailx
   include ntpdate
   include apt_upgrades
   include wget
@@ -85,7 +85,7 @@ node 'reporting.hum.ht' {
     always_apt_update => true,
   }
 
-  include mail
+  include mailx
   include ntpdate
   include apt_upgrades
   include wget
@@ -117,7 +117,7 @@ node 'emrreplication.hum.ht' inherits default {
     always_apt_update => true,
   }
 
-  include mail
+  include mailx
   include apt_upgrades
   include wget
   include java

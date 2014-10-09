@@ -16,8 +16,9 @@ class awstats(
 	 source => 'puppet:///modules/awstats/htpasswd'
     }
 
+    # NOTE THAT we are currenlty *disabling* awstats
     cron { 'update awstats':
-    	 ensure => present,
+    	 ensure => absent,
     	 command => "/usr/lib/cgi-bin/awstats.pl -config=$site_domain -update > /dev/null",
 	 user => root,
 	 hour => 0,

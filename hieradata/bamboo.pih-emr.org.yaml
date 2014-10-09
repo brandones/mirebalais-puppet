@@ -20,7 +20,6 @@ my_account_feature: true
 notifiable_diseases_report: true
 reportingui_ad_hoc_analysis: true
 radiology_contrast_studies: true
-print_wristband: true
 death_note: true
 printable_surgical_note: true
 request_appointments: true
