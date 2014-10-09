@@ -13,7 +13,7 @@ node default {
 
   include java
   include mysql_setup_56
-  include apache2
+  # include apache2  # apache requires ssl
   include tomcat
 
   include openmrs
