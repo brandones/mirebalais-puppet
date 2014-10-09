@@ -15,6 +15,9 @@ tomcat: tomcat6
 site_domain: foo.org
 custom_appframework_config_filename: custom-appframework-config-common.json
 
+smtp_username: emralerts@pih.org
+smtp_userpassword: Medinfo999
+
 mirth_db: mirthdb
 mirth_db_user: mirth
 mirth_db_password: foo

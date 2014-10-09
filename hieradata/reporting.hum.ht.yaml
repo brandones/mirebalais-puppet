@@ -13,8 +13,4 @@ openmrs_db_password: ENC[spcYc6R/l+JkjPm5P//qw0LVQCdrD8zEfIEZr/AJ4rU=]
 replication_db_password: ENC[92IfbImaUmA3wqYSG5kWWwexEU8HqCrqQzSXAMKRPz0=]
 backup_db_password: ENC[vkWTaGabrix4EDOVYyoePsJhGlRZxdNy6y8QZ8r2H5I=]
 
-smtp_username: thoughtworkspih@gmail.com
-smtp_password: ENC[1M1OLSCVq1Dk7BXp9vFQFQ==]
-
-
 java_memory_parameters: '-Xmx10G -Xms1G -XX:PermSize=256m -XX:MaxPermSize=512m -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC'
