@@ -110,7 +110,7 @@ node 'reporting.hum.ht' {
 
 
 
-// TODO: do we still use/need this?
+# TODO: do we still use/need this?
 
 node 'emrreplication.hum.ht' inherits default {
   class { 'apt':
