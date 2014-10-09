@@ -45,7 +45,6 @@ node 'emr.hum.ht' {
   include mirth
   include mirth::channel_setup
   
-  include awstats
   include newrelic
   include logging
 
@@ -76,7 +75,6 @@ node 'emrtest.hum.ht', 'humdemo.pih-emr.org', 'bamboo.pih-emr.org {
   include mirth
   include mirth::channel_setup
   
-  include awstats
   include newrelic
   include logging
 }
@@ -104,7 +102,6 @@ node 'reporting.hum.ht' {
   include mirth
   include mirth::channel_setup
   
-  include awstats
   include newrelic
   include logging 
 	
