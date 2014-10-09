@@ -1,6 +1,6 @@
 class logging (
   $smtp_username = decrypt(hiera('smtp_username')),
-  $smtp_password = decrypt(hiera('smtp_password')),
+  $smtp_userpassword = decrypt(hiera('smtp_userpassword')),
   ){
 
   file { '/etc/logstash/conf.d/logstash.conf':
