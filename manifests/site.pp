@@ -48,6 +48,8 @@ node 'reporting.hum.ht' {
   class { 'apt':
     always_apt_update => true,
   }
+  
+  include mailx
   include wget
   include java
   include mysql_setup_56  
