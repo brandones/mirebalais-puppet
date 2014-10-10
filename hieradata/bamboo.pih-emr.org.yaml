@@ -1,5 +1,5 @@
 ---
-2site_domain: bamboo.pih-emr.org
+site_domain: bamboo.pih-emr.org
 
 mysql_root_password: ENC[oWqIfmn/ER4CYIvjJSpIzQ==]
 mysql_bind_address: 0.0.0.0
