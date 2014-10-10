@@ -52,7 +52,34 @@ node 'emr.hum.ht' {
   include mirebalais_reporting::production_setup
 }
 
-node 'emrtest.hum.ht', 'humdemo.pih-emr.org', 'bamboo.pih-emr.org' {
+node 'bamboo.pih-emr.org' {
+  
+  class { 'apt':
+    always_apt_update => true,
+  }
+
+  include mailx
+  include ntpdate
+  include apt_upgrades
+  include wget
+
+  include java
+  include mysql_setup_56
+  include tomcat
+
+  include openmrs
+  include openmrs::initial_setup
+  include mysql_setup::db_setup
+
+  include mirth
+  include mirth::channel_setup
+  
+  include newrelic
+  include logging
+}
+
+
+node 'emrtest.hum.ht', 'humdemo.pih-emr.org' {
   
   class { 'apt':
     always_apt_update => true,
