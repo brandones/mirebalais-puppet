@@ -25,7 +25,7 @@ class mysql_setup::backup (
 
   cron { 'mysql-backup':
     ensure  => present,
-    command => '/usr/local/sbin/mysqlbackup.sh > /dev/null',
+    command => '/usr/local/sbin/mysqlbackup.sh',
     user    => 'root',
     hour    => 1,
     minute  => 30,
