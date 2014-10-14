@@ -6,7 +6,7 @@ class mirebalais_reporting::production_setup (
 
   file { 'mirebalaisreportingdbdump.sh':
     ensure  => present,
-    path    => '/usr/local/sbin/mirebalaisreportingdbdump.sh',
+    path    => '/usr/local/sbin/mirebalaisreportingdbdump.sh > /dev/null',
     mode    => '0700',
     owner   => 'root',
     group   => 'root',

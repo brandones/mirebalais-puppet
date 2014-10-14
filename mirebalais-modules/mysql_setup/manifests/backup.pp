@@ -25,7 +25,7 @@ class mysql_setup::backup (
 
   cron { 'mysql-backup':
     ensure  => present,
-    command => '/usr/local/sbin/mysqlbackup.sh',
+    command => '/usr/local/sbin/mysqlbackup.sh > /dev/null',
     user    => 'root',
     hour    => 1,
     minute  => 30,
@@ -44,7 +44,7 @@ class mysql_setup::backup (
 
   cron { 'mysql-archive':
     ensure  => present,
-    command => '/usr/local/sbin/mysqlarchive.sh',
+    command => '/usr/local/sbin/mysqlarchive.sh > /dev/null',
     user     => 'root',
     monthday => 1,
     environment => 'MAILTO=emrsysadmin@pih.org',

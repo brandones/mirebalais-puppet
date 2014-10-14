@@ -27,7 +27,7 @@ class mirebalais_reporting::reporting_setup (
 
 	  cron { 'mirebalais-reporting-db-source':
 	    ensure  => present,
-	    command => '/usr/local/sbin/mirebalaisreportingdbsource.sh',
+	    command => '/usr/local/sbin/mirebalaisreportingdbsource.sh > /dev/null',
 	    user    => 'root',
 	    hour    => 5,
 	    minute  => 00,
