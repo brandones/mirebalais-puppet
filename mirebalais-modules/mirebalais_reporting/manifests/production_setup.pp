@@ -6,7 +6,7 @@ class mirebalais_reporting::production_setup (
 
   file { 'mirebalaisreportingdbdump.sh':
     ensure  => present,
-    path    => '/usr/local/sbin/mirebalaisreportingdbdump.sh > /dev/null',
+    path    => '/usr/local/sbin/mirebalaisreportingdbdump.sh',
     mode    => '0700',
     owner   => 'root',
     group   => 'root',
@@ -17,11 +17,33 @@ class mirebalais_reporting::production_setup (
 
   cron { 'mysql-reporting-db-dump':
     ensure  => present,
-    command => '/usr/local/sbin/mirebalaisreportingdbdump.sh',
+    command => '/usr/local/sbin/mirebalaisreportingdbdump.sh >/dev/null',
     user    => 'root',
     hour    => 2,
     minute  => 30,
     environment => 'MAILTO=emrsysadmin@pih.org',
     require => [ File['mirebalaisreportingdbdump.sh'], Package['p7zip-full'] ]
   }
+
+   
+
+  file { 'mirebalaisreportscleanup.sh':
+	ensure => present,
+	path => '/usr/local/sbin/mirebalaisreportscleanup.sh',
+	mode => '0700',
+	owner => 'root',
+	group => 'root',
+	content => template('mirebalais_reporting/mirebalaisreportscleanup.sh.erb')
+  }
+
+  cron { 'mirebalais-reports-cleanup':
+	ensure => present,
+	command => '/usr/local/sbin/mirebalaisreportscleanup.sh >/dev/null',
+	user => 'root',
+	hour =>	5,
+	minute => 00,
+	environment => 'MAILTO=emrsysadmin@pih.org',
+	require => [ File['mirebalaisreportscleanup.sh'] ]
+  }
+
 }
