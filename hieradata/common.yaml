@@ -58,6 +58,7 @@ death_note: false
 printable_surgical_note: false
 request_appointments: false
 appointmentscheduling_confidential: false
+cdi: false
 
 print_wristband: true
 
