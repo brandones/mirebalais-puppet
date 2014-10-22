@@ -10,9 +10,6 @@ lacolline_username: wsuser
 lacolline_password: ENC[OV3IH5U9urv6gEb76vnyYA==]
 
 # feature toggle settings
-register_test_patient: false
-my_account_feature: false
-notifiable_diseases_report: false
-reportingui_ad_hoc_analysis: false
+request_appointments: true
 
 
