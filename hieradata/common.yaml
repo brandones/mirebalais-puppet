@@ -55,11 +55,11 @@ my_account_feature: false
 notifiable_diseases_report: false
 radiology_contrast_studies: false
 death_note: false
-printable_surgical_note: false
 request_appointments: false
 appointmentscheduling_confidential: false
 cdi: false
 
+printable_surgical_note: true
 print_wristband: true
 
 hide_edit_patient_demographics_button: true
