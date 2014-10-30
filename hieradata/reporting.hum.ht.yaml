@@ -1,7 +1,7 @@
 ---
 openmrs_auto_update_database: true
 site_domain: reporting.hum.ht
-custom_appframework_config_filename: custom-appframework-config-reporting.json
+appframework_config_filename: appframework-config-reporting.json
 
 mirebalais_release: 'stable/'
 

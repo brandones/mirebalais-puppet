@@ -11,7 +11,7 @@ backup_db_password: ENC[vkWTaGabrix4EDOVYyoePsJhGlRZxdNy6y8QZ8r2H5I=]
 mirth_db_password: ENC[pAmIyUYupu8RnrQvgH+XCHXR8DEbwO1UZYBT/0q0gIE=]
 mirth_password: ENC[xTn2ILoq1ik8jxllAn7pHz5qD+0apCTmRRtCZRMcjfk=]
 
-custom_appframework_config_filename: custom-appframework-config-production.json
+appframework_config_filename: appframework-config-production.json
 
 pacs_mirebalais_ip_address: 192.168.7.38
 pacs_mirebalais_inbound_port: 6661
