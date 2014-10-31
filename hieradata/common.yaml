@@ -59,9 +59,6 @@ request_appointments: false
 appointmentscheduling_confidential: false
 cdi: false
 
-printable_surgical_note: true
-print_wristband: true
-
 hide_edit_patient_demographics_button: true
 hide_edit_patient_contact_info_button: true
 
