@@ -1,4 +1,5 @@
 {
+    "loadAppsFromClasspath": false,
     "appsEnabledByDefault":true,
 
     "appConfiguration": {
