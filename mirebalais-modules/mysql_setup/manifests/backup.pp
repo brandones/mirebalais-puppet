@@ -46,6 +46,8 @@ class mysql_setup::backup (
     ensure  => present,
     command => '/usr/local/sbin/mysqlarchive.sh > /dev/null',
     user     => 'root',
+    minute => 30,
+    hour => 3,
     monthday => 1,
     environment => 'MAILTO=emrsysadmin@pih.org',
     require => [ File['mysqlarchive.sh'] ]
