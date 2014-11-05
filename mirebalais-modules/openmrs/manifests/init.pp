@@ -14,7 +14,8 @@ class openmrs (
     $junit_username = hiera('junit_username'),
     $junit_password = decrypt(hiera('junit_password')),
     $schedule_reports = hiera('schedule_reports'),
-    $appframework_config_filename = hiera('appframework_config_filename')
+    $appframework_config_filename = hiera('appframework_config_filename'), 
+    $pih_config = hiera('pih_config')
   ){
 
   file { '/etc/apt/apt.conf.d/99auth':
