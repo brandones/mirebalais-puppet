@@ -44,7 +44,7 @@ class tomcat (
     owner   => $tomcat,
     group   => $tomcat,
     recurse => false,
-    require => File['/usr/local/apache-tomcat-${version}']
+    require => File["/usr/local/apache-tomcat-${version}"]
   }
 
   file { "/usr/local/${tomcat}":
@@ -61,7 +61,7 @@ class tomcat (
   file { "/usr/local/apache-tomcat-${version}/conf/server.xml":
     ensure  => present,
     source  => "puppet:///modules/tomcat/server.xml",
-    require => File['/usr/local/apache-tomcat-${version}/conf']
+    require => File["/usr/local/apache-tomcat-${version}/conf"]
   }
 
 
