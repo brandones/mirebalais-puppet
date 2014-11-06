@@ -35,8 +35,16 @@ class tomcat (
     ensure  => directory,
     owner   => $tomcat,
     group   => $tomcat,
-    recurse => true,
+    recurse => false,
     require => Exec['tomcat-unzip'],
+  }
+
+  file { "/usr/local/apache-tomcat-${version}/conf":
+    ensure  => directory,
+    owner   => $tomcat,
+    group   => $tomcat,
+    recurse => false,
+    require => File['/usr/local/apache-tomcat-${version}']
   }
 
   file { "/usr/local/${tomcat}":
@@ -47,9 +55,19 @@ class tomcat (
     require => Exec['tomcat-unzip'],
   }
 
+  # TODO: confirm that we can use the same server.xml for Tomcat 6 and Tomcat 7
+  # (or don't support tomcat 7 for now)
+
+  file { "/usr/local/apache-tomcat-${version}/conf/server.xml":
+    ensure  => present,
+    source  => "puppet:///modules/tomcat/server.xml",
+    require => File['/usr/local/apache-tomcat-${version}/conf']
+  }
+
+
   file { "/etc/init.d/${tomcat}":
     ensure  => file,
-    source  => "puppet:///modules/tomcat/${version}/init",
+    source  => "puppet:///modules/tomcat/${version}/init"
   }
 
   file { "/etc/default/${tomcat}":
