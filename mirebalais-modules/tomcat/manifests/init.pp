@@ -63,7 +63,8 @@ class tomcat (
     owner   => $tomcat,
     group   => $tomcat,
     source  => "puppet:///modules/tomcat/server.xml",
-    require => File["/usr/local/apache-tomcat-${version}/conf"]
+    require => File["/usr/local/apache-tomcat-${version}/conf"],
+    notify  => Service["$tomcat"]
   }
 
 
