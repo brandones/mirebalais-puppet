@@ -60,6 +60,8 @@ class tomcat (
 
   file { "/usr/local/apache-tomcat-${version}/conf/server.xml":
     ensure  => present,
+    owner   => $tomcat,
+    group   => $tomcat,
     source  => "puppet:///modules/tomcat/server.xml",
     require => File["/usr/local/apache-tomcat-${version}/conf"]
   }
