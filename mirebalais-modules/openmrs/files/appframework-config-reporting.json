@@ -14,21 +14,21 @@
     "extensionsEnabledByDefault": false,
 
     "extensionConfiguration": {
-	"mirebalais.configureStandardHeader": {
+	"pih.header": {
   		"enabled": true
 	}, 
-	"mirebalais.defaultEncounterTemplate": {
+	"defaultEncounterTemplate": {
   		"enabled": true
 	}, 
-	"mirebalais.consultEncounterTemplate": {
+	"consultEncounterTemplate": {
   		"enabled": true
 	}, 
-	"mirebalais.noDetailsEncounterTemplate": {
+	"noDetailsEncounterTemplate": {
   		"enabled": true
 	}, 
-	"reportingui.reports.homepagelink": {
+	"reportingui.reports.appLink": {
 	    	"enabled": true
-	},	
+	},
 	"mirebalaisreports.dataExports.1": {
 		"enabled": true
 	},
