@@ -47,13 +47,9 @@ class openmrs (
     require => User[$tomcat]
   }
 
+  # this is a legacy file--these properties have been moved into the main runtime properties file
   file { "/home/${tomcat}/.OpenMRS/mirebalais.properties":
-    ensure  => present,
-    content => template('openmrs/mirebalais.properties.erb'),
-    owner   => $tomcat,
-    group   => $tomcat,
-    mode    => '0644',
-    require => File["/home/${tomcat}/.OpenMRS"]
+    ensure  => absent
   }
 
   file { "/home/${tomcat}/.OpenMRS/feature_toggles.properties":

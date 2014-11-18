@@ -1,13 +1,23 @@
+scheduler.username=admin
 scheduler.password=
+
 connection.url=jdbc:mysql://localhost:3306/<%= @openmrs_db %>?autoReconnect=true&sessionVariables=storage_engine=InnoDB&useUnicode=true&characterEncoding=UTF-8
 connection.username=<%= @openmrs_db_user %>
 connection.password=<%= @openmrs_db_password %>
+
 module.allow_web_admin=true
-scheduler.username=admin
 auto_update_database=<%= @openmrs_auto_update_database %>
 
 junit.username=<%= @junit_username %>
 junit.password=<%= @junit_password %>
+
+remote_zlidentifier_url=<%= @remote_zlidentifier_url %>
+remote_zlidentifier_username=<%= @remote_zlidentifier_username %>
+remote_zlidentifier_password=<%= @remote_zlidentifier_password %>
+
+lacolline_server_url=<%= @lacolline_server_url %>
+lacolline_username=<%= @lacolline_username %>
+lacolline_password=<%= @lacolline_password %>
 
 pih.config=<%= @pih_config %>
 
