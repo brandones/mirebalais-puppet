@@ -1,6 +1,4 @@
 ---
-pih_config: mirebalais,mirebalais-reporting
-
 site_domain: bamboo.pih-emr.org
 
 mysql_root_password: ENC[oWqIfmn/ER4CYIvjJSpIzQ==]
