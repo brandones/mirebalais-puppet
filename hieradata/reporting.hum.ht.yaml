@@ -1,4 +1,6 @@
----
+
+pih_config: mirebalais,mirebalais-reporting
+
 openmrs_auto_update_database: true
 site_domain: reporting.hum.ht
 appframework_config_filename: appframework-config-reporting.json

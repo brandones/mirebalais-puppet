@@ -70,14 +70,9 @@ class openmrs (
     require => File["/home/${tomcat}/.OpenMRS"]
   }
 
-   # install file to customize apps for production (removing export apps) or reporting server (only including export apps)
+   # this is legacy, this is now handled by our custom app loader factor
    file { "/home/${tomcat}/.OpenMRS/appframework-config.json":
-	ensure => present,
-	source => "puppet:///modules/openmrs/${$appframework_config_filename}",
-	owner   => $tomcat,
-	group   => $tomcat,
-	mode    => '0644',
-	require => File["/home/${tomcat}/.OpenMRS"]
+	ensure => absent
    }
 
 }
