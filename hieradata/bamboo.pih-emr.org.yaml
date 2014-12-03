@@ -1,5 +1,5 @@
 ---
-pih_config: mirebalais,mirebalais-reporting
+pih_config: mirebalais,mirebalais-production
 
 site_domain: bamboo.pih-emr.org
 
