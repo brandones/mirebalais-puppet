@@ -11,6 +11,8 @@ mysql_server_id: 3
 mysql_master_ip: 
 mysql_root_password: ENC[I813eH2Q9IHPZiqwu6DwaPeECPtMT7y41YwwqrTT1nI=]
 mysql_bind_address: 0.0.0.0
+mysql_expire_logs_days: 1
+
 openmrs_db_password: ENC[spcYc6R/l+JkjPm5P//qw0LVQCdrD8zEfIEZr/AJ4rU=]
 replication_db_password: ENC[92IfbImaUmA3wqYSG5kWWwexEU8HqCrqQzSXAMKRPz0=]
 backup_db_password: ENC[vkWTaGabrix4EDOVYyoePsJhGlRZxdNy6y8QZ8r2H5I=]

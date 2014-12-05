@@ -90,7 +90,7 @@ query_cache_size        = 16M
 log-bin=mysql-bin
 server-id=<%= @mysql_server_id %>
 <% end %>
-expire_logs_days  = 10
+expire_logs_days  = <%= @mysql_expire_logs_days %>
 max_binlog_size         = 100M
 #binlog_do_db    = include_database_name
 #binlog_ignore_db  = include_database_name
