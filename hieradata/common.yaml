@@ -5,6 +5,7 @@ mirebalais_release: 'unstable/'
 mysql_server_id: 1
 mysql_root_password: foo
 mysql_bind_address: 127.0.0.1
+mysql_expire_logs_days: 10
 openmrs_db: openmrs
 openmrs_db_user: openmrs
 openmrs_db_password: foo
