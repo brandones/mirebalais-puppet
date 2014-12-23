@@ -24,7 +24,7 @@ mkdir -p ${DIR}/current
 mkdir -p ${DIR}/sequences
 
 # Dump database, encrypt, and compress
-mysqldump -u${USER} -p${PASS} --opt --flush-logs --single-transaction --master-data=2 openmrs | 7z a -p${PASS} -si -t7z ${DIR}/sequences/${FILENAME} -mx9
+mysqldump -u${USER} -p${PASS} --opt --flush-logs --single-transaction --master-data=2 openmrs | 7z a -p${PASS} -si -t7z ${DIR}/sequences/${FILENAME} -mx9 > /dev/null
 
 # link the current to the latest dump
 rm -f ${DIR}/current/mirebalais_current_backup.sql.7z
