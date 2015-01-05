@@ -21,7 +21,7 @@ mysqldump -u${USER} -p${PASS} --opt --flush-logs --single-transaction --ignore-t
 	--ignore-table=openmrs.pacsintegration_outbound_queue --ignore-table=openmrs.reporting_idset --ignore-table=openmrs.reporting_report_design \
 	--ignore-table=openmrs.reporting_report_design_resource --ignore-table=openmrs.reporting_report_processor \
 	--ignore-table=openmrs.reporting_report_request --ignore-table=openmrs.scheduler_task_config \
-	--ignore-table=openmrs.scheduler_task_config_property --ignore-table=openmrs.serialized_object openmrs | 7z a -p${ENCRYPT_PASSWORD} -si -t7z ${DIR}/reporting/${FILENAME} -mx9 2> /dev/null
+	--ignore-table=openmrs.scheduler_task_config_property --ignore-table=openmrs.serialized_object openmrs | 7z a -p${ENCRYPT_PASSWORD} -si -t7z ${DIR}/reporting/${FILENAME} -mx9 &> /dev/null
 
 #scp (note that public/private key sharing needs to be set up manually between production and reporting, this is not handled via puppet)
 scp ${DIR}/reporting/${FILENAME} ${REMOTE_SERVER}/${FILENAME}
