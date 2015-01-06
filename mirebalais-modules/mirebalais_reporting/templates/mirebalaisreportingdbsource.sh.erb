@@ -17,7 +17,7 @@ FILENAME_DECOMPRESSED='mirebalais_nightly_reporting_dump.sql'
 service tomcat6 stop
 
 # Unzip and unencrypt database
-7z e -p${DECRYPT_PASSWORD} -so ${DIR}/${FILENAME} > ${DIR}/${FILENAME_DECOMPRESSED} &> /dev/null
+7z e -p${DECRYPT_PASSWORD} -so ${DIR}/${FILENAME} > ${DIR}/${FILENAME_DECOMPRESSED} 2>&1 /dev/null
 
 # Source the database
 mysql -u ${USER} -p${PASSWORD} ${DB} < ${DIR}/${FILENAME_DECOMPRESSED}
