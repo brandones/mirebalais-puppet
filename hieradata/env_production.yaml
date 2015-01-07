@@ -2,7 +2,7 @@
 openmrs_auto_update_database: true
 site_domain: emr.hum.ht
 
-mirebalais_release: 'stable/'
+package_release: 'stable/'
 mysql_server_id: 1
 mysql_innodb_buffer_pool_size: 3G
 

@@ -3,7 +3,8 @@ class openmrs (
     $openmrs_db_user = decrypt(hiera('openmrs_db_user')),
     $openmrs_db_password = decrypt(hiera('openmrs_db_password')),
     $openmrs_auto_update_database = hiera('openmrs_auto_update_database'),
-    $mirebalais_release = hiera('mirebalais_release'),
+    $package_release = hiera('package_release'),
+    $webapp_name = hiera('webapp_name'),
     $tomcat = hiera('tomcat'),
     $remote_zlidentifier_url = hiera('remote_zlidentifier_url'),
     $remote_zlidentifier_username = decrypt(hiera('remote_zlidentifier_username')),
@@ -26,17 +27,17 @@ class openmrs (
     mode    => '0644'
   }
 
-  apt::source { 'mirebalais':
+  apt::source { 'pihemr':
     ensure      => present,
-    location    => 'http://bamboo.pih-emr.org/mirebalais-repo',
-    release     => $mirebalais_release,
+    location    => 'http://bamboo.pih-emr.org/pihemr-repo',
+    release     => $package_release,
     repos       => '',
     include_src => false,
   }
 
-  package { 'mirebalais':
+  package { 'pihemr':
     ensure  => latest,
-    require => [ Service[$tomcat], Apt::Source['mirebalais'], File['/etc/apt/apt.conf.d/99auth'] ],
+    require => [ Service[$tomcat], Apt::Source['pihemr'], File["/home/${tomcat}/.OpenMRS/${webapp_name}-runtime.properties"], File['/etc/apt/apt.conf.d/99auth'] ],
   }
 
   file { "/home/${tomcat}/.OpenMRS":
@@ -61,9 +62,9 @@ class openmrs (
     require => File["/home/${tomcat}/.OpenMRS"]
   }
 
-  file { "/home/${tomcat}/.OpenMRS/mirebalais-runtime.properties":
+  file { "/home/${tomcat}/.OpenMRS/${webapp_name}-runtime.properties":
     ensure  => present,
-    content => template('openmrs/mirebalais-runtime.properties.erb'),
+    content => template('openmrs/openmrs-runtime.properties.erb'),
     owner   => $tomcat,
     group   => $tomcat,
     mode    => '0644',

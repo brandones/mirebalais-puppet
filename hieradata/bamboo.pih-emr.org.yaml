@@ -1,4 +1,5 @@
 ---
+webapp_name: mirebalais
 site_domain: bamboo.pih-emr.org
 
 mysql_root_password: ENC[oWqIfmn/ER4CYIvjJSpIzQ==]

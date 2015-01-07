@@ -23,12 +23,12 @@ CURRENT_FILENAME=mirebalais_current_backup.sql.7z
 mkdir -p ${DIR}/current
 mkdir -p ${DIR}/sequences
 
-# Dump database, encrypt, and compress
-mysqldump -u${USER} -p${PASS} --opt --flush-logs --single-transaction --master-data=2 openmrs | 7z a -p${PASS} -si -t7z ${DIR}/sequences/${FILENAME} -mx9 > /dev/null
+# Dump database, encrypt and compress
+mysqldump -u${USER} -p${PASS} --opt --flush-logs --single-transaction --master-data=2 openmrs | 7za a -p${PASS} -siy -t7z ${DIR}/sequences/${FILENAME} -mx9 2>&1 >/dev/null
 
 # link the current to the latest dump
-rm -f ${DIR}/current/mirebalais_current_backup.sql.7z
+rm -f ${DIR}/current/${CURRENT_FILENAME}
 ln -s ${DIR}/sequences/${FILENAME} ${DIR}/current/${CURRENT_FILENAME}
 
-# Copy to remote backup location
+# Copy backup to remote location
 scp ${DIR}/current/${CURRENT_FILENAME} ${REMOTE_DB}/${FILENAME}
