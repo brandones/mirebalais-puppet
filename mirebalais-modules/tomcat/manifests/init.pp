@@ -97,6 +97,7 @@ class tomcat (
     require => User[$tomcat]
   }
 
+  # todo add a dependency on java being installed?
   service { $tomcat:
     enable  => $services_enable,
     require => [ Exec['tomcat-unzip'], File["/usr/local/${tomcat}"], File["/etc/init.d/${tomcat}"] ],
