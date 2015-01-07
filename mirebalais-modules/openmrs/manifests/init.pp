@@ -35,9 +35,14 @@ class openmrs (
     include_src => false,
   }
 
+  # make sure legacy debian package has been removed
+  package { 'mirebalais':
+    ensure => absent
+  }
+
   package { 'pihemr':
     ensure  => latest,
-    require => [ Service[$tomcat], Apt::Source['pihemr'], File["/home/${tomcat}/.OpenMRS/${webapp_name}-runtime.properties"], File['/etc/apt/apt.conf.d/99auth'] ],
+    require => [ Package['mirebalais'], Service[$tomcat], Apt::Source['pihemr'], File["/home/${tomcat}/.OpenMRS/${webapp_name}-runtime.properties"], File['/etc/apt/apt.conf.d/99auth'] ],
   }
 
   file { "/home/${tomcat}/.OpenMRS":
