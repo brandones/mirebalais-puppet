@@ -1,11 +1,11 @@
-
+webapp_name: mirebalais
 pih_config: mirebalais,mirebalais-reporting
 
 openmrs_auto_update_database: true
 site_domain: reporting.hum.ht
 appframework_config_filename: appframework-config-reporting.json
 
-mirebalais_release: 'stable/'
+package_release: 'stable/'
 
 mysql_server_id: 3
 mysql_master_ip: 

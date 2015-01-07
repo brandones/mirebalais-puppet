@@ -1,3 +1,4 @@
+webapp_name: mirebalais
 pih_config: mirebalais,mirebalais-production
 
 remote_db_user: backups
