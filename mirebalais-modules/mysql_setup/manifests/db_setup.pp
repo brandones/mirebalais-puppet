@@ -9,14 +9,14 @@ class mysql_setup::db_setup(
 
   mysql_database { $openmrs_db :
     ensure  => present,
-    require => [Service['mysqld'],  Package['mirebalais']],
+    require => [Service['mysqld'],  Package['pihemr']],
     charset => 'utf8',
   } ->
 
   mysql_user { "${openmrs_db_user}@localhost":
     ensure        => present,
     password_hash => mysql_password($openmrs_db_password),
-    require => [ Service['mysqld'], Package['mirebalais']],
+    require => [ Service['mysqld'], Package['pihemr']],
   } ->
 
   mysql_grant { "${openmrs_db_user}@localhost/${openmrs_db}":
@@ -24,7 +24,7 @@ class mysql_setup::db_setup(
     privileges => ['ALL'],
     table => '*.*',
     user => "${openmrs_db_user}@localhost",
-    require => [ Service['mysqld'],  Package['mirebalais']],
+    require => [ Service['mysqld'],  Package['pihemr']],
   } ->
 
   mysql_grant { "root@localhost/${openmrs_db}":
@@ -32,14 +32,14 @@ class mysql_setup::db_setup(
     privileges => ['ALL'],
     table => '*.*',
     user => "root@localhost",
-    require => [Service['mysqld'],  Package['mirebalais']],
+    require => [Service['mysqld'],  Package['pihemr']],
     notify  => Openmrs::Liquibase_migrate ['migrate base schema'];
   }
 
   mysql_database { $mirth_db :
     ensure  => present,
     charset => 'utf8',
-    require => [Service['mysqld'], Package['mirebalais']],
+    require => [Service['mysqld'], Package['pihemr']],
   }
 
   mysql_user { "${mirth_db_user}@localhost":
