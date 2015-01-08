@@ -28,14 +28,15 @@ class tomcat (
     cwd     => '/usr/local',
     command => "tar --group=${tomcat} --owner=${tomcat} -xzf /usr/local/tomcat-${version}.tgz",
     unless  => "test -d /usr/local/apache-tomcat-${version}",
-    require => [ Wget::Fetch['download-tomcat'], User[$tomcat] ],
+    require => [ Wget::Fetch['download-tomcat'], User[$tomcat], Exec['skipping license approval' ] ],
   }
+   
 
   file { "/usr/local/apache-tomcat-${version}":
     ensure  => directory,
     owner   => $tomcat,
     group   => $tomcat,
-    recurse => false,
+    recurse => true,
     require => Exec['tomcat-unzip'],
   }
 
