@@ -44,7 +44,7 @@ class tomcat (
     ensure  => directory,
     owner   => $tomcat,
     group   => $tomcat,
-    recurse => false,
+    recurse => true,
     require => File["/usr/local/apache-tomcat-${version}"]
   }
 
