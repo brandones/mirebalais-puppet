@@ -20,7 +20,7 @@ service tomcat6 stop
 7za e -p${DECRYPT_PASSWORD} -soy ${DIR}/${FILENAME} 1> ${DIR}/${FILENAME_DECOMPRESSED} 2>/dev/null
 
 # Source the database
-mysql -u ${USER} -p${PASSWORD} ${DB} < ${DIR}/${FILENAME_DECOMPRESSED}
+mysql -u ${USER} -p${PASSWORD} ${DB} < ${DIR}/${FILENAME_DECOMPRESSED} 2>/dev/null
 
 # Clean remove db file
 rm ${DIR}/${FILENAME_DECOMPRESSED}
