@@ -23,7 +23,7 @@ mysqldump -u${USER} -p${PASS} --opt --flush-logs --single-transaction --ignore-t
 	--ignore-table=openmrs.reporting_report_request --ignore-table=openmrs.scheduler_task_config \
 	--ignore-table=openmrs.scheduler_task_config_property --ignore-table=openmrs.serialized_object openmrs 2>/dev/null | 7za a -p${ENCRYPT_PASSWORD} -siy ${DIR}/reporting/${FILENAME} -mx9 2>&1 >/dev/null
 
-if [! -s "${DIR}/reporting/${FILENAME}" ]
+if ! [ -s "${DIR}/reporting/${FILENAME}" ]
 then
 	>&2 echo "Reporting DB dump file empty\n" 
 fi
