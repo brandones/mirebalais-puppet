@@ -24,6 +24,5 @@ radiology_contrast_studies: true
 death_note: true
 request_appointments: true
 appointmentscheduling_confidential: true
-cdi: true
 
 java_debug_parameters: '-Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5000'
