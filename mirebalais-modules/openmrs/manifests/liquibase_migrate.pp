@@ -15,6 +15,7 @@ define openmrs::liquibase_migrate(
     user        => 'root',
     unless      => $unless,
     require     => File['/usr/local/liquibase.jar'],
-    refreshonly => $refreshonly
+    refreshonly => $refreshonly,
+    timeout => 0,
   }
 }
