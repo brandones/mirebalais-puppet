@@ -2,8 +2,6 @@ FORGE
   remote: http://forge.puppetlabs.com
   specs:
     maestrodev/wget (1.1.0)
-    puppetlabs/apt (1.1.0)
-      puppetlabs/stdlib (>= 2.2.1)
     puppetlabs/stdlib (3.2.0)
 
 GIT
@@ -15,17 +13,24 @@ GIT
       puppetlabs/stdlib (>= 3.0.0)
 
 GIT
+  remote: https://github.com/puppetlabs/puppetlabs-apt
+  ref: 1.8.0
+  sha: 47c6f338eda98ed849531d92b63c5e33103f76e4
+  specs:
+    puppetlabs-apt (0.0.1)
+
+GIT
   remote: https://github.com/puppetlabs/puppetlabs-mysql
   ref: 1.0.0
   sha: 4e6b79288e5a570d26a20fb67e38f8055eaa8d51
   specs:
-    puppetlabs/mysql (1.0.0)
+    puppetlabs-mysql (1.0.0)
       puppetlabs/stdlib (>= 2.2.1)
 
 DEPENDENCIES
   logstash (>= 0)
   maestrodev/wget (>= 0)
-  puppetlabs/apt (>= 0)
-  puppetlabs/mysql (>= 0)
+  puppetlabs-apt (>= 0)
+  puppetlabs-mysql (>= 0)
   puppetlabs/stdlib (>= 0)
 

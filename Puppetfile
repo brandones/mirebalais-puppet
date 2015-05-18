@@ -1,7 +1,9 @@
 forge "http://forge.puppetlabs.com"
 
-mod 'puppetlabs/apt'
-mod 'puppetlabs/mysql',
+mod 'puppetlabs-apt',
+	:git => 'https://github.com/puppetlabs/puppetlabs-apt',
+	:ref => '1.8.0'
+mod 'puppetlabs-mysql',
     :git => 'https://github.com/puppetlabs/puppetlabs-mysql',
     :ref => '1.0.0'
 mod 'puppetlabs/stdlib'
@@ -14,5 +16,3 @@ mod 'logstash',
 #mod 'mirebalais',
 #   :git => 'https://github.com/PIH/mirebalais-puppet'
 
- mod 'apt',
-   :git => 'https://github.com/puppetlabs/puppetlabs-apt.git'
