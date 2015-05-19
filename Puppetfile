@@ -1,16 +1,16 @@
 forge "http://forge.puppetlabs.com"
 
 mod 'puppetlabs-apt',
-	:git => 'https://github.com/puppetlabs/puppetlabs-apt',
-	:ref => '1.8.0'
+  :git => 'https://github.com/puppetlabs/puppetlabs-apt',
+  :ref => '1.8.0'
 mod 'puppetlabs-mysql',
-    :git => 'https://github.com/puppetlabs/puppetlabs-mysql',
-    :ref => '1.0.0'
-mod 'puppetlabs/stdlib'
-mod 'maestrodev/wget'
+  :git => 'https://github.com/puppetlabs/puppetlabs-mysql',
+  :ref => '1.0.0'
+mod 'puppetlabs/stdlib', '4.6.0'
+mod 'maestrodev/wget', '1.7.0'
 mod 'logstash',
-  :git => 'https://github.com/electrical/puppet-logstash'
-
+  :git => 'https://github.com/electrical/puppet-logstash',
+  :ref => '0.5.1'
 # mod 'puppetlabs/stdlib'
 
 #mod 'mirebalais',
