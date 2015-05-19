@@ -15,5 +15,6 @@ my_account_feature: true
 request_appointments: true
 appointmentscheduling_confidential: true
 death_note: true
+radiology_contrast_studies: true
 
 java_memory_parameters: '-Xmx512m -Xms512m -XX:PermSize=256m -XX:MaxPermSize=512m -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC'
