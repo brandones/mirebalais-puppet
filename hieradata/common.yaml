@@ -53,6 +53,8 @@ junit_username: junit
 junit_password: Junit123
 
 # feature toggle settings
+chief_complaint: true
+
 reportingui_ad_hoc_analysis: false
 register_test_patient: false
 my_account_feature: false
@@ -61,7 +63,6 @@ radiology_contrast_studies: false
 death_note: false
 request_appointments: false
 appointmentscheduling_confidential: false
-chief_complaint: false
 receipt_number: false
 
 java_memory_parameters: '-Xmx512m -Xms512m -XX:PermSize=256m -XX:MaxPermSize=256m -XX:NewSize=128m'
