@@ -19,6 +19,9 @@ backup_db_password: foo
 tomcat: tomcat6
 site_domain: foo.org
 appframework_config_filename: appframework-config-common.json
+backup_file_prefix: foo
+
+sysadmin_email: emrsysadmin@pih.org
 
 smtp_username: emralerts@pih.org
 smtp_userpassword: Medinfo999
@@ -48,8 +51,6 @@ services_enable: true
 
 junit_username: junit
 junit_password: Junit123
-
-schedule_reports: false
 
 # feature toggle settings
 reportingui_ad_hoc_analysis: false
