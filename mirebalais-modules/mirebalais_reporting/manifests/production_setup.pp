@@ -1,7 +1,8 @@
 class mirebalais_reporting::production_setup (
     $backup_db_user = decrypt(hiera('backup_db_user')),
     $backup_db_password = decrypt(hiera('backup_db_password')),
-    $tomcat = hiera('tomcat')
+    $tomcat = hiera('tomcat'),
+    $sysadmin_email = hiera('sysadmin_email')
   ){
 
   file { 'mirebalaisreportingdbdump.sh':
@@ -21,7 +22,7 @@ class mirebalais_reporting::production_setup (
     user    => 'root',
     hour    => 2,
     minute  => 30,
-    environment => 'MAILTO=emrsysadmin@pih.org',
+    environment => 'MAILTO=${sysadmin_email}',
     require => [ File['mirebalaisreportingdbdump.sh'], Package['p7zip-full'] ]
   }
 
@@ -42,7 +43,7 @@ class mirebalais_reporting::production_setup (
 	user => 'root',
 	hour =>	5,
 	minute => 00,
-	environment => 'MAILTO=emrsysadmin@pih.org',
+  environment => 'MAILTO=${sysadmin_email}',
 	require => [ File['mirebalaisreportscleanup.sh'] ]
   }
 

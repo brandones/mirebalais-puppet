@@ -1,11 +1,12 @@
 #!/bin/sh
 #
-# Mirebalais Backup Script
+# Backup Script
 #
 
 USER='<%= @backup_user %>'
 PASS='<%= @backup_password %>'
 DIR=/home/<%= @tomcat %>/backups
+PREFIX='<%= @backup_file_prefix %>'
 
 REMOTE_DB='<%= @remote_db_user %>@<%= @remote_db_server %>:<%= @remote_backup_dir %>'
 
@@ -16,8 +17,8 @@ else
   MODIFIER=`date +%Y%m%d-%H%M%S`
 fi
 
-FILENAME=mirebalais_backup_${MODIFIER}.sql.7z
-CURRENT_FILENAME=mirebalais_current_backup.sql.7z
+FILENAME=${PREFIX}_backup_${MODIFIER}.sql.7z
+CURRENT_FILENAME=${PREFIX}_current_backup.sql.7z
 
 # create the needed directories
 mkdir -p ${DIR}/current

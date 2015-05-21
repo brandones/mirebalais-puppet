@@ -12,9 +12,10 @@
   missingok
 }
 
-/usr/local/tomcat7/logs/*.log {
+/usr/local/tomcat7/logs/*log* {
   daily
   rotate 7
   missingok
+  maxage 7
 }
 

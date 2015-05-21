@@ -5,6 +5,7 @@ class mysql_setup::backup (
     $remote_db_server = hiera('remote_db_server'),
     $remote_backup_dir = hiera('remote_backup_dir'),
     $tomcat = hiera('tomcat')
+    $sysadmin_email = hiera('sysadmin_email')
   ){
 
   database_user { "${backup_user}@localhost":
@@ -29,7 +30,7 @@ class mysql_setup::backup (
     user    => 'root',
     hour    => 1,
     minute  => 30,
-    environment => 'MAILTO=emrsysadmin@pih.org',
+    environment => 'MAILTO=${sysadmin_email}',
     require => [ File['mysqlbackup.sh'], Package['p7zip-full'] ]
   }
 
@@ -49,7 +50,7 @@ class mysql_setup::backup (
     minute => 30,
     hour => 3,
     monthday => 1,
-    environment => 'MAILTO=emrsysadmin@pih.org',
+    environment => 'MAILTO=${sysadmin_email}',
     require => [ File['mysqlarchive.sh'] ]
   }
 
