@@ -6,17 +6,18 @@ class openmrs (
     $package_release = hiera('package_release'),
     $webapp_name = hiera('webapp_name'),
     $tomcat = hiera('tomcat'),
+    $junit_username = hiera('junit_username'),
+    $junit_password = decrypt(hiera('junit_password')),
+    $appframework_config_filename = hiera('appframework_config_filename'), 
+    $pih_config = hiera('pih_config'),
+
+    # Mirebalais only
     $remote_zlidentifier_url = hiera('remote_zlidentifier_url'),
     $remote_zlidentifier_username = decrypt(hiera('remote_zlidentifier_username')),
     $remote_zlidentifier_password = decrypt(hiera('remote_zlidentifier_password')),
-	$lacolline_server_url = hiera('lacolline_server_url'),
+    $lacolline_server_url = hiera('lacolline_server_url'),
     $lacolline_username = decrypt(hiera('lacolline_username')),
-    $lacolline_password = decrypt(hiera('lacolline_password')),
-    $junit_username = hiera('junit_username'),
-    $junit_password = decrypt(hiera('junit_password')),
-    $schedule_reports = hiera('schedule_reports'),
-    $appframework_config_filename = hiera('appframework_config_filename'), 
-    $pih_config = hiera('pih_config')
+    $lacolline_password = decrypt(hiera('lacolline_password'))
   ){
 
   file { '/etc/apt/apt.conf.d/99auth':
@@ -35,14 +36,9 @@ class openmrs (
     include_src => false,
   }
 
-  # make sure legacy debian package has been removed
-  package { 'mirebalais':
-    ensure => absent
-  }
-
   package { 'pihemr':
     ensure  => latest,
-    require => [ Package['mirebalais'], Service[$tomcat], Apt::Source['pihemr'], File["/home/${tomcat}/.OpenMRS/${webapp_name}-runtime.properties"], File['/etc/apt/apt.conf.d/99auth'] ],
+    require => [ Service[$tomcat], Apt::Source['pihemr'], File["/home/${tomcat}/.OpenMRS/${webapp_name}-runtime.properties"], File['/etc/apt/apt.conf.d/99auth'] ],
   }
 
   file { "/home/${tomcat}/.OpenMRS":
@@ -51,11 +47,6 @@ class openmrs (
     group   => $tomcat,
     mode    => '0755',
     require => User[$tomcat]
-  }
-
-  # this is a legacy file--these properties have been moved into the main runtime properties file
-  file { "/home/${tomcat}/.OpenMRS/mirebalais.properties":
-    ensure  => absent
   }
 
   file { "/home/${tomcat}/.OpenMRS/feature_toggles.properties":
