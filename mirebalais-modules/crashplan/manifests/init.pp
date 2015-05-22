@@ -11,8 +11,7 @@ class crashplan(
 
   exec { 'unzip':
     cwd     => '/usr/local',
-    command => '/bin/tar -C CrashPlanPRO-install -xzf /usr/local/crashplan.tgz',
+    command => '/bin/tar -xzf /usr/local/crashplan.tgz',
     require => [ Wget::Fetch['download'] ],
   }
-
 }
