@@ -4,8 +4,8 @@ class mysql_setup::backup (
     $remote_db_user = hiera('remote_db_user'),
     $remote_db_server = hiera('remote_db_server'),
     $remote_backup_dir = hiera('remote_backup_dir'),
-    $tomcat = hiera('tomcat')
-    $sysadmin_email = hiera('sysadmin_email')
+    $tomcat = hiera('tomcat'),
+    $sysadmin_email = hiera('sysadmin_email'),
   ){
 
   database_user { "${backup_user}@localhost":
