@@ -63,13 +63,13 @@ class apache2 (
 
   file { '/etc/ssl/certs/${ssl_cert_file}':
     ensure => present,
-    source => 'puppet:///modules/apache2/etc/ssl/certs/${ssl_cert_file}',
+    source => 'puppet:///modules/apache2/etc/ssl/certs/$ssl_cert_file',
     notify => Service['apache2']
   }
 
   file { '/etc/ssl/certs/${ssl_cert_chain_file}':
     ensure => present,
-    source => 'puppet:///modules/apache2/etc/ssl/certs/${ssl_cert_chain_file}',
+    source => 'puppet:///modules/apache2/etc/ssl/certs/$ssl_cert_chain_file',
     notify => Service['apache2']
   }
 
