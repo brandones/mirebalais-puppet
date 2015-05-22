@@ -1,6 +1,6 @@
 class crashplan(
   $services_ensure = hiera('services_ensure'),
-  $services_enable = hiera('services_enable')
+  $services_enable = hiera('services_enable'),
 ){
 
   wget::fetch { 'download-crashplan':
@@ -29,9 +29,9 @@ class crashplan(
   file_line { 'Modify my.service.xml':
     path  => '/usr/local/crashplan/conf/my.service.xml',  
     line  => '<serviceHost>0.0.0.0</serviceHost>',
-    match => '^<serviceHost>127.0.0.1</serviceHost>",
+    match => '^<serviceHost>127.0.0.1</serviceHost>',
     ensure  => present,
-    require => Exec['crashplan-install'],
+    require => [ Exec['crashplan-install'] ],
   }
 
   if $services_enable {
