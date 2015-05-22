@@ -154,9 +154,10 @@ node 'pleebo.pih-emr.org' {
   include mysql_setup::db_setup
   
   include newrelic
-  include logging
+  #include logging
 
   include mysql_setup::backup
+  include crashplan
 }
 
 # TODO: do we still use/need this?

@@ -7,8 +7,7 @@
   notifempty
   missingok
   sharedscripts
-  #prerotate
-  #/usr/local/cgi-bin/awstats.pl -config=<%= @site_domain %> -update > /dev/null
+  maxage 7
   endscript 
 }
 
@@ -17,5 +16,6 @@
   rotate 7
   notifempty
   missingok
+  maxage 7
 }
 

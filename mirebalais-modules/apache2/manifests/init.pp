@@ -3,6 +3,7 @@ class apache2 (
   $services_ensure = hiera('services_ensure'),
   $services_enable = hiera('services_enable'),
   $site_domain = hiera('site_domain'),
+  $webapp_name = hiera('webapp_name'),
 ){
 
   $ssl_cert_file = $domain ? {
@@ -17,9 +18,10 @@ class apache2 (
     default       => 'gd_bundle.crt',
   }
 
-  $ssl_cert_key_file = $domain ? {
-    'hum.ht'  => 'hum.key',
-    default   => 'pih-emr.org.key',
+  $ssl_key_file = $domain ? {
+    'hum.ht'      => 'hum.key',
+    'pih-emr.org' => 'pih-emr.org.key',
+    default       => 'pih-emr.org.key',
   }
   
   package { 'apache2':
@@ -48,8 +50,8 @@ class apache2 (
   }
 
   file { '/etc/apache2/sites-available/default-ssl':
-    ensure => file,
-    source => 'puppet:///modules/apache2/sites-available/default-ssl',
+    ensure => present,
+    content => template('apache2/default-ssl.erb'),
     notify => Service['apache2']
   }
 
