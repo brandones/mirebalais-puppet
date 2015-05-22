@@ -1,6 +1,6 @@
 forge "http://forge.puppetlabs.com"
 
-mod 'puppetlabs-apt',
+mod 'apt',
   :git => 'https://github.com/puppetlabs/puppetlabs-apt',
   :ref => '1.8.0'
 mod 'puppetlabs-mysql',
