@@ -35,10 +35,9 @@ class crashplan(
   }
 
   if $services_enable {
-    $require = [ File['/etc/init.d/crashplan'], File['/usr/local/crashplan/bin/CrashPlanEngine'], File['/usr/local/crashplan/conf/my.service.xml'] ] 
-]
+    $require = [ File['/etc/init.d/crashplan'], File['/usr/local/crashplan/bin/CrashPlanEngine'], File['/usr/local/crashplan/conf/my.service.xml'] ], 
   } else {
-    $require = []
+    $require = [],
   }
 
   service { 'crashplan':
