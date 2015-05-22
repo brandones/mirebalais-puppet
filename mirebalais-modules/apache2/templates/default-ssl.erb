@@ -3,9 +3,9 @@
 
 	DocumentRoot /var/www/
 
-	JkMount /<%= @webapp_name %> <%= @webapp_name %>
-	JkMount /<%= @webapp_name %>/ <%= @webapp_name %>
-	JkMount /<%= @webapp_name %>/* <%= @webapp_name %>
+	JkMount /<%= @webapp_name %> 	<%= @webapp_name %>
+	JkMount /<%= @webapp_name %>/	<%= @webapp_name %>
+	JkMount /<%= @webapp_name %>/*	<%= @webapp_name %>
   
 	<Directory />
 		Options FollowSymLinks
