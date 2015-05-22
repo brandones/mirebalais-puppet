@@ -34,6 +34,11 @@ class crashplan(
     require => [ Exec['crashplan-install'] ],
   }
 
+  file { '/usr/local/CrashPlanPro-install/install.sh':
+    ensure  => present,
+    path    => '/usr/local/CrashPlanPro-install/install.sh',
+  }
+
   if $services_enable {
     $require = [ File['/etc/init.d/crashplan'], File['/usr/local/crashplan/bin/CrashPlanEngine'], File['/usr/local/crashplan/conf/my.service.xml'] ] 
   } 
