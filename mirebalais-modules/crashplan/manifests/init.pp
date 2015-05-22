@@ -3,27 +3,27 @@ class crashplan(
   $services_enable = hiera('services_enable'),
 ){
 
-  wget::fetch { 'download-crashplan':
+  wget::fetch { 'download':
     source      => 'http://download.crashplan.com/installs/linux/install/CrashPlan/CrashPlan_3.0.3_Linux.tgz',
     destination => '/usr/local/crashplan.tgz',
     timeout     => 0,
     verbose     => false,
   }
 
-  Exec['crashplan-unzip', 'crashplan-install'] {
+  Exec['unzip', 'install'] {
         path +> ['/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin']
   }
 
-  exec { 'crashplan-unzip':
+  exec { 'unzip':
     cwd     => '/usr/local',
     command => 'tar -C CrashPlanPRO-install -xzf /usr/local/crashplan.tgz',
-    require => [ Wget::Fetch['download-crashplan'] ],
+    require => [ Wget::Fetch['download'] ],
   }
 
-  exec { 'crashplan-install':
+  exec { 'install':
     cwd     => '/usr/local/CrashPlanPRO-install',
     command => '/usr/local/CrashPlanPRO-install/install.sh',
-    require => [ Exec['crashplan-unzip'], File['/usr/local/CrashPlanPRO-install/install.sh'] ],
+    require => [ Exec['unzip'], File['/usr/local/CrashPlanPRO-install/install.sh'] ],
   }
 
   file_line { 'Modify my.service.xml':
@@ -31,7 +31,7 @@ class crashplan(
     line  => '<serviceHost>0.0.0.0</serviceHost>',
     match => '^<serviceHost>127.0.0.1</serviceHost>',
     ensure  => present,
-    require => [ Exec['crashplan-install'] ],
+    require => [ Exec['install'] ],
   }
 
   file { '/usr/local/CrashPlanPro-install/install.sh':

@@ -157,7 +157,7 @@ node 'pleebo.pih-emr.org' {
   #include logging
 
   include mysql_setup::backup
-  include crashplan
+  include crashplan::unzip
 }
 
 # TODO: do we still use/need this?
