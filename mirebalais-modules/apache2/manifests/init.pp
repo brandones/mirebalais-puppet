@@ -4,25 +4,10 @@ class apache2 (
   $services_enable = hiera('services_enable'),
   $site_domain = hiera('site_domain'),
   $webapp_name = hiera('webapp_name'),
+  $ssl_cert_file = hiera('ssl_cert_file'),
+  $ssl_chain_file = hiera('ssl_chain_file'),
+  $ssl_key_file = hiera('ssl_key_file'),
 ){
-
-  $ssl_cert_file = $domain ? {
-    'hum.ht'      => 'gd_bundle-g2.crt',
-    'pih-emr.org' => '_.pih-emr.org.crt',
-    default       => '_.pih-emr.org.crt',
-  }
-
-  $ssl_cert_chain_file = $domain ? {
-    'hum.ht'      => 'hum.ht.crt',
-    'pih-emr.org' => 'gd_bundle.crt',
-    default       => 'gd_bundle.crt',
-  }
-
-  $ssl_key_file = $domain ? {
-    'hum.ht'      => 'hum.key',
-    'pih-emr.org' => 'pih-emr.org.key',
-    default       => 'pih-emr.org.key',
-  }
   
   package { 'apache2':
     ensure => installed,
@@ -61,16 +46,20 @@ class apache2 (
     notify => Service['apache2']
   }
 
-  file { '/etc/ssl/certs/$ssl_cert_file':
+  file { '/etc/ssl/certs/${ssl_cert_file}':
     ensure => present,
-    source => 'puppet:///modules/apache2/etc/ssl/certs/$ssl_cert_file',
+    source => 'puppet:///modules/apache2/etc/ssl/certs/${ssl_cert_file}',
     notify => Service['apache2']
   }
 
-  file { '/etc/ssl/certs/$ssl_cert_chain_file':
+  file { '/etc/ssl/certs/${ssl_chain_file}':
     ensure => present,
-    source => 'puppet:///modules/apache2/etc/ssl/certs/$ssl_cert_chain_file',
+    source => 'puppet:///modules/apache2/etc/ssl/certs/${ssl_chain_file}',
     notify => Service['apache2']
+  }
+
+  file { '/etc/ssl/private/${ssl_key_file}':
+    ensure => present,
   }
 
   exec { 'enable apache mods':

@@ -15,7 +15,7 @@ fi
 
 if [ "$1" != "local" ]
 then
-  if [ ! -f /etc/puppet-decrypt/encryptor_secret_key ] || [ ! -f /etc/ssl/private/hum.key ]
+  if [ ! -f /etc/puppet-decrypt/encryptor_secret_key ] || [ ! -f /etc/ssl/private/hum.key ] || [ ! -f /etc/ssl/private/pih-emr.org.key ]
   then
     echo "Please provide a username to fetch private data"
     read user
@@ -24,6 +24,7 @@ then
 
     mv encryptor_secret_key /etc/puppet-decrypt/
     mv hum.key /etc/ssl/private/
+    mv pih-emr.org.key /etc/ssl/private/
   fi
 
   if [ ! -f ~/.ssh/id_dsa ]
