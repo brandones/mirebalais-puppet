@@ -160,6 +160,29 @@ node 'pleebo.pih-emr.org' {
   include crashplan
 }
 
+node 'poro.pih-emr.org' {
+
+  class { 'apt':
+    always_apt_update => true,
+  }
+
+  include mailx
+  include ntpdate
+  include apt_upgrades
+  include wget
+
+  include java
+  include mysql_setup_56
+  include apache2
+  include tomcat
+
+  include openmrs
+  include openmrs::initial_setup
+  include mysql_setup::db_setup
+  
+  include newrelic
+}
+
 # TODO: do we still use/need this?
 
 node 'emrreplication.hum.ht' inherits default {
