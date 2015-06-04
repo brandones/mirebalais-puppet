@@ -11,5 +11,9 @@ remote_db_server: amigo.pih-emr.org
 remote_backup_dir: liberia/pleebo/db
 backup_file_prefix: pleebo
 
+#feature toggles
+my_account_feature: true
+
 mysql_innodb_buffer_pool_size: 1G
 java_memory_parameters: '-Xmx4G -Xms1024m -XX:PermSize=256m -XX:MaxPermSize=512m -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC'
+
