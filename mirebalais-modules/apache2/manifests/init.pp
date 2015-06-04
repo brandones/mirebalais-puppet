@@ -2,9 +2,13 @@ class apache2 (
   $tomcat = hiera('tomcat'),
   $services_ensure = hiera('services_ensure'),
   $services_enable = hiera('services_enable'),
-  $site_domain = hiera('site_domain')  
+  $site_domain = hiera('site_domain'),
+  $webapp_name = hiera('webapp_name'),
+  $ssl_cert_file = hiera('ssl_cert_file'),
+  $ssl_chain_file = hiera('ssl_chain_file'),
+  $ssl_key_file = hiera('ssl_key_file'),
 ){
-
+  
   package { 'apache2':
     ensure => installed,
   }
@@ -31,8 +35,8 @@ class apache2 (
   }
 
   file { '/etc/apache2/sites-available/default-ssl':
-    ensure => file,
-    source => 'puppet:///modules/apache2/sites-available/default-ssl',
+    ensure => present,
+    content => template('apache2/default-ssl.erb'),
     notify => Service['apache2']
   }
 
@@ -42,16 +46,18 @@ class apache2 (
     notify => Service['apache2']
   }
 
-  file { '/etc/ssl/certs/hum.ht.crt':
-    ensure => present,
-    source => 'puppet:///modules/apache2/etc/ssl/certs/hum.ht.crt',
-    notify => Service['apache2']
+  file { "/etc/ssl/certs/${ssl_cert_file}":
+    ensure => file,
+    source => "puppet:///modules/apache2/etc/ssl/certs/${ssl_cert_file}",
   }
 
-  file { '/etc/ssl/certs/gd_bundle-g2.crt':
+  file { "/etc/ssl/certs/${ssl_chain_file}":
+    ensure => file,
+    source => "puppet:///modules/apache2/etc/ssl/certs/${ssl_chain_file}",
+  }
+
+  file { "/etc/ssl/private/${ssl_key_file}":
     ensure => present,
-    source => 'puppet:///modules/apache2/etc/ssl/certs/gd_bundle-g2.crt',
-    notify => Service['apache2']
   }
 
   exec { 'enable apache mods':

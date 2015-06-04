@@ -1,5 +1,6 @@
 class awstats(
       $site_domain = hiera('site_domain')
+      $sysadmin_email = hiera('sysadmin_email')
 ) {
 
     package { 'awstats':
@@ -22,7 +23,7 @@ class awstats(
     	 command => "/usr/lib/cgi-bin/awstats.pl -config=$site_domain -update > /dev/null",
 	 user => root,
 	 hour => 0,
-	 environment => "MAILTO=emrsysadmin@pih.org"
+     environment => 'MAILTO=${sysadmin_email}',
     }
 
     exec { 'generate initial awstats':

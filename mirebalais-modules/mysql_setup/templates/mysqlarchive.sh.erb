@@ -1,13 +1,14 @@
 #!/bin/sh
 #
-# Mirebalais backup cleanup and archiving script
+# Backup cleanup and archiving script
 #
 
 DIR=/home/<%= @tomcat %>/backups
+PREFIX='<%= @backup_file_prefix %>'
 
-FILENAME=mirebalais_backup_20*.sql.7z
-RELEASENAME=mirebalais_backup_release_*.sql.7z
-ARCHIVEFILE=mirebalais_backup_201???01-*.sql.7z
+FILENAME=${PREFIX}_backup_20*.sql.7z
+RELEASENAME=${PREFIX}_backup_release_*.sql.7z
+ARCHIVEFILE=${PREFIX}_backup_201???01-*.sql.7z
 
 # Delete all pre-release backups older than 15 days
 find ${DIR}/sequences/${RELEASENAME} -mtime +15 -exec rm {} \;
