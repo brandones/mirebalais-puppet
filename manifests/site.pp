@@ -65,7 +65,7 @@ node 'bamboo.pih-emr.org' {
   include java
   include mysql_setup_56
   include tomcat
-  include apache2
+  #include apache2
 
   include openmrs
   include openmrs::initial_setup
