@@ -57,7 +57,7 @@ chief_complaint: true
 
 reportingui_ad_hoc_analysis: false
 register_test_patient: false
-my_account_feature: false
+my_account_feature: true
 notifiable_diseases_report: false
 radiology_contrast_studies: false
 death_note: false
