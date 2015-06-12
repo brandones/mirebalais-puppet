@@ -64,6 +64,7 @@ death_note: false
 request_appointments: false
 appointmentscheduling_confidential: false
 receipt_number: false
+oncology_note: false
 
 # SSL certificates
 ssl_cert_file: '_.pih-emr.org.crt'
