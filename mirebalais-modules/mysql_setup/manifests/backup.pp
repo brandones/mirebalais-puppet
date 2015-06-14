@@ -31,7 +31,7 @@ class mysql_setup::backup (
     ensure  => present,
     command => '/usr/local/sbin/mysqlbackup.sh > /dev/null',
     user    => 'root',
-    hour    => '${backup_hour}',
+    hour    => "${backup_hour}",
     minute  => 30,
     environment => 'MAILTO=${sysadmin_email}',
     require => [ File['mysqlbackup.sh'], Package['p7zip-full'] ]
@@ -51,7 +51,7 @@ class mysql_setup::backup (
     command => '/usr/local/sbin/mysqlarchive.sh > /dev/null',
     user     => 'root',
     minute => 30,
-    hour => '${archive_hour}',
+    hour => "${archive_hour}",
     monthday => 1,
     environment => 'MAILTO=${sysadmin_email}',
     require => [ File['mysqlarchive.sh'] ]
