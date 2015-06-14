@@ -20,6 +20,8 @@ tomcat: tomcat6
 site_domain: foo.org
 appframework_config_filename: appframework-config-common.json
 backup_file_prefix: foo
+backup_hour: 1
+archive_hour: 3
 
 sysadmin_email: emrsysadmin@pih.org
 

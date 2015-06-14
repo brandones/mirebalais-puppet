@@ -7,6 +7,8 @@ class mysql_setup::backup (
     $tomcat = hiera('tomcat'),
     $sysadmin_email = hiera('sysadmin_email'),
     $backup_file_prefix = hiera('backup_file_prefix'),
+    $backup_hour = hiera('backup_hour'),
+    $archive_hour = hiera('archive_hour'),
   ){
 
   database_user { "${backup_user}@localhost":
@@ -29,7 +31,7 @@ class mysql_setup::backup (
     ensure  => present,
     command => '/usr/local/sbin/mysqlbackup.sh > /dev/null',
     user    => 'root',
-    hour    => 1,
+    hour    => '${backup_hour}',
     minute  => 30,
     environment => 'MAILTO=${sysadmin_email}',
     require => [ File['mysqlbackup.sh'], Package['p7zip-full'] ]
@@ -49,7 +51,7 @@ class mysql_setup::backup (
     command => '/usr/local/sbin/mysqlarchive.sh > /dev/null',
     user     => 'root',
     minute => 30,
-    hour => 3,
+    hour => '${archive_hour}',
     monthday => 1,
     environment => 'MAILTO=${sysadmin_email}',
     require => [ File['mysqlarchive.sh'] ]
