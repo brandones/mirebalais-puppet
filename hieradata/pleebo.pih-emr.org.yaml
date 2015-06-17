@@ -11,6 +11,8 @@ remote_db_user: backups
 remote_db_server: amigo.pih-emr.org
 remote_backup_dir: liberia/pleebo/db
 backup_file_prefix: pleebo
+backup_hour: 15
+archive_hour: 16
 
 #feature toggles
 my_account_feature: true
