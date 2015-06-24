@@ -5,9 +5,14 @@ class java {
 
   apt::ppa { 'ppa:webupd8team/java': }
 
+  package { 'oracle-java6-installer':
+	ensure => absent
+  }
+
   package { 'oracle-java7-installer':
     ensure  => installed,
     require => [Apt::Ppa['ppa:webupd8team/java'],
+		Package['oracle-java6-installer'],
                 Exec['skipping license approval']]
   }
 
