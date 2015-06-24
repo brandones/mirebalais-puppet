@@ -6,7 +6,7 @@ class java {
   apt::ppa { 'ppa:webupd8team/java': }
 
   package { 'oracle-java6-installer':
-	ensure => absent
+	ensure => purged
   }
 
   package { 'oracle-java7-installer':
