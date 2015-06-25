@@ -28,11 +28,4 @@ class java {
 	user => root 
   }
 
-  # set this just in case this is the first run and /etc/environment has not yet been sourced?
-
-  exec {
-    'set JAVA_HOME':
-	command => 'export JAVA_HOME="/usr/lib/jvm/java-7-oracle"',
-        user => root
-  }
 }
