@@ -28,7 +28,7 @@ class tomcat (
     cwd     => '/usr/local',
     command => "tar --group=${tomcat} --owner=${tomcat} -xzf /usr/local/tomcat-${version}.tgz",
     unless  => "test -d /usr/local/apache-tomcat-${version}",
-    require => [ Wget::Fetch['download-tomcat'], User[$tomcat], Exec['skipping license approval' ] ],
+    require => [ Wget::Fetch['download-tomcat'], User[$tomcat], Exec['oracle-java7-installer' ] ],
   }
    
 
