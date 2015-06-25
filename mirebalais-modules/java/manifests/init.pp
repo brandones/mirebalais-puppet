@@ -19,15 +19,13 @@ class java {
   exec {
     'set-licence-selected':
       	command => '/bin/echo debconf shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections',
-	user => root,
-        refreshonly => true 
+	user => root
   }
 
   exec {
     'set-licence-seen':
       	command => '/bin/echo debconf shared/accepted-oracle-license-v1-1 seen true | /usr/bin/debconf-set-selections',
-	user => root,  
-        refreshonly => true
+	user => root 
   }
 
 }
