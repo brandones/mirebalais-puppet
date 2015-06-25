@@ -32,7 +32,7 @@ class java {
 
   exec {
     'set JAVA_HOME':
-	command => 'source JAVA_HOME="/usr/lib/jvm/java-7-oracle"',
+	command => 'export JAVA_HOME="/usr/lib/jvm/java-7-oracle"',
         user => root
   }
 }
