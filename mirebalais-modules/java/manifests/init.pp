@@ -17,7 +17,7 @@ class java {
   }
 
   exec {'skipping license approval':
-    command     => '/bin/echo  "oracle-java7-installer shared/accepted-oracle-license-v1-1 boolean true" | /usr/bin/debconf-set-selections',
+    command     => 'echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections',
     user        => 'root',
     subscribe   => Apt::Ppa['ppa:webupd8team/java'],
     refreshonly => true
