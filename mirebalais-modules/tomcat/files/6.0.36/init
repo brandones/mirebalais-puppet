@@ -77,7 +77,8 @@ find_openjdks()
 
 OPENJDKS=""
 find_openjdks
-JDK_DIRS="/usr/lib/jvm/default-java ${OPENJDKS} /usr/lib/jvm/java-6-oracle /usr/lib/jvm/java-1.5.0-sun /usr/lib/j2sdk1.5-sun /usr/lib/j2sdk1.5-ibm"
+# MG July 25, 2015--added java-7-oracle to the path
+JDK_DIRS="/usr/lib/jvm/default-java ${OPENJDKS} /usr/lib/jvm/java-7-oracle /usr/lib/jvm/java-6-oracle /usr/lib/jvm/java-1.5.0-sun /usr/lib/j2sdk1.5-sun /usr/lib/j2sdk1.5-ibm"
 
 # Look for the right JVM to use
 for jdir in $JDK_DIRS; do
