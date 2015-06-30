@@ -15,7 +15,6 @@ mirth_inbound_from_pacs_mirebalais_port: 6662
 
 # feature toggle settings
 register_test_patient: true
-my_account_feature: true
 notifiable_diseases_report: true
 reportingui_ad_hoc_analysis: true
 radiology_contrast_studies: true

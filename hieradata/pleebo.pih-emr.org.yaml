@@ -15,7 +15,6 @@ backup_hour: 15
 archive_hour: 16
 
 #feature toggles
-my_account_feature: true
 
 mysql_innodb_buffer_pool_size: 1G
 java_memory_parameters: '-Xmx4G -Xms1024m -XX:PermSize=256m -XX:MaxPermSize=512m -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC'

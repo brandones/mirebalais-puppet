@@ -11,7 +11,6 @@ lacolline_username: wsuser
 lacolline_password: ENC[OV3IH5U9urv6gEb76vnyYA==]
 
 # feature toggle settings
-my_account_feature: true
 request_appointments: true
 appointmentscheduling_confidential: true
 death_note: true
