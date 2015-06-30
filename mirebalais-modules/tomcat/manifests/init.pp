@@ -12,8 +12,8 @@ class tomcat (
       $source  = 'http://archive.apache.org/dist/tomcat/tomcat-6/v6.0.36/bin/apache-tomcat-6.0.36.tar.gz'
     }
     tomcat7: {
-      $version = '7.0.35'
-      $source  = 'http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.35/bin/apache-tomcat-7.0.35.tar.gz'
+      $version = '7.0.62'
+      $source  = 'http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.62/bin/apache-tomcat-7.0.62.tar.gz'
     }
   }
 
