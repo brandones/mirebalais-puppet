@@ -56,14 +56,11 @@ class tomcat (
     require => Exec['tomcat-unzip'],
   }
 
-  # TODO: confirm that we can use the same server.xml for Tomcat 6 and Tomcat 7
-  # (or don't support tomcat 7 for now)
-
   file { "/usr/local/apache-tomcat-${version}/conf/server.xml":
     ensure  => present,
     owner   => $tomcat,
     group   => $tomcat,
-    source  => "puppet:///modules/tomcat/server.xml",
+    source  => "puppet:///modules/tomcat/${version}/server.xml",
     require => File["/usr/local/apache-tomcat-${version}/conf"],
     notify  => Service["$tomcat"]
   }
