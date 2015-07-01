@@ -8,15 +8,16 @@ class tomcat (
 
   case $tomcat {
     tomcat6: {
-      $version = '6.0.36'
-      $source  = 'http://archive.apache.org/dist/tomcat/tomcat-6/v6.0.36/bin/apache-tomcat-6.0.36.tar.gz'
+	$version = '6.0.36'
+      	$source  = 'http://archive.apache.org/dist/tomcat/tomcat-6/v6.0.36/bin/apache-tomcat-6.0.36.tar.gz'
     }
     tomcat7: {
-      $version = '7.0.35'
-      $source  = 'http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.35/bin/apache-tomcat-7.0.35.tar.gz'
+      	$version = '7.0.62'
+      	$source  = 'http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.62/bin/apache-tomcat-7.0.62.tar.gz'
     }
   }
 
+  # install the proper version of tomcat
   wget::fetch { 'download-tomcat':
     source      => $source,
     destination => "/usr/local/tomcat-${version}.tgz",
@@ -28,7 +29,7 @@ class tomcat (
     cwd     => '/usr/local',
     command => "tar --group=${tomcat} --owner=${tomcat} -xzf /usr/local/tomcat-${version}.tgz",
     unless  => "test -d /usr/local/apache-tomcat-${version}",
-    require => [ Wget::Fetch['download-tomcat'], User[$tomcat], Exec['skipping license approval' ] ],
+    require => [ Wget::Fetch['download-tomcat'], User[$tomcat], Package['oracle-java7-installer' ] ],
   }
    
 
@@ -56,14 +57,11 @@ class tomcat (
     require => Exec['tomcat-unzip'],
   }
 
-  # TODO: confirm that we can use the same server.xml for Tomcat 6 and Tomcat 7
-  # (or don't support tomcat 7 for now)
-
   file { "/usr/local/apache-tomcat-${version}/conf/server.xml":
     ensure  => present,
     owner   => $tomcat,
     group   => $tomcat,
-    source  => "puppet:///modules/tomcat/server.xml",
+    source  => "puppet:///modules/tomcat/${version}/server.xml",
     require => File["/usr/local/apache-tomcat-${version}/conf"],
     notify  => Service["$tomcat"]
   }
@@ -102,5 +100,9 @@ class tomcat (
   service { $tomcat:
     enable  => $services_enable,
     require => [ Exec['tomcat-unzip'], File["/usr/local/${tomcat}"], File["/etc/init.d/${tomcat}"] ],
-  }
+  }  
+
+  # ensure that the symbolic link for the old tomcat now points to the new tomcat (necessary until we 
+  # update the debian package to deploy to tomcat6
+
 }

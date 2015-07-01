@@ -5,16 +5,23 @@ class java {
 
   apt::ppa { 'ppa:webupd8team/java': }
 
-  package { 'oracle-java6-installer':
+  package { 'oracle-java7-installer':
     ensure  => installed,
     require => [Apt::Ppa['ppa:webupd8team/java'],
-                Exec['skipping license approval']]
+                Exec['set-licence-selected'],
+		Exec['set-licence-seen']]
   }
 
-  exec {'skipping license approval':
-    command     => '/bin/echo  "oracle-java6-installer shared/accepted-oracle-license-v1-1 boolean true" | /usr/bin/debconf-set-selections',
-    user        => 'root',
-    subscribe   => Apt::Ppa['ppa:webupd8team/java'],
-    refreshonly => true
+  exec {
+    'set-licence-selected':
+      	command => '/bin/echo debconf shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections',
+	user => root
   }
+
+  exec {
+    'set-licence-seen':
+      	command => '/bin/echo debconf shared/accepted-oracle-license-v1-1 seen true | /usr/bin/debconf-set-selections',
+	user => root 
+  }
+
 }

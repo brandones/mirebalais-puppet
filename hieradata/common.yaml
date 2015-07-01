@@ -16,7 +16,7 @@ replication_db_user: replication
 replication_db_password: foo
 backup_db_user: backup
 backup_db_password: foo
-tomcat: tomcat6
+tomcat: tomcat7
 site_domain: foo.org
 appframework_config_filename: appframework-config-common.json
 backup_file_prefix: foo
