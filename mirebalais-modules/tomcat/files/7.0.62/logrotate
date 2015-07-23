@@ -16,6 +16,7 @@
   daily
   rotate 7
   missingok
+  notifempty
   maxage 7
 }
 
