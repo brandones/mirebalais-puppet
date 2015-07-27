@@ -1,22 +1,14 @@
-/usr/local/tomcat7/logs/catalina.out  {
+/var/log/tomcat7/catalina.out {
+  size 10M
+  notifempty
+  copytruncate
   daily
   rotate 7
-  size 10M
-  copytruncate
   compress
+  missingok
   postrotate
+    /usr/bin/find /usr/local/tomcat7/logs -type f -mtime +30 -delete
     # reset ownership to comply with directory's permissions
     chown tomcat7.tomcat7 /usr/local/tomcat7/logs/catalina.out.*
   endscript
-  notifempty
-  missingok
 }
-
-/usr/local/tomcat7/logs/*.log {
-  daily
-  rotate 7
-  missingok
-  notifempty
-  maxage 7
-}
-
