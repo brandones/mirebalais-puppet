@@ -22,6 +22,7 @@ class mailx (
 	exec { 'msmtp info':
 	    command     => 'msmtp --serverinfo --host=smtp.gmail.com --tls=on --tls-certcheck=off',
 	    user		=> 'root',
+	    refreshonly => true,
 	    subscribe   => [ Package['msmtp'], Package['mailutils'], Package['bsd-mailx'] ]
   	}
 
