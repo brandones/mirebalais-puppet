@@ -1,7 +1,7 @@
 ---
 webapp_name: mirebalais
 site_domain: bamboo.pih-emr.org
-pih_config: mirebalais,mirebalais-staging
+pih_config: mirebalais,mirebalais-bamboo
 
 mysql_root_password: ENC[oWqIfmn/ER4CYIvjJSpIzQ==]
 mysql_bind_address: 0.0.0.0

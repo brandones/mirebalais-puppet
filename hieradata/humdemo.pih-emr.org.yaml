@@ -2,6 +2,8 @@
 webapp_name: mirebalais
 package_release: 'stable/'
 
+pih_config: mirebalais,mirebalais-humdemo
+
 openmrs_auto_update_database: true
 site_domain: humdemo.pih-emr.org
 
