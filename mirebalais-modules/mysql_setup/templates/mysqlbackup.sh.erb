@@ -38,4 +38,4 @@ rm -f ${DIR}/current/${CURRENT_FILENAME}
 ln -s ${DIR}/sequences/${FILENAME} ${DIR}/current/${CURRENT_FILENAME}
 
 # Copy backup to remote location
-#scp ${DIR}/current/${CURRENT_FILENAME} ${REMOTE_DB}/${FILENAME}
+scp ${DIR}/current/${CURRENT_FILENAME} ${REMOTE_DB}/${FILENAME}
