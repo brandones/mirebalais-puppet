@@ -7,9 +7,6 @@ mysql_root_password: ENC[oWqIfmn/ER4CYIvjJSpIzQ==]
 mysql_bind_address: 0.0.0.0
 openmrs_db_password: ENC[3RqMvut63WqWc8IDs/GOnQ==]
 
-remote_db_user: backups
-remote_db_server: amigo.pih-emr.org
-remote_backup_dir: liberia/pleebo/db
 backup_file_prefix: pleebo
 backup_hour: 13
 archive_hour: 14
