@@ -1,0 +1,28 @@
+---
+webapp_name: mirebalais
+site_domain: bamboo.pih-emr.org
+pih_config: mirebalais,mirebalais-bamboo
+
+mysql_root_password: ENC[oWqIfmn/ER4CYIvjJSpIzQ==]
+mysql_bind_address: 0.0.0.0
+openmrs_db_password: ENC[3RqMvut63WqWc8IDs/GOnQ==]
+mirth_password: ENC[rtk/p1SzQjT3zkMJx7DJ0g==]
+
+lacolline_server_url: 'http://boston.pih-emr.org:8080/openmrs'
+lacolline_username: wsuser
+lacolline_password: wsuser123
+
+mirth_inbound_from_pacs_mirebalais_port: 6662
+
+# feature toggle settings
+register_test_patient: true
+notifiable_diseases_report: true
+reportingui_ad_hoc_analysis: true
+radiology_contrast_studies: true
+death_note: true
+request_appointments: true
+appointmentscheduling_confidential: true
+receipt_number: true
+new_check_in: true
+
+java_debug_parameters: '-Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5000'
