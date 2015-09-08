@@ -7,7 +7,7 @@ USER='<%= @backup_user %>'
 PASS='<%= @backup_password %>'
 DIR=/home/<%= @tomcat %>/backups
 PREFIX=<%= @backup_file_prefix %>
-
+REMOTE_DB_SERVER='<%= @remote_db_server %>'
 REMOTE_DB='<%= @remote_db_user %>@<%= @remote_db_server %>:<%= @remote_backup_dir %>'
 
 if [ -n "$1" ]
@@ -37,5 +37,9 @@ fi
 rm -f ${DIR}/current/${CURRENT_FILENAME}
 ln -s ${DIR}/sequences/${FILENAME} ${DIR}/current/${CURRENT_FILENAME}
 
-# Copy backup to remote location
-scp ${DIR}/current/${CURRENT_FILENAME} ${REMOTE_DB}/${FILENAME}
+# Copy backup to remote location 
+if [ -n "$REMOTE_DB_SERVER" ]
+then
+	scp ${DIR}/current/${CURRENT_FILENAME} ${REMOTE_DB}/${FILENAME}
+fi
+
