@@ -1,3 +1,4 @@
+# This module installs mysql 5.6, including setting the root password and the appropriate my.cnf settings
 # This module is newer than the mysql_setup_56 module and uses the actual Ubuntu PPA, rather than one we host
 
 class mysql_56 (
