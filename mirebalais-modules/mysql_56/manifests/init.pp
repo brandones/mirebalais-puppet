@@ -1,3 +1,5 @@
+# This module is newer than the mysql_setup_56 module and uses the actual Ubuntu PPA, rather than one we host
+
 class mysql_56 (
   $root_password = decrypt(hiera('mysql_root_password')),
   $mysql_server_id = hiera('mysql_server_id'),
@@ -26,7 +28,6 @@ class mysql_56 (
     require => [ Package['mysql-server-5.6'] ]
   }
 
-  # Note: This doesn't seem compatible with Docker, but I expect it to work normally on Ubuntu
   service { 'mysqld':
     ensure  => running,
     name    => 'mysql',
