@@ -206,3 +206,14 @@ node 'emrreplication.hum.ht' inherits default {
   include logging::kibana
   include mysql_setup::slave
 }
+
+node 'neno2015.pih-emr.org' {
+
+  class { 'apt':
+    always_apt_update => true,
+  }
+
+  include mysql_56
+  include java
+  include tomcat
+}

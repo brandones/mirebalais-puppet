@@ -1,4 +1,4 @@
-class mysql (
+class mysql_56 (
   $root_password = decrypt(hiera('mysql_root_password')),
   $mysql_server_id = hiera('mysql_server_id'),
 ){
@@ -27,7 +27,7 @@ class mysql (
   }
 
   # Note: This doesn't seem compatible with Docker, but I expect it to work normally on Ubuntu
-  service { 'mysql':
+  service { 'mysqld':
     ensure  => running,
     name    => 'mysql',
     enable  => true,
