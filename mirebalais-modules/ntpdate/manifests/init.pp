@@ -1,4 +1,6 @@
-class ntpdate {
+class ntpdate(
+  $timezone = hiera('server_timezone'),
+) {
   file { '/etc/ntp.conf':
     source => 'puppet:///modules/ntpdate/etc/ntp.conf'
   }
@@ -15,6 +17,6 @@ class ntpdate {
 
   file { '/etc/timezone':
        ensure => present,
-       content => "America/New_York\n"
+       content => "${timezone}\n"
   }
 }

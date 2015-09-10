@@ -1,6 +1,7 @@
 ---
 webapp_name: openmrs
 pih_config: mirebalais
+server_timezone: America/New_York
 
 package_release: 'unstable/'
 mysql_server_id: 1
