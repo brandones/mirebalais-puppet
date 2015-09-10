@@ -26,7 +26,7 @@ class mysql_56 (
 
   file { '/etc/mysql/my.cnf':
     ensure  => file,
-    content => template('mysql/my.cnf.erb'),
+    content => template('mysql_56/my.cnf.erb'),
     require => [ Package['mysql-server-5.6'] ]
   }
 
