@@ -60,5 +60,3 @@ librarian-puppet install
 
 echo "modulepath = /etc/puppet/modules:/etc/puppet/mirebalais-modules" > puppet.conf
 echo "environment = $1" >> puppet.conf
-
-./puppet-apply.sh
