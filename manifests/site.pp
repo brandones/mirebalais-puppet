@@ -51,7 +51,7 @@ node 'emr.hum.ht' {
   include mirebalais_reporting::production_setup
 }
 
-node 'bamboo.pih-emr.org', 'humci.pih-emr.org' {
+node 'humci.pih-emr.org' {
   
   class { 'apt':
     always_apt_update => true,

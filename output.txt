@@ -1,0 +1,263 @@
+    triggering load callbacks
+  * executing `training'
+    triggering start callbacks for `deploy'
+  * executing `multistage:ensure'
+  * executing `deploy'
+  * executing "cd /etc/puppet && git pull"
+    servers: ["186.1.200.138"]
+    [186.1.200.138:50017] executing command
+ ** [out :: 186.1.200.138:50017] Already up-to-date.
+ ** [out :: 186.1.200.138:50017] 
+    command finished in 5228ms
+  * executing "cd /etc/puppet && bundle"
+    servers: ["186.1.200.138"]
+    [186.1.200.138:50017] executing command
+ ** [out :: 186.1.200.138:50017] Using rake (10.0.3)
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Using highline (1.6.19)
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Using net-ssh (2.6.7)
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Using net-scp (1.1.1)
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Using net-sftp (2.1.2)
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Using net-ssh-gateway (1.2.0)
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Using capistrano (2.15.4)
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Using daemons (1.1.9)
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Using diff-lcs (1.2.1)
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Using encryptor (1.1.3)
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Using facter (1.6.17)
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Using json_pure (1.7.7)
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Using hiera (1.1.2)
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Using json (1.7.7)
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Using thor (0.17.0)
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Using librarian-puppet (0.9.8)
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Using metaclass (0.0.1)
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Using mocha (0.13.2)
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Using puppet (3.1.0)
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Using puppet-decrypt (0.1.0)
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Using puppet-lint (0.3.2)
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Using rspec-core (2.13.0)
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Using rspec-expectations (2.13.0)
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Using rspec-mocks (2.13.0)
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Using rspec (2.13.0)
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Using rspec-puppet (0.1.5) from git://github.com/jeffersongirao/rspec-puppet.git (at master)
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Using puppetlabs_spec_helper (0.4.1)
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Using bundler (1.3.5)
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [32mYour bundle is complete![0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [32mUse `bundle show [gemname]` to see where a bundled gem is installed.[0m
+ ** [out :: 186.1.200.138:50017] 
+    command finished in 744ms
+  * executing "cd /etc/puppet && librarian-puppet install"
+    servers: ["186.1.200.138"]
+    [186.1.200.138:50017] executing command
+    command finished in 1025ms
+  * executing "cd /etc/puppet && puppet apply -v manifests/site.pp"
+    servers: ["186.1.200.138"]
+    [186.1.200.138:50017] executing command
+ ** [out :: 186.1.200.138:50017] [0;32mInfo: Loading facts in /etc/puppet/modules/apt/lib/facter/apt_updates.rb[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [0;32mInfo: Loading facts in /etc/puppet/modules/apt/lib/facter/apt_update_last_success.rb[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [0;32mInfo: Loading facts in /etc/puppet/modules/apt/lib/facter/apt_security_updates.rb[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [0;32mInfo: Loading facts in /etc/puppet/modules/apt/lib/facter/apt_package_updates.rb[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [0;32mInfo: Loading facts in /etc/puppet/modules/stdlib/lib/facter/facter_dot_d.rb[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [0;32mInfo: Loading facts in /etc/puppet/modules/stdlib/lib/facter/root_home.rb[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [0;32mInfo: Loading facts in /etc/puppet/modules/stdlib/lib/facter/pe_version.rb[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [0;32mInfo: Loading facts in /etc/puppet/modules/stdlib/lib/facter/puppet_vardir.rb[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Could not retrieve apt_package_updates: undefined method `split' for nil:NilClass
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Could not retrieve apt_package_updates: undefined method `split' for nil:NilClass
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Decrypting value: ENC[oWqIfmn/ER4CYIvjJSpIzQ==], secretkey:
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Decrypting value: openmrs, secretkey:
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Decrypting value: foo, secretkey:
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Decrypting value: testidgen, secretkey:
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Decrypting value: Testing123, secretkey:
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Decrypting value: wsuser, secretkey:
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Decrypting value: ENC[OV3IH5U9urv6gEb76vnyYA==], secretkey:
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Decrypting value: Junit123, secretkey:
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Decrypting value: openmrs, secretkey:
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Decrypting value: foo, secretkey:
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Decrypting value: openmrs, secretkey:
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Decrypting value: foo, secretkey:
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Decrypting value: mirth, secretkey:
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Decrypting value: foo, secretkey:
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Decrypting value: mirth, secretkey:
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Decrypting value: foo, secretkey:
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Decrypting value: mirth, secretkey:
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Decrypting value: Mirth123, secretkey:
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Decrypting value: openmrs, secretkey:
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Decrypting value: foo, secretkey:
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Decrypting value: emralerts@pih.org, secretkey:
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Decrypting value: Medinfo999, secretkey:
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Decrypting value: openmrs, secretkey:
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Decrypting value: foo, secretkey:
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Decrypting value: openmrs, secretkey:
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Decrypting value: foo, secretkey:
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Decrypting value: openmrs, secretkey:
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Decrypting value: foo, secretkey:
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [0;32mInfo: Loading facts in /etc/puppet/modules/apt/lib/facter/apt_updates.rb[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [0;32mInfo: Loading facts in /etc/puppet/modules/apt/lib/facter/apt_update_last_success.rb[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [0;32mInfo: Loading facts in /etc/puppet/modules/apt/lib/facter/apt_security_updates.rb[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [0;32mInfo: Loading facts in /etc/puppet/modules/apt/lib/facter/apt_package_updates.rb[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [0;32mInfo: Loading facts in /etc/puppet/modules/stdlib/lib/facter/facter_dot_d.rb[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [0;32mInfo: Loading facts in /etc/puppet/modules/stdlib/lib/facter/root_home.rb[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [0;32mInfo: Loading facts in /etc/puppet/modules/stdlib/lib/facter/pe_version.rb[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [0;32mInfo: Loading facts in /etc/puppet/modules/stdlib/lib/facter/puppet_vardir.rb[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Could not retrieve apt_package_updates: undefined method `split' for nil:NilClass
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] Could not retrieve apt_package_updates: undefined method `split' for nil:NilClass
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [0;32mInfo: Applying configuration version '1420837611'[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [mNotice: /Stage[main]/Mailx/Exec[msmtp info]/returns: executed successfully[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [mNotice: /Stage[main]/Apt::Update/Exec[apt_update]/returns: executed successfully[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [mNotice: /File[/usr/local/apache-tomcat-6.0.36/webapps/mirebalais.war]/owner: owner changed 'root' to 'tomcat6'[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [mNotice: /File[/usr/local/apache-tomcat-6.0.36/webapps/mirebalais.war]/group: group changed 'root' to 'tomcat6'[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [mNotice: /Stage[main]/Mysql_setup::Db_setup/Mysql_grant[mirth@localhost/mirthdb]/ensure: created[0m
+ ** [out :: 186.1.200.138:50017] [mNotice: /Stage[main]/Mysql_setup::Db_setup/Mysql_grant[root@localhost/mirthdb]/ensure: created[0m
+ ** [out :: 186.1.200.138:50017] [mNotice: /Stage[main]/Openmrs/Package[pihemr]/ensure: ensure changed '1.0.16-1' to '1.0.22-1'[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [mNotice: /Stage[main]/Mysql_setup::Db_setup/Mysql_grant[mirth@localhost/openmrs.pacsintegration_outbound_queue]/ensure: created[0m
+ ** [out :: 186.1.200.138:50017] [mNotice: /Stage[main]/Mysql_setup::Db_setup/Mysql_grant[openmrs@localhost/openmrs]/ensure: created[0m
+ ** [out :: 186.1.200.138:50017] [mNotice: /Stage[main]/Mysql_setup::Db_setup/Mysql_grant[root@localhost/openmrs]/ensure: created[0m
+ ** [out :: 186.1.200.138:50017] [0;32mInfo: /Stage[main]/Mysql_setup::Db_setup/Mysql_grant[root@localhost/openmrs]: Scheduling refresh of Openmrs::Liquibase_migrate[migrate base schema][0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [0;32mInfo: Openmrs::Liquibase_migrate[migrate base schema]: Scheduling refresh of Exec[migrate base schema][0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [mNotice: /Stage[main]/Openmrs::Initial_setup/Openmrs::Liquibase_migrate[migrate base schema]/Exec[migrate base schema]: Triggered 'refresh' from 1 events[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [0;32mInfo: Openmrs::Liquibase_migrate[migrate base schema]: Scheduling refresh of Openmrs::Liquibase_migrate[migrate core data][0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [0;32mInfo: Openmrs::Liquibase_migrate[migrate core data]: Scheduling refresh of Exec[migrate core data][0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [mNotice: /Stage[main]/Openmrs::Initial_setup/Openmrs::Liquibase_migrate[migrate core data]/Exec[migrate core data]/returns: INFO 1/9/15 4:10 PM:liquibase: Successfully acquired change log lock[0m
+ ** [out :: 186.1.200.138:50017] [mNotice: /Stage[main]/Openmrs::Initial_setup/Openmrs::Liquibase_migrate[migrate core data]/Exec[migrate core data]/returns: INFO 1/9/15 4:10 PM:liquibase: Reading from `liquibasechangelog`[0m
+ ** [out :: 186.1.200.138:50017] [mNotice: /Stage[main]/Openmrs::Initial_setup/Openmrs::Liquibase_migrate[migrate core data]/Exec[migrate core data]/returns: INFO 1/9/15 4:10 PM:liquibase: Reading from `liquibasechangelog`[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [mNotice: /Stage[main]/Openmrs::Initial_setup/Openmrs::Liquibase_migrate[migrate core data]/Exec[migrate core data]/returns: INFO 1/9/15 4:10 PM:liquibase: Successfully released change log lock[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [mNotice: /Stage[main]/Openmrs::Initial_setup/Openmrs::Liquibase_migrate[migrate core data]/Exec[migrate core data]/returns: Liquibase Update Failed: Validation Failed:[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [mNotice: /Stage[main]/Openmrs::Initial_setup/Openmrs::Liquibase_migrate[migrate core data]/Exec[migrate core data]/returns:      1 change sets check sum[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [mNotice: /Stage[main]/Openmrs::Initial_setup/Openmrs::Liquibase_migrate[migrate core data]/Exec[migrate core data]/returns:           liquibase-core-data.xml::1226348923233-22::ben (generated) is now: 3:2d4897a84ce4408d8fcec69767a5c563[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [mNotice: /Stage[main]/Openmrs::Initial_setup/Openmrs::Liquibase_migrate[migrate core data]/Exec[migrate core data]/returns: [0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [mNotice: /Stage[main]/Openmrs::Initial_setup/Openmrs::Liquibase_migrate[migrate core data]/Exec[migrate core data]/returns: SEVERE 1/9/15 4:10 PM:liquibase: Validation Failed:[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [mNotice: /Stage[main]/Openmrs::Initial_setup/Openmrs::Liquibase_migrate[migrate core data]/Exec[migrate core data]/returns:      1 change sets check sum[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [mNotice: /Stage[main]/Openmrs::Initial_setup/Openmrs::Liquibase_migrate[migrate core data]/Exec[migrate core data]/returns:           liquibase-core-data.xml::1226348923233-22::ben (generated) is now: 3:2d4897a84ce4408d8fcec69767a5c563[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [mNotice: /Stage[main]/Openmrs::Initial_setup/Openmrs::Liquibase_migrate[migrate core data]/Exec[migrate core data]/returns: [0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [mNotice: /Stage[main]/Openmrs::Initial_setup/Openmrs::Liquibase_migrate[migrate core data]/Exec[migrate core data]/returns: liquibase.exception.ValidationFailedException: Validation Failed:[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [mNotice: /Stage[main]/Openmrs::Initial_setup/Openmrs::Liquibase_migrate[migrate core data]/Exec[migrate core data]/returns:      1 change sets check sum[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [mNotice: /Stage[main]/Openmrs::Initial_setup/Openmrs::Liquibase_migrate[migrate core data]/Exec[migrate core data]/returns:           liquibase-core-data.xml::1226348923233-22::ben (generated) is now: 3:2d4897a84ce4408d8fcec69767a5c563[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [mNotice: /Stage[main]/Openmrs::Initial_setup/Openmrs::Liquibase_migrate[migrate core data]/Exec[migrate core data]/returns: [0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [mNotice: /Stage[main]/Openmrs::Initial_setup/Openmrs::Liquibase_migrate[migrate core data]/Exec[migrate core data]/returns:
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] at liquibase.changelog.DatabaseChangeLog.validate(DatabaseChangeLog.java:141)[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [mNotice: /Stage[main]/Openmrs::Initial_setup/Openmrs::Liquibase_migrate[migrate core data]/Exec[migrate core data]/returns:
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] at liquibase.Liquibase.update(Liquibase.java:111)[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [mNotice: /Stage[main]/Openmrs::Initial_setup/Openmrs::Liquibase_migrate[migrate core data]/Exec[migrate core data]/returns:
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] at liquibase.integration.commandline.Main.doMigration(Main.java:825)[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [mNotice: /Stage[main]/Openmrs::Initial_setup/Openmrs::Liquibase_migrate[migrate core data]/Exec[migrate core data]/returns:
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] at liquibase.integration.commandline.Main.main(Main.java:134)[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [mNotice: /Stage[main]/Openmrs::Initial_setup/Openmrs::Liquibase_migrate[migrate core data]/Exec[migrate core data]/returns: [0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [mNotice: /Stage[main]/Openmrs::Initial_setup/Openmrs::Liquibase_migrate[migrate core data]/Exec[migrate core data]/returns: [0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [mNotice: /Stage[main]/Openmrs::Initial_setup/Openmrs::Liquibase_migrate[migrate core data]/Exec[migrate core data]/returns: For more information, use the --logLevel flag)[0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [1;31mError: /Stage[main]/Openmrs::Initial_setup/Openmrs::Liquibase_migrate[migrate core data]/Exec[migrate core data]: Failed to call refresh: java -Dliquibase.databaseChangeLogTableName=liquibasechangelog -Dliquibase.databaseChangeLogLockTableName=liquibasechangeloglock -jar liquibase.jar --driver=com.mysql.jdbc.Driver --classpath=/usr/local/tomcat6/webapps/mirebalais.war --url=jdbc:mysql://localhost:3306/openmrs --changeLogFile=liquibase-core-data.xml --username=openmrs --password='foo' update returned 255 instead of one of [0][0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [1;31mError: /Stage[main]/Openmrs::Initial_setup/Openmrs::Liquibase_migrate[migrate core data]/Exec[migrate core data]: java -Dliquibase.databaseChangeLogTableName=liquibasechangelog -Dliquibase.databaseChangeLogLockTableName=liquibasechangeloglock -jar liquibase.jar --driver=com.mysql.jdbc.Driver --classpath=/usr/local/tomcat6/webapps/mirebalais.war --url=jdbc:mysql://localhost:3306/openmrs --changeLogFile=liquibase-core-data.xml --username=openmrs --password='foo' update returned 255 instead of one of [0][0m
+ ** [out :: 186.1.200.138:50017] 
+ ** [out :: 186.1.200.138:50017] [mNotice: Finished catalog run in 236.76 seconds[0m
+    command finished in 286468ms
