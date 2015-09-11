@@ -34,9 +34,9 @@ class apache2 (
     notify => Service['apache2']
   }
 
-  file { '/etc/apache2/sites-available/default-ssl':
+  file { '/etc/apache2/sites-available/default-ssl.conf':
     ensure => present,
-    content => template('apache2/default-ssl.erb'),
+    content => template('apache2/default-ssl.conf.erb'),
     notify => Service['apache2']
   }
 
