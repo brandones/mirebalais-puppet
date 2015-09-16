@@ -1,3 +1,3 @@
 set :user, 'root'
 
-server '186.1.200.138:50030', :reporting
+server 'servers.hum.ht:50030', :reporting
