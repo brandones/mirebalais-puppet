@@ -56,6 +56,7 @@ junit_password: Junit123
 
 # feature toggle settings
 chief_complaint: true
+new_check_in: true
 
 reportingui_ad_hoc_analysis: false
 register_test_patient: false
@@ -65,7 +66,6 @@ death_note: false
 request_appointments: false
 appointmentscheduling_confidential: false
 receipt_number: false
-new_check_in: false
 
 # SSL certificates
 ssl_cert_file: '_.pih-emr.org.crt'
