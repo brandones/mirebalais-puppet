@@ -43,4 +43,8 @@ ssl_chain_file: 'gd_bundle-g2.crt'
 ssl_key_file: 'hum.key'
 
 java_memory_parameters: '-Xmx8G -Xms1024m -XX:PermSize=256m -XX:MaxPermSize=512m -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC'
+'
+
+
+new_check_in: false
 
