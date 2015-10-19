@@ -161,7 +161,7 @@ node 'pleebo.pih-emr.org' {
   include crashplan
 }
 
-node 'poro.pih-emr.org' {
+node 'poro.pih-emr.org', 'padi.pih-emr.org' {
 
   class { 'apt':
     always_apt_update => true,
