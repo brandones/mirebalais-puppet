@@ -19,6 +19,6 @@ node default {
 
    include openmrs
    include openmrs::initial_setup
-   include mysql_setup::db_setup
+   include mysql::db_setup
 
 }
