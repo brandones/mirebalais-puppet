@@ -38,7 +38,7 @@ class mysql_setup (
     owner   => mysql,
     group   => mysql,
     recurse => inf,
-    require => [ Package['mysql-server'], User['mysql'] ],
+    require => [ Package['mysql-server-5.6'], User['mysql'] ],
   }
 
    file { "/etc/mysql/conf.d":
@@ -52,7 +52,7 @@ class mysql_setup (
   file { '/usr/bin/mysqladmin':
     ensure => link,
     target => '/opt/mysql/server-5.6/bin/mysqladmin',
-    require => Package['mysql-server'],
+    require => Package['mysql-server-5.6'],
   }
 
   file { "root_user_my.cnf":
@@ -65,13 +65,13 @@ class mysql_setup (
     creates   => '/etc/init.d/mysql.server',  # this just means that this not execute if this mysql.server file has been$
     command   => "mysql_install_db --user=mysql --datadir=/var/lib/mysql",
     path      => ["/opt/mysql/server-5.6/scripts", "/opt/mysql/server-5.6/bin"],
-    require   => [ Package['mysql-server'], User['mysql'] ],
+    require   => [ Package['mysql-server-5.6'], User['mysql'] ],
   }
 
   file { '/usr/bin/mysql':
       ensure => link,
       target => '/opt/mysql/server-5.6/bin/mysql',
-      require => [ Package['mysql-server'] ],
+      require => [ Package['mysql-server-5.6'] ],
   }
 
   file { '/etc/init.d/mysql.server':
@@ -92,7 +92,7 @@ class mysql_setup (
     ensure  => running,
     name    => 'mysql',
     enable  => true,
-    require => [ File['/etc/mysql/my.cnf'], Package['mysql-server'] ],
+    require => [ File['/etc/mysql/my.cnf'], Package['mysql-server-5.6'] ],
   }
   
 }
