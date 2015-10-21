@@ -1,4 +1,4 @@
-class mysql_setup (
+class mysql (
 	$root_password = decrypt(hiera('mysql_root_password')),
 	$mysql_bind_address = hiera('mysql_bind_address'),
   	$mysql_expire_logs_days = hiera('mysql_expire_logs_days'),
