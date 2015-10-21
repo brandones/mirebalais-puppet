@@ -41,6 +41,14 @@ class mysql_setup (
     require => [ Package['mysql-server-5.6'], User['mysql'] ],
   }
 
+  file { "/etc/mysql":
+    ensure  => directory,
+    owner   => mysql,
+    group   => mysql,
+    mode    => '0755',
+    require => User['mysql'],
+  }
+
    file { "/etc/mysql/conf.d":
     ensure  => directory,
     owner   => mysql,
