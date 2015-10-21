@@ -1,4 +1,4 @@
-class mysql::backup (
+class mysql_setup::backup (
     $backup_user = decrypt(hiera('backup_db_user')),
     $backup_password = decrypt(hiera('backup_db_password')),
     $remote_db_user = hiera('remote_db_user'),

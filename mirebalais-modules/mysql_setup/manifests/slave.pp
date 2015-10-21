@@ -1,4 +1,4 @@
-class mysql::slave (
+class mysql_setup::slave (
   $master_ip = hiera('mysql_master_ip'),
   $replication_user = decrypt(hiera('replication_db_user')),
   $replication_password = decrypt(hiera('replication_db_password')),

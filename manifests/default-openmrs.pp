@@ -13,12 +13,12 @@ node default {
   include newrelic
 
   include java
-  include mysql
+  include mysql_setup
   include apache2
   include tomcat
 
    include openmrs
    include openmrs::initial_setup
-   include mysql::db_setup
+   include mysql_setup::db_setup
 
 }

@@ -1,4 +1,4 @@
-class mysql (
+class mysql_setup (
 	$root_password = decrypt(hiera('mysql_root_password')),
 	$mysql_bind_address = hiera('mysql_bind_address'),
   	$mysql_expire_logs_days = hiera('mysql_expire_logs_days'),
@@ -24,7 +24,7 @@ class mysql (
 
   file { '/etc/mysql/my.cnf':
     ensure  => file,
-    content => template('mysql/my.cnf.erb'),
+    content => template('mysql_setup/my.cnf.erb'),
     require => [ Package['mysql-server-5.6'] ]
   }
 
@@ -57,7 +57,7 @@ class mysql (
 
   file { "root_user_my.cnf":
     path        => "${root_home}/.my.cnf",
-    content     => template('mysql/my.cnf.pass.erb'),
+    content     => template('mysql_setup/my.cnf.pass.erb'),
     require     => Exec['set-root-password'],
   }
 
