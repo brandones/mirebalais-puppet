@@ -12,13 +12,13 @@ class mysql_setup (
 
   exec {
     'set-root-password':
-      command => "/bin/echo mysql-server mysql-server/root_password password $r$
+      command => "/bin/echo mysql-server mysql-server/root_password password $root_password | /usr/bin/debconf-set-selections",
       user => root
   }
 
   exec {
     'confirm-root-password':
-      command => "/bin/echo mysql-server mysql-server/root_password_again passw$
+      command => "/bin/echo mysql-server mysql-server/root_password_again password $root_password | /usr/bin/debconf-set-selections",
       user => root
   }
 
