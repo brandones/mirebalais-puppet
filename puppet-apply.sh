@@ -4,7 +4,7 @@ if [ -z "$1" ]
 then
   echo "You need to provide the name of the manifest to install"
   echo "./puppet-apply.sh MANIFEST"
-  echo "MANIFEST can be malawi|site"
+  echo "MANIFEST can be malawi|site|default-openmrs"
   exit 1
 fi
 

@@ -17,5 +17,8 @@ node default {
   include apache2
   include tomcat
 
-  #include openmrs_malawi
+   include openmrs
+   include openmrs::initial_setup
+   include mysql_setup::db_setup
+
 }
