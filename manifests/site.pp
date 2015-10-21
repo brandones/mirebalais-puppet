@@ -1,24 +1,6 @@
 Exec { path => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/', '/usr/local/bin/' ] }
 
 node default {
-
-  class { 'apt':
-    always_apt_update => true,
-  }
-
-  include mailx
-  include ntpdate
-  include apt_upgrades
-  include wget
-
-  include java
-  include mysql_setup_56
-  include tomcat
-
-  include openmrs
-  include openmrs::initial_setup
-  include mysql_setup::db_setup
-
 }
 
 node 'emr.hum.ht' {
@@ -187,6 +169,7 @@ node 'poro.pih-emr.org', 'padi.pih-emr.org' {
 # TODO: do we still use/need this?
 
 node 'emrreplication.hum.ht' inherits default {
+
   class { 'apt':
     always_apt_update => true,
   }

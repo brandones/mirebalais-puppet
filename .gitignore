@@ -1,5 +1,7 @@
 .tmp/
 modules/
 .librarian/
+.vagrant/
 *.DS_store
-
+*,iml
+*.lock
