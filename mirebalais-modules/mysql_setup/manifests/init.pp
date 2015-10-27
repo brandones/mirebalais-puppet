@@ -43,69 +43,6 @@ class mysql_setup (
     require => [ Package['mysql-server-5.6'] ]
   }
 
-  user { 'mysql':
-    ensure => 'present',
-    shell  => '/bin/sh',
-  }
-
-  file { '/opt/mysql/server-5.6/':
-    ensure  => present,
-    owner   => mysql,
-    group   => mysql,
-    recurse => inf,
-    require => [ Package['mysql-server-5.6'], User['mysql'] ],
-  }
-
-  file { "/etc/mysql":
-    ensure  => directory,
-    owner   => mysql,
-    group   => mysql,
-    mode    => '0755',
-    require => User['mysql'],
-  }
-
-   file { "/etc/mysql/conf.d":
-    ensure  => directory,
-    owner   => mysql,
-    group   => mysql,
-    mode    => '0755',
-    require => File['/etc/mysql'],
-  }
-
-  file { '/usr/bin/mysqladmin':
-    ensure => link,
-    target => '/opt/mysql/server-5.6/bin/mysqladmin',
-    require => Package['mysql-server-5.6'],
-  }
-
-  file { "root_user_my.cnf":
-    path        => "${root_home}/.my.cnf",
-    content     => template('mysql_setup/my.cnf.pass.erb'),
-    require     => Exec['set-root-password'],
-  }
-
-   exec { 'install_db':
-    creates   => '/etc/init.d/mysql.server',  # this just means that this not execute if this mysql.server file has been$
-    command   => "mysql_install_db --user=mysql --datadir=/var/lib/mysql",
-    path      => ["/opt/mysql/server-5.6/scripts", "/opt/mysql/server-5.6/bin"],
-    require   => [ Package['mysql-server-5.6'], User['mysql'] ],
-  }
-
-  file { '/usr/bin/mysql':
-      ensure => link,
-      target => '/opt/mysql/server-5.6/bin/mysql',
-      require => [ Package['mysql-server-5.6'] ],
-  }
-
-  file { '/etc/init.d/mysql.server':
-    ensure  => present,
-    source  => '/opt/mysql/server-5.6/support-files/mysql.server',
-    mode    => '0755',
-    owner   => 'mysql',
-    group   => 'mysql',
-    require => [ Exec['install_db'] ],
-  }
-
   service { 'mysqld':
     ensure  => running,
     name    => 'mysql',
