@@ -34,7 +34,14 @@ class mysql_setup (
   exec {
     'confirm-root-password':
       command => "/bin/echo mysql-server mysql-server/root_password_again password $root_password | /usr/bin/debconf-set-selections",
-      user => root
+      user => root,
+      require => Exec['confirm-root-password']
+  }
+
+  file { "root_user_my.cnf":
+    path        => "${root_home}/.my.cnf",
+    content     => template('mysql_setup_56/my.cnf.pass.erb'),
+    require     => Exec['confirm-root-password'],
   }
 
   file { '/etc/mysql/my.cnf':
@@ -47,7 +54,7 @@ class mysql_setup (
     ensure  => running,
     name    => 'mysql',
     enable  => true,
-    require => [ File['/etc/mysql/my.cnf'], Package['mysql-server-5.6'] ],
+    require => [ File['/etc/mysql/my.cnf'], File['root_user_my.cnf'], Package['mysql-server-5.6'] ],
   }
   
 }
