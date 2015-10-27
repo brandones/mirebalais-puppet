@@ -5,9 +5,24 @@ class mysql_setup (
   	$mysql_innodb_buffer_pool_size = hiera('mysql_innodb_buffer_pool_size')
 ){
 
+  # make sure the old mysql 5.6 deb package we used to install manually has been removed
+  package { 'mysql':
+    ensure  => purged
+  }
+
+  # make sure the old upstart startup file for mysql 5.5 is not present
+  file { '/etc/init/mysql.conf':
+    ensure => absent
+  }
+
   package { 'mysql-server-5.6':
     ensure  => installed,
-    require => [Exec['set-root-password'], Exec['confirm-root-password']]
+    require => [Package['mysql'], Exec['set-root-password'], Exec['confirm-root-password']]
+  }
+
+  package { 'mysql-client-5.6':
+    ensure  => installed,
+    require => [Package['mysql'], Exec['set-root-password'], Exec['confirm-root-password']]
   }
 
   exec {
@@ -89,11 +104,6 @@ class mysql_setup (
     owner   => 'mysql',
     group   => 'mysql',
     require => [ Exec['install_db'] ],
-  }
-
-   # make sure the old upstart startup file for mysql 5.5 is not present
-  file { '/etc/init/mysql.conf':
-       ensure => absent
   }
 
   service { 'mysqld':
