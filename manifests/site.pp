@@ -15,13 +15,13 @@ node 'emr.hum.ht' {
   include wget
 
   include java
-  include mysql
+  include mysql_setup
   include apache2
   include tomcat
 
   include openmrs
   include openmrs::initial_setup
-  include mysql::db_setup
+  include mysql_setup::db_setup
 
   include mirth
   include mirth::channel_setup
@@ -29,7 +29,7 @@ node 'emr.hum.ht' {
   include newrelic
   include logging
 
-  include mysql::backup
+  include mysql_setup::backup
   include mirebalais_reporting::production_setup
 }
 
@@ -45,13 +45,13 @@ node 'humci.pih-emr.org' {
   include wget
 
   include java
-  include mysql
+  include mysql_setup
   include tomcat
   #include apache2
 
   include openmrs
   include openmrs::initial_setup
-  include mysql::db_setup
+  include mysql_setup::db_setup
 
   include mirth
   include mirth::channel_setup
@@ -72,13 +72,13 @@ node 'emrtest.hum.ht', 'humdemo.pih-emr.org' {
   include wget
 
   include java
-  include mysql
+  include mysql_setup
   include apache2
   include tomcat
 
   include openmrs
   include openmrs::initial_setup
-  include mysql::db_setup
+  include mysql_setup::db_setup
 
   include mirth
   include mirth::channel_setup
@@ -99,13 +99,13 @@ node 'reporting.hum.ht' {
   include wget
 
   include java
-  include mysql
+  include mysql_setup
   include apache2
   include tomcat
 
   include openmrs
   include openmrs::initial_setup
-  include mysql::db_setup
+  include mysql_setup::db_setup
 
   include mirth
   include mirth::channel_setup
@@ -128,18 +128,18 @@ node 'pleebo.pih-emr.org' {
   include wget
 
   include java
-  include mysql
+  include mysql_setup
   include apache2
   include tomcat
 
   include openmrs
   include openmrs::initial_setup
-  include mysql::db_setup
+  include mysql_setup::db_setup
   
   include newrelic
   #include logging
 
-  include mysql::backup
+  include mysql_setup::backup
   include crashplan
 }
 
@@ -155,13 +155,13 @@ node 'poro.pih-emr.org', 'padi.pih-emr.org' {
   include wget
 
   include java
-  include mysql
+  include mysql_setup
   include apache2
   include tomcat
 
   include openmrs
   include openmrs::initial_setup
-  include mysql::db_setup
+  include mysql_setup::db_setup
   
   include newrelic
 }
@@ -178,7 +178,7 @@ node 'emrreplication.hum.ht' inherits default {
   include apt_upgrades
   include wget
   include java
-  include mysql
+  include mysql_setup
   include mirth
   include tomcat
   include openmrs
@@ -187,5 +187,5 @@ node 'emrreplication.hum.ht' inherits default {
   include awstats
   include logging
   include logging::kibana
-  include mysql::slave
+  include mysql_setup::slave
 }
