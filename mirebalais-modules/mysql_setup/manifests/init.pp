@@ -10,11 +10,28 @@ class mysql_setup (
     ensure  => purged
   }
 
-  # make sure the old upstart startup file for mysql 5.5 is not present
+  # make sure old conf file and directory are absent
+  file { '/opt/mysql/server-5.6/my.cnf':
+    ensure => absent,
+    require => Package['mysql']
+  }
+
+  file { '/opt/mysql/server-5.6':
+    ensure => absent,
+    require => File['/opt/mysql/server-5.6/my.cnf']
+  }
+
+  file { '/opt/mysql':
+    ensure => absent,
+    require => File['/opt/mysql/server-5.6']
+  }
+
+# make sure the old upstart startup file for mysql 5.5 is not present
   file { '/etc/init/mysql.conf':
     ensure => absent
   }
 
+  # install mysql
   package { 'mysql-server-5.6':
     ensure  => installed,
     require => [Package['mysql'], Exec['set-root-password'], Exec['confirm-root-password']]
