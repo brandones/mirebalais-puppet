@@ -35,7 +35,7 @@ class mysql_setup (
     'confirm-root-password':
       command => "/bin/echo mysql-server mysql-server/root_password_again password $root_password | /usr/bin/debconf-set-selections",
       user => root,
-      require => Exec['confirm-root-password']
+      require => Exec['set-root-password']
   }
 
   file { "root_user_my.cnf":
