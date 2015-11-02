@@ -6,6 +6,7 @@ class mysql_setup (
 ){
 
   # TODO this commented out code is the beginnings of the steps needs to migrate from the "legacy" install
+  # TODO if we use it again, make sure that the new mysql-server-5.6 package now depends on it
 /*  # make sure the old mysql 5.6 deb package we used to install manually has been removed
   package { 'mysql':
     ensure  => purged
@@ -28,12 +29,12 @@ class mysql_setup (
   # install mysql
   package { 'mysql-server-5.6':
     ensure  => installed,
-    require => [Package['mysql'], Exec['set-root-password'], Exec['confirm-root-password']]
+    require => [Exec['set-root-password'], Exec['confirm-root-password']]
   }
 
   package { 'mysql-client-5.6':
     ensure  => installed,
-    require => [Package['mysql'], Exec['set-root-password'], Exec['confirm-root-password']]
+    require => [Exec['set-root-password'], Exec['confirm-root-password']]
   }
 
   exec {
