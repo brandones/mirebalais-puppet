@@ -21,7 +21,6 @@ node 'emr.hum.ht' {
 
   include openmrs
   include openmrs::initial_setup
-  include mysql_setup::db_setup
 
   include mirth
   include mirth::channel_setup
@@ -51,7 +50,6 @@ node 'humci.pih-emr.org' {
 
   include openmrs
   include openmrs::initial_setup
-  include mysql_setup::db_setup
 
   include mirth
   include mirth::channel_setup
@@ -78,7 +76,6 @@ node 'emrtest.hum.ht', 'humdemo.pih-emr.org' {
 
   include openmrs
   include openmrs::initial_setup
-  include mysql_setup::db_setup
 
   include mirth
   include mirth::channel_setup
@@ -105,7 +102,6 @@ node 'reporting.hum.ht' {
 
   include openmrs
   include openmrs::initial_setup
-  include mysql_setup::db_setup
 
   include mirth
   include mirth::channel_setup
@@ -134,7 +130,6 @@ node 'pleebo.pih-emr.org' {
 
   include openmrs
   include openmrs::initial_setup
-  include mysql_setup::db_setup
   
   include newrelic
   #include logging
@@ -161,7 +156,6 @@ node 'poro.pih-emr.org', 'padi.pih-emr.org' {
 
   include openmrs
   include openmrs::initial_setup
-  include mysql_setup::db_setup
   
   include newrelic
 }
