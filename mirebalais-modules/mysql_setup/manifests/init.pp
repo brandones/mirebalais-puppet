@@ -5,7 +5,8 @@ class mysql_setup (
   	$mysql_innodb_buffer_pool_size = hiera('mysql_innodb_buffer_pool_size')
 ){
 
-  # make sure the old mysql 5.6 deb package we used to install manually has been removed
+  # TODO this commented out code is the beginnings of the steps needs to migrate from the "legacy" install
+/*  # make sure the old mysql 5.6 deb package we used to install manually has been removed
   package { 'mysql':
     ensure  => purged
   }
@@ -22,7 +23,7 @@ class mysql_setup (
 # make sure the old upstart startup file for mysql 5.5 is not present
   file { '/etc/init/mysql.conf':
     ensure => absent
-  }
+  }*/
 
   # install mysql
   package { 'mysql-server-5.6':
@@ -50,7 +51,7 @@ class mysql_setup (
 
   file { "root_user_my.cnf":
     path        => "${root_home}/.my.cnf",
-    content     => template('mysql_setup_56/my.cnf.pass.erb'),
+    content     => template('mysql_setup/my.cnf.pass.erb'),
     require     => Exec['confirm-root-password'],
   }
 

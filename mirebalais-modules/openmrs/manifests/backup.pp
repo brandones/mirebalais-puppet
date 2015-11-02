@@ -43,7 +43,7 @@ class mysql_setup::backup (
     mode    => '0700',
     owner   => 'root',
     group   => 'root',
-    content => template('mysql_setup/mysqlbackup.sh.erb'),
+    content => template('openmrs/mysqlbackup.sh.erb'),
   }
 
   cron { 'mysql-archive':
@@ -63,6 +63,6 @@ class mysql_setup::backup (
     mode    => '0700',
     owner   => 'root',
     group   => 'root',
-    content => template('mysql_setup/mysqlarchive.sh.erb'),
+    content => template('openmrs/mysqlarchive.sh.erb'),
   }
 }

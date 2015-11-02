@@ -6,6 +6,42 @@ class mirth(
   $services_enable = hiera('services_enable')
 ){
 
+  mysql_database { $mirth_db :
+    ensure  => present,
+    charset => 'utf8',
+    require => [Service['mysqld'], Package['pihemr']],
+  }
+
+  mysql_user { "${mirth_db_user}@localhost":
+    ensure        => present,
+    password_hash => mysql_password($mirth_db_password),
+    require       => Service['mysqld'],
+  } ->
+
+  mysql_grant { "${mirth_db_user}@localhost/${mirth_db}":
+    options    => ['GRANT'],
+    privileges => ['ALL'],
+    table => '*.*',
+    user => "${mirth_db_user}@localhost",
+    require    => Service['mysqld'],
+  } ->
+
+  mysql_grant { "root@localhost/${mirth_db}":
+    options    => ['GRANT'],
+    privileges => ['ALL'],
+    table => '*.*',
+    user => "root@localhost",
+    require    => Service['mysqld'],
+  }
+
+  mysql_grant { "${mirth_db_user}@localhost/${openmrs_db}.pacsintegration_outbound_queue":
+    options    => ['GRANT'],
+    privileges => ['ALL'],
+    table => '*.*',
+    user => "{mirth_db_user}@localhost",
+    require    => [ Service['mysqld'], Mysql_database[$openmrs_db] ]
+  }
+
   file {'/usr/local/mirthconnect':
     ensure => directory,
     owner  => 'root',
