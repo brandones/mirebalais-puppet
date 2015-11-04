@@ -46,7 +46,7 @@ node 'humci.pih-emr.org' {
   include java
   include mysql_setup::legacy
   include tomcat
-  #include apache2
+  include apache2
 
   include openmrs
   include openmrs::initial_setup
