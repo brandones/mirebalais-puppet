@@ -76,9 +76,6 @@ node 'emrtest.hum.ht', 'humdemo.pih-emr.org' {
 
   include openmrs
   include openmrs::initial_setup
-
-  include mirth
-  include mirth::channel_setup
   
   include newrelic
   include logging
@@ -102,9 +99,6 @@ node 'reporting.hum.ht' {
 
   include openmrs
   include openmrs::initial_setup
-
-  include mirth
-  include mirth::channel_setup
   
   include newrelic
   include logging 
