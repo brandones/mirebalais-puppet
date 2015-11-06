@@ -11,8 +11,8 @@ openmrs_db_password: ENC[3RqMvut63WqWc8IDs/GOnQ==]
 backup_db_user: backup
 backup_db_password: ENC[vkWTaGabrix4EDOVYyoePsJhGlRZxdNy6y8QZ8r2H5I=]
 backup_file_prefix: wellbody
-backup_hour: 13
-archive_hour: 14
+backup_hour: 1
+archive_hour: 3
 
 #feature toggles
 
