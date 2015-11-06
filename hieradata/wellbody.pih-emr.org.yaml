@@ -1,0 +1,21 @@
+---
+site_domain: wellbody.pih-emr.org
+pih_config: sierraLeone
+server_timezone: Africa/Freetown
+package_release: 'stable/'
+
+mysql_root_password: ENC[oWqIfmn/ER4CYIvjJSpIzQ==]
+mysql_bind_address: 0.0.0.0
+openmrs_db_password: ENC[3RqMvut63WqWc8IDs/GOnQ==]
+
+backup_db_user: backup
+backup_db_password: ENC[vkWTaGabrix4EDOVYyoePsJhGlRZxdNy6y8QZ8r2H5I=]
+backup_file_prefix: wellbody
+backup_hour: 13
+archive_hour: 14
+
+#feature toggles
+
+mysql_innodb_buffer_pool_size: 1G
+java_memory_parameters: '-Xmx4G -Xms1024m -XX:PermSize=256m -XX:MaxPermSize=512m -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC'
+

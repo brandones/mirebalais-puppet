@@ -132,6 +132,32 @@ node 'pleebo.pih-emr.org' {
   include crashplan
 }
 
+node 'wellbody.pih-emr.org' {
+
+  class { 'apt':
+    always_apt_update => true,
+  }
+
+  include mailx
+  include ntpdate
+  include apt_upgrades
+  include wget
+
+  include java
+  include mysql_setup
+  include apache2
+  include tomcat
+
+  include openmrs
+  include openmrs::initial_setup
+
+  include newrelic
+  include logging
+
+  include openmrs::backup
+  include crashplan
+}
+
 node 'poro.pih-emr.org', 'padi.pih-emr.org', 'ci.pih-emr.org' {
 
   class { 'apt':
