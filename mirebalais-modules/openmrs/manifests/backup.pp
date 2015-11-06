@@ -1,4 +1,4 @@
-class mysql_setup::backup (
+class openmrs::backup (
     $backup_user = decrypt(hiera('backup_db_user')),
     $backup_password = decrypt(hiera('backup_db_password')),
     $remote_db_user = hiera('remote_db_user'),
