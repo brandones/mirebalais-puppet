@@ -1,6 +1,10 @@
-# this init.pp should be used instead of the init.pp in mysql_setup if you wish to install mysql 5.6 instead of mysql 5.5
+# legacy puppet script used to install mysql on all Mirebalais servers, ci.pih-emr.org, pleebo.pih-emr.org, poro.pih-emr.org, and padi.pih-emr.org
+# new implemetations should use the main init.pp
 
-class mysql_setup_56 (
+# TODO figure out how to migrate the above servers to the new, simpler install of mysql
+
+
+class mysql_setup::legacy (
   $root_password = decrypt(hiera('mysql_root_password')),
   $mysql_bind_address = hiera('mysql_bind_address'),
   $mysql_expire_logs_days = hiera('mysql_expire_logs_days'),
@@ -56,7 +60,7 @@ class mysql_setup_56 (
 
   file { '/etc/mysql/my.cnf':
     ensure  => file,
-    content => template('mysql_setup_56/my.cnf.erb'),
+    content => template('mysql_setup/my.cnf.legacy.erb'),
     require => [ File['/etc/mysql'] ],
   }
 
@@ -77,7 +81,7 @@ class mysql_setup_56 (
 
   file { "root_user_my.cnf":
     path        => "${root_home}/.my.cnf",
-    content     => template('mysql_setup_56/my.cnf.pass.erb'),
+    content     => template('mysql_setup/my.cnf.pass.erb'),
     require     => Exec['set_mysql_rootpassword'],
   }
 
@@ -89,11 +93,11 @@ class mysql_setup_56 (
   }
 
   file { '/usr/bin/mysql':
-      ensure => link,
-      target => '/opt/mysql/server-5.6/bin/mysql',
-      require => [ Package['mysql'] ],
+    ensure => link,
+    target => '/opt/mysql/server-5.6/bin/mysql',
+    require => [ Package['mysql'] ],
   }
- 
+
   file { '/etc/init.d/mysql.server':
     ensure  => present,
     source  => '/opt/mysql/server-5.6/support-files/mysql.server',
@@ -103,9 +107,9 @@ class mysql_setup_56 (
     require => [ Exec['install_db'] ],
   }
 
-  # make sure the old upstart startup file for mysql 5.5 is not present
+# make sure the old upstart startup file for mysql 5.5 is not present
   file { '/etc/init/mysql.conf':
-       ensure => absent
+    ensure => absent
   }
 
   service { 'mysqld':

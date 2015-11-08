@@ -29,7 +29,8 @@ socket    = /var/run/mysqld/mysqld.sock
 nice    = 0
 
 [mysqld]
-bind-address = 0.0.0.0
+bind-address = <%= @mysql_bind_address %>
+
 #
 # * Basic Settings
 #
@@ -64,6 +65,8 @@ myisam-recover         = BACKUP
 #
 query_cache_limit  = 1M
 query_cache_size        = 16M
+query_cache_type = 1
+
 #
 # * Logging and Replication
 #
@@ -89,15 +92,14 @@ query_cache_size        = 16M
 log-bin=mysql-bin
 server-id=<%= @mysql_server_id %>
 <% end %>
-expire_logs_days  = 10
+expire_logs_days  = <%= @mysql_expire_logs_days %>
 max_binlog_size         = 100M
 #binlog_do_db    = include_database_name
 #binlog_ignore_db  = include_database_name
 #
 # * InnoDB
 
-innodb_buffer_pool_size=1G # Setting this size for DEV env. TODO: Convert file into a template and tweak values according to environment
-###innodb_buffer_pool_size=3G
+innodb_buffer_pool_size= <%= @mysql_innodb_buffer_pool_size %>
 
 # InnoDB is enabled by default with a 10MB datafile in /var/lib/mysql/.
 # Read the manual for more InnoDB related options. There are many!

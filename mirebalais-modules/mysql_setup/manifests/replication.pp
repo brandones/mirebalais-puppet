@@ -1,3 +1,5 @@
+# TODO does this even work anymore?
+
 class mysql_setup::replication(
   $replication_user = decrypt(hiera('replication_db_user')),
   $replication_password = decrypt(hiera('replication_db_password')),

@@ -15,13 +15,12 @@ node 'emr.hum.ht' {
   include wget
 
   include java
-  include mysql_setup_56
+  include mysql_setup::legacy
   include apache2
   include tomcat
 
   include openmrs
   include openmrs::initial_setup
-  include mysql_setup::db_setup
 
   include mirth
   include mirth::channel_setup
@@ -29,7 +28,7 @@ node 'emr.hum.ht' {
   include newrelic
   include logging
 
-  include mysql_setup::backup
+  include openmrs::backup
   include mirebalais_reporting::production_setup
 }
 
@@ -45,13 +44,12 @@ node 'humci.pih-emr.org' {
   include wget
 
   include java
-  include mysql_setup_56
+  include mysql_setup::legacy
   include tomcat
-  #include apache2
+  include apache2
 
   include openmrs
   include openmrs::initial_setup
-  include mysql_setup::db_setup
 
   include mirth
   include mirth::channel_setup
@@ -72,16 +70,12 @@ node 'emrtest.hum.ht', 'humdemo.pih-emr.org' {
   include wget
 
   include java
-  include mysql_setup_56
+  include mysql_setup::legacy
   include apache2
   include tomcat
 
   include openmrs
   include openmrs::initial_setup
-  include mysql_setup::db_setup
-
-  include mirth
-  include mirth::channel_setup
   
   include newrelic
   include logging
@@ -99,16 +93,12 @@ node 'reporting.hum.ht' {
   include wget
 
   include java
-  include mysql_setup_56
+  include mysql_setup::legacy
   include apache2
   include tomcat
 
   include openmrs
   include openmrs::initial_setup
-  include mysql_setup::db_setup
-
-  include mirth
-  include mirth::channel_setup
   
   include newrelic
   include logging 
@@ -128,22 +118,21 @@ node 'pleebo.pih-emr.org' {
   include wget
 
   include java
-  include mysql_setup_56
+  include mysql_setup::legacy
   include apache2
   include tomcat
 
   include openmrs
   include openmrs::initial_setup
-  include mysql_setup::db_setup
   
   include newrelic
   #include logging
 
-  include mysql_setup::backup
+  include openmrs::backup
   include crashplan
 }
 
-node 'poro.pih-emr.org', 'padi.pih-emr.org' {
+node 'wellbody.pih-emr.org' {
 
   class { 'apt':
     always_apt_update => true,
@@ -155,13 +144,38 @@ node 'poro.pih-emr.org', 'padi.pih-emr.org' {
   include wget
 
   include java
-  include mysql_setup_56
+  include mysql_setup
   include apache2
   include tomcat
 
   include openmrs
   include openmrs::initial_setup
-  include mysql_setup::db_setup
+
+  include newrelic
+  include logging
+
+  include openmrs::backup
+  include crashplan
+}
+
+node 'poro.pih-emr.org', 'padi.pih-emr.org', 'ci.pih-emr.org' {
+
+  class { 'apt':
+    always_apt_update => true,
+  }
+
+  include mailx
+  include ntpdate
+  include apt_upgrades
+  include wget
+
+  include java
+  include mysql_setup::legacy
+  include apache2
+  include tomcat
+
+  include openmrs
+  include openmrs::initial_setup
   
   include newrelic
 }
@@ -178,7 +192,7 @@ node 'emrreplication.hum.ht' inherits default {
   include apt_upgrades
   include wget
   include java
-  include mysql_setup_56
+  include mysql_setup::legacy
   include mirth
   include tomcat
   include openmrs

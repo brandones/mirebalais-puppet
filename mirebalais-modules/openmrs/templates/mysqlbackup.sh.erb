@@ -37,8 +37,9 @@ fi
 rm -f ${DIR}/current/${CURRENT_FILENAME}
 ln -s ${DIR}/sequences/${FILENAME} ${DIR}/current/${CURRENT_FILENAME}
 
-# Copy backup to remote location 
-if [ -n "$REMOTE_DB_SERVER" ]
+# Copy backup to remote location
+# (This is generally handled by crashplan in our newer implementations and not used)
+if [ "$REMOTE_DB_SERVER" != "foo" ]
 then
 	scp ${DIR}/current/${CURRENT_FILENAME} ${REMOTE_DB}/${FILENAME}
 fi

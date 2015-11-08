@@ -1,7 +1,8 @@
 .tmp/
+.idea/
 modules/
 .librarian/
 .vagrant/
 *.DS_store
-*,iml
+*.iml
 *.lock
