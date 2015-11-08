@@ -63,13 +63,13 @@ junit_password: Junit123
 # feature toggle settings
 chief_complaint: true
 new_check_in: true
+request_appointments: true
 
 reportingui_ad_hoc_analysis: false
 register_test_patient: false
 notifiable_diseases_report: false
 radiology_contrast_studies: false
 death_note: false
-request_appointments: false
 appointmentscheduling_confidential: false
 receipt_number: false
 

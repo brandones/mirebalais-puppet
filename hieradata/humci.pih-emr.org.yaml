@@ -20,7 +20,6 @@ notifiable_diseases_report: true
 reportingui_ad_hoc_analysis: true
 radiology_contrast_studies: true
 death_note: true
-request_appointments: true
 appointmentscheduling_confidential: true
 receipt_number: true
 

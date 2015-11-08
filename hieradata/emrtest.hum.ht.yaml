@@ -12,7 +12,6 @@ lacolline_username: wsuser
 lacolline_password: ENC[OV3IH5U9urv6gEb76vnyYA==]
 
 # feature toggle settings
-request_appointments: true
 appointmentscheduling_confidential: true
 death_note: true
 radiology_contrast_studies: true
