@@ -18,5 +18,6 @@ node default {
   include apache2
   include tomcat
 
+  include bahmni_openmrs
 
 }

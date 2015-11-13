@@ -8,7 +8,7 @@ class maven_setup() {
 
   # defaults for all maven{} declarations
   Maven {
-    repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public2"
+    repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public"
   }
 
 }
