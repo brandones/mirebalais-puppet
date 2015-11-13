@@ -5,4 +5,4 @@ sudo rm -fR /etc/puppet
 cd /etc
 sudo git clone https://github.com/PIH/mirebalais-puppet.git puppet
 cd puppet
-sudo git checkout malawi
+sudo git checkout master
