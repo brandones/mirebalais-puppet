@@ -14,7 +14,9 @@ node default {
 
   include java
   include mysql_setup
+  include maven_setup
   include apache2
   include tomcat
+
 
 }
