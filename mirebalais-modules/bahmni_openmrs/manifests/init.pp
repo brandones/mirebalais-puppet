@@ -57,7 +57,7 @@ class bahmni_openmrs (
     table => '*.*',
     user => "root@localhost",
     require => [Service['mysqld'] ],
-    notify  => exec ['tomcat-restart']
+    notify  => Exec ['tomcat-restart']
   }
 
   file { '/etc/apt/apt.conf.d/99auth':
@@ -102,7 +102,7 @@ class bahmni_openmrs (
     packaging => "war",
     repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
     require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/${webapp_name}-runtime.properties"], File['/etc/apt/apt.conf.d/99auth'] ],
-    notify  => exec ['tomcat-restart']
+    notify  => Exec['tomcat-restart']
   }
 
   maven { "/home/${tomcat}/.OpenMRS/modules/addresshierarchy-${addresshierarchy_version}.omod":
@@ -113,7 +113,7 @@ class bahmni_openmrs (
     packaging => "jar",
     repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
     require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
-    notify  => exec ['tomcat-restart']
+    notify  => Exec['tomcat-restart']
   }
 
   maven { "/home/${tomcat}/.OpenMRS/modules/appointmentscheduling-${appointmentscheduling_version}.omod":
@@ -124,7 +124,7 @@ class bahmni_openmrs (
     packaging => "jar",
     repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
     require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
-    notify  => exec ['tomcat-restart']
+    notify  => Exec['tomcat-restart']
   }
 
   maven { "/home/${tomcat}/.OpenMRS/modules/appointmentscheduling-${appointmentschedulingui_version}.omod":
@@ -135,7 +135,7 @@ class bahmni_openmrs (
     packaging => "jar",
     repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
     require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
-    notify  => exec ['tomcat-restart']
+    notify  => Exec['tomcat-restart']
   }
 
   maven { "/home/${tomcat}/.OpenMRS/modules/appframework-${appframework_version}.omod":
@@ -146,7 +146,7 @@ class bahmni_openmrs (
     packaging => "jar",
     repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
     require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
-    notify  => exec ['tomcat-restart']
+    notify  => Exec['tomcat-restart']
   }
 
   maven { "/home/${tomcat}/.OpenMRS/modules/appui-${appui_version}.omod":
@@ -157,7 +157,7 @@ class bahmni_openmrs (
     packaging => "jar",
     repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
     require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
-    notify  => exec ['tomcat-restart']
+    notify  => Exec['tomcat-restart']
   }
 
   maven { "/home/${tomcat}/.OpenMRS/modules/calculation-${calculation_version}.omod":
@@ -168,7 +168,7 @@ class bahmni_openmrs (
     packaging => "jar",
     repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
     require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
-    notify  => exec ['tomcat-restart']
+    notify  => Exec['tomcat-restart']
   }
 
   maven { "/home/${tomcat}/.OpenMRS/modules/coreapps-${coreapps_version}.omod":
@@ -179,7 +179,7 @@ class bahmni_openmrs (
     packaging => "jar",
     repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
     require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
-    notify  => exec ['tomcat-restart']
+    notify  => Exec['tomcat-restart']
   }
 
   maven { "/home/${tomcat}/.OpenMRS/modules/emrapi-${emrapi_version}.omod":
@@ -190,7 +190,7 @@ class bahmni_openmrs (
     packaging => "jar",
     repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
     require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
-    notify  => exec ['tomcat-restart']
+    notify  => Exec['tomcat-restart']
   }
 
   maven { "/home/${tomcat}/.OpenMRS/modules/event-${event_version}.omod":
@@ -201,7 +201,7 @@ class bahmni_openmrs (
     packaging => "jar",
     repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
     require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
-    notify  => exec ['tomcat-restart']
+    notify  => Exec['tomcat-restart']
   }
 
   maven { "/home/${tomcat}/.OpenMRS/modules/htmlformentry-${htmlformentry_version}.omod":
@@ -212,7 +212,7 @@ class bahmni_openmrs (
     packaging => "jar",
     repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
     require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
-    notify  => exec ['tomcat-restart']
+    notify  => Exec['tomcat-restart']
   }
 
   maven { "/home/${tomcat}/.OpenMRS/modules/htmlformentry-${htmlformentryui_version}.omod":
@@ -223,7 +223,7 @@ class bahmni_openmrs (
     packaging => "jar",
     repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
     require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
-    notify  => exec ['tomcat-restart']
+    notify  => Exec['tomcat-restart']
   }
 
   maven { "/home/${tomcat}/.OpenMRS/modules/htmlwidgets-${htmlwidgets_version}.omod":
@@ -234,7 +234,7 @@ class bahmni_openmrs (
     packaging => "jar",
     repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
     require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
-    notify  => exec ['tomcat-restart']
+    notify  => Exec['tomcat-restart']
   }
 
   maven { "/home/${tomcat}/.OpenMRS/modules/idgen-${idgen_version}.omod":
@@ -245,7 +245,7 @@ class bahmni_openmrs (
     packaging => "jar",
     repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
     require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
-    notify  => exec ['tomcat-restart']
+    notify  => Exec['tomcat-restart']
   }
 
   maven { "/home/${tomcat}/.OpenMRS/modules/idgen-webservices-${idgen_webservices_version}.omod":
@@ -256,7 +256,7 @@ class bahmni_openmrs (
     packaging => "jar",
     repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
     require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
-    notify  => exec ['tomcat-restart']
+    notify  => Exec['tomcat-restart']
   }
 
   maven { "/home/${tomcat}/.OpenMRS/modules/metadatamapping-${metadatamapping_version}.omod":
@@ -267,18 +267,18 @@ class bahmni_openmrs (
     packaging => "jar",
     repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
     require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
-    notify  => exec ['tomcat-restart']
+    notify  => Exec['tomcat-restart']
   }
 
   maven { "/home/${tomcat}/.OpenMRS/modules/metadatasharing-${metadatasharing_version}.omod":
     groupid => "org.openmrs.module",
-    artifactid => "metadatasharing-omod",  $htmlwidgets_version = '1.6.4',
+    artifactid => "metadatasharing-omod",
     version => "${metadatasharing_version}",
     ensure => "latest",
     packaging => "jar",
     repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
     require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
-    notify  => exec ['tomcat-restart']
+    notify  => Exec['tomcat-restart']
   }
 
   maven { "/home/${tomcat}/.OpenMRS/modules/providermanagement-${providermanagement_version}.omod":
@@ -289,7 +289,7 @@ class bahmni_openmrs (
     packaging => "jar",
     repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
     require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
-    notify  => exec ['tomcat-restart']
+    notify  => Exec['tomcat-restart']
   }
 
   maven { "/home/${tomcat}/.OpenMRS/modules/reporting-${reporting_version}.omod":
@@ -300,7 +300,7 @@ class bahmni_openmrs (
     packaging => "jar",
     repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
     require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
-    notify  => exec ['tomcat-restart']
+    notify  => Exec['tomcat-restart']
   }
 
   maven { "/home/${tomcat}/.OpenMRS/modules/reportingrest-${reportingrest_version}.omod":
@@ -311,7 +311,7 @@ class bahmni_openmrs (
     packaging => "jar",
     repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
     require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
-    notify  => exec ['tomcat-restart']
+    notify  => Exec['tomcat-restart']
   }
 
   maven { "/home/${tomcat}/.OpenMRS/modules/serialization.xstream-${serialization_xstream_version}.omod":
@@ -322,7 +322,7 @@ class bahmni_openmrs (
     packaging => "jar",
     repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
     require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
-    notify  => exec ['tomcat-restart']
+    notify  => Exec['tomcat-restart']
   }
 
 
@@ -334,7 +334,7 @@ class bahmni_openmrs (
     packaging => "jar",
     repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
     require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
-    notify  => exec ['tomcat-restart']
+    notify  => Exec['tomcat-restart']
   }
 
   maven { "/home/${tomcat}/.OpenMRS/modules/uiframework-${uiframework_version}.omod":
@@ -345,7 +345,7 @@ class bahmni_openmrs (
     packaging => "jar",
     repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
     require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
-    notify  => exec ['tomcat-restart']
+    notify  => Exec['tomcat-restart']
   }
 
   maven { "/home/${tomcat}/.OpenMRS/modules/uilibrary-${uilibrary_version}.omod":
@@ -356,7 +356,7 @@ class bahmni_openmrs (
     packaging => "jar",
     repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
     require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
-    notify  => exec ['tomcat-restart']
+    notify  => Exec['tomcat-restart']
   }
 
   maven { "/home/${tomcat}/.OpenMRS/modules/webservices.rest-${webservices_rest_version}.omod":
@@ -367,7 +367,7 @@ class bahmni_openmrs (
     packaging => "jar",
     repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
     require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
-    notify  => exec ['tomcat-restart']
+    notify  => Exec['tomcat-restart']
   }
 
   exec { 'tomcat-restart':
