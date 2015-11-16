@@ -7,6 +7,35 @@ class bahmni_openmrs (
   $tomcat = hiera('tomcat'),
 ){
 
+  mysql_database { $openmrs_db :
+    ensure  => present,
+    require => [Service['mysqld']],
+    charset => 'utf8',
+  } ->
+
+  mysql_user { "${openmrs_db_user}@localhost":
+    ensure        => present,
+    password_hash => mysql_password($openmrs_db_password),
+    require => [ Service['mysqld']],
+  } ->
+
+  mysql_grant { "${openmrs_db_user}@localhost/${openmrs_db}":
+    options    => ['GRANT'],
+    privileges => ['ALL'],
+    table => '*.*',
+    user => "${openmrs_db_user}@localhost",
+    require => [ Service['mysqld'] ],
+  } ->
+
+  mysql_grant { "root@localhost/${openmrs_db}":
+    options    => ['GRANT'],
+    privileges => ['ALL'],
+    table => '*.*',
+    user => "root@localhost",
+    require => [Service['mysqld'] ],
+    notify  => exec ['tomcat-restart']
+  }
+
   file { '/etc/apt/apt.conf.d/99auth':
     ensure  => present,
     owner   => root,
@@ -47,7 +76,14 @@ class bahmni_openmrs (
     version => "1.11.4",
     packaging => "war",
     repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
-    require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/${webapp_name}-runtime.properties"], File['/etc/apt/apt.conf.d/99auth'] ]
+    require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/${webapp_name}-runtime.properties"], File['/etc/apt/apt.conf.d/99auth'] ],
+    notify  => exec ['tomcat-restart']
+  }
+
+  exec { 'tomcat-restart':
+    command     => "service ${tomcat} restart",
+    user        => 'root',
+    refreshonly => true
   }
 
 }
