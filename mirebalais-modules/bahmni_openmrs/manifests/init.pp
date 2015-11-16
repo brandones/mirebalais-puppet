@@ -10,7 +10,7 @@ class bahmni_openmrs (
   $appui_version = '1.3',
   $appointmentscheduling_version = '1.4',
   $appointmentschedulingui_version = '1.0.3',
-  $bahmnicore_version = '0.7.8',
+  $bahmnicore_version = '0.78-SNAPSHOT',
   $calculation_version = '1.1',
   $coreapps_version = '1.7',
   $emrapi_version = '1.13-SNAPSHOT',
