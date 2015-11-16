@@ -73,7 +73,7 @@ class bahmni_openmrs (
   maven { "/usr/local/tomcat7/webapps/openmrs.war":
     groupid => "org.openmrs.web",
     artifactid => "openmrs-webapp",
-    version => "1.11.4",
+    version => "1.12.0-SNAPSHOT",
     packaging => "war",
     repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
     require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/${webapp_name}-runtime.properties"], File['/etc/apt/apt.conf.d/99auth'] ],
