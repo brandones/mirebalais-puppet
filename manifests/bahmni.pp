@@ -11,6 +11,7 @@ node default {
   include apt_upgrades
   include wget
   include newrelic
+  include git
 
   include java
   include mysql_setup
