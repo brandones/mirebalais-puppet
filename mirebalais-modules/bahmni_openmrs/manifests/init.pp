@@ -89,7 +89,7 @@ class bahmni_openmrs (
     ensure => "latest",
     packaging => "jar",
     repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
-    require => [ Maven['/usr/local/tomcat7/webapps/openmrs.war'] ],
+    require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
     notify  => exec ['tomcat-restart']
   }
 
