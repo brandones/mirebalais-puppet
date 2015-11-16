@@ -10,6 +10,7 @@ class bahmni_openmrs (
   $appui_version = '1.3',
   $appointmentscheduling_version = '1.4',
   $appointmentschedulingui_version = '1.0.3',
+  $bahmnicore_version = '0.7.8',
   $calculation_version = '1.1',
   $coreapps_version = '1.7',
   $emrapi_version = '1.13-SNAPSHOT',
@@ -159,6 +160,18 @@ class bahmni_openmrs (
     require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
     notify  => Exec['tomcat-restart']
   }
+
+  maven { "/home/${tomcat}/.OpenMRS/modules/bahmnicore-${bahmnicore_version}.omod":
+    groupid => "org.bahmni.module",
+    artifactid => "bahmnicore-omod",
+    version => "${bahmnicore_version}",
+    ensure => "latest",
+    packaging => "jar",
+    repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
+    repos => [ "http://bahmnirepo.thoughtworks.com/artifactory/libs-snapshot-local","http://bahmnirepo.thoughtworks.com/artifactory/libs-release-local" ],
+    notify  => Exec['tomcat-restart']
+  }
+
 
   maven { "/home/${tomcat}/.OpenMRS/modules/calculation-${calculation_version}.omod":
     groupid => "org.openmrs.module",
