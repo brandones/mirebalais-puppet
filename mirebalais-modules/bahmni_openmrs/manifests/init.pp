@@ -5,6 +5,7 @@ class bahmni_openmrs (
   $openmrs_auto_update_database = hiera('openmrs_auto_update_database'),
   $webapp_name = hiera('webapp_name'),
   $tomcat = hiera('tomcat'),
+  $emrapi_version = '1.13-SNAPSHOT'
 ){
 
   mysql_database { $openmrs_db :
@@ -78,6 +79,17 @@ class bahmni_openmrs (
     packaging => "war",
     repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
     require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/${webapp_name}-runtime.properties"], File['/etc/apt/apt.conf.d/99auth'] ],
+    notify  => exec ['tomcat-restart']
+  }
+
+  maven { "/home/${tomcat}/.OpenMRS/modules/emrapi-{$emrapi_version}.omod":
+    groupid => "org.openmrs.module",
+    artifactid => "emrapi-omod",
+    version => "{$emrapi_version}",
+    ensure => "latest",
+    packaging => "jar",
+    repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
+    require => [ Maven['/usr/local/tomcat7/webapps/openmrs.war'] ],
     notify  => exec ['tomcat-restart']
   }
 
