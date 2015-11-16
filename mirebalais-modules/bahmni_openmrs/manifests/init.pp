@@ -10,6 +10,7 @@ class bahmni_openmrs (
   $appui_version = '1.3',
   $appointmentscheduling_version = '1.4',
   $appointmentschedulingui_version = '1.0.3',
+  $atomfeed_version = '2.5.0',
   $bahmnicore_version = '0.78-SNAPSHOT',
   $calculation_version = '1.1',
   $coreapps_version = '1.7',
@@ -161,6 +162,17 @@ class bahmni_openmrs (
     notify  => Exec['tomcat-restart']
   }
 
+  maven { "/home/${tomcat}/.OpenMRS/modules/atomfeed-${atomfeed_version}.omod":
+    groupid => "org.ic4th.openmrs",
+    artifactid => "atomfeed-omod",
+    version => "${atomfeed_version}",
+    ensure => "latest",
+    packaging => "jar",
+    repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/central",
+    require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
+    notify  => Exec['tomcat-restart']
+  }
+
   maven { "/home/${tomcat}/.OpenMRS/modules/bahmnicore-${bahmnicore_version}.omod":
     groupid => "org.bahmni.module",
     artifactid => "bahmnicore-omod",
@@ -172,6 +184,16 @@ class bahmni_openmrs (
     notify  => Exec['tomcat-restart']
   }
 
+  maven { "/home/${tomcat}/.OpenMRS/modules/reference-data-${bahmnicore_version}.omod":
+    groupid => "org.bahmni.module",
+    artifactid => "reference-data-omod",
+    version => "${bahmnicore_version}",
+    ensure => "latest",
+    packaging => "jar",
+    repos => [ "http://bahmnirepo.thoughtworks.com/artifactory/libs-snapshot-local","http://bahmnirepo.thoughtworks.com/artifactory/libs-release-local" ],
+    require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
+    notify  => Exec['tomcat-restart']
+  }
 
   maven { "/home/${tomcat}/.OpenMRS/modules/calculation-${calculation_version}.omod":
     groupid => "org.openmrs.module",
