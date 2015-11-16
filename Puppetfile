@@ -7,6 +7,7 @@ mod 'puppetlabs-mysql',
   :git => 'https://github.com/puppetlabs/puppetlabs-mysql',
   :ref => '1.0.0'
 mod 'puppetlabs/stdlib', '4.6.0'
+mod 'puppetlabs/vcsrepo', '1.3.1'
 mod 'maestrodev/wget', '1.7.0'
 mod 'maestrodev/maven', '1.4.0'
 mod 'logstash',
