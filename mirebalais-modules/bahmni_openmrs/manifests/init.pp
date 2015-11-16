@@ -254,7 +254,7 @@ class bahmni_openmrs (
     version => "${idgen_webservices_version}",
     ensure => "latest",
     packaging => "jar",
-    repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
+    repos => [ "http://bahmnirepo.thoughtworks.com/artifactory/libs-snapshot-local","http://bahmnirepo.thoughtworks.com/artifactory/libs-release-local" ],
     require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
     notify  => Exec['tomcat-restart']
   }
