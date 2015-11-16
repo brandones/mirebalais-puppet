@@ -82,10 +82,10 @@ class bahmni_openmrs (
     notify  => exec ['tomcat-restart']
   }
 
-  maven { "/home/${tomcat}/.OpenMRS/modules/emrapi-{$emrapi_version}.omod":
+  maven { "/home/${tomcat}/.OpenMRS/modules/emrapi-${emrapi_version}.omod":
     groupid => "org.openmrs.module",
     artifactid => "emrapi-omod",
-    version => "{$emrapi_version}",
+    version => "${emrapi_version}",
     ensure => "latest",
     packaging => "jar",
     repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
