@@ -96,6 +96,14 @@ class bahmni_openmrs (
     require => File["/home/${tomcat}/.OpenMRS"]
   }
 
+  vcsrepo { '/usr/local/tomcat7/webapps/bahmni-config':
+    ensure   => latest,
+    provider => git,
+    source   => 'https://github.com/Bhamni/default-config.git',     # TODO switch to use implementation-specific config
+    revision => 'master',
+    require => [Service[$tomcat],Package['git']]
+  }
+
   maven { "/usr/local/tomcat7/webapps/openmrs.war":
     groupid => "org.openmrs.web",
     artifactid => "openmrs-webapp",
@@ -163,8 +171,8 @@ class bahmni_openmrs (
   }
 
   maven { "/home/${tomcat}/.OpenMRS/modules/atomfeed-${atomfeed_version}.omod":
-    groupid => "org.ic4th.openmrs",
-    artifactid => "atomfeed-omod",
+    groupid => "org.ict4h.openmrs",
+    artifactid => "openmrs-atomfeed-omod",
     version => "${atomfeed_version}",
     ensure => "latest",
     packaging => "jar",
