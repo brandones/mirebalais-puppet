@@ -127,9 +127,9 @@ class bahmni_openmrs (
     notify  => Exec['tomcat-restart']
   }
 
-  maven { "/home/${tomcat}/.OpenMRS/modules/appointmentscheduling-${appointmentschedulingui_version}.omod":
+  maven { "/home/${tomcat}/.OpenMRS/modules/appointmentschedulingui-${appointmentschedulingui_version}.omod":
     groupid => "org.openmrs.module",
-    artifactid => "appointmentscheduling-omod",
+    artifactid => "appointmentschedulingui-omod",
     version => "${appointmentschedulingui_version}",
     ensure => "latest",
     packaging => "jar",
@@ -316,7 +316,7 @@ class bahmni_openmrs (
 
   maven { "/home/${tomcat}/.OpenMRS/modules/serialization.xstream-${serialization_xstream_version}.omod":
     groupid => "org.openmrs.module",
-    artifactid => "serialization.xstream.omod",
+    artifactid => "serialization.xstream-omod",
     version => "${serialization_xstream_version}",
     ensure => "latest",
     packaging => "jar",
