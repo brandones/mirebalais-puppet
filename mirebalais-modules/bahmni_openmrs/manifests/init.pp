@@ -332,7 +332,7 @@ class bahmni_openmrs (
     artifactid => "serialization.xstream-omod",
     version => "${serialization_xstream_version}",
     ensure => "latest",
-    packaging => "jar",
+    packaging => "omod",
     repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
     require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
     notify  => Exec['tomcat-restart']
