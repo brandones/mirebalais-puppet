@@ -1,4 +1,4 @@
-class bahmni_openmrs::mysql (
+class bahmni::mysql (
   $openmrs_db = hiera('openmrs_db'),
   $openmrs_db_user = decrypt(hiera('openmrs_db_user')),
   $openmrs_db_password = decrypt(hiera('openmrs_db_password'))

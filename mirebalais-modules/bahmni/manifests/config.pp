@@ -1,4 +1,4 @@
-class bahmni_openmrs::config (
+class bahmni::config (
   $tomcat = hiera('tomcat')
 ){
 
