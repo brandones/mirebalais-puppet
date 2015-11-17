@@ -5,7 +5,7 @@ class bahmni::app (
   # TODO make this something that relies on a true deployment process
   wget::fetch { 'download-bahmniapps':
     source      => 'http://bamboo.pih-emr.org/bahmniapps-repo/bahmniapps.zip',
-    destination => "/usr/local/${tomcat7}/webapps/bahmniapps",
+    destination => "/usr/local/${tomcat}/webapps/bahmniapps",
     timeout     => 0,
     verbose     => false
   }
