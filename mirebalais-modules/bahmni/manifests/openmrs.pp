@@ -1,4 +1,4 @@
-class bahmni_openmrs (
+class bahmni_openmrs::openmrs (
   $openmrs_db = hiera('openmrs_db'),
   $openmrs_db_user = decrypt(hiera('openmrs_db_user')),
   $openmrs_db_password = decrypt(hiera('openmrs_db_password')),
@@ -33,35 +33,6 @@ class bahmni_openmrs (
   $webservices_rest_version = '2.12',
 ){
 
-  mysql_database { $openmrs_db :
-    ensure  => present,
-    require => [Service['mysqld']],
-    charset => 'utf8',
-  } ->
-
-  mysql_user { "${openmrs_db_user}@localhost":
-    ensure        => present,
-    password_hash => mysql_password($openmrs_db_password),
-    require => [ Service['mysqld']],
-  } ->
-
-  mysql_grant { "${openmrs_db_user}@localhost/${openmrs_db}":
-    options    => ['GRANT'],
-    privileges => ['ALL'],
-    table => '*.*',
-    user => "${openmrs_db_user}@localhost",
-    require => [ Service['mysqld'] ],
-  } ->
-
-  mysql_grant { "root@localhost/${openmrs_db}":
-    options    => ['GRANT'],
-    privileges => ['ALL'],
-    table => '*.*',
-    user => "root@localhost",
-    require => [Service['mysqld'] ],
-    notify  => Exec ['tomcat-restart']
-  }
-
   file { '/etc/apt/apt.conf.d/99auth':
     ensure  => present,
     owner   => root,
@@ -94,14 +65,6 @@ class bahmni_openmrs (
     group   => $tomcat,
     mode    => '0644',
     require => File["/home/${tomcat}/.OpenMRS"]
-  }
-
-  vcsrepo { '/usr/local/tomcat7/webapps/bahmni-config':
-    ensure   => latest,
-    provider => git,
-    source   => 'https://github.com/Bhamni/default-config.git',     # TODO switch to use implementation-specific config
-    revision => 'master',
-    require => [Service[$tomcat],Package['git']]
   }
 
   maven { "/usr/local/tomcat7/webapps/openmrs.war":
