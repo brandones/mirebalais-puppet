@@ -53,9 +53,9 @@ class bahmni::app (
   } ->
 
   # link built distro to appropriate tomcat webapps directory
-  file { '/usr/local/${tomcat}/webapps/bahmniapps':
+  file { "/usr/local/${tomcat}/webapps/bahmniapps":
     ensure => 'link',
-    target => '/home/${tomcat}/bahmni-code/opemrs-module-bahmniapps/ui/dist',
+    target => "/home/${tomcat}/bahmni-code/opemrs-module-bahmniapps/ui/dist",
     require => Exec['bahmniapps_grunt']
   }
 }
