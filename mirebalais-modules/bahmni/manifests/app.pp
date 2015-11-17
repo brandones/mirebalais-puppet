@@ -5,13 +5,13 @@ class bahmni::app (
   # TODO make this something that relies on a true deployment process
   wget::fetch { 'download-bahmniapps':
     source      => 'http://bamboo.pih-emr.org/bahmniapps-repo/bahmniapps.zip',
-    destination => "/usr/local/${tomcat}/webapps/bahmniapps",
+    destination => "/usr/local/${tomcat}/webapps/bahmniapps.zip",
     timeout     => 0,
     verbose     => false
   }
 
   exec { 'unzip_bahmniapps':
-    cwd     => '/usr/local/${tomcat7}/webapps/bahmniapps',
+    cwd     => '/usr/local/${tomcat}/webapps/bahmniapps',
     command => 'gzip -d bahmniapps.zip',
     refreshonly => true,
     subscribe => [ Wget::Fetch['download-bahmniapps'] ]
