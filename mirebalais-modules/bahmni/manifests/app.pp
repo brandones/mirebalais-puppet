@@ -11,7 +11,7 @@ class bahmni::app (
   }
 
   exec { 'unzip_bahmniapps':
-    cwd     => '/usr/local/${tomcat}/webapps/bahmniapps',
+    cwd     => "/usr/local/${tomcat}/webapps/bahmniapps",
     command => 'gzip -d bahmniapps.zip',
     refreshonly => true,
     subscribe => [ Wget::Fetch['download-bahmniapps'] ]
