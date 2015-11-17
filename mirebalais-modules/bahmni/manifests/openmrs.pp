@@ -67,7 +67,7 @@ class bahmni::openmrs (
     require => File["/home/${tomcat}/.OpenMRS"]
   }
 
-  maven { "/usr/local/tomcat7/webapps/openmrs.war":
+  maven { "/usr/local/${tomcat}/webapps/openmrs.war":
     groupid => "org.openmrs.web",
     artifactid => "openmrs-webapp",
     version => "1.12.0-SNAPSHOT",
