@@ -35,7 +35,7 @@ class bahmni::app (
     cwd         => "/home/${tomcat}/bahmni-code/opemrs-module-bahmniapps/ui",
     command     => 'npm install',
     refreshonly => 'true',
-    subscribe => Vcsrepo["/usr/local/${tomcat}/bahmni-code/opemrs-module-bahmniapps"]
+    subscribe => Vcsrepo["/home/${tomcat}/bahmni-code/opemrs-module-bahmniapps"]
   } ->
 
   exec { 'bahmniapps_bower_install':
