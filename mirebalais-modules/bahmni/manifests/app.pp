@@ -1,4 +1,4 @@
-class bahmni::config (
+class bahmni::app (
   $tomcat = hiera('tomcat')
 ){
 
