@@ -3,6 +3,7 @@ class bahmni::config (
 ){
 
   # TODO change so the dist is downloaded from somewhere instead of built locally?
+
   vcsrepo { "/usr/local/${tomcat}/bahmni-code/opemrs-module-bahmniapps":
     ensure   => latest,
     provider => git,
@@ -11,21 +12,23 @@ class bahmni::config (
     require => [Service[$tomcat],Package['git']]
   }
 
-  # TODO if we do keep these, specify certain version numbers to install?
+  # TODO eventually get rid of installing all these dev tools once we are no longer building the app locally
   package { 'npm':
     ensure => installed,
   }
 
-  package { 'bower':
-    ensure   => 'present',
-    provider => 'npm',
+  exec { 'install_bower':
+    command   => 'npm install -g bower',
     require => [Package['npm']]
   }
 
-  package { 'grunt-cli':
-    ensure   => 'present',
-    provider => 'npm',
+  exec { 'install_grunt-cli':
+    command   => 'npm install -g grunt-cli',
     require => [Package['npm']]
+  }
+
+  exec { 'install_compass_gem':
+    command   => 'gem install compass'
   }
 
 }

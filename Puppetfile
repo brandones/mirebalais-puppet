@@ -10,8 +10,6 @@ mod 'puppetlabs/stdlib', '4.6.0'
 mod 'puppetlabs/vcsrepo', '1.3.1'
 mod 'maestrodev/wget', '1.7.0'
 mod 'maestrodev/maven', '1.4.0'
- # TODO remove this once/if we stop building the bahmni app locally
-mod 'puppetlabs/nodejs', '0.7.1'
 mod 'logstash',
   :git => 'https://github.com/electrical/puppet-logstash',
   :ref => '0.0.5'
