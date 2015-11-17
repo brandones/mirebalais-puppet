@@ -4,7 +4,7 @@ class bahmni::config (
 
   file { "/home/${tomcat}/.OpenMRS/bahmnicore.properties":
     ensure  => present,
-    content => template('bahmni/bamnicore.properties.erb'),
+    content => template('bahmni/bahmnicore.properties.erb'),
     owner   => $tomcat,
     group   => $tomcat,
     mode    => '0644',
