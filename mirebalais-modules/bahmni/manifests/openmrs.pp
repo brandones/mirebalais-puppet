@@ -147,7 +147,17 @@ class bahmni::openmrs (
     notify  => Exec['tomcat-restart']
   }
 
-  maven { "/home/${tomcat}/.OpenMRS/modules/bahmnicore-${bahmnicore_version}.omod":
+  # TODO this is just temporary, until we get a workable version of the bahmnicore module
+  wget::fetch { 'download-bahmnicore':
+    source      => 'http://bamboo.pih-emr.org/bahmni-repo/bahmnicore-omod-0.78-SNAPSHOT.omdd',
+    destination => "/hom3/${tomcat}/.OpenMRS/modules/bahmnicore-0.78-SNAPSHOT.omod",
+    timeout     => 0,
+    verbose     => false,
+    require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
+    notify  => Exec['tomcat-restart']
+  }
+
+ /* maven { "/home/${tomcat}/.OpenMRS/modules/bahmnicore-${bahmnicore_version}.omod":
     groupid => "org.bahmni.module",
     artifactid => "bahmnicore-omod",
     version => "${bahmnicore_version}",
@@ -157,7 +167,7 @@ class bahmni::openmrs (
     require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
     notify  => Exec['tomcat-restart']
   }
-
+*/
   maven { "/home/${tomcat}/.OpenMRS/modules/reference-data-${bahmnicore_version}.omod":
     groupid => "org.bahmni.module",
     artifactid => "reference-data-omod",
