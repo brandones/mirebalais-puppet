@@ -8,6 +8,7 @@ class bahmni::app (
   }
 
   # TODO make this something that relies on a true deployment process, and allows use to apply updates
+  # TODO right now it will only work the first time through
   wget::fetch { 'download-bahmniapps':
     source      => 'http://bamboo.pih-emr.org/bahmni-repo/bahmniapps.tar.gz',
     destination => "/usr/local/${tomcat}/webapps/bahmniapps/bahmniapps.tar.gz",

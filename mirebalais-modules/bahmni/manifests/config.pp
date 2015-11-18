@@ -30,7 +30,7 @@ class bahmni::config (
   vcsrepo { "/usr/local/${tomcat}/webapps/bahmni-config":
     ensure   => latest,
     provider => git,
-    source   => 'https://github.com/PIH/wellbody-config.git',
+    source   => 'https://github.com/PIH/wellbody-config.git',       # TODO this should be dependent on Bahmni implementation, once/if we are using Bahmni in multple places
     revision => 'master',                                           # TODO switch to be driven by variable (which comes from manifest?)
     require => [Service[$tomcat],Package['git']]
   }
