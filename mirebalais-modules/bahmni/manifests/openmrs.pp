@@ -24,8 +24,10 @@ class bahmni::openmrs (
   $htmlwidgets_version = '1.6.4',
   $idgen_version = '4.0',
   $idgen_webservices_version = '1.1-SNAPSHOT',
+  $metadatadeploy_version = '1.5',
   $metadatamapping_version = '1.0.2',
   $metadatasharing_version = '1.1.9',
+  $pihbahmniconfig_version = '1.0-SNAPSHOT',
   $providermanagement_version = '2.3',
   $reporting_version = '0.9.6',
   $reportingrest_version = '1.4',
@@ -278,6 +280,18 @@ class bahmni::openmrs (
     notify  => Exec['tomcat-restart']
   }
 
+  maven { "/home/${tomcat}/.OpenMRS/modules/metadatadeploy-${metadatadeploy_version}.omod":
+    groupid => "org.openmrs.module",
+    artifactid => "metadatadeploy-omod",
+    version => "${metadatadeploy_version}",
+    ensure => "latest",
+    packaging => "jar",
+    repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
+    require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
+    notify  => Exec['tomcat-restart']
+  }
+
+
   maven { "/home/${tomcat}/.OpenMRS/modules/metadatamapping-${metadatamapping_version}.omod":
     groupid => "org.openmrs.module",
     artifactid => "metadatamapping-omod",
@@ -299,6 +313,18 @@ class bahmni::openmrs (
     require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
     notify  => Exec['tomcat-restart']
   }
+
+  maven { "/home/${tomcat}/.OpenMRS/modules/pihbahmniconfig-${pihbahmniconfig_version}.omod":
+    groupid => "org.openmrs.module",
+    artifactid => "pihbahmniconfig-omod",
+    version => "${pihbahmniconfig_version}",
+    ensure => "latest",
+    packaging => "jar",
+    repos => "http://mavenrepo.openmrs.org/nexus/content/repositories/public",
+    require => [ Package['maven'], Service[$tomcat], File["/home/${tomcat}/.OpenMRS/modules"] ],
+    notify  => Exec['tomcat-restart']
+  }
+
 
   maven { "/home/${tomcat}/.OpenMRS/modules/providermanagement-${providermanagement_version}.omod":
     groupid => "org.openmrs.module",
