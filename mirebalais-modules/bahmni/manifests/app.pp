@@ -9,8 +9,8 @@ class bahmni::app (
 
   # TODO make this something that relies on a true deployment process, and allows use to apply updates
   wget::fetch { 'download-bahmniapps':
-    source      => 'http://bamboo.pih-emr.org/bahmniapps-repo/bahmniapps.zip',
-    destination => "/usr/local/${tomcat}/webapps/bahmniapps/bahmniapps.zip",
+    source      => 'http://bamboo.pih-emr.org/bahmniapps-repo/bahmniapps.tar.gz',
+    destination => "/usr/local/${tomcat}/webapps/bahmniapps/bahmniapps.tar.gz",
     timeout     => 0,
     verbose     => false,
     require => File["/usr/local/${tomcat}/webapps/bahmniapps"]
@@ -18,8 +18,15 @@ class bahmni::app (
 
   exec { 'unzip_bahmniapps':
     cwd     => "/usr/local/${tomcat}/webapps/bahmniapps",
-    command => 'gzip -d bahmniapps.zip',
+    command => 'gzip -d bahmniapps.tar.gz',
     refreshonly => true,
     subscribe => [ Wget::Fetch['download-bahmniapps'] ]
+  }
+
+  exec { 'untar_bahmniapps':
+    cwd     => "/usr/local/${tomcat}/webapps/bahmniapps",
+    command => 'tar -xf bahmniapps.tar',
+    refreshonly => true,
+    subscribe => [ Exec['unzip_bahmniapps'] ]
   }
 }
