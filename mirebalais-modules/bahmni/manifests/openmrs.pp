@@ -64,7 +64,7 @@ class bahmni::openmrs (
 
 
   file { "/home/${tomcat}/.OpenMRS/${webapp_name}-runtime.properties":
-    ensure  => present,
+    ensure  => latest,
     content => template('openmrs/openmrs-runtime.properties.erb'),
     owner   => $tomcat,
     group   => $tomcat,
