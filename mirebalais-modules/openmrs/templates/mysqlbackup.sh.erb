@@ -10,6 +10,10 @@ PREFIX=<%= @backup_file_prefix %>
 REMOTE_DB_SERVER='<%= @remote_db_server %>'
 REMOTE_DB='<%= @remote_db_user %>@<%= @remote_db_server %>:<%= @remote_backup_dir %>'
 
+# For Pleebo and other environments which can't locate this command
+MYSQLDUMP_DIR=/opt/mysql/server-5.6/bin
+export PATH=$PATH:${MYSQLDUMP_DIR}
+
 if [ -n "$1" ]
 then
   MODIFIER=release_$1
