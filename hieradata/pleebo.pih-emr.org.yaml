@@ -2,10 +2,12 @@
 site_domain: pleebo.pih-emr.org
 pih_config: liberia
 package_release: 'stable/'
+server_timezone: GMT
 
 mysql_root_password: ENC[oWqIfmn/ER4CYIvjJSpIzQ==]
 mysql_bind_address: 0.0.0.0
 openmrs_db_password: ENC[3RqMvut63WqWc8IDs/GOnQ==]
+backup_db_password: ENC[vkWTaGabrix4EDOVYyoePsJhGlRZxdNy6y8QZ8r2H5I=]
 
 backup_file_prefix: pleebo
 backup_hour: 13
