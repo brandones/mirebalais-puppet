@@ -2,7 +2,7 @@
 site_domain: pleebo.pih-emr.org
 pih_config: liberia
 package_release: 'stable/'
-server_timezone: GMT
+server_timezone: Africa/Monrovia
 
 mysql_root_password: ENC[oWqIfmn/ER4CYIvjJSpIzQ==]
 mysql_bind_address: 0.0.0.0
