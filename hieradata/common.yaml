@@ -1,6 +1,6 @@
 ---
 webapp_name: openmrs
-pih_config: mirebalais
+pih_config: haiti
 server_timezone: America/New_York
 site_domain: foo.org
 
