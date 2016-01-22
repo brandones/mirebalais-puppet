@@ -9,5 +9,6 @@ gem 'puppet-decrypt', '= 0.1.0'
 gem 'daemons', '= 1.1.9'
 gem 'capistrano', '= 2.15.4'
 gem 'net-ssh', '= 2.9.2'
+gem 'encryptor', '= 1.3.0'
 
 
