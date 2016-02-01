@@ -13,7 +13,6 @@ class apt_upgrades(
   	      auto_fix            => true,
   	      minimal_steps       => false,
   	      install_on_shutdown => false,
-  	      auto_reboot         => false,
-          automaticremove     => true
+  	      auto_reboot         => false
 	 }
 }	      
