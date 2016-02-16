@@ -1,0 +1,31 @@
+---
+package_release: 'stable/'
+site_domain: thomonde.pih-emr.org
+pih_config: haiti,haiti-thomonde
+
+
+mysql_root_password: ENC[oWqIfmn/ER4CYIvjJSpIzQ==]
+mysql_bind_address: 0.0.0.0
+openmrs_db_password: ENC[3RqMvut63WqWc8IDs/GOnQ==]
+
+remote_db_user: backups
+remote_db_server: amigo.pih-emr.org
+remote_backup_dir: haiti/thomonde/db
+backup_file_prefix: thomonde
+backup_db_password: ENC[vkWTaGabrix4EDOVYyoePsJhGlRZxdNy6y8QZ8r2H5I=]
+
+openmrs_auto_update_database: true
+
+mysql_server_id: 1
+mysql_innodb_buffer_pool_size: 3G
+
+remote_zlidentifier_url: 'https://zanmi.pih-emr.org/openmrs/module/idgen/exportIdentifiers.form?source=1&comment=Mirebalais'
+remote_zlidentifier_username: mirebalais
+remote_zlidentifier_password: ENC[IuAJgqs6Ci5Hw5xs/DYiZg==]
+
+# SSL certificates
+ssl_cert_file: 'hum.ht.crt'
+ssl_chain_file: 'gd_bundle-g2.crt'
+ssl_key_file: 'hum.key'
+
+java_memory_parameters: '-Xmx8G -Xms1024m -XX:PermSize=256m -XX:MaxPermSize=512m -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC'
