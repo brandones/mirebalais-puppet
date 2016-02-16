@@ -62,6 +62,7 @@ junit_password: Junit123
 
 # feature toggle settings
 chief_complaint: true
+new_check_in: true
 request_appointments: true
 
 reportingui_ad_hoc_analysis: false
