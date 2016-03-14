@@ -1,11 +1,12 @@
 webapp_name: mirebalais
 pih_config: mirebalais,mirebalais-production
+server_timezone: America/Panama
 
 remote_db_user: backups
 remote_db_server: amigo.pih-emr.org
 remote_backup_dir: haiti/mirebalais/db
 backup_file_prefix: mirebalais
-
+server_timezone: America/New_York
 openmrs_auto_update_database: true
 site_domain: emr.hum.ht
 

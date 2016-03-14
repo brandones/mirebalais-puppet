@@ -3,6 +3,7 @@ webapp_name: mirebalais
 openmrs_auto_update_database: true
 site_domain: emrtest.hum.ht
 pih_config: mirebalais,mirebalais-training
+server_timezone: America/Panama
 
 package_release: 'stable/'
 mysql_root_password: ENC[oWqIfmn/ER4CYIvjJSpIzQ==]

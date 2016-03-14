@@ -1,5 +1,6 @@
 webapp_name: mirebalais
 pih_config: mirebalais,mirebalais-reporting
+server_timezone: America/Panama
 
 openmrs_auto_update_database: true
 site_domain: reporting.hum.ht
