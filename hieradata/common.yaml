@@ -1,7 +1,12 @@
 ---
 webapp_name: openmrs
-pih_config: haiti
 server_timezone: America/New_York
+ntp_server_1: 0.ubuntu.pool.ntp.org
+ntp_server_2: 1.ubuntu.pool.ntp.org
+ntp_server_3: 2.ubuntu.pool.ntp.org
+ntp_server_4: 3.ubuntu.pool.ntp.org
+
+pih_config: haiti
 site_domain: foo.org
 
 package_release: 'unstable/'

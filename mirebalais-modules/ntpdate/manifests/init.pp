@@ -1,8 +1,12 @@
 class ntpdate(
   $timezone = hiera('server_timezone'),
+  $server_1 = hiera('ntp_server_1'),
+  $server_2 = hiera('ntp_server_2'),
+  $server_3 = hiera('ntp_server_3'),
+  $server_4 = hiera('ntp_server_4')
 ) {
   file { '/etc/ntp.conf':
-    source => 'puppet:///modules/ntpdate/etc/ntp.conf'
+    source => template('ntpupdate/ntp.conf.erb')
   }
 
   file { '/etc/default/rcS':
