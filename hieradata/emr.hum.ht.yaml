@@ -1,6 +1,6 @@
 webapp_name: mirebalais
 pih_config: mirebalais,mirebalais-production
-server_timezone: America/Panama
+server_timezone: EST
 
 remote_db_user: backups
 remote_db_server: amigo.pih-emr.org
