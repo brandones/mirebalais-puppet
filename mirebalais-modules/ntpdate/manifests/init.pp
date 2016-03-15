@@ -6,7 +6,7 @@ class ntpdate(
   $server_4 = hiera('ntp_server_4')
 ) {
   file { '/etc/ntp.conf':
-    source => template('ntpupdate/ntp.conf.erb')
+    source => template('ntpdate/ntp.conf.erb')
   }
 
   file { '/etc/default/rcS':
