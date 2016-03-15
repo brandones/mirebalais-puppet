@@ -13,14 +13,26 @@ class ntpdate(
     source => 'puppet:///modules/ntpdate/etc/rcS_default'
   }
 
-  exec { 'update time':
-    command     => 'ntpdate-debian',
-    subscribe   => File['/etc/ntp.conf'],
-    refreshonly => true
-  }
-
   file { '/etc/timezone':
        ensure => present,
        content => "${timezone}\n"
+  }
+
+  exec { 'stop ntp':
+    command     => 'service ntp stop',
+    subscribe   => [ File['/etc/ntp.conf'], File['/etc/timezone'] ],
+    refreshonly => true
+  }
+
+  exec { 'update time':
+    command     => 'ntpdate-debian',
+    subscribe   => Exec['stop ntp'],
+    refreshonly => true
+  }
+
+  exec { 'start ntp':
+    command     => 'service ntp start',
+    subscribe   => Exec['update time'],
+    refreshonly => true
   }
 }
