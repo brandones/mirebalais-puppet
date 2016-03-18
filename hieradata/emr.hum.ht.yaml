@@ -1,6 +1,6 @@
 webapp_name: mirebalais
 pih_config: mirebalais,mirebalais-production
-server_timezone: EST
+server_timezone: America/Port-au-Prince
 ntp_server_1: 192.168.1.151
 ntp_server_2: 192.168.1.174
 ntp_server_3: 192.168.1.151
