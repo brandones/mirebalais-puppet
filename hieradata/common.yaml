@@ -30,6 +30,7 @@ appframework_config_filename: appframework-config-common.json
 
 backup_file_prefix: foo
 backup_hour: 1
+backup_delete_older_than_x_days: 90
 archive_hour: 3
 remote_db_user: foo
 remote_db_server: foo

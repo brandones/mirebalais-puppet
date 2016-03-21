@@ -10,6 +10,7 @@ remote_db_user: backups
 remote_db_server: amigo.pih-emr.org
 remote_backup_dir: haiti/mirebalais/db
 backup_file_prefix: mirebalais
+backup_delete_older_than_x_days: 30
 server_timezone: America/New_York
 openmrs_auto_update_database: true
 site_domain: emr.hum.ht
