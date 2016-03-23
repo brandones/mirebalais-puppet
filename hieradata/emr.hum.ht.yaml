@@ -1,11 +1,17 @@
 webapp_name: mirebalais
 pih_config: mirebalais,mirebalais-production
+server_timezone: America/Port-au-Prince
+ntp_server_1: 192.168.1.151
+ntp_server_2: 192.168.1.174
+ntp_server_3: 192.168.1.151
+ntp_server_4: 192.168.1.174
 
 remote_db_user: backups
 remote_db_server: amigo.pih-emr.org
 remote_backup_dir: haiti/mirebalais/db
 backup_file_prefix: mirebalais
-
+backup_delete_older_than_x_days: 30
+server_timezone: America/New_York
 openmrs_auto_update_database: true
 site_domain: emr.hum.ht
 
@@ -24,8 +30,8 @@ appframework_config_filename: appframework-config-production.json
 
 pacs_mirebalais_ip_address: 192.168.7.38
 pacs_mirebalais_inbound_port: 6661
-pacs_boston_ip_address: pacsboston.pih-emr.org
-pacs_boston_inbound_port: 6660
+dicom_grid_haiti_ip_address: 192.168.7.35
+dicom_grid_haiti_inbound_port: 12000
 mirth_inbound_from_pacs_mirebalais_port: 6662
 mirth_inbound_from_pacs_boston_port: 6664
 

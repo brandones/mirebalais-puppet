@@ -48,19 +48,19 @@
     </sourceConnector>
     <destinationConnectors>
         <connector>
-            <name>PACS Boston</name>
+            <name>DICOM Grid UHM</name>
             <properties>
                 <property name="DataType">LLP Sender</property>
                 <property name="ackTimeout">30000</property>
                 <property name="bufferSize">65536</property>
                 <property name="charEncoding">hex</property>
-                <property name="charsetEncoding">windows-1252</property>
-                <property name="host"><%= @pacs_boston_ip_address %></property>
+                <property name="charsetEncoding">UTF-8</property>
+                <property name="host"><%= @dicom_grid_haiti_ip_address %></property>
                 <property name="keepSendSocketOpen">0</property>
                 <property name="maxRetryCount">99</property>
                 <property name="messageEnd">0x1C</property>
                 <property name="messageStart">0x0B</property>
-                <property name="port"><%= @pacs_boston_inbound_port %></property>
+                <property name="port"><%= @dicom_grid_haiti_inbound_port %></property>
                 <property name="processHl7AckResponse">1</property>
                 <property name="queueAckTimeout">1</property>
                 <property name="queuePollInterval">200</property>

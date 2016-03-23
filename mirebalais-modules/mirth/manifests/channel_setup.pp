@@ -6,8 +6,8 @@ class mirth::channel_setup (
   $openmrs_db_password = decrypt(hiera('openmrs_db_password')),
   $pacs_mirebalais_ip_address = hiera('pacs_mirebalais_ip_address'),
   $pacs_mirebalais_inbound_port = hiera('pacs_mirebalais_inbound_port'),
-  $pacs_boston_ip_address = hiera('pacs_boston_ip_address'),
-  $pacs_boston_inbound_port = hiera('pacs_boston_inbound_port'),
+  $dicom_grid_haiti_ip_address = hiera('dicom_grid_haiti_ip_address'),
+  $dicom_grid_haiti_inbound_port = hiera('dicom_grid_haiti_inbound_port'),
   $mirth_inbound_from_pacs_mirebalais_port = hiera('mirth_inbound_from_pacs_mirebalais_port'),
   $mirth_inbound_from_pacs_boston_port = hiera('mirth_inbound_from_pacs_boston_port'),
   $openmrs_mirebalais_inbound_port = hiera('openmrs_mirebalais_inbound_port')

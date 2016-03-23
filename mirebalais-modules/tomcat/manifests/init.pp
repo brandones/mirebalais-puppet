@@ -4,6 +4,7 @@ class tomcat (
     $java_memory_parameters = hiera('java_memory_parameters'),
     $java_profiler = hiera('java_profiler'),
     $java_debug_parameters = hiera('java_debug_parameters'),
+    $restart_nightly = hiera('tomcat_restart_nightly')
   ){
 
   case $tomcat {
@@ -100,7 +101,22 @@ class tomcat (
   service { $tomcat:
     enable  => $services_enable,
     require => [ Exec['tomcat-unzip'], File["/usr/local/${tomcat}"], File["/etc/init.d/${tomcat}"] ],
-  }  
+  }
+
+  if ($restart_nightly == 'true') {
+    cron { 'restart-tomcat':
+      ensure  => present,
+      command => "service ${tomcat} restart",
+      user    => 'root',
+      hour    => 1,
+      require => [ Service[$tomcat] ]
+    }
+  }
+  else {
+    cron { 'restart-tomcat':
+      ensure  => absent
+    }
+  }
 
   # ensure that the symbolic link for the old tomcat now points to the new tomcat (necessary until we 
   # update the debian package to deploy to tomcat6

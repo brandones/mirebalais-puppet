@@ -1,7 +1,12 @@
 ---
 webapp_name: openmrs
-pih_config: haiti
 server_timezone: America/New_York
+ntp_server_1: 0.ubuntu.pool.ntp.org
+ntp_server_2: 1.ubuntu.pool.ntp.org
+ntp_server_3: 2.ubuntu.pool.ntp.org
+ntp_server_4: 3.ubuntu.pool.ntp.org
+
+pih_config: haiti
 site_domain: foo.org
 
 package_release: 'unstable/'
@@ -19,11 +24,13 @@ replication_db_password: foo
 backup_db_user: backup
 backup_db_password: foo
 tomcat: tomcat7
+tomcat_restart_nightly: false
 
 appframework_config_filename: appframework-config-common.json
 
 backup_file_prefix: foo
 backup_hour: 1
+backup_delete_older_than_x_days: 90
 archive_hour: 3
 remote_db_user: foo
 remote_db_server: foo
@@ -42,8 +49,8 @@ mirth_password: Mirth123
 
 pacs_mirebalais_ip_address: pacstest.pih.org
 pacs_mirebalais_inbound_port: 6661
-pacs_boston_ip_address: pacstest.pih.org
-pacs_boston_inbound_port: 9999
+dicom_grid_haiti_ip_address: pacstest.pih.org
+dicom_grid_haiti_inbound_port: 9999
 mirth_inbound_from_pacs_mirebalais_port: 9999
 mirth_inbound_from_pacs_boston_port: 9999
 openmrs_mirebalais_inbound_port: 6663 
@@ -62,7 +69,6 @@ junit_password: Junit123
 
 # feature toggle settings
 chief_complaint: true
-new_check_in: true
 request_appointments: true
 
 reportingui_ad_hoc_analysis: false

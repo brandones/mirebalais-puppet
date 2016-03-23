@@ -39,7 +39,7 @@ class mirth(
     options    => ['GRANT'],
     privileges => ['ALL'],
     table => '*.*',
-    user => "{mirth_db_user}@localhost",
+    user => "${mirth_db_user}@localhost",
     require    => [ Service['mysqld'], Mysql_database[$openmrs_db] ]
   }
 
