@@ -176,7 +176,7 @@ node 'wellbody.pih-emr.org' {
   include crashplan
 }
 
-node 'poro.pih-emr.org', 'padi.pih-emr.org', 'ci.pih-emr.org' {
+node 'poro.pih-emr.org', 'padi.pih-emr.org', 'ci.pih-emr.org', 'ami.pih-emr.org' {
 
   class { 'apt':
     always_apt_update => true,
