@@ -46,6 +46,16 @@ class apache2 (
     notify => Service['apache2']
   } ->
 
+  file { '/var/www/html/.htaccess':
+    ensure => file,
+    source => 'puppet:///modules/apache2/www/htaccess'
+  } ->
+
+  file { '/var/www/html/index.html':
+    ensure => file,
+    content => template('apache2/index.html.erb')
+  } ->
+
   file { "/etc/ssl/certs/${ssl_cert_file}":
     ensure => file,
     source => "puppet:///modules/apache2/etc/ssl/certs/${ssl_cert_file}",
@@ -60,8 +70,8 @@ class apache2 (
     ensure => present,
   } ->
 
-  exec { 'enable apache mods':
-    command     => 'a2enmod jk && a2enmod deflate && a2enmod ssl && a2ensite default-ssl && a2enmod rewrite',
+  exec { 'enable and disable apache mods':
+    command     => 'a2enmod jk && a2enmod deflate && a2enmod ssl && a2ensite default-ssl && a2enmod rewrite & a2dismod php5',
     user        => 'root',
     subscribe   => [ Package['apache2'], Package['libapache2-mod-jk'] ],
     refreshonly => true,
