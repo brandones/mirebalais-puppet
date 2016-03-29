@@ -9,13 +9,20 @@ class tomcat (
 
   case $tomcat {
     tomcat6: {
-	$version = '6.0.36'
+        $version = '6.0.0'
+	      $version = '6.0.36'
       	$source  = 'http://archive.apache.org/dist/tomcat/tomcat-6/v6.0.36/bin/apache-tomcat-6.0.36.tar.gz'
     }
     tomcat7: {
-      	$version = '7.0.62'
-      	$source  = 'http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.62/bin/apache-tomcat-7.0.62.tar.gz'
+        $old_version = '7.0.62'
+      	$version = '7.0.68'
+      	$source  = 'http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.68/bin/apache-tomcat-7.0.68.tar.gz'
     }
+  }
+
+  # make sure any old version has been removed
+  file { "/usr/local/apache-tomcat-${old_version}" :
+    ensure => absent
   }
 
   # install the proper version of tomcat
