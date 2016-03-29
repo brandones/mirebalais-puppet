@@ -22,7 +22,10 @@ class tomcat (
 
   # make sure any old version has been removed
   file { "/usr/local/apache-tomcat-${old_version}" :
-    ensure => absent
+    ensure => absent,
+    recurse => true,
+    purge => true,
+    force => true,
   }
 
   # install the proper version of tomcat
