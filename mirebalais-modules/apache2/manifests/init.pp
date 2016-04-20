@@ -47,8 +47,12 @@ class apache2 (
   } ->
 
   file { '/etc/apache2/sites-available/default':
+    ensure => absent
+  } ->
+
+  file { '/etc/apache2/sites-available/000-default.conf':
     ensure => file,
-    source => 'puppet:///modules/apache2/sites-available/default',
+    source => 'puppet:///modules/apache2/sites-available/000-default.conf',
     notify => Service['apache2']
   } ->
 
