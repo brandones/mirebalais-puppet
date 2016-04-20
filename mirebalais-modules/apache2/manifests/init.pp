@@ -28,6 +28,12 @@ class apache2 (
     notify  => Service['apache2']
   } ->
 
+  file { '/etc/apache2/ports.conf':
+    ensure => present,
+    source => 'puppet:///modules/apache2/ports.conf',
+    notify => Service['apache2']
+  } ->
+
   file { '/etc/apache2/mods-available/jk.conf':
     ensure => present,
     source => 'puppet:///modules/apache2/jk.conf',
