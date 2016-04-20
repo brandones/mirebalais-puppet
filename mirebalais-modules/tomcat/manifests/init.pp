@@ -52,6 +52,32 @@ class tomcat (
     require => Exec['tomcat-unzip'],
   }
 
+  # make sure all demo & manager webapps are *not* installed
+  file { "/usr/local/apache-tomcat-${version}/webapps/docs":
+    ensure  => absent,
+    require => Exec['tomcat-unzip'],
+  }
+
+  file { "/usr/local/apache-tomcat-${version}/webapps/examples":
+    ensure  => absent,
+    require => Exec['tomcat-unzip'],
+  }
+
+  file { "/usr/local/apache-tomcat-${version}/webapps/manager":
+    ensure  => absent,
+    require => Exec['tomcat-unzip'],
+  }
+
+  file { "/usr/local/apache-tomcat-${version}/webapps/host-manager":
+    ensure  => absent,
+    require => Exec['tomcat-unzip'],
+  }
+
+  file { "/usr/local/apache-tomcat-${version}/webapps/ROOT":
+    ensure  => absent,
+    require => Exec['tomcat-unzip'],
+  }
+
   file { "/usr/local/apache-tomcat-${version}/conf":
     ensure  => directory,
     owner   => $tomcat,
