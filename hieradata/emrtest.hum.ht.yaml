@@ -27,4 +27,4 @@ ssl_cert_file: 'hum.ht.crt'
 ssl_chain_file: 'gd_bundle-g2.crt'
 ssl_key_file: 'hum.key'
 
-java_memory_parameters: '-Xmx512m -Xms512m -XX:PermSize=256m -XX:MaxPermSize=512m -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC'
+java_memory_parameters: '-Xmx2048m -Xms512m -XX:PermSize=256m -XX:MaxPermSize=512m -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC'

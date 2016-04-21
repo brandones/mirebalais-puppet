@@ -84,6 +84,7 @@ ssl_cert_file: '3c11bbafd54a6f8c.crt'
 ssl_chain_file: 'gd_bundle-g2-g1.crt'
 ssl_key_file: 'pih-emr.org.key'
 
-java_memory_parameters: '-Xmx512m -Xms512m -XX:PermSize=256m -XX:MaxPermSize=256m -XX:NewSize=128m'
+java_memory_parameters: '-Xmx2048m -Xms512m -XX:PermSize=256m -XX:MaxPermSize=512m -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC'
+
 java_debug_parameters: ''
 java_profiler: ''
