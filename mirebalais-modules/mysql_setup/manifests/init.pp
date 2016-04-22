@@ -5,14 +5,38 @@ class mysql_setup (
   	$mysql_innodb_buffer_pool_size = hiera('mysql_innodb_buffer_pool_size')
 ){
 
-  # TODO this commented out code is the beginnings of the steps needs to migrate from the "legacy" install
-  # TODO if we use it again, make sure that the new mysql-server-5.6 package now depends on it
-/*  # make sure the old mysql 5.6 deb package we used to install manually has been removed
-  package { 'mysql':
-    ensure  => purged
+
+  user { 'mysql':
+    ensure => 'present',
+    shell  => '/bin/sh',
   }
 
-  # make sure old conf file and directory are absent
+  # make sure the old mysql 5.6 deb package we used to install manually has been removed, + old mysql-5.5 installs are removed
+  package { 'mysql-client-5.5':
+    ensure  => purged
+  }
+  package { 'mysql-client-core-5.5':
+    ensure  => purged,
+    require => Package['mysql-client-5.5']
+  }
+  package { 'mysql-server-5.5':
+    ensure  => purged,
+    require => Package['mysql-client-core-5.5']
+  }
+  package { 'mysql-server-core-5.5':
+    ensure  => purged,
+    require => Package['mysql-server-5.5']
+  }
+  package { 'mysql-commom':
+    ensure  => purged,
+    require => Package['mysql-server-core-5.5']
+  }
+  package { 'mysql':
+    ensure  => purged,
+    require => Package['mysql-common']
+  }
+
+  # make sure old directories and files are absent
   file {'/opt/mysql':
     ensure => absent,
     recurse => true,
@@ -21,20 +45,54 @@ class mysql_setup (
     require => Package['mysql']
   }
 
-# make sure the old upstart startup file for mysql 5.5 is not present
-  file { '/etc/init/mysql.conf':
-    ensure => absent
-  }*/
+  file {'/etc/mysql':
+    ensure => absent,
+    recurse => true,
+    purge => true,
+    force => true,
+    require => Package['mysql']
+  }
 
-  # install mysql
+  file { '/etc/init.d/mysql.server':
+    ensure  => absent,
+    require => Package['mysql']
+  }
+
+  # make sure the old upstart startup file for mysql 5.5 is not present
+  file { '/etc/init/mysql.conf':
+    ensure => absent,
+    require => Package['mysql']
+  }
+
+  # make sure old mysql apt source we set up on bamboo is absent6
+  apt::source { 'mysql':
+    ensure      => absent,
+    require => Package['mysql']
+  }
+
+  # start putting new files in place after removing old ones
+  file { '/etc/mysql/my.cnf':
+    ensure  => file,
+    content => template('mysql_setup/my.cnf.erb'),
+    require => [ File['/etc/mysql'] ]
+  }
+
+  file { '/etc/init/mysql.conf':
+    ensure  => file,
+    source => 'puppet:///modules/mysql_setup/mysql.conf',
+    require => [ File['/etc/mysql'] ]
+  }
+
+  # install mysql 5.6
   package { 'mysql-server-5.6':
     ensure  => installed,
-    require => [Exec['set-root-password'], Exec['confirm-root-password']]
+    require => [Exec['set-root-password'], Exec['confirm-root-password'], Package['mysql'],
+      File['/opt/mysql'], File['/etc/mysql'], File['/etc/init.d/mysql.server'], File['/etc/init/mysql.conf']]
   }
 
   package { 'mysql-client-5.6':
     ensure  => installed,
-    require => [Exec['set-root-password'], Exec['confirm-root-password']]
+    require => [Package['mysql-server-5.6'], Exec['set-root-password'], Exec['confirm-root-password']]
   }
 
   exec {
