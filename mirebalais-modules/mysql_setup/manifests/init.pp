@@ -11,7 +11,7 @@ class mysql_setup (
     shell  => '/bin/sh',
   }
 
-  # put propery my.cnf in place
+  # put proper my.cnf in place
   file { '/etc/mysql/my.cnf':
     ensure  => file,
     content => template('mysql_setup/my.cnf.erb'),
