@@ -11,9 +11,16 @@ class mysql_setup (
     shell  => '/bin/sh',
   }
 
+  # put propery my.cnf in place
+  file { '/etc/mysql/my.cnf':
+    ensure  => file,
+    content => template('mysql_setup/my.cnf.erb'),
+  }
+
   # make sure the old mysql 5.6 deb package we used to install manually has been removed, + old mysql-5.5 installs are removed
   package { 'mysql-client-5.5':
-    ensure  => purged
+    ensure  => purged,
+    require => File['/etc/mysql/my.cnf']
   }
   package { 'mysql-client-core-5.5':
     ensure  => purged,
@@ -45,14 +52,6 @@ class mysql_setup (
     require => Package['mysql']
   }
 
-  file {'/etc/mysql':
-    ensure => absent,
-    recurse => true,
-    purge => true,
-    force => true,
-    require => Package['mysql']
-  }
-
   file { '/etc/init.d/mysql.server':
     ensure  => absent,
     require => Package['mysql']
@@ -62,13 +61,6 @@ class mysql_setup (
   apt::source { 'mysql':
     ensure      => absent,
     require => Package['mysql']
-  }
-
-  # start putting new files in place after removing old ones
-  file { '/etc/mysql/my.cnf':
-    ensure  => file,
-    content => template('mysql_setup/my.cnf.erb'),
-    require => [ File['/etc/mysql'] ]
   }
 
   # install mysql 5.6
