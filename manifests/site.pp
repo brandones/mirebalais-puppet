@@ -62,7 +62,7 @@ node 'humci.pih-emr.org' {
   include wget
 
   include java
-  include mysql_setup::legacy
+  include mysql_setup
   include tomcat
   include apache2
 
