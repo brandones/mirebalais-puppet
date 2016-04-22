@@ -58,12 +58,6 @@ class mysql_setup (
     require => Package['mysql']
   }
 
-  # make sure the old upstart startup file for mysql 5.5 is not present
-  file { '/etc/init/mysql.conf':
-    ensure => absent,
-    require => Package['mysql']
-  }
-
   # make sure old mysql apt source we set up on bamboo is absent6
   apt::source { 'mysql':
     ensure      => absent,
@@ -74,12 +68,6 @@ class mysql_setup (
   file { '/etc/mysql/my.cnf':
     ensure  => file,
     content => template('mysql_setup/my.cnf.erb'),
-    require => [ File['/etc/mysql'] ]
-  }
-
-  file { '/etc/init/mysql.conf':
-    ensure  => file,
-    source => 'puppet:///modules/mysql_setup/mysql.conf',
     require => [ File['/etc/mysql'] ]
   }
 
