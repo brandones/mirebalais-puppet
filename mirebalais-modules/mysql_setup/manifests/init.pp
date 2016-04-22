@@ -17,7 +17,8 @@ class mysql_setup (
     content => template('mysql_setup/my.cnf.erb'),
   }
 
-  # make sure the old mysql 5.6 deb package we used to install manually has been removed, + old mysql-5.5 installs are removed
+  # make sure the mysql 5,5 is uninstalled, as well as the custom "mysql" package we put in place
+  # note that we put the proper my.cnf in place first because any restarting of mysql requires this package to be present
   package { 'mysql-client-5.5':
     ensure  => purged,
     require => File['/etc/mysql/my.cnf']
@@ -34,16 +35,12 @@ class mysql_setup (
     ensure  => purged,
     require => Package['mysql-server-5.5']
   }
-  package { 'mysql-common':
+  package { 'mysql':
     ensure  => purged,
     require => Package['mysql-server-core-5.5']
   }
-  package { 'mysql':
-    ensure  => purged,
-    require => Package['mysql-common']
-  }
 
-  # make sure old directories and files are absent
+  # make sure old files are removed
   file {'/opt/mysql':
     ensure => absent,
     recurse => true,
@@ -57,24 +54,13 @@ class mysql_setup (
     require => Package['mysql']
   }
 
-  # make sure old mysql apt source we set up on bamboo is absent6
+  # make sure old mysql apt source we set up on bamboo is absent
   apt::source { 'mysql':
     ensure      => absent,
     require => Package['mysql']
   }
 
-  # install mysql 5.6
-  package { 'mysql-server-5.6':
-    ensure  => installed,
-    require => [Exec['set-root-password'], Exec['confirm-root-password'], Package['mysql'],
-      File['/opt/mysql'], File['/etc/init.d/mysql.server'], File['/etc/mysql/my.cnf']]
-  }
-
-  package { 'mysql-client-5.6':
-    ensure  => installed,
-    require => [Package['mysql-server-5.6'], Exec['set-root-password'], Exec['confirm-root-password']]
-  }
-
+  # set root password automatically
   exec {
     'set-root-password':
       command => "/bin/echo mysql-server mysql-server/root_password password $root_password | /usr/bin/debconf-set-selections",
@@ -86,6 +72,19 @@ class mysql_setup (
       command => "/bin/echo mysql-server mysql-server/root_password_again password $root_password | /usr/bin/debconf-set-selections",
       user => root,
       require => Exec['set-root-password']
+  }
+
+
+  # install mysql 5.6
+  package { 'mysql-server-5.6':
+    ensure  => installed,
+    require => [Exec['set-root-password'], Exec['confirm-root-password'], Package['mysql'],
+      File['/opt/mysql'], File['/etc/init.d/mysql.server'], File['/etc/mysql/my.cnf']]
+  }
+
+  package { 'mysql-client-5.6':
+    ensure  => installed,
+    require => [Package['mysql-server-5.6'], Exec['set-root-password'], Exec['confirm-root-password']]
   }
 
   file { "root_user_my.cnf":
