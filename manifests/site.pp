@@ -188,7 +188,7 @@ node 'poro.pih-emr.org', 'padi.pih-emr.org', 'ci.pih-emr.org', 'ami.pih-emr.org'
   include wget
 
   include java
-  include mysql_setup::legacy
+  include mysql_setup
   include apache2
   include tomcat
 
