@@ -27,7 +27,7 @@ class mysql_setup (
     ensure  => purged,
     require => Package['mysql-server-5.5']
   }
-  package { 'mysql-commom':
+  package { 'mysql-common':
     ensure  => purged,
     require => Package['mysql-server-core-5.5']
   }
