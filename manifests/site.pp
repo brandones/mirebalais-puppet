@@ -33,7 +33,7 @@ node 'emr.hum.ht' {
   include wget
 
   include java
-  include mysql_setup::legacy
+  include mysql_setup
   include apache2
   include tomcat
 
@@ -88,7 +88,7 @@ node 'emrtest.hum.ht', 'humdemo.pih-emr.org' {
   include wget
 
   include java
-  include mysql_setup::legacy
+  include mysql_setup
   include apache2
   include tomcat
 
@@ -111,7 +111,7 @@ node 'reporting.hum.ht' {
   include wget
 
   include java
-  include mysql_setup::legacy
+  include mysql_setup
   include apache2
   include tomcat
 
@@ -136,7 +136,7 @@ node 'pleebo.pih-emr.org' {
   include wget
 
   include java
-  include mysql_setup::legacy
+  include mysql_setup
   include apache2
   include tomcat
 
@@ -210,7 +210,7 @@ node 'emrreplication.hum.ht' inherits default {
   include apt_upgrades
   include wget
   include java
-  include mysql_setup::legacy
+  include mysql_setup
   include mirth
   include tomcat
   include openmrs

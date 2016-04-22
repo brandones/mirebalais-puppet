@@ -1,7 +1,6 @@
-# legacy puppet script used to install mysql on all Mirebalais servers, ci.pih-emr.org, pleebo.pih-emr.org, poro.pih-emr.org, and padi.pih-emr.org
-# new implemetations should use the main init.pp
+# legacy puppet script used to install mysql on all Mirebalais servers
+# we should be using the new, main "init.pp" everywhere now
 
-# TODO figure out how to migrate the above servers to the new, simpler install of mysql
 
 
 class mysql_setup::legacy (
