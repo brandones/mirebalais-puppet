@@ -102,12 +102,6 @@ class mysql_setup (
     require     => Exec['confirm-root-password'],
   }
 
-  file { '/etc/mysql/my.cnf':
-    ensure  => file,
-    content => template('mysql_setup/my.cnf.erb'),
-    require => [ Package['mysql-server-5.6'] ]
-  }
-
   service { 'mysqld':
     ensure  => running,
     name    => 'mysql',
