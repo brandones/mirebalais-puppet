@@ -67,7 +67,7 @@ class mysql_setup (
   package { 'mysql-server-5.6':
     ensure  => installed,
     require => [Exec['set-root-password'], Exec['confirm-root-password'], Package['mysql'],
-      File['/opt/mysql'], File['/etc/mysql'], File['/etc/init.d/mysql.server'], File['/etc/mysql/my.cnf']]
+      File['/opt/mysql'], File['/etc/init.d/mysql.server'], File['/etc/mysql/my.cnf']]
   }
 
   package { 'mysql-client-5.6':
