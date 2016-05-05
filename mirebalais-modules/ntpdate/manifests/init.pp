@@ -25,7 +25,7 @@ class ntpdate(
 
   exec { 'stop ntp':
     command     => 'service ntp stop',
-    subscribe   => [ File['/etc/ntp.conf'], File['/etc/timezone'], File['/etc/defaullt/rcS'] ],
+    subscribe   => [ File['/etc/ntp.conf'], File['/etc/timezone'], File['/etc/default/rcS'] ],
     refreshonly => true,
     require => Package['ntp']
   }
