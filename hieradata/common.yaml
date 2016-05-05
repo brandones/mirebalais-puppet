@@ -24,7 +24,7 @@ replication_db_password: foo
 backup_db_user: backup
 backup_db_password: foo
 tomcat: tomcat7
-tomcat_restart_nightly: true
+tomcat_restart_nightly: false
 
 appframework_config_filename: appframework-config-common.json
 
