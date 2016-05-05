@@ -8,6 +8,7 @@ class openmrs::backup (
     $sysadmin_email = hiera('sysadmin_email'),
     $backup_file_prefix = hiera('backup_file_prefix'),
     $backup_hour = hiera('backup_hour'),
+    $backup_delete_older_than_x_days = hiera('backup_delete_older_than_x_days'),
     $archive_hour = hiera('archive_hour'),
   ){
 
