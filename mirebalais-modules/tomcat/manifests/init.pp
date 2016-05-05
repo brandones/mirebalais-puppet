@@ -154,7 +154,7 @@ class tomcat (
     require => [ Exec['tomcat-unzip'], File["/usr/local/${tomcat}"], File["/etc/init.d/${tomcat}"] ],
   }
 
-  if ($restart_nightly == 'true') {
+  /*if ($restart_nightly == 'true') {*/
     cron { 'restart-tomcat':
       ensure  => present,
       command => "service ${tomcat} restart",
@@ -162,12 +162,12 @@ class tomcat (
       hour    => 5,
       require => [ Service[$tomcat] ]
     }
-  }
+ /* }
   else {
     cron { 'restart-tomcat':
       ensure  => absent
     }
-  }
+  }*/
 
   # ensure that the symbolic link for the old tomcat now points to the new tomcat (necessary until we 
   # update the debian package to deploy to tomcat6
