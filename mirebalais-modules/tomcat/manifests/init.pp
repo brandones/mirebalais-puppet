@@ -159,7 +159,7 @@ class tomcat (
       ensure  => present,
       command => "service ${tomcat} restart",
       user    => 'root',
-      hour    => 1,
+      hour    => 5,
       require => [ Service[$tomcat] ]
     }
   }

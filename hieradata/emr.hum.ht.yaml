@@ -14,6 +14,8 @@ backup_delete_older_than_x_days: 30
 openmrs_auto_update_database: true
 site_domain: emr.hum.ht
 
+tomcat_restart_nightly: true
+
 package_release: 'stable/'
 mysql_server_id: 1
 mysql_innodb_buffer_pool_size: 3G
