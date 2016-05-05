@@ -1,13 +1,5 @@
 #! /bin/bash
 
-if [ -z "$1" ]
-then
-  echo "You need to provide the environment to install in:"
-  echo "./install.sh ENVIRONMENT"
-  echo "ENVIRONMENT can be local|test|production"
-  exit 1
-fi
-
 if [ ! -d /etc/puppet-decrypt ]
 then
     mkdir /etc/puppet-decrypt
