@@ -72,11 +72,13 @@ class tomcat (
   }
 */
 
+/*
   file { "/etc/default/${tomcat}":
     ensure  => file,
     content => template("tomcat/default.erb"),
     require => Package[$tomcat]
   }
+*/
 
 /*
   file { "/etc/logrotate.d/${tomcat}":
