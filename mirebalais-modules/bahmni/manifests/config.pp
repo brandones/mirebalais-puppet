@@ -27,7 +27,7 @@ class bahmni::config (
     require => File["/home/${tomcat}/.OpenMRS"]
   }
 
-  vcsrepo { "/usr/local/${tomcat}/webapps/bahmni_config":
+  vcsrepo { "/var/lib/${tomcat}/webapps/bahmni_config":
     ensure   => latest,
     provider => git,
     source   => 'https://github.com/bhamni/default-config.git',       # TODO this should be dependent on Bahmni implementation, once/if we are using Bahmni in multple places
