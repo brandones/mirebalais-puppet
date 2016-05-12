@@ -7,7 +7,7 @@ class tomcat (
     $restart_nightly = hiera('tomcat_restart_nightly')
   ){
 
-  # make sure old versions instaled without ap-tget have been removed
+  # make sure old versions instaled without apt-get have been removed
   file { "/usr/local/apache-tomcat-6.0.36" :
     ensure => absent,
     recurse => true,
@@ -39,6 +39,7 @@ class tomcat (
   # install the proper version of tomcat via apt-get
   package { $tomcat :
     ensure => installed,
+    configfiles => replace,
     require => [ File["/usr/local/apache-tomcat-6.0.36"], File["/usr/local/apache-tomcat-7.0.62"], File["/usr/local/apache-tomcat-7.0.68"]],
     notify  => Service["$tomcat"]
   }
@@ -59,24 +60,31 @@ class tomcat (
     group   => $tomcat,
     source  => "puppet:///modules/tomcat/server.xml",
     require => [ Package[$tomcat], User[$tomcat] ],
-    notify  => Service["$tomcat"]
+    notify  => Service[$tomcat]
   }
 
 
-  file { "/etc/init.d/${tomcat}":
+
+  /*file { "/etc/init.d/${tomcat}":
     ensure  => file,
-    source  => "puppet:///modules/tomcat/init"
+    source  => "puppet:///modules/tomcat/init",
+    require => Package[$tomcat]
   }
+*/
 
   file { "/etc/default/${tomcat}":
     ensure  => file,
-    content => template("tomcat/default.erb")
+    content => template("tomcat/default.erb"),
+    require => Package[$tomcat]
   }
 
+/*
   file { "/etc/logrotate.d/${tomcat}":
     ensure  => file,
     source  => "puppet:///modules/tomcat/logrotate",
+    require => Package[$tomcat]
   }
+*/
 
   user { $tomcat:
     ensure => 'present',
@@ -96,7 +104,7 @@ class tomcat (
   service { $tomcat:
     enable  => $services_enable,
     require => [ Package[$tomcat], File["/etc/${tomcat}/server.xml"],
-      File["/etc/init.d/${tomcat}"], File["/etc/default/${tomcat}" ]],
+     File["/etc/default/${tomcat}" ]],
   }
 
   if $restart_nightly {
