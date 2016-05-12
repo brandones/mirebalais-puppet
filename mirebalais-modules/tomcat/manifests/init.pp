@@ -29,6 +29,13 @@ class tomcat (
     force => true,
   }
 
+  file { "/usr/local/$tomcat" :
+    ensure => absent,
+    recurse => true,
+    purge => true,
+    force => true,
+  }
+
   # install the proper version of tomcat via apt-get
   package { $tomcat :
     ensure => installed,
