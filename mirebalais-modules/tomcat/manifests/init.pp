@@ -22,10 +22,17 @@ class tomcat (
     force => true,
   }
 
+  file { "/usr/local/apache-tomcat-7.0.68" :
+    ensure => absent,
+    recurse => true,
+    purge => true,
+    force => true,
+  }
+
   # install the proper version of tomcat via apt-get
   package { $tomcat :
     ensure => installed,
-    require => [ File["/usr/local/apache-tomcat-6.0.36"], File["/usr/local/apache-tomcat-7.0.62"]],
+    require => [ File["/usr/local/apache-tomcat-6.0.36"], File["/usr/local/apache-tomcat-7.0.62"], File["/usr/local/apache-tomcat-7.0.68"]],
     notify  => Service["$tomcat"]
   }
 
