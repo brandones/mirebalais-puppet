@@ -78,7 +78,7 @@ OPENJDKS=""
 find_openjdks
 # The first existing directory is used for JAVA_HOME (if JAVA_HOME is not
 # defined in $DEFAULT)
-JDK_DIRS="/usr/lib/jvm/default-java ${OPENJDKS} /usr/lib/jvm/java-7-oracle /usr/lib/jvm/java-6-openjdk /usr/lib/jvm/java-6-sun"
+JDK_DIRS="/usr/lib/jvm/default-java ${OPENJDKS} /usr/lib/jvm/java-6-openjdk /usr/lib/jvm/java-6-sun /usr/lib/jvm/java-7-oracle"
 
 # Look for the right JVM to use
 for jdir in $JDK_DIRS; do
@@ -88,11 +88,11 @@ for jdir in $JDK_DIRS; do
 done
 export JAVA_HOME
 
-# Directory where the Tomcat 7 binary distribution resides
-CATALINA_HOME=/var/lib/tomcat7
+# Directory where the Tomcat 6 binary distribution resides
+CATALINA_HOME=/usr/share/$NAME
 
 # Directory for per-instance configuration files and webapps
-CATALINA_BASE=/var/lib/tomcat7
+CATALINA_BASE=/var/lib/$NAME
 
 # Use the Java security manager? (yes/no)
 TOMCAT7_SECURITY=no
@@ -117,6 +117,8 @@ if [ ! -f "$CATALINA_HOME/bin/bootstrap.jar" ]; then
 	log_failure_msg "$NAME is not installed"
 	exit 1
 fi
+
+POLICY_CACHE="$CATALINA_BASE/work/catalina.policy"
 
 if [ -z "$CATALINA_TMPDIR" ]; then
 	CATALINA_TMPDIR="$JVM_TMP"
@@ -147,7 +149,6 @@ catalina_sh() {
 
 	AUTHBIND_COMMAND=""
 	if [ "$AUTHBIND" = "yes" -a "$1" = "start" ]; then
-		JAVA_OPTS="$JAVA_OPTS -Djava.net.preferIPv4Stack=true"
 		AUTHBIND_COMMAND="/usr/bin/authbind --deep /bin/bash -c "
 	fi
 
@@ -182,7 +183,7 @@ catalina_sh() {
 case "$1" in
   start)
 	if [ -z "$JAVA_HOME" ]; then
-		log_failure_msg "no JDK found - please set JAVA_HOME"
+		log_failure_msg "no JDK or JRE found - please set JAVA_HOME"
 		exit 1
 	fi
 
@@ -195,6 +196,14 @@ case "$1" in
 	if start-stop-daemon --test --start --pidfile "$CATALINA_PID" \
 		--user $TOMCAT7_USER --exec "$JAVA_HOME/bin/java" \
 		>/dev/null; then
+
+		# Regenerate POLICY_CACHE file
+		umask 022
+		echo "// AUTO-GENERATED FILE from /etc/tomcat7/policy.d/" \
+			> "$POLICY_CACHE"
+		echo ""  >> "$POLICY_CACHE"
+		cat $CATALINA_BASE/conf/policy.d/*.policy \
+			>> "$POLICY_CACHE"
 
 		# Remove / recreate JVM_TMP directory
 		rm -rf "$JVM_TMP"
@@ -225,7 +234,7 @@ case "$1" in
 	log_daemon_msg "Stopping $DESC" "$NAME"
 
 	set +e
-	if [ -f "$CATALINA_PID" ]; then 
+	if [ -f "$CATALINA_PID" ]; then
 		start-stop-daemon --stop --pidfile "$CATALINA_PID" \
 			--user "$TOMCAT7_USER" \
 			--retry=TERM/20/KILL/5 >/dev/null

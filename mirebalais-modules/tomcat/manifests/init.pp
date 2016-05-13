@@ -87,20 +87,23 @@ class tomcat (
   file { "/etc/init.d/${tomcat}":
     ensure  => file,
     source  => "puppet:///modules/tomcat/init",
-    require => Package[$tomcat]
+    require => Package[$tomcat],
+    notify  => Service[$tomcat]
   }
 
   file { "/etc/default/${tomcat}":
     ensure  => file,
     content => template("tomcat/default.erb"),
-    require => Package[$tomcat]
+    require => Package[$tomcat],
+    notify  => Service[$tomcat]
   }
 
-  file { "/etc/logrotate.d/${tomcat}":
+/*  file { "/etc/logrotate.d/${tomcat}":
     ensure  => file,
     source  => "puppet:///modules/tomcat/logrotate",
-    require => Package[$tomcat]
-  }
+    require => Package[$tomcat],
+    notify  => Service[$tomcat]
+  }*/
 
   user { $tomcat:
     ensure => 'present',
