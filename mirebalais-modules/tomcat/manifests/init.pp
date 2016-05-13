@@ -37,7 +37,7 @@ class tomcat (
     force => true,
   }
 
-  # onfig files are removed, **but only when removing old tomcat**
+  # config files are removed, **but only when removing old tomcat**
   exec { 'remove /etc/init.d/tomcat':
     command     => "rm /etc/init.d/$tomcat",
     subscribe   => [ File["/usr/local/apache-tomcat-6.0.36"], File["/usr/local/apache-tomcat-7.0.62"], File["/usr/local/apache-tomcat-7.0.68"]],
