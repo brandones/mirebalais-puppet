@@ -39,29 +39,29 @@ class tomcat (
   # install the proper version of tomcat via apt-get
   package { $tomcat :
     ensure => installed,
-    configfiles => replace,
+   /* configfiles => replace,*/
     require => [ File["/usr/local/apache-tomcat-6.0.36"], File["/usr/local/apache-tomcat-7.0.62"], File["/usr/local/apache-tomcat-7.0.68"]],
     notify  => Service["$tomcat"]
   }
 
   # remove the "ROOT" webapp
-  file { "/var/lib/$tomcat/webapps/ROOT":
+/*  file { "/var/lib/$tomcat/webapps/ROOT":
     ensure  => absent,
     recurse => true,
     purge => true,
     force => true,
     require => Package[$tomcat]
-  }
+  }*/
 
 
-  file { "/etc/${tomcat}/server.xml":
+/*  file { "/etc/${tomcat}/server.xml":
     ensure  => present,
     owner   => $tomcat,
     group   => $tomcat,
     source  => "puppet:///modules/tomcat/server.xml",
     require => [ Package[$tomcat], User[$tomcat] ],
     notify  => Service[$tomcat]
-  }
+  }*/
 
 
 
