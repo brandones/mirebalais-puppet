@@ -64,23 +64,23 @@ class tomcat (
   }
 
   # remove the "ROOT" webapp
-/*  file { "/var/lib/$tomcat/webapps/ROOT":
+  file { "/var/lib/$tomcat/webapps/ROOT":
     ensure  => absent,
     recurse => true,
     purge => true,
     force => true,
     require => Package[$tomcat]
-  }*/
+  }
 
 
-/*  file { "/etc/${tomcat}/server.xml":
+  file { "/etc/${tomcat}/server.xml":
     ensure  => present,
     owner   => $tomcat,
     group   => $tomcat,
     source  => "puppet:///modules/tomcat/server.xml",
     require => [ Package[$tomcat], User[$tomcat] ],
     notify  => Service[$tomcat]
-  }*/
+  }
 
 
 
