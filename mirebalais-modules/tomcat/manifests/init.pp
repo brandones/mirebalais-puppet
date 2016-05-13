@@ -37,6 +37,7 @@ class tomcat (
     force => true,
   }
 
+  # TODO--remove these three purges after tomcat7 apt-get update has been installed on all servers
   # config files are removed, **but only when removing old tomcat**
   exec { 'remove /etc/init.d/tomcat':
     command     => "rm /etc/init.d/$tomcat",
@@ -83,30 +84,23 @@ class tomcat (
     notify  => Service[$tomcat]
   }
 
-  /* we are no longer using our custom versions of these files */
-
-  /*file { "/etc/init.d/${tomcat}":
+  file { "/etc/init.d/${tomcat}":
     ensure  => file,
     source  => "puppet:///modules/tomcat/init",
     require => Package[$tomcat]
   }
-*/
 
-/*
   file { "/etc/default/${tomcat}":
     ensure  => file,
     content => template("tomcat/default.erb"),
     require => Package[$tomcat]
   }
-*/
 
-/*
   file { "/etc/logrotate.d/${tomcat}":
     ensure  => file,
     source  => "puppet:///modules/tomcat/logrotate",
     require => Package[$tomcat]
   }
-*/
 
   user { $tomcat:
     ensure => 'present',
