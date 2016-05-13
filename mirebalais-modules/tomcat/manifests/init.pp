@@ -36,28 +36,22 @@ class tomcat (
     force => true,
   }
 
-  # make sure tomcat process is stopped and config files are removed, **but only when removing old tomcat**
-  exec { 'stop tomcat':
-    command     => "service $tomcat stop",
-    subscribe   => [ File["/usr/local/apache-tomcat-6.0.36"], File["/usr/local/apache-tomcat-7.0.62"], File["/usr/local/apache-tomcat-7.0.68"]],
-    refreshonly => true,
-  }
-
+  # onfig files are removed, **but only when removing old tomcat**
   exec { 'remove /etc/init.d/tomcat':
     command     => "rm /etc/init.d/$tomcat",
-    subscribe   => Exec['stop tomcat'],
+    subscribe   => [ File["/usr/local/apache-tomcat-6.0.36"], File["/usr/local/apache-tomcat-7.0.62"], File["/usr/local/apache-tomcat-7.0.68"]],
     refreshonly => true,
   }
 
   exec { 'remove /etc/default/tomcat':
     command     => "rm /etc/default/$tomcat",
-    subscribe   => Exec['stop tomcat'],
+    subscribe   => [ File["/usr/local/apache-tomcat-6.0.36"], File["/usr/local/apache-tomcat-7.0.62"], File["/usr/local/apache-tomcat-7.0.68"]],
     refreshonly => true,
   }
 
   exec { 'remove /etc/logrotate.d/tomcat':
     command     => "rm /etc/logrotate.d/$tomcat",
-    subscribe   => Exec['stop tomcat'],
+    subscribe   => [ File["/usr/local/apache-tomcat-6.0.36"], File["/usr/local/apache-tomcat-7.0.62"], File["/usr/local/apache-tomcat-7.0.68"]],
     refreshonly => true,
   }
 
