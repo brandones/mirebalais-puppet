@@ -10,6 +10,7 @@ class tomcat (
   # first thign to is to stop tomcat
   exec { 'stop tomcat':
     command     => "service $tomcat stop",
+    notify  => Service[$tomcat]
   }
 
   # make sure old versions instaled without apt-get have been removed
