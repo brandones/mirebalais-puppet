@@ -7,12 +7,18 @@ class tomcat (
     $restart_nightly = hiera('tomcat_restart_nightly')
   ){
 
+  # first thign to is to stop tomcat
+  exec { 'stop tomcat':
+    command     => "service $tomcat stop",
+  }
+
   # make sure old versions instaled without apt-get have been removed
   file { "/usr/local/apache-tomcat-6.0.36" :
     ensure => absent,
     recurse => true,
     purge => true,
     force => true,
+    require => Exec['stop tomcat']
   }
 
   file { "/usr/local/apache-tomcat-7.0.62" :
@@ -20,6 +26,7 @@ class tomcat (
     recurse => true,
     purge => true,
     force => true,
+    require => Exec['stop tomcat']
   }
 
   file { "/usr/local/apache-tomcat-7.0.68" :
@@ -27,6 +34,7 @@ class tomcat (
     recurse => true,
     purge => true,
     force => true,
+    require => Exec['stop tomcat']
   }
 
   file { "/usr/local/$tomcat" :
@@ -34,6 +42,7 @@ class tomcat (
     recurse => true,
     purge => true,
     force => true,
+    require => Exec['stop tomcat']
   }
 
   # onfig files are removed, **but only when removing old tomcat**
@@ -59,7 +68,7 @@ class tomcat (
   package { $tomcat :
     ensure => installed,
     require => [ File["/usr/local/apache-tomcat-6.0.36"], File["/usr/local/apache-tomcat-7.0.62"], File["/usr/local/apache-tomcat-7.0.68"],
-        Exec['remove /etc/init.d/tomcat'], Exec['remove /etc/default/tomcat'], Exec['remove /etc/logrotate.d/tomcat']],
+        Exec['remove /etc/init.d/tomcat'], Exec['remove /etc/default/tomcat'], Exec['remove /etc/logrotate.d/tomcat'], Exec['stop tomcat']],
     notify  => Service["$tomcat"]
   }
 
@@ -82,7 +91,7 @@ class tomcat (
     notify  => Service[$tomcat]
   }
 
-
+  /* we are no longer using our custom versions of these files */
 
   /*file { "/etc/init.d/${tomcat}":
     ensure  => file,
