@@ -44,13 +44,13 @@ class tomcat (
   }
 
   exec { 'remove /etc/default/tomcat':
-    command     => "rm /etc/init.d/$tomcat",
+    command     => "rm /etc/default/$tomcat",
     subscribe   => [ File["/usr/local/apache-tomcat-6.0.36"], File["/usr/local/apache-tomcat-7.0.62"], File["/usr/local/apache-tomcat-7.0.68"]],
     refreshonly => true,
   }
 
   exec { 'remove /etc/logrotate.d/tomcat':
-    command     => "rm /etc/init.d/$tomcat",
+    command     => "rm /etc/logrotate.d/$tomcat",
     subscribe   => [ File["/usr/local/apache-tomcat-6.0.36"], File["/usr/local/apache-tomcat-7.0.62"], File["/usr/local/apache-tomcat-7.0.68"]],
     refreshonly => true,
   }
@@ -59,7 +59,7 @@ class tomcat (
   package { $tomcat :
     ensure => installed,
     require => [ File["/usr/local/apache-tomcat-6.0.36"], File["/usr/local/apache-tomcat-7.0.62"], File["/usr/local/apache-tomcat-7.0.68"],
-    Exec['remove /etc/init.d/tomcat'], Exec['remove /etc/default/tomcat'], Exec['remove /etc/logrotate.d/tomcat']],
+        Exec['remove /etc/init.d/tomcat'], Exec['remove /etc/default/tomcat'], Exec['remove /etc/logrotate.d/tomcat']],
     notify  => Service["$tomcat"]
   }
 
