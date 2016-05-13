@@ -36,11 +36,30 @@ class tomcat (
     force => true,
   }
 
+  # make sure old config files are removed, **but only when removing old tomcat**
+  exec { 'remove /etc/init.d/tomcat':
+    command     => "rm /etc/init.d/$tomcat",
+    subscribe   => [ File["/usr/local/apache-tomcat-6.0.36"], File["/usr/local/apache-tomcat-7.0.62"], File["/usr/local/apache-tomcat-7.0.68"]],
+    refreshonly => true,
+  }
+
+  exec { 'remove /etc/default/tomcat':
+    command     => "rm /etc/init.d/$tomcat",
+    subscribe   => [ File["/usr/local/apache-tomcat-6.0.36"], File["/usr/local/apache-tomcat-7.0.62"], File["/usr/local/apache-tomcat-7.0.68"]],
+    refreshonly => true,
+  }
+
+  exec { 'remove /etc/logrotate.d/tomcat':
+    command     => "rm /etc/init.d/$tomcat",
+    subscribe   => [ File["/usr/local/apache-tomcat-6.0.36"], File["/usr/local/apache-tomcat-7.0.62"], File["/usr/local/apache-tomcat-7.0.68"]],
+    refreshonly => true,
+  }
+
   # install the proper version of tomcat via apt-get
   package { $tomcat :
     ensure => installed,
-   /* configfiles => replace,*/
-    require => [ File["/usr/local/apache-tomcat-6.0.36"], File["/usr/local/apache-tomcat-7.0.62"], File["/usr/local/apache-tomcat-7.0.68"]],
+    require => [ File["/usr/local/apache-tomcat-6.0.36"], File["/usr/local/apache-tomcat-7.0.62"], File["/usr/local/apache-tomcat-7.0.68"],
+    Exec['remove /etc/init.d/tomcat'], Exec['remove /etc/default/tomcat'], Exec['remove /etc/logrotate.d/tomcat']],
     notify  => Service["$tomcat"]
   }
 
