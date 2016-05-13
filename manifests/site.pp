@@ -6,18 +6,18 @@ node default {
     always_apt_update => true,
   }
 
-  /*include mailx
+  include mailx
   include ntpdate
   include apt_upgrades
   include wget
 
   include java
   include mysql_setup
-  include apache2*/
+  include apache2
   include tomcat
 
-/*  include openmrs
-  include openmrs::initial_setup*/
+  include openmrs
+  include openmrs::initial_setup
 
 }
 
