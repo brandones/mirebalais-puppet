@@ -91,12 +91,12 @@ class tomcat (
     notify  => Service[$tomcat]
   }*/
 
-/*  file { "/etc/default/${tomcat}":
+   file { "/etc/default/${tomcat}":
     ensure  => file,
     content => template("tomcat/default.erb"),
     require => Package[$tomcat],
     notify  => Service[$tomcat]
-  }*/
+  }
 
 /*  file { "/etc/logrotate.d/${tomcat}":
     ensure  => file,
