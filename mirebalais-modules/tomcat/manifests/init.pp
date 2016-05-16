@@ -122,7 +122,7 @@ class tomcat (
   # todo add a dependency on java being installed?
   service { $tomcat:
     enable  => true,
-    require => [ Package[$tomcat], File["/etc/${tomcat}/server.xml"]]
+    require => [ Package[$tomcat], File["/etc/${tomcat}/server.xml"], User[$tomcat] ]
   }
 
   if $restart_nightly {
