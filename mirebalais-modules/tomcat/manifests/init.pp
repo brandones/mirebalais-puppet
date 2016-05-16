@@ -108,7 +108,7 @@ class tomcat (
   user { $tomcat:
     ensure => 'present',
     home   => "/home/${tomcat}",
-    shell  => '/usr/sbin/nologin',
+    shell  => '/bin/sh',
   }
 
   file { "/home/${tomcat}":
