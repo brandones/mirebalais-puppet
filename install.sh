@@ -1,5 +1,8 @@
 #! /bin/bash
 
+#disable root log-in
+passwd -dl root
+
 if [ ! -d /etc/puppet-decrypt ]
 then
     mkdir /etc/puppet-decrypt
