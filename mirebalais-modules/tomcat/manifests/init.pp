@@ -91,12 +91,12 @@ class tomcat (
     notify  => Service[$tomcat]
   }
 
-/*  file { "/etc/logrotate.d/${tomcat}":
+  file { "/etc/logrotate.d/${tomcat}":
     ensure  => file,
     source  => "puppet:///modules/tomcat/logrotate",
     require => Package[$tomcat],
     notify  => Service[$tomcat]
-  }*/
+  }
 
   user { $tomcat:
     ensure => 'present',
