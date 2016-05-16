@@ -60,7 +60,7 @@ class tomcat (
   # install the proper version of tomcat via apt-get
   package { $tomcat :
     ensure => installed,
-    require => [ File["/usr/local/apache-tomcat-6.0.36"], File["/usr/local/apache-tomcat-7.0.62"], File["/usr/local/apache-tomcat-7.0.68"],
+    require => [ User[$tomcat], File["/usr/local/apache-tomcat-6.0.36"], File["/usr/local/apache-tomcat-7.0.62"], File["/usr/local/apache-tomcat-7.0.68"],
         Exec['remove /etc/init.d/tomcat'], Exec['remove /etc/default/tomcat'], Exec['remove /etc/logrotate.d/tomcat']],
     notify  => Service["$tomcat"]
   }
@@ -122,7 +122,7 @@ class tomcat (
   # todo add a dependency on java being installed?
   service { $tomcat:
     enable  => true,
-    require => [ Package[$tomcat], File["/etc/${tomcat}/server.xml"], User[$tomcat] ]
+    require => [ Package[$tomcat], File["/etc/${tomcat}/server.xml"] ]
   }
 
   if $restart_nightly {

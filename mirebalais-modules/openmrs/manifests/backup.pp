@@ -4,7 +4,6 @@ class openmrs::backup (
     $remote_db_user = hiera('remote_db_user'),
     $remote_db_server = hiera('remote_db_server'),
     $remote_backup_dir = hiera('remote_backup_dir'),
-    $tomcat = hiera('tomcat'),
     $sysadmin_email = hiera('sysadmin_email'),
     $backup_file_prefix = hiera('backup_file_prefix'),
     $backup_hour = hiera('backup_hour'),
