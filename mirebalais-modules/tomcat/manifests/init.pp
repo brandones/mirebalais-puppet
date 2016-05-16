@@ -84,13 +84,6 @@ class tomcat (
     notify  => Service[$tomcat]
   }
 
-/*  file { "/etc/init.d/${tomcat}":
-    ensure  => file,
-    source  => "puppet:///modules/tomcat/init",
-    require => Package[$tomcat],
-    notify  => Service[$tomcat]
-  }*/
-
    file { "/etc/default/${tomcat}":
     ensure  => file,
     content => template("tomcat/default.erb"),
