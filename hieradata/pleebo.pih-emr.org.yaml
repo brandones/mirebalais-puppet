@@ -4,7 +4,7 @@ pih_config: liberia
 package_release: 'stable/'
 server_timezone: Africa/Monrovia
 
-restrict_root_login: false
+permit_root_login: true
 
 mysql_root_password: ENC[oWqIfmn/ER4CYIvjJSpIzQ==]
 mysql_bind_address: 0.0.0.0

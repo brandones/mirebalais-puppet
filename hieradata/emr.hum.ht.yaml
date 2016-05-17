@@ -6,7 +6,7 @@ ntp_server_2: 192.168.1.174
 ntp_server_3: 192.168.1.151
 ntp_server_4: 192.168.1.174
 
-restrict_root_login: false
+permit_root_login: true
 
 remote_db_user: backups
 remote_db_server: amigo.pih-emr.org
