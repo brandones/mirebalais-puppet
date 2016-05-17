@@ -8,7 +8,7 @@ class ubuntu (
     ensure => installed
   }
 
-  if $restrict_root_login {
+
 
     notice("restricting root login")
 
@@ -20,6 +20,6 @@ class ubuntu (
       ],
       require => Package["ruby-augeas"]
     }
-  }
+
 
 }
