@@ -6,7 +6,7 @@ class ubuntu (
     ensure  => present,
     owner   => root,
     group   => root,
-    content => template("ubuntu/ssh_config.erb")
+    content => template("ubuntu/sshd_config.erb")
   }
 
 
