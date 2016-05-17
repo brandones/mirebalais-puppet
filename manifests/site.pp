@@ -29,6 +29,8 @@ node 'emr.hum.ht' {
     always_apt_update => true,
   }
 
+  include ubuntu
+
   include mailx
   include ntpdate
   include apt_upgrades
@@ -138,6 +140,8 @@ node 'pleebo.pih-emr.org' {
     always_apt_update => true,
   }
 
+  include ubuntu
+
   include mailx
   include ntpdate
   include apt_upgrades
@@ -163,6 +167,8 @@ node 'wellbody.pih-emr.org' {
   class { 'apt':
     always_apt_update => true,
   }
+
+  include ubuntu
 
   include mailx
   include ntpdate
