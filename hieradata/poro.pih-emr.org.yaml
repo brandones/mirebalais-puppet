@@ -8,6 +8,6 @@ openmrs_db_password: ENC[3RqMvut63WqWc8IDs/GOnQ==]
 
 # feature toggles
 
-java_debug_parameters: '-Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5000'
+#java_debug_parameters: '-Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5000'
 
 
