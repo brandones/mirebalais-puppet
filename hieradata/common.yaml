@@ -7,7 +7,7 @@ ntp_server_3: 2.ubuntu.pool.ntp.org
 ntp_server_4: 3.ubuntu.pool.ntp.org
 
 permit_root_login: without-password
-ssh_password_authentication: yes
+ssh_password_authentication: 'yes'
 pih_config: haiti
 site_domain: foo.org
 

@@ -2,7 +2,7 @@
 site_domain: poro.pih-emr.org
 pih_config: liberia
 
-ssh_password_authentication: no
+ssh_password_authentication: 'no'
 
 mysql_root_password: ENC[oWqIfmn/ER4CYIvjJSpIzQ==]
 mysql_bind_address: 0.0.0.0
