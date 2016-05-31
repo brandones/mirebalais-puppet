@@ -9,5 +9,9 @@ class ubuntu (
     content => template("ubuntu/sshd_config.erb")
   }
 
+  service { 'ssh':
+    restart  => true,
+    require => [ File["/etc/ssh/sshd_config"] ]
+  }
 
 }
