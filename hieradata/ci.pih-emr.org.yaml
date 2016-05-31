@@ -2,6 +2,7 @@
 site_domain: ci.pih-emr.org
 pih_config: haiti,haiti-thomonde
 
+# **make sure you have the single quotes around 'yes' or 'no' so ruby doesn't interpret as a boolean **
 ssh_password_authentication: 'no'
 
 mysql_root_password: ENC[oWqIfmn/ER4CYIvjJSpIzQ==]
