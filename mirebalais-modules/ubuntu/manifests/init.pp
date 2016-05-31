@@ -1,6 +1,5 @@
 class ubuntu (
-  $permit_root_login = hiera('permit_root_login'),
-  $ssh_password_authentication = hiera('ssh_password_authentication')
+  $permit_root_login = hiera('permit_root_login')
 ){
 
   file { "/etc/ssh/sshd_config":
