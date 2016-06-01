@@ -2,9 +2,6 @@
 site_domain: poro.pih-emr.org
 pih_config: liberia
 
-# **make sure you have the single quotes around 'yes' or 'no' so ruby doesn't interpret as a boolean **
-ssh_password_authentication: 'no'
-
 mysql_root_password: ENC[oWqIfmn/ER4CYIvjJSpIzQ==]
 mysql_bind_address: 0.0.0.0
 openmrs_db_password: ENC[3RqMvut63WqWc8IDs/GOnQ==]

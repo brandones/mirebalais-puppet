@@ -6,8 +6,6 @@ node default {
     always_apt_update => true,
   }
 
-  include ubuntu
-
   include mailx
   include ntpdate
   include apt_upgrades
@@ -28,8 +26,6 @@ node 'emr.hum.ht' {
   class { 'apt':
     always_apt_update => true,
   }
-
-  include ubuntu
 
   include mailx
   include ntpdate
@@ -60,8 +56,6 @@ node 'humci.pih-emr.org' {
     always_apt_update => true,
   }
 
-  include ubuntu
-
   include mailx
   include ntpdate
   include apt_upgrades
@@ -88,8 +82,6 @@ node 'emrtest.hum.ht', 'humdemo.pih-emr.org' {
     always_apt_update => true,
   }
 
-  include ubuntu
-
   include mailx
   include ntpdate
   include apt_upgrades
@@ -112,8 +104,6 @@ node 'reporting.hum.ht' {
   class { 'apt':
     always_apt_update => true,
   }
-
-  include ubuntu
 
   include mailx
   include ntpdate
@@ -139,8 +129,6 @@ node 'pleebo.pih-emr.org' {
   class { 'apt':
     always_apt_update => true,
   }
-
-  include ubuntu
 
   include mailx
   include ntpdate
@@ -168,8 +156,6 @@ node 'wellbody.pih-emr.org' {
     always_apt_update => true,
   }
 
-  include ubuntu
-
   include mailx
   include ntpdate
   include apt_upgrades
@@ -195,8 +181,6 @@ node 'poro.pih-emr.org', 'padi.pih-emr.org', 'ci.pih-emr.org', 'ami.pih-emr.org'
   class { 'apt':
     always_apt_update => true,
   }
-
-  include ubuntu
 
   include mailx
   include ntpdate
