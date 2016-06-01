@@ -3,6 +3,7 @@ class ubuntu (
   $ssh_password_authentication = hiera('ssh_password_authentication')
 ){
 
+  # **NOTE: Be careful when modifying this file via puppet because a mistake could kill ssh access to a server**
   file { "/etc/ssh/sshd_config":
     ensure  => present,
     owner   => root,

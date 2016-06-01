@@ -6,7 +6,7 @@ ntp_server_2: 1.ubuntu.pool.ntp.org
 ntp_server_3: 2.ubuntu.pool.ntp.org
 ntp_server_4: 3.ubuntu.pool.ntp.org
 
-permit_root_login: without-password
+permit_root_login: true
 # **make sure you have the single quotes around 'yes' or 'no' so ruby doesn't interpret as a boolean **
 ssh_password_authentication: 'yes'
 pih_config: haiti
