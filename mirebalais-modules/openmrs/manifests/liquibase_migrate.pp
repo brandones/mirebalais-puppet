@@ -13,7 +13,7 @@ define openmrs::liquibase_migrate(
     command     => "java -Dliquibase.databaseChangeLogTableName=liquibasechangelog -Dliquibase.databaseChangeLogLockTableName=liquibasechangeloglock -jar liquibase.jar --driver=com.mysql.jdbc.Driver --classpath=/var/lib/${tomcat}/webapps/${webapp_name}.war --url=jdbc:mysql://localhost:3306/${openmrs_db} --changeLogFile=${dataset} --username=${openmrs_db_user} --password='${openmrs_db_password}' update",
     user        => 'root',
     unless      => $unless,
-    require     => File['/usr/local/liquibase.jar'],
+    require     => [ File['/usr/local/liquibase.jar'], Package['pihemr'] ],
     refreshonly => $refreshonly,
     timeout => 0,
   }

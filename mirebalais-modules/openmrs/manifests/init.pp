@@ -38,7 +38,8 @@ class openmrs (
 
   package { 'pihemr':
     ensure  => latest,
-    require => [ Package[$tomcat], Service[$tomcat], Apt::Source['pihemr'], File["/home/${tomcat}/.OpenMRS/${webapp_name}-runtime.properties"], File['/etc/apt/apt.conf.d/99auth'] ],
+    require => [ Package[$tomcat], Service[$tomcat], Service['mysqld'], Apt::Source['pihemr'],
+      File["/home/${tomcat}/.OpenMRS/${webapp_name}-runtime.properties"], File['/etc/apt/apt.conf.d/99auth'] ],
   }
 
   file { "/home/${tomcat}/.OpenMRS":
