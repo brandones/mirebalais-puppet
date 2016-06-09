@@ -5,7 +5,8 @@ define openmrs::liquibase_migrate(
   $openmrs_db = hiera('openmrs_db'),
   $openmrs_db_user = decrypt(hiera('openmrs_db_user')),
   $openmrs_db_password = decrypt(hiera('openmrs_db_password')),
-  $webapp_name = hiera('webapp_name')
+  $webapp_name = hiera('webapp_name'),
+  $tomcat = hiera('tomcat')
 ) {
 
   exec { $title:
