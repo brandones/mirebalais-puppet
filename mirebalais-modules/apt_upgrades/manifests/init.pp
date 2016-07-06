@@ -4,7 +4,7 @@ class apt_upgrades(
 
 	class { 'apt::unattended_upgrades' :
   	      origins 	          => ['${distro_id} ${distro_codename}-security'],
- 	        blacklist           => ['pihemr','mirebalais'],
+ 	        blacklist           => ['pihemr','mirebalais','tzdata'],
   	      update              => '1',
   	      download            => '1',
   	      upgrade             => '1',
