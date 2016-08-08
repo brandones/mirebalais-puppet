@@ -1,8 +1,5 @@
-workers.tomcat_home=/usr/local/<%= @tomcat %>
-workers.java_home=/usr/lib/jvm/java-7-oracle
-ps=/
 worker.list=<%= @webapp_name %>
-worker.<%= @webapp_name %>.default.port=8009
-worker.<%= @webapp_name %>.default.host=localhost
-worker.<%= @webapp_name %>.default.type=ajp13
-worker.<%= @webapp_name %>.default.lbfactor=1
+worker.<%= @webapp_name %>.port=8009
+worker.<%= @webapp_name %>.host=localhost
+worker.<%= @webapp_name %>.type=ajp13
+
