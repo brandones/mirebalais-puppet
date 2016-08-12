@@ -6,6 +6,7 @@ node default {
     always_apt_update => true,
   }
 
+  include security
   include mailx
   include ntpdate
   include apt_upgrades
@@ -27,6 +28,7 @@ node 'emr.hum.ht' {
     always_apt_update => true,
   }
 
+  include security
   include mailx
   include ntpdate
   include apt_upgrades
@@ -56,6 +58,7 @@ node 'humci.pih-emr.org' {
     always_apt_update => true,
   }
 
+  include security
   include mailx
   include ntpdate
   include apt_upgrades
@@ -82,6 +85,7 @@ node 'emrtest.hum.ht', 'humdemo.pih-emr.org' {
     always_apt_update => true,
   }
 
+  include security
   include mailx
   include ntpdate
   include apt_upgrades
@@ -105,6 +109,7 @@ node 'reporting.hum.ht' {
     always_apt_update => true,
   }
 
+  include security
   include mailx
   include ntpdate
   include apt_upgrades
@@ -130,6 +135,7 @@ node 'pleebo.pih-emr.org' {
     always_apt_update => true,
   }
 
+  include security
   include mailx
   include ntpdate
   include apt_upgrades
@@ -156,6 +162,7 @@ node 'wellbody.pih-emr.org' {
     always_apt_update => true,
   }
 
+  include security
   include mailx
   include ntpdate
   include apt_upgrades
@@ -182,6 +189,7 @@ node 'poro.pih-emr.org', 'padi.pih-emr.org', 'ci.pih-emr.org', 'ami.pih-emr.org'
     always_apt_update => true,
   }
 
+  include security
   include mailx
   include ntpdate
   include apt_upgrades
@@ -206,6 +214,7 @@ node 'emrreplication.hum.ht' inherits default {
     always_apt_update => true,
   }
 
+  include security
   include mailx
   include apt_upgrades
   include wget
