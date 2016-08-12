@@ -6,6 +6,7 @@ node default {
     always_apt_update => true,
   }
 
+  include security
   include mailx
   include ntpdate
   include apt_upgrades
