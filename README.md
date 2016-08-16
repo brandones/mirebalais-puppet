@@ -15,3 +15,9 @@ Using Vagrant:
 * sudo cp -a /vagrant/* /etc/puppet/
 * cd /etc/puppet
 * sudo ./install.sh local
+
+
+Notes on using bundler:
+
+http://bundler.io/v1.7/rationale.html#checking-your-code-into-version-control
+
