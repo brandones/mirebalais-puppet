@@ -40,7 +40,6 @@ GEM
       rake
       rspec (>= 2.9.0)
       rspec-puppet (>= 0.1.1)
-    puppetmodule-stdlib (4.0.2)
     rake (11.1.2)
     rspec (3.4.0)
       rspec-core (~> 3.4.0)
@@ -72,8 +71,7 @@ DEPENDENCIES
   puppet-decrypt (= 0.1.0)
   puppet-lint (= 0.3.2)
   puppetlabs_spec_helper (= 0.4.1)
-  puppetmodule-stdlib (= 4.0.2)
   rspec-puppet (= 0.1.5)
 
 BUNDLED WITH
-   1.11.2
+   1.12.5
