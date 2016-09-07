@@ -13,7 +13,7 @@ class mysql_setup (
 
   # put proper my.cnf in place
   file { '/etc/mysql/my.cnf':
-    ensure  => file,
+    ensure  => present,
     content => template('mysql_setup/my.cnf.erb'),
   }
 
