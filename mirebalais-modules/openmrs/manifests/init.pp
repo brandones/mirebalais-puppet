@@ -8,7 +8,6 @@ class openmrs (
     $tomcat = hiera('tomcat'),
     $junit_username = hiera('junit_username'),
     $junit_password = decrypt(hiera('junit_password')),
-    $appframework_config_filename = hiera('appframework_config_filename'), 
     $pih_config = hiera('pih_config'),
 
     # Mirebalais only

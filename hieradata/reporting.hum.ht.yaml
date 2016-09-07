@@ -9,7 +9,6 @@ ntp_server_4: 192.168.1.174
 
 openmrs_auto_update_database: true
 site_domain: reporting.hum.ht
-appframework_config_filename: appframework-config-reporting.json
 
 package_release: 'stable/'
 
