@@ -1,7 +1,7 @@
 ---
 package_release: 'stable/'
-site_domain: thomonde.pih-emr.org
-pih_config: haiti,haiti-thomonde
+site_domain: lacolline2.pih-emr.org
+pih_config: haiti,haiti-lacolline
 server_timezone: EST
 
 mysql_root_password: ENC[oWqIfmn/ER4CYIvjJSpIzQ==]
@@ -10,9 +10,9 @@ openmrs_db_password: ENC[3RqMvut63WqWc8IDs/GOnQ==]
 
 #remote_db_user: backups
 #remote_db_server: amigo.pih-emr.org
-#remote_backup_dir: haiti/thomonde/db
+#remote_backup_dir: haiti/lacolline2/db
 
-backup_file_prefix: thomonde
+backup_file_prefix: lacolline
 backup_db_password: ENC[vkWTaGabrix4EDOVYyoePsJhGlRZxdNy6y8QZ8r2H5I=]
 
 # Check uptime of server
@@ -28,7 +28,7 @@ lacolline_server_url: 'https://zanmi.pih-emr.org/openmrs'
 lacolline_username: wsuser
 lacolline_password: ENC[OV3IH5U9urv6gEb76vnyYA==]
 
-remote_zlidentifier_url: 'https://zanmi.pih-emr.org/openmrs/module/idgen/exportIdentifiers.form?source=1&comment=Thomonde'
+remote_zlidentifier_url: 'https://zanmi.pih-emr.org/openmrs/module/idgen/exportIdentifiers.form?source=1&comment=Lacolline'
 remote_zlidentifier_username: mirebalais
 remote_zlidentifier_password: ENC[IuAJgqs6Ci5Hw5xs/DYiZg==]
 

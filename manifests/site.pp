@@ -129,7 +129,7 @@ node 'reporting.hum.ht' {
   include mirebalais_reporting::reporting_setup 
 }
 
-node 'pleebo.pih-emr.org' {
+node 'pleebo.pih-emr.org', 'thomonde.pih-emr.org', 'lacolline2.pih-emr.org' {
 
   class { 'apt':
     always_apt_update => true,

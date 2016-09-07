@@ -1,0 +1,47 @@
+FORGE
+  remote: https://forgeapi.puppetlabs.com
+  specs:
+    maestrodev-wget (1.7.0)
+    puppetlabs-stdlib (4.12.0)
+    puppetlabs-vcsrepo (1.3.1)
+
+GIT
+  remote: https://github.com/electrical/puppet-logstash
+  ref: 0.0.5
+  sha: b7bcf3b9d084a6f5efae526474c259a8fc755d63
+  specs:
+    puppet-logstash (0.0.5)
+      puppetlabs-stdlib (>= 3.0.0)
+
+GIT
+  remote: https://github.com/maestrodev/puppet-maven
+  ref: v1.4.0
+  sha: ddeb7d342a40e3626820f21000a75714488c92f5
+  specs:
+    maestrodev-puppet-maven (0.0.1)
+      maestrodev-wget (>= 1.0.0)
+
+GIT
+  remote: https://github.com/puppetlabs/puppetlabs-apt
+  ref: 1.8.0
+  sha: 47c6f338eda98ed849531d92b63c5e33103f76e4
+  specs:
+    puppetlabs-apt (0.0.1)
+      puppetlabs-stdlib (>= 2.2.1)
+
+GIT
+  remote: https://github.com/puppetlabs/puppetlabs-mysql
+  ref: 1.0.0
+  sha: 4e6b79288e5a570d26a20fb67e38f8055eaa8d51
+  specs:
+    puppetlabs-mysql (1.0.0)
+      puppetlabs-stdlib (>= 2.2.1)
+
+DEPENDENCIES
+  maestrodev-puppet-maven (>= 0)
+  maestrodev-wget (= 1.7.0)
+  puppet-logstash (>= 0)
+  puppetlabs-apt (>= 0)
+  puppetlabs-mysql (>= 0)
+  puppetlabs-vcsrepo (= 1.3.1)
+
