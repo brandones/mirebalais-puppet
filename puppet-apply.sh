@@ -8,7 +8,7 @@ then
   exit 1
 fi
 
-puppet apply -v \
+puppet apply -v -d\
   --detailed-exitcodes \
   --logdest=console \
   --logdest=syslog \
