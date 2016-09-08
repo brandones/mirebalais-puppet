@@ -11,10 +11,15 @@ class mysql_setup (
     shell  => '/bin/sh',
   }
 
-  # put proper my.cnf in place
+  # put proper /etc/mysql directory my.cnf in place
+  file { '/etc/mysql':
+    ensure  => directory
+  }
+
   file { '/etc/mysql/my.cnf':
     ensure  => present,
     content => template('mysql_setup/my.cnf.erb'),
+    require => File['/etc/mysql']
   }
 
   # make sure the mysql 5,5 is uninstalled, as well as the custom "mysql" package we put in place
