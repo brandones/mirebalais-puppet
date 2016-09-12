@@ -156,6 +156,27 @@ node 'pleebo.pih-emr.org', 'thomonde.pih-emr.org', 'lacolline2.pih-emr.org' {
   include crashplan
 }
 
+node 'zl-training.pih-emr.org' {
+
+  class { 'apt':
+    always_apt_update => true,
+  }
+
+  include security
+  include mailx
+  include ntpdate
+  include apt_upgrades
+  include wget
+
+  include java
+  include mysql_setup
+  include apache2
+  include tomcat
+
+  include openmrs
+  include openmrs::initial_setup
+}
+
 node 'wellbody.pih-emr.org' {
 
   class { 'apt':
