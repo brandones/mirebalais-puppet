@@ -68,6 +68,7 @@ junit_password: Junit123
 # feature toggle settings
 chief_complaint: true
 request_appointments: true
+insurance_collection: true
 
 reportingui_ad_hoc_analysis: false
 register_test_patient: false
