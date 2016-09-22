@@ -63,9 +63,15 @@ myisam-recover         = BACKUP
 #
 # * Query Cache Configuration
 #
-query_cache_limit  = 1M
-query_cache_size        = 16M
-query_cache_type = 1
+#
+# Query cache is now off by default in Mysql, and it appears to be hurting mysql performance on Mirebalais, so turning it off:
+# http://www.tocker.ca/2013/09/27/how-do-you-use-the-query-cache.html
+# http://dba.stackexchange.com/questions/63415/how-to-decide-whether-to-enable-mysql-query-cache-using-innodb
+#
+
+query_cache_limit  = 0
+query_cache_size        = 0
+query_cache_type = 0
 
 #
 # * Logging and Replication
