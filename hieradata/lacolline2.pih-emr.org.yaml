@@ -8,16 +8,13 @@ mysql_root_password: ENC[oWqIfmn/ER4CYIvjJSpIzQ==]
 mysql_bind_address: 0.0.0.0
 openmrs_db_password: ENC[3RqMvut63WqWc8IDs/GOnQ==]
 
-#remote_db_user: backups
-#remote_db_server: amigo.pih-emr.org
-#remote_backup_dir: haiti/lacolline2/db
-
 backup_file_prefix: lacolline
 backup_db_password: ENC[vkWTaGabrix4EDOVYyoePsJhGlRZxdNy6y8QZ8r2H5I=]
 
-# Check uptime of server
-backup_hour: 13
-archive_hour: 14
+# Confirm uptime of server
+backup_hour: 16
+archive_hour: 17
+backup_delete_older_than_x_days: 60
 
 openmrs_auto_update_database: true
 
