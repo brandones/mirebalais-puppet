@@ -19,6 +19,7 @@ tomcat_restart_nightly: true
 package_release: 'stable/'
 mysql_server_id: 1
 mysql_innodb_buffer_pool_size: 16G
+mysql_innodb_buffer_pool_instances: 16
 
 mysql_root_password: ENC[oWqIfmn/ER4CYIvjJSpIzQ==]
 openmrs_db_password: ENC[spcYc6R/l+JkjPm5P//qw0LVQCdrD8zEfIEZr/AJ4rU=]

@@ -20,6 +20,7 @@ openmrs_auto_update_database: true
 
 mysql_server_id: 1
 mysql_innodb_buffer_pool_size: 3G
+mysql_innodb_buffer_pool_instances: 3
 
 lacolline_server_url: 'https://zanmi.pih-emr.org/openmrs'
 lacolline_username: wsuser
