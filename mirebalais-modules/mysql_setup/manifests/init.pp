@@ -20,7 +20,8 @@ class mysql_setup (
   file { '/etc/mysql/my.cnf':
     ensure  => present,
     content => template('mysql_setup/my.cnf.erb'),
-    require => File['/etc/mysql']
+    require => File['/etc/mysql'],
+    notify  => Service['mysqld']
   }
 
   # make sure the mysql 5,5 is uninstalled, as well as the custom "mysql" package we put in place
