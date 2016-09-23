@@ -34,7 +34,7 @@ class openmrs::backup (
     user    => 'root',
     hour    => "${backup_hour}",
     minute  => 30,
-    environment => 'MAILTO=${sysadmin_email}',
+    environment => "MAILTO=${sysadmin_email}",
     require => [ File['mysqlbackup.sh'], Package['p7zip-full'] ]
   }
 
@@ -54,7 +54,7 @@ class openmrs::backup (
     minute => 30,
     hour => "${archive_hour}",
     monthday => 1,
-    environment => 'MAILTO=${sysadmin_email}',
+    environment => "MAILTO=${sysadmin_email}",
     require => [ File['mysqlarchive.sh'] ]
   }
 
