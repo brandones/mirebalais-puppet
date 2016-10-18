@@ -14,7 +14,7 @@ FILENAME='mirebalais_nightly_reporting_dump.sql.7z'
 FILENAME_DECOMPRESSED='mirebalais_nightly_reporting_dump.sql'
 
 # Stop tomcat
-service tomcat6 stop
+service tomcat7 stop
 
 # Unzip and unencrypt database
 7za e -p${DECRYPT_PASSWORD} -soy ${DIR}/${FILENAME} 1> ${DIR}/${FILENAME_DECOMPRESSED} 2>/dev/null
@@ -26,4 +26,4 @@ mysql -u ${USER} -p${PASSWORD} ${DB} < ${DIR}/${FILENAME_DECOMPRESSED} 2>/dev/nu
 rm ${DIR}/${FILENAME_DECOMPRESSED}
 
 # Restart tomcat
-service tomcat6 start
+service tomcat7 start
