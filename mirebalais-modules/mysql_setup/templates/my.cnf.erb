@@ -95,7 +95,7 @@ log_error=/var/log/mysql/error.log
 #       other settings you may need to change.
 #server-id    = 1
 #log_bin      = /var/log/mysql/mysql-bin.log
-<% if @mysql_binary_logging && @environment != 'test' %>
+<% if @mysql_binary_logging %>
 log-bin=mysql-bin
 server-id=<%= @mysql_server_id %>
 <% end %>
