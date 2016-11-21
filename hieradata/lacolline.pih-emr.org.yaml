@@ -1,6 +1,6 @@
 ---
 package_release: 'stable/'
-site_domain: lacolline2.pih-emr.org
+site_domain: lacolline.pih-emr.org
 pih_config: haiti,haiti-lacolline
 server_timezone: EST
 
