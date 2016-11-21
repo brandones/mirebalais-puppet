@@ -19,8 +19,8 @@ class mirebalais_reporting::production_setup (
     ensure  => present,
     command => '/usr/local/sbin/mirebalaisreportingdbdump.sh >/dev/null',
     user    => 'root',
-    hour    => 2,
-    minute  => 30,
+    hour    => 0,
+    minute  => 00,
     environment => 'MAILTO=${sysadmin_email}',
     require => [ File['mirebalaisreportingdbdump.sh'], Package['p7zip-full'] ]
   }

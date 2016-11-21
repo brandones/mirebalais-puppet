@@ -30,7 +30,7 @@ class mirebalais_reporting::reporting_setup (
 	    ensure  => present,
 	    command => '/usr/local/sbin/mirebalaisreportingdbsource.sh > /dev/null',
 	    user    => 'root',
-	    hour    => 5,
+	    hour    => 2,
 	    minute  => 00,
 	    environment => 'MAILTO=${sysadmin_email}',
 	    require => [ File['mirebalaisreportingdbsource.sh'], Package['p7zip-full'] ]
