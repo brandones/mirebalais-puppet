@@ -48,7 +48,7 @@ class openmrs::backup (
   }
 
   cron { 'mysql-archive':
-    ensure  => present,
+    ensure  => absent,
     command => '/usr/local/sbin/mysqlarchive.sh > /dev/null',
     user     => 'root',
     minute => 30,
