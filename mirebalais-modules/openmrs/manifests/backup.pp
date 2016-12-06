@@ -53,7 +53,6 @@ class openmrs::backup (
     user     => 'root',
     minute => 30,
     hour => "${archive_hour}",
-    monthday => 1,
     environment => "MAILTO=${sysadmin_email}",
     require => [ File['mysqlarchive.sh'] ]
   }
