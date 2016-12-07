@@ -16,8 +16,11 @@ find ${DIR}/sequences/${RELEASENAME} -mtime +15 -exec rm {} \;
 # Create the archive directory
 mkdir -p ${DIR}/archive
 
-# Archive backups from the 1st of the month
-mv ${DIR}/sequences/${ARCHIVEFILE} ${DIR}/archive/.
+# Archive backups from the 1st of the month (if they exist)
+if ls ${DIR}/sequences/${ARCHIVEFILE} 1> /dev/null 2>&1; then
+	mv ${DIR}/sequences/${ARCHIVEFILE} ${DIR}/archive/.
+fi
+
 
 # Delete any of the nightly backups older than x days
 find ${DIR}/sequences/${FILENAME} -mtime +<%= @backup_delete_older_than_x_days %> -exec rm {} \;
