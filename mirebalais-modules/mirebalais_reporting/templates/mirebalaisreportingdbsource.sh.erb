@@ -28,5 +28,7 @@ rm ${DIR}/${FILENAME_DECOMPRESSED}
 # Restart tomcat
 service tomcat7 start
 
-# Run the pentaho pipeline
+# Update and run the pentaho pipeline
+cd /home/reporting/pih-pentaho
+git pull
 docker run --net="host" --rm -v /home/reporting:/home/reporting -v /home/reporting/.kettle/pih-kettle.properties:/opt/pentaho/.kettle/pih-kettle.properties pih:pdi /opt/pentaho/data-integration/kitchen.sh -file="/home/reporting/pih-pentaho/jobs/load-from-openmrs-and-star-schema.kjb" > /home/reporting/logs/pentaho.log
