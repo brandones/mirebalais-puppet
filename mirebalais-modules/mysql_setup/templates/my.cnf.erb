@@ -126,6 +126,10 @@ innodb_buffer_pool_instances= <%= @mysql_innodb_buffer_pool_instances %>
 character-set-server=utf8
 collation-server=utf8_general_ci
 
+# increase timeouts to help with long-running reporting queries
+# see http://wiki.pentaho.com/display/EAI/MySQL
+net_read_timeout = 180
+net_write_timeout = 180
 
 
 [mysqldump]
