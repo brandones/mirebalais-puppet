@@ -16,17 +16,12 @@ FILENAME_DECOMPRESSED='mirebalais_nightly_reporting_dump.sql'
 # Stop tomcat
 service tomcat7 stop
 
-# Unzip and unencrypt database
-7za e -p${DECRYPT_PASSWORD} -soy ${DIR}/${FILENAME} 1> ${DIR}/${FILENAME_DECOMPRESSED} 2>/dev/null
-
-# Source the database
-mysql -u ${USER} -p${PASSWORD} ${DB} < ${DIR}/${FILENAME_DECOMPRESSED} 2>/dev/null
-
-# Clean remove db file
-rm ${DIR}/${FILENAME_DECOMPRESSED}
+# Unzip and unencrypt database, pipe to mysql and source
+exec 7za e -p${DECRYPT_PASSWORD} -soy ${DIR}/${FILENAME} | cat | mysql -u ${USER} -p${PASSWORD} ${DB} 2>/home/reporting/logs/error.log
 
 # Restart tomcat
 service tomcat7 start
+
 
 # Update and run the pentaho pipeline
 cd /home/reporting/pih-pentaho
