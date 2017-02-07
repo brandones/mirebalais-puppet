@@ -8,14 +8,17 @@ class java (
 
   apt::ppa { 'ppa:webupd8team/java': }
 
+  # uninstall Oracle java 7
   package { 'oracle-java7-installer':
     ensure  => purged,
     require => [Apt::Ppa['ppa:webupd8team/java']]
   }
 
+  # install OpenJDK 7
   package { 'openjdk-7-jdk':
     ensure  => present,
-    notify => Service[$tomcat]
+    notify => Service[$tomcat],
+    require => [Package['oracle-java7-installer'], File['/etc/environment']]
   }
 
 
