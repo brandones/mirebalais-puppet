@@ -1,4 +1,6 @@
-class java {
+class java (
+  $tomcat = hiera('tomcat')
+){
 
   file { '/etc/environment':
     source => 'puppet:///modules/java/etc/environment'
@@ -7,11 +9,17 @@ class java {
   apt::ppa { 'ppa:webupd8team/java': }
 
   package { 'oracle-java7-installer':
-    ensure  => installed,
-    require => [Apt::Ppa['ppa:webupd8team/java'], Exec['set-licence-selected'], Exec['set-licence-seen']]
+    ensure  => purged,
+    require => [Apt::Ppa['ppa:webupd8team/java']]
   }
 
-  exec { 'set-licence-selected':
+  package { 'openjdk-7-jdk':
+    ensure  => present,
+    notify => Service[$tomcat]
+  }
+
+
+  /*exec { 'set-licence-selected':
       command => '/bin/echo debconf shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections',
 			user => root
   }
@@ -19,6 +27,6 @@ class java {
   exec { 'set-licence-seen':
       command => '/bin/echo debconf shared/accepted-oracle-license-v1-1 seen true | /usr/bin/debconf-set-selections',
       user => root
-  }
+  }*/
 
 }
