@@ -36,6 +36,13 @@ else
     fi
 fi 
 
+# For Haiti servers, don't update the tzdata package
+if [$HOSTNAME == ""]
+then
+    apt-mark hold tzdata
+fi
+
+
 
 apt-get update
 
