@@ -12,7 +12,7 @@ class newrelic::repo (
 
     exec { newrelic-add-apt:
         unless  => 'apt-key list | grep 548C16BF',
-        command => 'wget -O- http://download.newrelic.com/548C16BF.gpg | apt-key add -',
+        command => 'wget -O- https://download.newrelic.com/548C16BF.gpg | apt-key add -',
     }
     
     exec { newrelic-apt-get-update:
