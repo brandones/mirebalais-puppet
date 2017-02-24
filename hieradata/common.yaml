@@ -71,6 +71,7 @@ junit_password: Junit123
 chief_complaint: true
 request_appointments: true
 insurance_collection: true
+primary_care_note: true
 
 reportingui_ad_hoc_analysis: false
 register_test_patient: false
