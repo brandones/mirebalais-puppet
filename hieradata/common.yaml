@@ -68,8 +68,6 @@ junit_username: junit
 junit_password: Junit123
 
 # feature toggle settings
-chief_complaint: true
-request_appointments: true
 insurance_collection: true
 primary_care_note: true
 
