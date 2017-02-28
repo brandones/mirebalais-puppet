@@ -98,6 +98,14 @@ class tomcat (
     notify  => Service[$tomcat]
   }
 
+  file { "/var/lib/${tomcat}/conf/logging.properties":
+    ensure  => file,
+    source  => "puppet:///modules/tomcat/logging.properties",
+    require => Package[$tomcat],
+    notify  => Service[$tomcat]
+  }
+
+
   user { $tomcat:
     ensure => 'present',
     home   => "/home/${tomcat}",
