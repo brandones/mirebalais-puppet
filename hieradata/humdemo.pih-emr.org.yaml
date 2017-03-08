@@ -13,6 +13,6 @@ lacolline_username: wsuser
 lacolline_password: ENC[OV3IH5U9urv6gEb76vnyYA==]
 
 # feature toggle settings
-death_note: false
+death_note: true
 ed_triage: true
 
