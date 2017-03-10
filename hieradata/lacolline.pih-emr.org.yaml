@@ -2,7 +2,7 @@
 package_release: 'stable/'
 site_domain: lacolline.pih-emr.org
 pih_config: haiti,haiti-lacolline
-server_timezone: EST
+server_timezone: America/New_York
 
 mysql_root_password: ENC[oWqIfmn/ER4CYIvjJSpIzQ==]
 mysql_bind_address: 0.0.0.0
