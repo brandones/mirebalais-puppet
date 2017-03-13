@@ -4,7 +4,9 @@ class mysql_setup (
   	$mysql_expire_logs_days = hiera('mysql_expire_logs_days'),
   	$mysql_innodb_buffer_pool_size = hiera('mysql_innodb_buffer_pool_size'),
     $mysql_innodb_buffer_pool_instances = hiera('mysql_innodb_buffer_pool_instances'),
-    $mysql_binary_logging = hiera('mysql_binary_logging')
+    $mysql_binary_logging = hiera('mysql_binary_logging'),
+    $mysql_net_read_timeout = hiera('mysql_net_read_timeout'),
+    $mysql_net_write_timeout = hiera('mysql_net_write_timeout')
 ){
 
 

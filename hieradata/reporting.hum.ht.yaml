@@ -18,6 +18,8 @@ mysql_root_password: ENC[oWqIfmn/ER4CYIvjJSpIzQ==]
 mysql_bind_address: 0.0.0.0
 mysql_expire_logs_days: 1
 mysql_binary_logging: false
+mysql_net_read_timeout: 1800
+mysql_net_write_timeout: 1800
 
 mysql_innodb_buffer_pool_size: 8G
 mysql_innodb_buffer_pool_instances: 8

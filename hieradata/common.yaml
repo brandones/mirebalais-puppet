@@ -17,6 +17,8 @@ mysql_expire_logs_days: 10
 mysql_innodb_buffer_pool_size: 1G
 mysql_innodb_buffer_pool_instances: 1
 mysql_binary_logging: true
+mysql_net_read_timeout: 30
+mysql_net_write_timeout: 30
 openmrs_db: openmrs
 openmrs_db_user: openmrs
 openmrs_db_password: foo
