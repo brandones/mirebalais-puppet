@@ -81,6 +81,7 @@ death_note: false
 appointmentscheduling_confidential: false
 receipt_number: false
 ed_triage: false
+relationships: false
 
 # SSL certificates
 ssl_cert_file: '3c11bbafd54a6f8c.crt'
