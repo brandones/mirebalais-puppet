@@ -22,6 +22,7 @@ appointmentscheduling_confidential: true
 death_note: true
 radiology_contrast_studies: true
 ed_triage: true
+relationships: true
 
 # SSL certificates
 ssl_cert_file: 'hum.ht.crt'
