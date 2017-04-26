@@ -82,6 +82,8 @@ appointmentscheduling_confidential: false
 receipt_number: false
 ed_triage: false
 relationships: false
+program_summary: false
+programs_list: false
 
 # SSL certificates
 ssl_cert_file: '3c11bbafd54a6f8c.crt'

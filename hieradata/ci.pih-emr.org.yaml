@@ -10,5 +10,6 @@ openmrs_db_password: ENC[3RqMvut63WqWc8IDs/GOnQ==]
 receipt_number: true
 ed_triage: true
 relationships: true
+programs_list: true
 
 # java_debug_parameters: '-Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5000'
