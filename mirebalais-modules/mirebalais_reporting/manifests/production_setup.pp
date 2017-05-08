@@ -1,7 +1,8 @@
 class mirebalais_reporting::production_setup (
     $backup_db_user = decrypt(hiera('backup_db_user')),
     $backup_db_password = decrypt(hiera('backup_db_password')),
-    $sysadmin_email = hiera('sysadmin_email')
+    $sysadmin_email = hiera('sysadmin_email'),
+    $tomcat = hiera('tomcat')
   ){
 
   file { 'mirebalaisreportingdbdump.sh':
