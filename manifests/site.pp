@@ -48,6 +48,7 @@ node 'emr.hum.ht' {
   include newrelic
   include logging
 
+  include openmrs::backup
   include crashplan
   include mirebalais_reporting::production_setup
 }

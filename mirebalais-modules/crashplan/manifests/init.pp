@@ -3,7 +3,7 @@ class crashplan(
 ){
 
   wget::fetch { 'download':
-    source      => 'http://download.crashplan.com/installs/linux/install/CrashPlanPRO/CrashPlanPRO_4.8.2_Linux.tgz',
+    source      => 'http://download.crashplan.com/installs/linux/install/CrashPlanPRO/CrashPlanPRO_4.2.0_Linux.tgz',
     destination => '/usr/local/crashplanpro.tgz',
     timeout     => 0,
     verbose     => false,
