@@ -72,6 +72,7 @@ junit_password: Junit123
 # feature toggle settings
 insurance_collection: true
 primary_care_note: true
+ed_triage: true
 
 reportingui_ad_hoc_analysis: false
 register_test_patient: false
@@ -80,7 +81,6 @@ radiology_contrast_studies: false
 death_note: false
 appointmentscheduling_confidential: false
 receipt_number: false
-ed_triage: false
 relationships: false
 program_summary: false
 programs_list: false

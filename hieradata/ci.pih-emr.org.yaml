@@ -8,7 +8,6 @@ openmrs_db_password: ENC[3RqMvut63WqWc8IDs/GOnQ==]
 
 # feature toggles
 receipt_number: true
-ed_triage: true
 relationships: true
 programs_list: true
 
