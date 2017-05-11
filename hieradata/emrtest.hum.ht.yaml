@@ -21,7 +21,6 @@ lacolline_password: ENC[OV3IH5U9urv6gEb76vnyYA==]
 appointmentscheduling_confidential: true
 death_note: true
 radiology_contrast_studies: true
-relationships: true
 
 # SSL certificates
 ssl_cert_file: 'hum.ht.crt'
