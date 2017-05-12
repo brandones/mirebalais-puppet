@@ -82,7 +82,6 @@ radiology_contrast_studies: false
 death_note: false
 appointmentscheduling_confidential: false
 receipt_number: false
-program_summary: false
 programs_list: false
 
 # SSL certificates
