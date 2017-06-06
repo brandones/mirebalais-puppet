@@ -132,6 +132,7 @@ class tomcat (
       command => "service ${tomcat} restart",
       user    => 'root',
       hour    => 5,
+      minute  => 00,
       require => [ Service[$tomcat] ]
     }
   }
