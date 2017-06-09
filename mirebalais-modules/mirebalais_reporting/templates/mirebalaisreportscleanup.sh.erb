@@ -4,7 +4,7 @@
 #
 
 DIR=/home/<%= @tomcat %>/.OpenMRS/reports
-FILENAME=mirebalaisreports*zip
+FILENAME=*zip
 
 # Delete all reports more than 15 days old
 find ${DIR}/${FILENAME} -mtime +15 -exec rm {} \;
