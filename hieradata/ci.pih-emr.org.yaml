@@ -8,8 +8,8 @@ openmrs_db_password: ENC[3RqMvut63WqWc8IDs/GOnQ==]
 
 # feature toggles
 receipt_number: true
-programs_list: false
-zika: false
+programs_list: true
+zika: true
 hiv: true
 
 # java_debug_parameters: '-Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5000'
