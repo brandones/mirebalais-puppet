@@ -22,7 +22,16 @@ class mirebalais_reporting::reporting_setup (
 	    content => template('mirebalais_reporting/mirebalaisreportingdbsource.sh.erb'),
 	  }
 
-	  package { 'p7zip-full':
+	file { 'mirebalaiswarehousedbdump.sh':
+		ensure  => present,
+		path    => '/usr/local/sbin/mirebalaiswarehousedbdump.sh',
+		mode    => '0700',
+		owner   => 'root',
+		group   => 'root',
+		content => template('mirebalais_reporting/mirebalaiswarehousedbdump.sh.erb'),
+	}
+
+	package { 'p7zip-full':
 	  	  ensure => 'installed'
 	  }
 
