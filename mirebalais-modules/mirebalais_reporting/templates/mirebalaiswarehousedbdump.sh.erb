@@ -15,7 +15,7 @@ ENCRYPT_PASSWORD='<%= @backup_db_password %>'
 FILENAME='mirebalais_nightly_warehouse_dump.sql.7z'
 
 # Dump, encrypt, and compress backup for reporting
-mysqldump -u${USER} -p${PASS} --opt --flush-logs --single-transaction openmrs_warehouse 2>/dev/null | 7za a -p${ENCRYPT_PASSWORD} -siy ${DIR}/${FILENAME} -mx9 2>&1 >/dev/null
+mysqldump -u${USER} -p${PASSWORD} --opt --flush-logs --single-transaction openmrs_warehouse 2>/dev/null | 7za a -p${ENCRYPT_PASSWORD} -siy ${DIR}/${FILENAME} -mx9 2>&1 >/dev/null
 
 if ! [ -s "${DIR}/${FILENAME}" ]
 then
