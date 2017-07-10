@@ -10,7 +10,7 @@ DB='<%= @openmrs_warehouse_db %>'
 REMOTE_SERVER='mirebalaisreporting@data.pih-emr.org:/home/mirebalaisreporting'
 DIR='/tmp'
 
-ENCRYPT_PASSWORD=${PASSWORD}
+ENCRYPT_PASSWORD='<%= @backup_db_password %>'
 
 FILENAME='mirebalais_nightly_warehouse_dump.sql.7z'
 
