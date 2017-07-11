@@ -7,7 +7,8 @@ USER='<%= @backup_db_user %>'
 PASS='<%= @backup_db_password %>'
 DIR=/home/<%= @tomcat %>/backups
 
-REMOTE_SERVER='backups@192.168.1.217:/home/backups'
+LOCAL_REPORTING_SERVER='backups@192.168.1.217:/home/backups'
+REMOTE_REPORTING_SERVER='mirebalaisreporting@data.pih-emr.org:/home/mirebalaisreporting'
 
 ENCRYPT_PASSWORD=${PASS}
 
@@ -30,5 +31,6 @@ fi
 
 
 #scp (note that public/private key sharing needs to be set up manually between production and reporting, this is not handled via puppet)
-scp ${DIR}/reporting/${FILENAME} ${REMOTE_SERVER}/${FILENAME}
+scp ${DIR}/reporting/${FILENAME} ${LOCAL_REPORTING_SERVER}/${FILENAME}
+scp ${DIR}/reporting/${FILENAME} ${REMOTE_REPORTING_SERVER}/${FILENAME}
 rm ${DIR}/reporting/${FILENAME}
