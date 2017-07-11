@@ -24,7 +24,8 @@ class mirebalais_reporting::reporting_setup (
 	  }
 
 	file { 'mirebalaiswarehousedbdump.sh':
-		ensure  => absent
+		ensure  => absent,
+		path    => '/usr/local/sbin/mirebalaiswarehousedbdump.sh'
 	}
 
 	/*file { 'mirebalaiswarehousedbdump.sh':
