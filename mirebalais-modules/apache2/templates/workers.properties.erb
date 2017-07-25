@@ -1,5 +1,18 @@
+
+<% if @biometrics_enabled == true %>
+worker.list=<%= @webapp_name %>,<%= @biometrics_webapp_name %>
+<% end %>
+
+<% if @biometrics_enabled != true %>
 worker.list=<%= @webapp_name %>
+<% end %>
+
 worker.<%= @webapp_name %>.port=8009
 worker.<%= @webapp_name %>.host=localhost
 worker.<%= @webapp_name %>.type=ajp13
 
+<% if @biometrics_enabled == true %>
+worker.<%= @biometrics_webapp_name %>.port=<%= @biometrics_port %>
+worker.<%= @biometrics_webapp_name %>.host=localhost
+worker.<%= @biometrics_webapp_name %>.type=ajp13
+<% end %>

@@ -6,7 +6,13 @@
 	JkMount /<%= @webapp_name %> 	<%= @webapp_name %>
 	JkMount /<%= @webapp_name %>/	<%= @webapp_name %>
 	JkMount /<%= @webapp_name %>/*	<%= @webapp_name %>
-  
+
+<% if @biometrics_enabled == true %>
+	JkMount /<%= @biometrics_webapp_name %>     <%= @biometrics_webapp_name %>
+	JkMount /<%= @biometrics_webapp_name %>/    <%= @biometrics_webapp_name %>
+	JkMount /<%= @biometrics_webapp_name %>/*   <%= @biometrics_webapp_name %>
+<% end %>
+
 	<Directory />
 		Options FollowSymLinks
 		AllowOverride None

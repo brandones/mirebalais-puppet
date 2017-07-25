@@ -7,6 +7,9 @@ class apache2 (
   $ssl_cert_file = hiera('ssl_cert_file'),
   $ssl_chain_file = hiera('ssl_chain_file'),
   $ssl_key_file = hiera('ssl_key_file'),
+  $biometrics_enabled = hiera('biometrics_enabled'),
+  $biometrics_webapp_name = hiera('biometrics_webapp_name'),
+  $biometrics_port = hiera('biometrics_port')
 ){
   
   package { 'apache2':
@@ -19,7 +22,7 @@ class apache2 (
 
   file { '/etc/logrotate.d/apache2':
     ensure  => file,
-    content  => template('apache2/logrotate.erb'),
+    content  => template('apache2/logrotate.erb')
   } ->
 
   file { '/etc/apache2/workers.properties':
