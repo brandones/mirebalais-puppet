@@ -14,7 +14,7 @@ lacolline_password: wsuser123
 
 mirth_inbound_from_pacs_mirebalais_port: 6662
 
-biometrics_enabled: false
+biometrics_enabled: true
 
 # feature toggle settings
 register_test_patient: true
