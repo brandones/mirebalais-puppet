@@ -46,6 +46,7 @@ remote_zlidentifier_password: ENC[IuAJgqs6Ci5Hw5xs/DYiZg==]
 # feature toggle settings
 insurance_collection: false
 primary_care_note: false
+programs_list: true
 zika: true
 
 # SSL certificates
