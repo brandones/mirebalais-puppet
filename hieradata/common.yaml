@@ -79,6 +79,7 @@ insurance_collection: true
 primary_care_note: true
 ed_triage: true
 relationships: true
+old_active_visits: true
 
 reportingui_ad_hoc_analysis: false
 register_test_patient: false
