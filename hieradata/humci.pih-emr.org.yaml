@@ -27,7 +27,6 @@ receipt_number: true
 programs_list: true
 zika: true
 hiv: false
-old_active_visits: false
 new_active_visits: true
 
 #java_debug_parameters: '-Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5000'
