@@ -91,6 +91,7 @@ receipt_number: false
 programs_list: false
 zika: false
 hiv: false
+new_active_visits: false
 
 # SSL certificates
 ssl_cert_file: '3c11bbafd54a6f8c.crt'
