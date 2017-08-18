@@ -26,6 +26,8 @@ appointmentscheduling_confidential: true
 receipt_number: true
 programs_list: true
 zika: true
+patient_documents: true
+
 hiv: false
 
 #java_debug_parameters: '-Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5000'
