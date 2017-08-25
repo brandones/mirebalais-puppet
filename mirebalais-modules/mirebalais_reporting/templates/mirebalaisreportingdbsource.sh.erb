@@ -17,15 +17,19 @@ FILENAME_DECOMPRESSED='mirebalais_nightly_reporting_dump.sql'
 service tomcat7 stop
 
 # Unzip and unencrypt database, pipe to mysql and source
-exec 7za e -p${DECRYPT_PASSWORD} -soy ${DIR}/${FILENAME} | cat | mysql -u ${USER} -p${PASSWORD} ${DB} 2>/home/reporting/logs/error.log
+# We don't pipe directly to mysql but instead save to outfile (y) because the production server will be trying to copy over a *new* version overnight and we don't want a conflict
+exec 7za e -p${DECRYPT_PASSWORD} -soy ${DIR}/${FILENAME}
+mysql -u ${USER} -p${PASSWORD} ${DB} < y 2>/home/reporting/logs/error.log
+rm y
 
 # Restart tomcat
 service tomcat7 start
 
+# Disable pipeline for now
 # Update and run the pentaho pipeline
-cd /home/reporting/pih-pentaho
+#cd /home/reporting/pih-pentaho
 # Hard-coded for now to use version v1.0.0
-git checkout v1.0.0
-docker run --net="host" --rm -v /home/reporting:/home/reporting -v /home/reporting/.kettle/pih-kettle.properties:/opt/pentaho/.kettle/pih-kettle.properties pih:pdi /opt/pentaho/data-integration/kitchen.sh -file="/home/reporting/pih-pentaho/jobs/load-from-openmrs-and-star-schema.kjb" > /home/reporting/logs/pentaho.log
+#git checkout v1.0.0
+#docker run --net="host" --rm -v /home/reporting:/home/reporting -v /home/reporting/.kettle/pih-kettle.properties:/opt/pentaho/.kettle/pih-kettle.properties pih:pdi /opt/pentaho/data-integration/kitchen.sh -file="/home/reporting/pih-pentaho/jobs/load-from-openmrs-and-star-schema.kjb" > /home/reporting/logs/pentaho.log
 
 
