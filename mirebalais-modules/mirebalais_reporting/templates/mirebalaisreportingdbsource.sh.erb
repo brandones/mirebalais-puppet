@@ -18,9 +18,9 @@ service tomcat7 stop
 
 # Unzip and unencrypt database, pipe to mysql and source
 # We don't pipe directly to mysql but instead save to outfile (y) because the production server will be trying to copy over a *new* version overnight and we don't want a conflict
-7za e -p${DECRYPT_PASSWORD} -o ${DIR} -y ${DIR}/${FILENAME}
-mysql -u ${USER} -p${PASSWORD} ${DB} < ${DIR}/y 2>/home/reporting/logs/error.log
-rm ${DIR}/y
+7za e -p${DECRYPT_PASSWORD} -soy {DIR}/${FILENAME} > ${DIR}/openmrs.sql
+mysql -u ${USER} -p${PASSWORD} ${DB} < ${DIR}/openmrs.sql 2>/home/reporting/logs/error.log
+rm ${DIR}/openmrs.sql
 
 # Restart tomcat
 service tomcat7 start
