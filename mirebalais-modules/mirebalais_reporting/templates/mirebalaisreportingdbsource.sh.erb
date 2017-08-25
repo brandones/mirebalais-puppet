@@ -18,9 +18,9 @@ service tomcat7 stop
 
 # Unzip and unencrypt database, pipe to mysql and source
 # We don't pipe directly to mysql but instead save to outfile (y) because the production server will be trying to copy over a *new* version overnight and we don't want a conflict
-exec 7za e -p${DECRYPT_PASSWORD} -soy ${DIR}/${FILENAME}
-mysql -u ${USER} -p${PASSWORD} ${DB} < y 2>/home/reporting/logs/error.log
-rm y
+7za e -p${DECRYPT_PASSWORD} -y ${DIR}/${FILENAME} -o ${DIR}
+mysql -u ${USER} -p${PASSWORD} ${DB} < ${DIR}/y 2>/home/reporting/logs/error.log
+rm ${DIR}/y
 
 # Restart tomcat
 service tomcat7 start
