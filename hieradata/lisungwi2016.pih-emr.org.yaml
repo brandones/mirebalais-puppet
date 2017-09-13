@@ -3,7 +3,6 @@ site_domain: lisungwi2016.pih-emr.org
 server_timezone: Africa/Blantyre
 
 mysql_root_password: ENC[oWqIfmn/ER4CYIvjJSpIzQ==]
-mysql_bind_address: 0.0.0.0
 openmrs_db_password: ENC[5WzkmR5AjO01BUQTOhfMkA==]
 
 java_memory_parameters: '-Xmx2048m -Xms1024m -XX:PermSize=256m -XX:MaxPermSize=512m -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC'
