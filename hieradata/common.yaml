@@ -93,6 +93,7 @@ zika: false
 hiv: false
 old_active_visits: false
 patient_documents: false
+additional_haiti_identifiers: false
 
 # SSL certificates
 ssl_cert_file: '3c11bbafd54a6f8c.crt'
