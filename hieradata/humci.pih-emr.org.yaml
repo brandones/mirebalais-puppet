@@ -27,6 +27,7 @@ receipt_number: true
 programs_list: true
 zika: true
 patient_documents: true
+additional_haiti_identifiers: true
 
 hiv: false
 
