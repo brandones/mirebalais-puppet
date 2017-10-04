@@ -28,6 +28,7 @@ programs_list: true
 zika: true
 patient_documents: true
 additional_haiti_identifiers: true
+chw_mgmt_app: true
 
 hiv: false
 

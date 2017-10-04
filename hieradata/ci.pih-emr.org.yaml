@@ -12,5 +12,6 @@ programs_list: true
 zika: true
 hiv: true
 additional_haiti_identifiers: true
+chw_mgmt_app: true
 
 # java_debug_parameters: '-Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5000'
