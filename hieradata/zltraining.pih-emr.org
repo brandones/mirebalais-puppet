@@ -1,0 +1,11 @@
+---
+# this was created last-minute for provisioning a training server in Thomonde; probably should be combined with zl-training
+
+package_release: 'stable/'
+site_domain: zltraining.pih-emr.org
+pih_config: haiti,haiti-thomonde
+server_timezone: America/New_York
+
+openmrs_auto_update_database: true
+
+java_memory_parameters: '-Xmx8G -Xms1024m -XX:PermSize=256m -XX:MaxPermSize=512m -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC'
