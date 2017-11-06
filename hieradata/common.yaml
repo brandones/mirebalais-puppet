@@ -70,7 +70,7 @@ services_enable: true
 junit_username: junit
 junit_password: Junit123
 
-biometrics_enabled: false
+biometrics_enabled: falsete4st
 biometrics_webapp_name: biometrics
 biometrics_port: 9009
 
@@ -96,6 +96,7 @@ patient_documents: false
 additional_haiti_identifiers: false
 chw_mgmt_app: false
 ncd_program: false
+lab_tracking: false
 
 # SSL certificates
 ssl_cert_file: '3c11bbafd54a6f8c.crt'

@@ -23,6 +23,7 @@ death_note: true
 radiology_contrast_studies: true
 programs_list: true
 zika: true
+lab_tracking: true
 
 # SSL certificates
 ssl_cert_file: 'hum.ht.crt'
