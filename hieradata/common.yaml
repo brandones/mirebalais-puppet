@@ -77,9 +77,7 @@ biometrics_port: 9009
 # feature toggle settings
 insurance_collection: true
 primary_care_note: true
-ed_triage: true
 relationships: true
-new_active_visits: true
 
 reportingui_ad_hoc_analysis: false
 register_test_patient: false
@@ -91,7 +89,6 @@ receipt_number: false
 programs_list: false
 zika: false
 hiv: false
-old_active_visits: false
 patient_documents: false
 additional_haiti_identifiers: false
 chw_mgmt_app: false
