@@ -6,7 +6,9 @@ class mysql_setup (
     $mysql_innodb_buffer_pool_instances = hiera('mysql_innodb_buffer_pool_instances'),
     $mysql_binary_logging = hiera('mysql_binary_logging'),
     $mysql_net_read_timeout = hiera('mysql_net_read_timeout'),
-    $mysql_net_write_timeout = hiera('mysql_net_write_timeout')
+    $mysql_net_write_timeout = hiera('mysql_net_write_timeout'),
+    $mysql_wait_timeout = hiera('mysql_wait_timeout'),
+    $mysql_interactive_timeout = hiera('mysql_interactive_timeout')
 ){
 
 

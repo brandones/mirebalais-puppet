@@ -130,6 +130,8 @@ collation-server=utf8_general_ci
 # see http://wiki.pentaho.com/display/EAI/MySQL
 net_read_timeout = <%= @mysql_net_read_timeout %>
 net_write_timeout = <%= @mysql_net_write_timeout %>
+wait_timeout = <%= @mysql_wait_timeout %>
+interactive_timeout = <%= @mysql_interactive_timeout %>
 
 
 [mysqldump]
