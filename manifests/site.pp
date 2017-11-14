@@ -45,7 +45,7 @@ node 'emr.hum.ht' {
   include mirth
   include mirth::channel_setup
   
-  include newrelic
+  #include monitoring
   include logging
 
   include openmrs::backup
@@ -76,7 +76,7 @@ node 'humci.pih-emr.org' {
   include mirth
   include mirth::channel_setup
   
-  include newrelic
+  #include monitoring
 }
 
 
@@ -100,7 +100,7 @@ node 'emrtest.hum.ht', 'humdemo.pih-emr.org' {
   include openmrs
   include openmrs::initial_setup
   
-  include newrelic
+  #include monitoring
   include logging
 }
 
@@ -124,7 +124,7 @@ node 'reporting.hum.ht' {
   include openmrs
   include openmrs::initial_setup
   
-  include newrelic
+  #include monitoring
   include logging 
 	
   include mirebalais_reporting::reporting_setup 
@@ -150,7 +150,7 @@ node 'pleebo.pih-emr.org', 'thomonde.pih-emr.org', 'lacolline.pih-emr.org' {
   include openmrs
   include openmrs::initial_setup
   
-  include newrelic
+  #include monitoring
   #include logging
 
   include openmrs::backup
@@ -198,7 +198,7 @@ node 'wellbody.pih-emr.org' {
   include openmrs
   include openmrs::initial_setup
 
-  include newrelic
+  #include monitoring
   include logging
 
   include openmrs::backup
@@ -225,7 +225,7 @@ node 'poro.pih-emr.org', 'padi.pih-emr.org', 'ci.pih-emr.org', 'ami.pih-emr.org'
   include openmrs
   include openmrs::initial_setup
   
-  include newrelic
+  #include monitoring
 }
 
 # TODO: do we still use/need this?

@@ -11,7 +11,7 @@ node default {
   include ntpdate
   include apt_upgrades
   include wget
-  include newrelic
+  #include monitoring
   include git
 
   include java
