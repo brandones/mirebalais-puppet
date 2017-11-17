@@ -25,11 +25,10 @@ rm ${DIR}/openmrs.sql
 # Restart tomcat
 service tomcat7 start
 
-# Disable pipeline for now
 # Update and run the pentaho pipeline
-#cd /home/reporting/pih-pentaho
+cd /home/reporting/pih-pentaho
 # Hard-coded for now to use version v1.0.0
-#git checkout v1.0.0
-#docker run --net="host" --rm -v /home/reporting:/home/reporting -v /home/reporting/.kettle/pih-kettle.properties:/opt/pentaho/.kettle/pih-kettle.properties pih:pdi /opt/pentaho/data-integration/kitchen.sh -file="/home/reporting/pih-pentaho/jobs/load-from-openmrs-and-star-schema.kjb" > /home/reporting/logs/pentaho.log
+git checkout v1.0.0
+docker run --net="host" --rm -v /home/reporting:/home/reporting -v /home/reporting/.kettle/pih-kettle.properties:/opt/pentaho/.kettle/pih-kettle.properties pih:pdi /opt/pentaho/data-integration/kitchen.sh -file="/home/reporting/pih-pentaho/jobs/load-from-openmrs-and-star-schema.kjb" > /home/reporting/logs/pentaho.log
 
 
