@@ -17,5 +17,6 @@ death_note: true
 programs_list: true
 zika: true
 lab_tracking: true
+patient_documents: true
 
 
