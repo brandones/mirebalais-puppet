@@ -28,7 +28,7 @@ class java (
     require => [Package['openjdk-8-jdk']]
   }
 
-  exec{ "update-java-alternatives -s openjdk-8-jdk":
+  exec{ "update-java-alternatives -s java-1.8.0-openjdk-amd64":
     path    => ["/usr/bin", "/usr/sbin"],
     require => Package["openjdk-8-jdk"],
   }
