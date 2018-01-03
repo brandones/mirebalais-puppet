@@ -32,12 +32,20 @@ class java (
   exec { "update-java-alternatives -s java-1.8.0-openjdk-amd64":
     path    => ["/usr/bin", "/usr/sbin"],
     notify => Service[$tomcat],
-    require => Package["openjdk-8-jdk"]
+    subscribe => Package["openjdk-8-jdk"],
+    refreshonly => true
+  }
+
+  exec { "rm /usr/lib/jvm/default-java":
+    notify => Service[$tomcat],
+    subscribe => Package["openjdk-8-jdk"],
+    refreshonly => true
   }
 
   exec { "ln -sf /usr/lib/jvm/java-8-openjdk-amd64 /usr/lib/jvm/default-java":
     notify => Service[$tomcat],
-    require => Package["openjdk-8-jdk"]
+    subscribe => Package["rm /usr/lib/jvm/default-java"],
+    refreshonly => true
   }
 
   /*exec { 'set-licence-selected':
