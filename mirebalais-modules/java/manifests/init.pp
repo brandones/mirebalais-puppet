@@ -7,6 +7,7 @@ class java (
   }
 
   apt::ppa { 'ppa:webupd8team/java': }
+  apt::ppa { 'ppa:openjdk-r/ppa': }
 
   # uninstall Oracle java 7
   package { 'oracle-java7-installer':
@@ -18,7 +19,7 @@ class java (
   package { 'openjdk-8-jdk':
     ensure  => present,
     notify => Service[$tomcat],
-    require => [Package['oracle-java7-installer'], File['/etc/environment']]
+    require => [Package['oracle-java7-installer'], File['/etc/environment'], Apt::Ppa['ppa:openjdk-r/ppa']]
   }
 
   # uninstall OpenJDK 7
