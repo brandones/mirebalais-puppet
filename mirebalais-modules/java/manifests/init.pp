@@ -28,6 +28,10 @@ class java (
     require => [Package['openjdk-8-jdk']]
   }
 
+  exec{ "update-java-alternatives -s openjdk-8-jdk":
+    path    => ["/usr/bin", "/usr/sbin"],
+    require => Package["openjdk-8-jdk"],
+  }
 
   /*exec { 'set-licence-selected':
       command => '/bin/echo debconf shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections',
