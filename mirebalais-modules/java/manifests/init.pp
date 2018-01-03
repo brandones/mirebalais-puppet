@@ -28,9 +28,15 @@ class java (
     require => [Package['openjdk-8-jdk']]
   }
 
-  exec{ "update-java-alternatives -s java-1.8.0-openjdk-amd64":
+  exec { "update-java-alternatives -s java-1.8.0-openjdk-amd64":
     path    => ["/usr/bin", "/usr/sbin"],
-    require => Package["openjdk-8-jdk"],
+    notify => Service[$tomcat],
+    require => Package["openjdk-8-jdk"]
+  }
+
+  exec { "ln -s /usr/lib/jvm/java-8-openjdk-amd64 /usr/lib/jvm/default-java":
+    notify => Service[$tomcat],
+    require => Package["openjdk-8-jdk"]
   }
 
   /*exec { 'set-licence-selected':
