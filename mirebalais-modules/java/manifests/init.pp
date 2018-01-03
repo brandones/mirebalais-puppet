@@ -34,7 +34,7 @@ class java (
     require => Package["openjdk-8-jdk"]
   }
 
-  exec { "ln -s /usr/lib/jvm/java-8-openjdk-amd64 /usr/lib/jvm/default-java":
+  exec { "ln -sf /usr/lib/jvm/java-8-openjdk-amd64 /usr/lib/jvm/default-java":
     notify => Service[$tomcat],
     require => Package["openjdk-8-jdk"]
   }
