@@ -97,6 +97,7 @@ chw_mgmt_app: false
 ncd_program: false
 lab_tracking: false
 ncd_program: false
+condtion_list: false
 
 # SSL certificates
 ssl_cert_file: '3c11bbafd54a6f8c.crt'
