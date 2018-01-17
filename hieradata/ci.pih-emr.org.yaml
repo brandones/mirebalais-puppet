@@ -11,6 +11,7 @@ receipt_number: true
 programs_list: true
 zika: true
 hiv: true
+vct: true
 additional_haiti_identifiers: true
 chw_mgmt_app: true
 
