@@ -49,6 +49,13 @@ class openmrs (
     require => User[$tomcat]
   }
 
+  file { '/home/${tomcat}/.OpenMRS/${webapp_name}':
+    ensure  => 'link',
+    owner   => $tomcat,
+    group   => $tomcat,
+    target  => '/home/${tomcat}/.OpenMRS'
+  }
+
   file { "/home/${tomcat}/.OpenMRS/feature_toggles.properties":
     ensure  => present,
     content => template('openmrs/feature_toggles.properties.erb'),
