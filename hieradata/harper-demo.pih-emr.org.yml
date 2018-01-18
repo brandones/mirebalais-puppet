@@ -1,0 +1,8 @@
+---
+site_domain: harper-demo.pih-emr.org
+pih_config: liberia,liberia-harper
+server_timezone: Africa/Monrovia
+
+mysql_root_password: ENC[oWqIfmn/ER4CYIvjJSpIzQ==]
+openmrs_db_password: ENC[3RqMvut63WqWc8IDs/GOnQ==]
+mysql_bind_address: 0.0.0.0
