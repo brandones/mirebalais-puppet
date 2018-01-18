@@ -37,7 +37,6 @@ class java (
   }
 
   exec { "rm -f /usr/lib/jvm/default-java":
-    notify => Service[$tomcat],
     subscribe => Package["openjdk-8-jdk"],
     refreshonly => true
   }
