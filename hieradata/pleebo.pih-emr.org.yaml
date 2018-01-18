@@ -1,6 +1,6 @@
 ---
 site_domain: pleebo.pih-emr.org
-pih_config: liberia
+pih_config: liberia,liberia-pleebo
 package_release: 'stable/'
 server_timezone: Africa/Monrovia
 
