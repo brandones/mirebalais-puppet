@@ -26,7 +26,7 @@ appointmentscheduling_confidential: true
 receipt_number: true
 programs_list: true
 zika: true
-patient_documents: true
+patient_documents: false
 additional_haiti_identifiers: true
 chw_mgmt_app: true
 ncd_program: true
