@@ -91,6 +91,7 @@ receipt_number: false
 programs_list: false
 zika: false
 hiv: false
+vct: false
 patient_documents: false
 additional_haiti_identifiers: false
 chw_mgmt_app: false
