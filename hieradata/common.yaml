@@ -102,6 +102,7 @@ lab_tracking: false
 ncd_program: false
 condition_list: false
 fingerprints: false
+socio_economics: false
 
 # SSL certificates
 ssl_cert_file: '3c11bbafd54a6f8c.crt'
