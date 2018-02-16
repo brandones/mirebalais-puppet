@@ -31,7 +31,7 @@ class openmrs::initial_setup(
     table => '*.*',
     user => "root@localhost",
     require => [Service['mysqld'],  Package['pihemr']],
-    notify  => Openmrs::Liquibase_migrate ['migrate base schema'];
+ /*   notify  => Openmrs::Liquibase_migrate ['migrate base schema'];
   }
 
   file { '/usr/local/liquibase.jar':
@@ -55,12 +55,12 @@ class openmrs::initial_setup(
   openmrs::liquibase_migrate { 'migrate update to latest':
     dataset     => 'liquibase-update-to-latest.xml',
     refreshonly => true
-  }
+  }*/
 
-  exec { 'tomcat-start':
+  /*exec { 'tomcat-start':
     command     => "service ${tomcat} start",
     user        => 'root',
     subscribe   => Openmrs::Liquibase_migrate['migrate update to latest'],
     refreshonly => true
-  }
+  }*/
 }
