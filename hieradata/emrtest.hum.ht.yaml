@@ -25,6 +25,7 @@ programs_list: true
 zika: true
 lab_tracking: true
 patient_documents: true
+ncd_program: true
 
 # SSL certificates
 ssl_cert_file: 'hum.ht.crt'

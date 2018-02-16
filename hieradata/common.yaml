@@ -99,7 +99,6 @@ additional_haiti_identifiers: false
 chw_mgmt_app: false
 ncd_program: false
 lab_tracking: false
-ncd_program: false
 condition_list: false
 fingerprints: false
 

@@ -48,6 +48,7 @@ insurance_collection: false
 primary_care_note: false
 programs_list: true
 zika: true
+ncd_program: true
 
 # SSL certificates
 ssl_cert_file: 'hum.ht.crt'
