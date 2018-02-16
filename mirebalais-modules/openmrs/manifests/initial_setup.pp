@@ -31,7 +31,6 @@ class openmrs::initial_setup(
     table => '*.*',
     user => "root@localhost",
     require => [Service['mysqld'],  Package['pihemr']],
-    notify  => Openmrs::Liquibase_migrate ['migrate base schema'];
   }
 
  /* file { '/usr/local/liquibase.jar':
