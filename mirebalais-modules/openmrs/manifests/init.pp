@@ -85,8 +85,7 @@ class openmrs (
       owner   => $tomcat,
       group   => $tomcat,
       mode    => '0644',
-      require => File["/home/${tomcat}/.OpenMRS"],
-      unless => $pih_config_array[0] == undef
+      require => File["/home/${tomcat}/.OpenMRS"]
     }
   }
 
