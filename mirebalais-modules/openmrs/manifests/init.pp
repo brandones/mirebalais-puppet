@@ -9,6 +9,7 @@ class openmrs (
     $junit_username = hiera('junit_username'),
     $junit_password = decrypt(hiera('junit_password')),
     $pih_config = hiera('pih_config'),
+    $pih_config_array = split(hiera('pih_config'), ','),
 
     # Mirebalais only
     $remote_zlidentifier_url = hiera('remote_zlidentifier_url'),
@@ -74,6 +75,18 @@ class openmrs (
     mode    => '0644',
     require => File["/home/${tomcat}/.OpenMRS"]
   }
+
+
+  # bit of hack to install up to 4 config files; we should switch to using a loop once we upgrade to version of puppet that supports that
+  file { "/home/${tomcat}/.OpenMRS/pih-config-${pih_config_array[0]}.json":
+    ensure  => present,
+    source  => "puppet:///modules/openmrs/config/pih-config-${pih_config}.json",
+    owner   => $tomcat,
+    group   => $tomcat,
+    mode    => '0644',
+    require => File["/home/${tomcat}/.OpenMRS"]
+  }
+
 
    # this is legacy, this is now handled by our custom app loader factor
    file { "/home/${tomcat}/.OpenMRS/appframework-config.json":
