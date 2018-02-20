@@ -80,7 +80,7 @@ class openmrs (
   # bit of hack to install up to 4 config files; we should switch to using a loop once we upgrade to version of puppet that supports that
   file { "/home/${tomcat}/.OpenMRS/pih-config-${pih_config_array[0]}.json":
     ensure  => present,
-    source  => "puppet:///modules/openmrs/config/pih-config-${pih_config}.json",
+    source  => "puppet:///modules/openmrs/config/pih-config-${pih_config_array[0]}.json",
     owner   => $tomcat,
     group   => $tomcat,
     mode    => '0644',
