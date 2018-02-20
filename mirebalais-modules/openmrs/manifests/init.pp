@@ -118,15 +118,7 @@ class openmrs (
     unless => $pih_config_array[3] == undef
   }
 
-  file { "/home/${tomcat}/.OpenMRS/pih-config-${pih_config_array[4]}.json":
-    ensure  => present,
-    source  => "puppet:///modules/openmrs/config/pih-config-${pih_config_array[4]}.json",
-    owner   => $tomcat,
-    group   => $tomcat,
-    mode    => '0644',
-    require => File["/home/${tomcat}/.OpenMRS"],
-    unless => $pih_config_array[4] == undef
-  }
+
 
    # this is legacy, this is now handled by our custom app loader factor
    file { "/home/${tomcat}/.OpenMRS/appframework-config.json":
