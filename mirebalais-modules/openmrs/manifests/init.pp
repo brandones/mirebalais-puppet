@@ -77,16 +77,56 @@ class openmrs (
   }
 
 
-  # bit of hack to install up to 4 config files; we should switch to using a loop once we upgrade to version of puppet that supports that
+  # bit of hack to install up to 5 config files; we should switch to using a loop once we upgrade to version of puppet that supports that
   file { "/home/${tomcat}/.OpenMRS/pih-config-${pih_config_array[0]}.json":
     ensure  => present,
     source  => "puppet:///modules/openmrs/config/pih-config-${pih_config_array[0]}.json",
     owner   => $tomcat,
     group   => $tomcat,
     mode    => '0644',
-    require => File["/home/${tomcat}/.OpenMRS"]
+    require => File["/home/${tomcat}/.OpenMRS"],
+    unless => $pih_config_array[0] == undef
   }
 
+  file { "/home/${tomcat}/.OpenMRS/pih-config-${pih_config_array[1]}.json":
+    ensure  => present,
+    source  => "puppet:///modules/openmrs/config/pih-config-${pih_config_array[1]}.json",
+    owner   => $tomcat,
+    group   => $tomcat,
+    mode    => '0644',
+    require => File["/home/${tomcat}/.OpenMRS"],
+    unless => $pih_config_array[1] == undef
+  }
+
+  file { "/home/${tomcat}/.OpenMRS/pih-config-${pih_config_array[2]}.json":
+    ensure  => present,
+    source  => "puppet:///modules/openmrs/config/pih-config-${pih_config_array[2]}.json",
+    owner   => $tomcat,
+    group   => $tomcat,
+    mode    => '0644',
+    require => File["/home/${tomcat}/.OpenMRS"],
+    unless => $pih_config_array[2] == undef
+  }
+
+  file { "/home/${tomcat}/.OpenMRS/pih-config-${pih_config_array[3]}.json":
+    ensure  => present,
+    source  => "puppet:///modules/openmrs/config/pih-config-${pih_config_array[3]}.json",
+    owner   => $tomcat,
+    group   => $tomcat,
+    mode    => '0644',
+    require => File["/home/${tomcat}/.OpenMRS"],
+    unless => $pih_config_array[3] == undef
+  }
+
+  file { "/home/${tomcat}/.OpenMRS/pih-config-${pih_config_array[4]}.json":
+    ensure  => present,
+    source  => "puppet:///modules/openmrs/config/pih-config-${pih_config_array[4]}.json",
+    owner   => $tomcat,
+    group   => $tomcat,
+    mode    => '0644',
+    require => File["/home/${tomcat}/.OpenMRS"],
+    unless => $pih_config_array[4] == undef
+  }
 
    # this is legacy, this is now handled by our custom app loader factor
    file { "/home/${tomcat}/.OpenMRS/appframework-config.json":
