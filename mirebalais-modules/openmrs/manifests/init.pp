@@ -89,40 +89,51 @@ class openmrs (
     }
   }
 
-  /*
-
-  file { "/home/${tomcat}/.OpenMRS/pih-config-${pih_config_array[1]}.json":
-    ensure  => present,
-    source  => "puppet:///modules/openmrs/config/pih-config-${pih_config_array[1]}.json",
-    owner   => $tomcat,
-    group   => $tomcat,
-    mode    => '0644',
-    require => File["/home/${tomcat}/.OpenMRS"],
-    unless => $pih_config_array[1] == undef
+  if ($pih_config_array[1] != undef) {
+    file { "/home/${tomcat}/.OpenMRS/pih-config-${pih_config_array[1]}.json":
+      ensure  => present,
+      source  => "puppet:///modules/openmrs/config/pih-config-${pih_config_array[1]}.json",
+      owner   => $tomcat,
+      group   => $tomcat,
+      mode    => '0644',
+      require => File["/home/${tomcat}/.OpenMRS"]
+    }
   }
 
-  file { "/home/${tomcat}/.OpenMRS/pih-config-${pih_config_array[2]}.json":
-    ensure  => present,
-    source  => "puppet:///modules/openmrs/config/pih-config-${pih_config_array[2]}.json",
-    owner   => $tomcat,
-    group   => $tomcat,
-    mode    => '0644',
-    require => File["/home/${tomcat}/.OpenMRS"],
-    unless => $pih_config_array[2] == undef
+
+  if ($pih_config_array[2] != undef) {
+    file { "/home/${tomcat}/.OpenMRS/pih-config-${pih_config_array[2]}.json":
+      ensure  => present,
+      source  => "puppet:///modules/openmrs/config/pih-config-${pih_config_array[2]}.json",
+      owner   => $tomcat,
+      group   => $tomcat,
+      mode    => '0644',
+      require => File["/home/${tomcat}/.OpenMRS"]
+    }
   }
 
-  file { "/home/${tomcat}/.OpenMRS/pih-config-${pih_config_array[3]}.json":
-    ensure  => present,
-    source  => "puppet:///modules/openmrs/config/pih-config-${pih_config_array[3]}.json",
-    owner   => $tomcat,
-    group   => $tomcat,
-    mode    => '0644',
-    require => File["/home/${tomcat}/.OpenMRS"],
-    unless => $pih_config_array[3] == undef
+
+  if ($pih_config_array[3] != undef) {
+    file { "/home/${tomcat}/.OpenMRS/pih-config-${pih_config_array[3]}.json":
+      ensure  => present,
+      source  => "puppet:///modules/openmrs/config/pih-config-${pih_config_array[3]}.json",
+      owner   => $tomcat,
+      group   => $tomcat,
+      mode    => '0644',
+      require => File["/home/${tomcat}/.OpenMRS"]
+    }
   }
-  */
 
-
+  if ($pih_config_array[4] != undef) {
+    file { "/home/${tomcat}/.OpenMRS/pih-config-${pih_config_array[4]}.json":
+      ensure  => present,
+      source  => "puppet:///modules/openmrs/config/pih-config-${pih_config_array[4]}.json",
+      owner   => $tomcat,
+      group   => $tomcat,
+      mode    => '0644',
+      require => File["/home/${tomcat}/.OpenMRS"]
+    }
+  }
 
    # this is legacy, this is now handled by our custom app loader factor
    file { "/home/${tomcat}/.OpenMRS/appframework-config.json":
