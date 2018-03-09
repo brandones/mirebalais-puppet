@@ -84,7 +84,6 @@ primary_care_note: true
 relationships: true
 
 reportingui_ad_hoc_analysis: false
-register_test_patient: false
 notifiable_diseases_report: false
 radiology_contrast_studies: false
 death_note: false

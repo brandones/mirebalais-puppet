@@ -9,7 +9,6 @@ mysql_bind_address: 0.0.0.0
 
 
 # feature toggle settings
-register_test_patient: true
 notifiable_diseases_report: true
 death_note: true
 appointmentscheduling_confidential: true
