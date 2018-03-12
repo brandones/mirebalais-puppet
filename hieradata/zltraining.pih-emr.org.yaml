@@ -1,7 +1,7 @@
 # this has been temporarily changed so we can run the production Lacolline server on this server
 ---
 package_release: 'stable/'
-site_domain: lacolline.pih-emr.org
+site_domain: 186.1.194.10:8443
 pih_config: haiti,haiti-lacolline
 server_timezone: America/New_York
 
