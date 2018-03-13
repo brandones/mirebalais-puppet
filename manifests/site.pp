@@ -157,7 +157,7 @@ node 'pleebo.pih-emr.org', 'thomonde.pih-emr.org', 'lacolline.pih-emr.org' {
   include crashplan
 }
 
-node 'zl-training.pih-emr.org' {
+node 'zltraining.pih-emr.org' {
 
   class { 'apt':
     always_apt_update => true,
