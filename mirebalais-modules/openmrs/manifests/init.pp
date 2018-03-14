@@ -28,7 +28,7 @@ class openmrs (
     $vct = hiera('vct'),
     $patient_documents = hiera('patient_documents'),
     $additional_haiti_identifiers = hiera('additional_haiti_identifiers'),
-    $chw_app = hiera('chw_mgmt_app'),
+    $chw_mgmt_app = hiera('chw_mgmt_app'),
     $ncd_program = hiera('ncd_program'),
     $lab_tracking = hiera('lab_tracking'),
     $condition_list = hiera('condition_list'),
