@@ -230,25 +230,25 @@ node 'poro.pih-emr.org', 'padi.pih-emr.org', 'ci.pih-emr.org', 'ami.pih-emr.org'
 
 # TODO: do we still use/need this?
 
-node 'emrreplication.hum.ht' inherits default {
+#node 'emrreplication.hum.ht' inherits default {
 
-  class { 'apt':
-    always_apt_update => true,
-  }
-
-  include security
-  include mailx
-  include apt_upgrades
-  include wget
-  include java
-  include mysql_setup
-  include mirth
-  include tomcat
-  include openmrs
-  include ntpdate
-  include apache2
-  include awstats
-  include logging
-  include logging::kibana
-  include mysql_setup::slave
-}
+# class { 'apt':
+#    always_apt_update => true,
+#  }
+#
+#  include security
+#  include mailx
+#  include apt_upgrades
+#  include wget
+#  include java
+#  include mysql_setup
+#  include mirth
+#  include tomcat
+#  include openmrs
+#  include ntpdate
+#  include apache2
+#  include awstats
+#  include logging
+#  include logging::kibana
+#  include mysql_setup::slave
+#}
