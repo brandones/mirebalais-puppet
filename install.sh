@@ -42,8 +42,6 @@ then
     apt-mark hold tzdata
 fi
 
-
-
 apt-get update
 
 # hack to make sure we have ruby1.9 installed instead of ruby1.8
@@ -81,8 +79,6 @@ mkdir -p /etc/puppetlabs
 mkdir -p /etc/puppetlabs/puppet
 mkdir -p /var/log/puppetlabs/
 mkdir -p /var/log/puppetlabs/puppet
-cp -r puppet-apply-1604.sh puppet-apply.sh
-#cp -r mirebalais-modules/ntpdate/templates/ntp.conf1604.erb mirebalais-modules/ntpdate/templates/ntp.conf.erb
 
 fi
 
