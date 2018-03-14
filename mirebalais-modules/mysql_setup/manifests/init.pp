@@ -29,12 +29,6 @@ class mysql_setup (
     notify  => Service['mysqld']
   }
 
-  file { '/root/.my.cnf':
-    ensure  => absent,
-    require => Package['mysql-server-5.6'],
-    notify  => Service['mysqld']
-  }
-
   # make sure the mysql 5,5 is uninstalled, as well as the custom "mysql" package we put in place
   # note that we put the proper my.cnf in place first because any restarting of mysql requires this package to be present
   package { 'mysql-client-5.5':
