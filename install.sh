@@ -71,16 +71,22 @@ gem install bundler --no-ri --no-rdoc
 bundle
 bundle update
 librarian-puppet install
-#gem cleanup
+
+mkdir -p /opt/puppetlabs
+mkdir -p /opt/puppetlabs/puppet
+mkdir -p /etc/puppetlabs
+mkdir -p /etc/puppetlabs/puppet
+mkdir -p /var/log/puppetlabs/
+mkdir -p /var/log/puppetlabs/puppet
 
 fi
 
-echo "modulepath = /etc/puppet/modules:/etc/puppet/mirebalais-modules" > puppet.conf
+echo "modulepath = $(pwd)/modules:$(pwd)/mirebalais-modules" > puppet.conf
 echo "environment = $1" >> puppet.conf
 
-#Ensure that you are working within the /etc/puppet directory
-#if [ $(pwd) != /etc/puppet ]
-#then
-#   cp -r $(pwd)/* /etc/puppet
-#   cd /etc/puppet
-#fi
+#replace /etc/puppet/hieradata with $(pwd)/hieradata in hiera.yaml
+sed -i '/etc/puppet/c\$(pwd)' $(pwd)/hiera.yaml
+sed -i "s|/etc/puppet|\"$(pwd)\"|g" hiera.yaml
+sed -i 's|"||g' hiera.yaml
+
+
