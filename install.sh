@@ -73,13 +73,6 @@ bundle
 bundle update
 librarian-puppet install
 
-mkdir -p /opt/puppetlabs
-mkdir -p /opt/puppetlabs/puppet
-mkdir -p /etc/puppetlabs
-mkdir -p /etc/puppetlabs/puppet
-mkdir -p /var/log/puppetlabs/
-mkdir -p /var/log/puppetlabs/puppet
-
 fi
 
 echo "modulepath = $(pwd)/modules:$(pwd)/mirebalais-modules" > puppet.conf
