@@ -22,6 +22,17 @@ class mysql_setup (
     ensure  => directory
   }
 
+  # looks like in Ubuntu 16.04 the location of my.cnf is moved from /etc/mysql to /etc/alternatives
+  # just making sure it is installed in both places for now, but we should clean these two blocks up
+  # after we upgrade to 16.04; also note that there may be a further change if/when we upgrade to Mysql 5.7:
+  # https://askubuntu.com/questions/763774/mysql-istallation-problem-on-ubuntu-16-04-my-cnf-public-ip-problem
+  file { '/etc/alternatives/my.cnf':
+    ensure  => present,
+    content => template('mysql_setup/my.cnf.erb'),
+    require => File['/etc/mysql'],
+    notify  => Service['mysqld']
+  }
+
   file { '/etc/mysql/my.cnf':
     ensure  => present,
     content => template('mysql_setup/my.cnf.erb'),
