@@ -122,7 +122,7 @@ class mysql_setup (
     ensure  => running,
     name    => 'mysql',
     enable  => true,
-    require => [ File['/etc/mysql/my.cnf'], [ File['/etc/mysql/my.cnf.fallback'], File['root_user_my.cnf'], Package['mysql-server-5.6'] ],
+    require => [ File['/etc/mysql/my.cnf'], File['/etc/mysql/my.cnf.fallback'], File['root_user_my.cnf'], Package['mysql-server-5.6'] ],
   }
   
 }
