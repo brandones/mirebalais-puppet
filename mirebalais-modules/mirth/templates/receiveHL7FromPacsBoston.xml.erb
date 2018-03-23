@@ -5,10 +5,10 @@
   <enabled>true</enabled>
   <version>2.2.1.5861</version>
   <lastModified>
-    <time>1366823477000</time>
-    <timezone>Etc/UTC</timezone>
+    <time>1521834850000</time>
+    <timezone>America/New_York</timezone>
   </lastModified>
-  <revision>1</revision>
+  <revision>7</revision>
   <sourceConnector>
     <name>PACS Boston</name>
     <properties>
@@ -102,6 +102,7 @@
       </properties>
       <transformer>
         <steps/>
+        <inboundTemplate encoding="base64"></inboundTemplate>
         <inboundProtocol>HL7V2</inboundProtocol>
         <outboundProtocol>HL7V2</outboundProtocol>
         <inboundProperties>
@@ -122,7 +123,45 @@
         </outboundProperties>
       </transformer>
       <filter>
-        <rules/>
+        <rules>
+          <rule>
+            <sequenceNumber>0</sequenceNumber>
+            <name>Remove faulty OBR 32 and OBR 34 fields</name>
+            <data class="map">
+              <entry>
+                <string>Script</string>
+                <string>// zero-out badly formating OBR 32 and OBR 34 components (we only need the first field, the provider identifier, anyway)
+
+var obr32 = msg[&apos;OBR&apos;][&apos;OBR.32&apos;];
+if (&apos;OBR.32.2&apos; in obr32) { obr32[&apos;OBR.32.2&apos;] = &apos;&apos; };
+if (&apos;OBR.32.3&apos; in obr32) { obr32[&apos;OBR.32.3&apos;] = &apos;&apos; };
+if (&apos;OBR.32.4&apos; in obr32) { obr32[&apos;OBR.32.4&apos;] = &apos;&apos; };
+
+var obr34 = msg[&apos;OBR&apos;][&apos;OBR.34&apos;];
+if (&apos;OBR.34.2&apos; in obr34) { obr34[&apos;OBR.34.2&apos;] = &apos;&apos; };
+if (&apos;OBR.34.3&apos; in obr34) { obr34[&apos;OBR.34.3&apos;] = &apos;&apos; };
+if (&apos;OBR.34.4&apos; in obr34) { obr34[&apos;OBR.34.4&apos;] = &apos;&apos; };
+
+return true;</string>
+              </entry>
+            </data>
+            <type>JavaScript</type>
+            <script>// zero-out badly formating OBR 32 and OBR 34 components (we only need the first field, the provider identifier, anyway)
+
+var obr32 = msg[&apos;OBR&apos;][&apos;OBR.32&apos;];
+if (&apos;OBR.32.2&apos; in obr32) { obr32[&apos;OBR.32.2&apos;] = &apos;&apos; };
+if (&apos;OBR.32.3&apos; in obr32) { obr32[&apos;OBR.32.3&apos;] = &apos;&apos; };
+if (&apos;OBR.32.4&apos; in obr32) { obr32[&apos;OBR.32.4&apos;] = &apos;&apos; };
+
+var obr34 = msg[&apos;OBR&apos;][&apos;OBR.34&apos;];
+if (&apos;OBR.34.2&apos; in obr34) { obr34[&apos;OBR.34.2&apos;] = &apos;&apos; };
+if (&apos;OBR.34.3&apos; in obr34) { obr34[&apos;OBR.34.3&apos;] = &apos;&apos; };
+if (&apos;OBR.34.4&apos; in obr34) { obr34[&apos;OBR.34.4&apos;] = &apos;&apos; };
+
+return true;</script>
+            <operator>NONE</operator>
+          </rule>
+        </rules>
       </filter>
       <transportName>LLP Sender</transportName>
       <mode>DESTINATION</mode>
