@@ -36,6 +36,7 @@ class java (
     refreshonly => true
   }
 
+  # TODO there was a little funkiness here that made me need to do the following two steps manually; this may need to be tweaked in the future
   exec { "rm -f /usr/lib/jvm/default-java":
     subscribe => Package["openjdk-8-jdk"],
     refreshonly => true
