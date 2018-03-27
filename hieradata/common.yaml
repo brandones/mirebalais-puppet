@@ -82,6 +82,9 @@ biometrics_port: 9009
 insurance_collection: true
 primary_care_note: true
 relationships: true
+# TODO fingerprint toggle has been removed from code, this can be removed entirely after next gold is cut & released
+fingerprints: true
+
 
 reportingui_ad_hoc_analysis: false
 notifiable_diseases_report: false
@@ -99,7 +102,6 @@ chw_mgmt_app: false
 ncd_program: false
 lab_tracking: false
 condition_list: false
-fingerprints: false
 socio_economics: false
 
 # SSL certificates

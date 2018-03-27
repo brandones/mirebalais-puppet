@@ -32,4 +32,3 @@ remote_zlidentifier_password: ENC[IuAJgqs6Ci5Hw5xs/DYiZg==]
 java_memory_parameters: '-Xmx8G -Xms1024m -XX:PermSize=256m -XX:MaxPermSize=512m -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC'
 
 # feature toggles
-fingerprints: true

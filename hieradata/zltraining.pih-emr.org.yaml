@@ -17,4 +17,3 @@ mysql_innodb_buffer_pool_instances: 3
 java_memory_parameters: '-Xmx8G -Xms1024m -XX:PermSize=256m -XX:MaxPermSize=512m -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC'
 
 # feature toggles
-fingerprints: true

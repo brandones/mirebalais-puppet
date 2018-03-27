@@ -31,7 +31,6 @@ chw_mgmt_app: true
 ncd_program: true
 lab_tracking: true
 condition_list: true
-fingerprints: true
 
 hiv: false
 
