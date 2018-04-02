@@ -44,3 +44,7 @@ fi
 
 apt-get update
 
+./gem-update.sh
+./puppet-apply.sh site
+
+
