@@ -176,8 +176,6 @@ node 'zltraining.pih-emr.org' {
 
   include openmrs
   include openmrs::initial_setup
-
-  include openmrs::backup
 }
 
 node 'wellbody.pih-emr.org' {

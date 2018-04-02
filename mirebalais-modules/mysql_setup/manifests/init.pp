@@ -24,6 +24,19 @@ class mysql_setup (
 
   file { '/etc/mysql/my.cnf':
     ensure  => present,
+    force => true,
+    content => template('mysql_setup/my.cnf.erb'),
+    require => File['/etc/mysql'],
+    notify  => Service['mysqld']
+  }
+
+  # for some reason on a fresh install of Ubuntu 16.04, my.cnf is just a symlink to /etc/alternatives/my.cnf
+  # which is in turn a sym link to /etc/mysql/my.cnf.fallback; so we just set this now as well
+  # one we update fully to Ubuntu 16.04 and mysql, we should look into reworking this
+  # see: https://askubuntu.com/questions/763774/mysql-istallation-problem-on-ubuntu-16-04-my-cnf-public-ip-problem
+  file { '/etc/mysql/my.cnf.fallback':
+    ensure  => present,
+    force => true,
     content => template('mysql_setup/my.cnf.erb'),
     require => File['/etc/mysql'],
     notify  => Service['mysqld']
@@ -109,7 +122,7 @@ class mysql_setup (
     ensure  => running,
     name    => 'mysql',
     enable  => true,
-    require => [ File['/etc/mysql/my.cnf'], File['root_user_my.cnf'], Package['mysql-server-5.6'] ],
+    require => [ File['/etc/mysql/my.cnf'], File['/etc/mysql/my.cnf.fallback'], File['root_user_my.cnf'], Package['mysql-server-5.6'] ],
   }
   
 }
