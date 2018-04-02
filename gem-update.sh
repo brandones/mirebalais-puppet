@@ -1,3 +1,4 @@
+#! /bin/bash
 
 # hack to make sure we have ruby1.9 installed instead of ruby1.8
 if [ $(lsb_release -rs) == "14.04" ]
