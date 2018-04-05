@@ -22,10 +22,8 @@ appointmentscheduling_confidential: true
 death_note: true
 radiology_contrast_studies: true
 programs_list: true
-zika: true
 lab_tracking: true
 patient_documents: true
-ncd_program: true
 
 # SSL certificates
 ssl_cert_file: 'hum.ht.crt'

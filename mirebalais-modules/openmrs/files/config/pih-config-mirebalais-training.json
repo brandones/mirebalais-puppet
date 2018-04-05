@@ -8,7 +8,6 @@
     "consult",
     "edConsult",
     "adt",
-    "deathCertificate",
     "radiology",
     "dispensing",
     "surgery",
@@ -39,7 +38,6 @@
     "relationships",
     "programs",
     "zika",
-    "hiv",
     "biometricsFingerPrints",
     "patientDocuments"
   ],

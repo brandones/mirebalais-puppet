@@ -9,7 +9,6 @@ openmrs_db_password: ENC[3RqMvut63WqWc8IDs/GOnQ==]
 # feature toggles
 receipt_number: true
 programs_list: true
-zika: true
 hiv: true
 vct: true
 additional_haiti_identifiers: true

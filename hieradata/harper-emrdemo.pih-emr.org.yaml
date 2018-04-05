@@ -14,9 +14,7 @@ death_note: true
 appointmentscheduling_confidential: true
 receipt_number: true
 programs_list: true
-zika: true
 patient_documents: false
 chw_mgmt_app: true
-ncd_program: true
 lab_tracking: true
 condition_list: true

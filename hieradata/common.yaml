@@ -82,24 +82,29 @@ biometrics_port: 9009
 insurance_collection: true
 primary_care_note: true
 relationships: true
-# TODO fingerprint toggle has been removed from code, this can be removed entirely after next gold is cut & released
+
+# TODO these feature toggles can we removed entirely after next gold is cut and released
 fingerprints: true
+zika: true
+ncd_program: true
+death_note: false
+hiv: false
 
 
 reportingui_ad_hoc_analysis: false
 notifiable_diseases_report: false
 radiology_contrast_studies: false
-death_note: false
+
 appointmentscheduling_confidential: false
 receipt_number: false
 programs_list: false
-zika: false
-hiv: false
+
+
 vct: false
 patient_documents: false
 additional_haiti_identifiers: false
 chw_mgmt_app: false
-ncd_program: false
+
 lab_tracking: false
 condition_list: false
 socio_economics: false
