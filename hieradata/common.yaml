@@ -80,10 +80,14 @@ biometrics_port: 9009
 
 # feature toggle settings
 insurance_collection: true
-primary_care_note: true
-
+notifiable_diseases_report: false
+radiology_contrast_studies: false
+appointmentscheduling_confidential: false
+additional_haiti_identifiers: false
+reportingui_ad_hoc_analysis: false
 
 # TODO these feature toggles can we removed entirely after next gold is cut and released
+primary_care_note: true
 relationships: true
 fingerprints: true
 zika: true
@@ -93,24 +97,11 @@ socio_economics: true
 death_note: false
 hiv: false
 vct: false
-
-
-notifiable_diseases_report: false
-radiology_contrast_studies: false
-appointmentscheduling_confidential: false
-programs_list: false
-
-patient_documents: false
-
 chw_mgmt_app: false
-
 lab_tracking: false
+patient_documents: false
 condition_list: false
-
-
-# feature toggles that need to stay for now
-additional_haiti_identifiers: false
-reportingui_ad_hoc_analysis: false
+programs_list: false
 
 # SSL certificates
 ssl_cert_file: '3c11bbafd54a6f8c.crt'

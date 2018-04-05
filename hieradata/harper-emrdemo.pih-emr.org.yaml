@@ -10,9 +10,10 @@ mysql_bind_address: 0.0.0.0
 
 # feature toggle settings
 notifiable_diseases_report: true
-death_note: true
 appointmentscheduling_confidential: true
-programs_list: true
+
+# TODO remove after next gold is cut
+death_note: true
 patient_documents: false
 chw_mgmt_app: true
 lab_tracking: true

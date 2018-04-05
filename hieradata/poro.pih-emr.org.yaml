@@ -7,8 +7,6 @@ mysql_bind_address: 0.0.0.0
 openmrs_db_password: ENC[3RqMvut63WqWc8IDs/GOnQ==]
 
 # feature toggles
-# feature toggle settings
-programs_list: true
 
 #java_debug_parameters: '-Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5000'
 

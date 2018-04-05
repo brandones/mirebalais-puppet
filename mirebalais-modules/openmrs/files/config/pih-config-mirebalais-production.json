@@ -32,13 +32,10 @@
     "mentalHealth",
     "edTriage",
     "edTriageQueue",
-    "labTracking",
-    "primaryCare",
     "relationships",
     "programs",
     "zika",
-    "biometricsFingerPrints",
-    "patientDocuments"
+    "biometricsFingerPrints"
   ],
 
   "dashboardUrl": "/coreapps/clinicianfacing/patient.page?patientId={{patientId}}&app=pih.app.clinicianDashboard",

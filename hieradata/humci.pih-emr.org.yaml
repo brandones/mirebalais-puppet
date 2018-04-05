@@ -20,15 +20,15 @@ biometrics_enabled: true
 notifiable_diseases_report: true
 reportingui_ad_hoc_analysis: true
 radiology_contrast_studies: true
-death_note: true
 appointmentscheduling_confidential: true
-programs_list: true
-patient_documents: false
 additional_haiti_identifiers: true
+
+# TODO remove after next gold is cut
+death_note: true
+patient_documents: false
 chw_mgmt_app: true
 lab_tracking: true
 condition_list: true
-
 hiv: false
 
 java_debug_parameters: '-Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5000'
