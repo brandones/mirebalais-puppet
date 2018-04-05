@@ -12,7 +12,6 @@ mysql_bind_address: 0.0.0.0
 notifiable_diseases_report: true
 death_note: true
 appointmentscheduling_confidential: true
-receipt_number: true
 programs_list: true
 patient_documents: false
 chw_mgmt_app: true
