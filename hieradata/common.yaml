@@ -80,7 +80,6 @@ biometrics_port: 9009
 
 # feature toggle settings
 insurance_collection: true
-notifiable_diseases_report: false
 radiology_contrast_studies: false
 appointmentscheduling_confidential: false
 additional_haiti_identifiers: false

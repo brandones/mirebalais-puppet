@@ -12,7 +12,6 @@ class openmrs (
     $pih_config_array = split(hiera('pih_config'), ','),
 
     #Feature_toggles
-    $notifiable_diseases_report = hiera('notifiable_diseases_report'),
     $reportingui_ad_hoc_analysis = hiera('reportingui_ad_hoc_analysis'),
     $radiology_contrast_studies = hiera('radiology_contrast_studies'),
     $death_note = hiera('death_note'),
