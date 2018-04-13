@@ -1,35 +1,18 @@
 {
 
-  "welcomeMessage": "Harper Demo EMR",
+  "welcomeMessage": "JJ Dossen Health Center EMR",
   "browserWarning": "Please use the <b>Google Chrome</b> browser",
 
   "site": "HARPER",
 
   "components": [
     "visitManagement",
- //   "activeVisits",
     "checkIn",
     "checkInHomepageApp",
     "consult",
     "adt",
     "overviewReports",
     "monitoringReports",
-    "dataExports",
-   // "biometricsFingerPrints",
-   // "deathCertificate",
-   // "radiology",
-   // "dispensing",
-   // "surgery",
-   // "oncology",
-   // "archives",
-   // "appointmentScheduling",
-   // "mentalHealth",
-   // "edConsult",
-   // "edTriage",
-   // "edTriageQueue",
-   // "labTracking",
-   // "labResults",
-   // "managePrinters",
     "systemAdministration",
     "myAccount",
     "ncd",
@@ -40,14 +23,13 @@
     "primaryCare",
     "relationships",
     "programs",
-   // "zika",
     "hiv",
     "patientDocuments",
     "chwApp",
     "conditionList"
   ],
 
-  "primaryIdentifierPrefix": "YY",
-  "providerIdentifierPrefix": "YY"
+  "primaryIdentifierPrefix": "HP",
+  "providerIdentifierPrefix": "HP"
 
 }
