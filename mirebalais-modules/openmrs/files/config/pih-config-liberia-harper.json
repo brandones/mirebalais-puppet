@@ -23,14 +23,12 @@
     "clinicianDashboard",
     "visitNote",
     "mentalHealth",
-    "primaryCare",
     "relationships",
     "programs",
     "biometricsFingerPrints",
     "patientDocuments",
     "chwApp",
-    "conditionList",
-    "socioEconomics"
+    "conditionList"
   ],
 
   "primaryIdentifierPrefix": "HP",
