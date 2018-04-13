@@ -1,0 +1,11 @@
+---
+site_domain: harper-meq-emrdemo.pih-emr.org
+pih_config: liberia,liberia-harper,liberia-demo
+
+mysql_root_password: ENC[oWqIfmn/ER4CYIvjJSpIzQ==]
+mysql_bind_address: 0.0.0.0
+openmrs_db_password: ENC[3RqMvut63WqWc8IDs/GOnQ==]
+
+# feature toggles
+
+#java_debug_parameters: '-Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5000'
