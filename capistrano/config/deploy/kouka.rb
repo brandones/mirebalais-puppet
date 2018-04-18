@@ -1,3 +1,3 @@
 set :user, 'root'
 
-server 'poro.pih-emr.org', :test
+server 'kouka.pih-emr.org', :test
