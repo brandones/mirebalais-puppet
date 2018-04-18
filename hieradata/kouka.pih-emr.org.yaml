@@ -1,5 +1,5 @@
 ---
-site_domain: poro.pih-emr.org
+site_domain: kouka.pih-emr.org
 pih_config: liberia,liberia-harper,liberia-demo
 
 mysql_root_password: ENC[oWqIfmn/ER4CYIvjJSpIzQ==]
