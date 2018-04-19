@@ -1,0 +1,13 @@
+{
+  "primaryIdentifierPrefix": "YY",
+  "providerIdentifierPrefix": "YY",
+
+  "biometricsConfig": {
+    "biometricEngine": "restBiometricEngine",
+    "templateFormat": "PROPRIETARY",
+    "subjectUrl": "http://25.74.162.33:9000/subject",
+    "matchUrl": "http://25.74.162.33:9000/match",
+    "scanUrl": "https://localhost:9443/fingerprint/scan",
+    "devicesUrl": "https://localhost:9443/fingerprint/devices"
+  }
+}
