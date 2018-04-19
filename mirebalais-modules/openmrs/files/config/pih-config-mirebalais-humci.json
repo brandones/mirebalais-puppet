@@ -44,7 +44,9 @@
     "patientDocuments",
     "chwApp",
     "conditionList",
-    "socioEconomics"
+    "socioEconomics",
+    "hiv",
+    "vct"
   ],
 
   "scheduleMonthlyDataExports": true,
