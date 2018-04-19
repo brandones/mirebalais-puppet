@@ -1,6 +1,6 @@
 ---
 site_domain: kouka.pih-emr.org
-pih_config: liberia,liberia-harper,liberia-demo
+pih_config: liberia,liberia-harper,liberia-harper-staging
 
 mysql_root_password: ENC[oWqIfmn/ER4CYIvjJSpIzQ==]
 mysql_bind_address: 0.0.0.0
