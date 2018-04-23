@@ -72,22 +72,22 @@ class apache2 (
     content => template('apache2/index.html.erb')
   } ->
 
-  file { "${ssl_cert_dir}/${ssl_cert_file}":
-    ensure => file,
-    source => "puppet:///modules/apache2/etc/ssl/certs/${ssl_cert_file}",
-    unless => $ssl_install_cert == false
-  } ->
+  if ($ssl_install_cert == true) {
+    file { "${ssl_cert_dir}/${ssl_cert_file}":
+      ensure => file,
+      source => "puppet:///modules/apache2/etc/ssl/certs/${ssl_cert_file}",
+      unless => $ssl_install_cert == false
+    } ->
 
-  file { "${ssl_cert_dir}/${ssl_chain_file}":
-    ensure => file,
-    source => "puppet:///modules/apache2/etc/ssl/certs/${ssl_chain_file}",
-    unless => $ssl_install_cert == false
-  } ->
+    file { "${ssl_cert_dir}/${ssl_chain_file}":
+      ensure => file,
+      source => "puppet:///modules/apache2/etc/ssl/certs/${ssl_chain_file}",
+    } ->
 
-  file { "${ssl_key_dir}/${ssl_key_file}":
-    ensure => present,
-    unless => $ssl_install_cert == false
-  } ->
+    file { "${ssl_key_dir}/${ssl_key_file}":
+      ensure => present,
+    } ->
+  }
 
   exec { 'enable and disable apache mods':
     command     => 'a2enmod jk && a2enmod deflate && a2enmod ssl && a2ensite default-ssl && a2enmod rewrite & a2dismod php5',
