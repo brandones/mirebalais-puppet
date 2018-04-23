@@ -70,7 +70,7 @@ class apache2 (
   file { '/var/www/html/index.html':
     ensure => file,
     content => template('apache2/index.html.erb')
-  } ->
+  }
 
   if ($ssl_install_cert == true) {
     file { "${ssl_cert_dir}/${ssl_cert_file}":
