@@ -17,7 +17,8 @@ class letsencrypt (
     command => "certbot -n -m medinfo@pih.org --apache --agree-tos --domains ${site_domain} certonly",
     user    => 'root',
     require => Package['software-properties-common'],
-    subscribe => Package['python-certbot-apache']
+    subscribe => Package['python-certbot-apache'],
+    notify => Service['apache2::apache2']
   }
 
 }
