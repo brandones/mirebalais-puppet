@@ -34,6 +34,15 @@ class apache2 (
     require => [Apt::Ppa['ppa:certbot/certbot']]
   }
 
+  # we need to generate the certs *before* we modify the default-ssl file
+  exec { 'generate certificates':
+    command => "certbot -n -m medinfo@pih.org --apache --agree-tos --domains ${site_domain} certonly",
+    user    => 'root',
+    require => [ Package['software-properties-common'], Package['apache2'] ],
+    subscribe => Package['python-certbot-apache'],
+    notify => Service['apache2']
+  }
+
   file { '/etc/logrotate.d/apache2':
     ensure  => file,
     content  => template('apache2/logrotate.erb')
@@ -64,6 +73,14 @@ class apache2 (
   file { '/etc/apache2/sites-available/000-default.conf':
     ensure => file,
     source => 'puppet:///modules/apache2/sites-available/000-default.conf',
+    notify => Service['apache2']
+  }
+
+  # we need to generate the certs *before* we modify the default-ssl file
+  file { '/etc/apache2/sites-available/default-ssl.conf':
+    ensure => present,
+    content => template('apache2/default-ssl.conf.erb'),
+    require => Exec['generate certificates'],
     notify => Service['apache2']
   }
 
@@ -102,21 +119,6 @@ class apache2 (
       ensure => present,
       notify => Service['apache2']
     }
-  }
-
-  exec { 'generate certificates':
-    command => "certbot -n -m medinfo@pih.org --apache --agree-tos --domains ${site_domain} certonly",
-    user    => 'root',
-    require => [ Package['software-properties-common'], Package['apache2'] ],
-    subscribe => Package['python-certbot-apache'],
-    notify => Service['apache2']
-  }
-
-  file { '/etc/apache2/sites-available/default-ssl.conf':
-    ensure => present,
-    content => template('apache2/default-ssl.conf.erb'),
-    require => Exec['generate certificates'],
-    notify => Service['apache2']
   }
 
   service { 'apache2':
