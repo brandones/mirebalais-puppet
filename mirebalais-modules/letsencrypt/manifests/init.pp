@@ -18,7 +18,7 @@ class letsencrypt (
     user    => 'root',
     require => Package['software-properties-common'],
     subscribe => Package['python-certbot-apache'],
-    notify => Service['apache2::apache2']
+    notify => Service['apache2']   # requires apache node to be loaded
   }
 
 }
