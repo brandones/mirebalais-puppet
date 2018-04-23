@@ -9,6 +9,7 @@ class apache2 (
   $ssl_key_file = hiera('ssl_key_file'),
   $ssl_cert_dir = hiera('ssl_cert_dir'),
   $ssl_key_dir = hiera('ssl_key_dir'),
+  $ssl_install_cert = hiera('ssl_install_cert'),
   $biometrics_enabled = hiera('biometrics_enabled'),
   $biometrics_webapp_name = hiera('biometrics_webapp_name'),
   $biometrics_port = hiera('biometrics_port')
@@ -71,18 +72,20 @@ class apache2 (
     content => template('apache2/index.html.erb')
   } ->
 
-  file { "${ssl_cert_dir}/${ssl_cert_file}":
-    ensure => file,
-    source => "puppet:///modules/apache2/etc/ssl/certs/${ssl_cert_file}",
-  } ->
+  if ($ssl_install_cert) {
+    file { "${ssl_cert_dir}/${ssl_cert_file}":
+      ensure => file,
+      source => "puppet:///modules/apache2/etc/ssl/certs/${ssl_cert_file}",
+    } ->
 
-  file { "${ssl_cert_dir}/${ssl_chain_file}":
-    ensure => file,
-    source => "puppet:///modules/apache2/etc/ssl/certs/${ssl_chain_file}",
-  } ->
+    file { "${ssl_cert_dir}/${ssl_chain_file}":
+      ensure => file,
+      source => "puppet:///modules/apache2/etc/ssl/certs/${ssl_chain_file}",
+    } ->
 
-  file { "${ssl_key_dir}/${ssl_key_file}":
-    ensure => present,
+    file { "${ssl_key_dir}/${ssl_key_file}":
+      ensure => present,
+    }
   } ->
 
   exec { 'enable and disable apache mods':
