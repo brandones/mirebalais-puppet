@@ -76,17 +76,19 @@ class apache2 (
     file { "${ssl_cert_dir}/${ssl_cert_file}":
       ensure => file,
       source => "puppet:///modules/apache2/etc/ssl/certs/${ssl_cert_file}",
-      unless => $ssl_install_cert == false
-    } ->
+      notify => Service['apache2']
+    }
 
     file { "${ssl_cert_dir}/${ssl_chain_file}":
       ensure => file,
       source => "puppet:///modules/apache2/etc/ssl/certs/${ssl_chain_file}",
-    } ->
+      notify => Service['apache2']
+    }
 
     file { "${ssl_key_dir}/${ssl_key_file}":
       ensure => present,
-    } ->
+      notify => Service['apache2']
+    }
   }
 
   exec { 'enable and disable apache mods':
