@@ -83,7 +83,7 @@ class apache2 (
     subscribe   => [ Package['apache2'], Package['libapache2-mod-jk'] ],
     refreshonly => true,
     notify      => Service['apache2']
-  } ->
+  }
 
   if ($ssl_install_cert == true) {
     file { "${ssl_cert_dir}/${ssl_cert_file}":
