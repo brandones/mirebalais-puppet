@@ -34,9 +34,9 @@
 
   	SSLEngine on
   	SSLOptions +StrictRequire
-  	SSLCertificateFile /etc/ssl/certs/<%= @ssl_cert_file %>
-  	SSLCertificateChainFile /etc/ssl/certs/<%= @ssl_chain_file %>
-  	SSLCertificateKeyFile /etc/ssl/private/<%= @ssl_key_file %>
+  	SSLCertificateFile <%= @ssl_cert_dir %>/<%= @ssl_cert_file %>
+  	SSLCertificateChainFile <%= @ssl_cert_dir %>/<%= @ssl_chain_file %>
+  	SSLCertificateKeyFile <%= @ssl_key_dir %>/<%= @ssl_key_file %>
 
 	BrowserMatch "MSIE [2-6]" \
 		nokeepalive ssl-unclean-shutdown \
