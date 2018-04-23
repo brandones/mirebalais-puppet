@@ -16,6 +16,14 @@ mirth_inbound_from_pacs_mirebalais_port: 6662
 
 biometrics_enabled: true
 
+# SSL certificates
+ssl_cert_dir: "/etc/letsencrypt/live/%{hiera('site_domain')}"
+ssl_cert_file: 'fullchain.pem'
+ssl_chain_file: 'fullchain.pem'
+ssl_key_dir: "/etc/letsencrypt/live/%{hiera('site_domain')}"
+ssl_key_file: 'privkey.pem'
+ssl_install_cert: false   # because letsencrypt sets this up
+
 # feature toggle settings
 reportingui_ad_hoc_analysis: true
 radiology_contrast_studies: true
