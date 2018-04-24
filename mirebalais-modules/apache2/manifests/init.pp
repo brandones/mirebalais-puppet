@@ -91,13 +91,6 @@ class apache2 (
     require => File['/etc/apache2/sites-available/default-ssl.conf']
   }
 
-  file { '/etc/apache2/sites-available/default-ssl.conf':
-    ensure => file,
-    content => template('apache2/default-ssl.conf.erb'),
-    require => Exec['generate certificates'],
-    notify => Service['apache2']
-  }
-
   file { '/var/www/html/.htaccess':
     ensure => file,
     source => 'puppet:///modules/apache2/www/htaccess'
