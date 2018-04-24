@@ -26,9 +26,12 @@ death_note: true
 lab_tracking: true
 patient_documents: true
 
-# SSL certificates
+# SSL certificates for HUM
+ssl_cert_dir: '/etc/ssl/certs'
+ssl_key_dir: '/etc/ssl/private'
 ssl_cert_file: 'hum.ht.crt'
 ssl_chain_file: 'gd_bundle-g2.crt'
 ssl_key_file: 'hum.key'
+ssl_install_cert: true
 
 java_memory_parameters: '-Xmx2048m -Xms512m -XX:PermSize=256m -XX:MaxPermSize=512m -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC'

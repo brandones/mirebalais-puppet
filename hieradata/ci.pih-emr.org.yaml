@@ -6,14 +6,6 @@ mysql_root_password: ENC[oWqIfmn/ER4CYIvjJSpIzQ==]
 mysql_bind_address: 0.0.0.0
 openmrs_db_password: ENC[3RqMvut63WqWc8IDs/GOnQ==]
 
-# SSL certificates
-ssl_cert_dir: "/etc/letsencrypt/live/%{hiera('site_domain')}"
-ssl_cert_file: 'fullchain.pem'
-ssl_chain_file: 'fullchain.pem'
-ssl_key_dir: "/etc/letsencrypt/live/%{hiera('site_domain')}"
-ssl_key_file: 'privkey.pem'
-ssl_install_cert: false   # because letsencrypt sets this up
-
 # feature toggles
 additional_haiti_identifiers: true
 
