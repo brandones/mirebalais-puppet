@@ -65,7 +65,6 @@ class apache2 (
   file { '/etc/apache2/sites-available/default-ssl.conf':
     ensure => file,
     content => template('apache2/default-ssl.conf.erb'),
-    require => Exec['generate certificates'],
     notify => Service['apache2']
   }
 
