@@ -14,7 +14,7 @@ node default {
 
   include java
   include mysql_setup
-  #include apache2
+  include apache2
   include tomcat
 
   include openmrs
