@@ -84,6 +84,20 @@ class apache2 (
     notify => Service['apache2']
   }
 
+  # make sure the symbolic link from sites enabled to site-available
+  file { "/etc/apache2/sites-enabled/default-ssl.conf":
+    ensure  => 'link',
+    target  => "/etc/apache2/sites-available/default-ssl.con",
+    require => File['/etc/apache2/sites-available/default-ssl.conf']
+  }
+
+  file { '/etc/apache2/sites-available/default-ssl.conf':
+    ensure => file,
+    content => template('apache2/default-ssl.conf.erb'),
+    require => Exec['generate certificates'],
+    notify => Service['apache2']
+  }
+
   file { '/var/www/html/.htaccess':
     ensure => file,
     source => 'puppet:///modules/apache2/www/htaccess'
