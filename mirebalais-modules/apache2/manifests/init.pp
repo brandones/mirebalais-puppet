@@ -9,7 +9,7 @@ class apache2 (
   $ssl_key_file = hiera('ssl_key_file'),
   $ssl_cert_dir = hiera('ssl_cert_dir'),
   $ssl_key_dir = hiera('ssl_key_dir'),
-  $ssl_install_cert = hiera('ssl_install_cert'),
+  $ssl_use_letsencrypt = hiera('ssl_use_letsencrypt'),
   $biometrics_enabled = hiera('biometrics_enabled'),
   $biometrics_webapp_name = hiera('biometrics_webapp_name'),
   $biometrics_port = hiera('biometrics_port')
