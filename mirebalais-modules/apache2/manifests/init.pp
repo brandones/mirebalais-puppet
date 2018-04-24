@@ -44,10 +44,9 @@ class apache2 (
   exec { 'generate certificates':
     command => "certbot -n -m medinfo@pih.org --apache --agree-tos --domains ${site_domain} certonly",
     user    => 'root',
-    require => [ Package['software-properties-common'], Package['apache2'] ],
+    require => [ Package['software-properties-common'], Package['apache2'], File['/etc/apache2/sites-enabled/default-ssl.conf'] ],
     subscribe => Package['python-certbot-apache'],
-    notify => Service['apache2'],
-    require => File['/etc/apache2/sites-enabled/default-ssl.conf']
+    notify => Service['apache2']
   }
 
   file { '/etc/logrotate.d/apache2':
