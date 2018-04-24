@@ -84,6 +84,13 @@ class apache2 (
     notify => Service['apache2']
   }
 
+  # ensure symlink created between sites enabled and sites available (should happen automatically but I blew this away in one case)
+  file { '/etc/apache2/sites-enabled/default-ssl.conf':
+    ensure  => link,
+    target  => '../sites-available/default-ssl.conf',
+    require => File['/etc/apache2/sites-available/default-ssl.conf']
+  }
+
   file { '/var/www/html/.htaccess':
     ensure => file,
     source => 'puppet:///modules/apache2/www/htaccess'
