@@ -78,7 +78,7 @@ class apache2 (
 
   # we need to generate the certs *before* we modify the default-ssl file
   file { '/etc/apache2/sites-available/default-ssl.conf':
-    ensure => present,
+    ensure => file,
     content => template('apache2/default-ssl.conf.erb'),
     require => Exec['generate certificates'],
     notify => Service['apache2']
