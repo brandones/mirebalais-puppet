@@ -33,6 +33,6 @@ ssl_key_dir: '/etc/ssl/private'
 ssl_cert_file: 'hum.ht.crt'
 ssl_chain_file: 'gd_bundle-g2.crt'
 ssl_key_file: 'hum.key'
-ssl_install_cert: true
+ssl_use_letsencrypt: false
 
 java_memory_parameters: '-Xmx10G -Xms1G -XX:PermSize=256m -XX:MaxPermSize=512m -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC'

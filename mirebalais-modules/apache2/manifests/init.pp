@@ -15,8 +15,6 @@ class apache2 (
   $biometrics_port = hiera('biometrics_port')
 ){
 
-  apt::ppa { 'ppa:certbot/certbot': }
-
   package { 'apache2':
     ensure => installed,
   }
@@ -25,28 +23,10 @@ class apache2 (
     ensure => installed,
   }
 
-  package { 'software-properties-common':
-    ensure => present
-  }
-
-  package { 'python-certbot-apache':
-    ensure => present,
-    require => [Apt::Ppa['ppa:certbot/certbot']]
-  }
-
   # ensure symlink created between sites enabled and sites available (should happen automatically but I blew this away in one case)
   file { '/etc/apache2/sites-enabled/default-ssl.conf':
     ensure  => link,
     target  => '../sites-available/default-ssl.conf'
-  }
-
-  # we need to generate the certs *before* we modify the default-ssl file
-  exec { 'generate certificates':
-    command => "certbot -n -m medinfo@pih.org --apache --agree-tos --domains ${site_domain} certonly",
-    user    => 'root',
-    require => [ Package['software-properties-common'], Package['apache2'], File['/etc/apache2/sites-enabled/default-ssl.conf'] ],
-    subscribe => Package['python-certbot-apache'],
-    notify => Service['apache2']
   }
 
   file { '/etc/logrotate.d/apache2':
@@ -82,7 +62,6 @@ class apache2 (
     notify => Service['apache2']
   }
 
-  # we need to generate the certs *before* we modify the default-ssl file
   file { '/etc/apache2/sites-available/default-ssl.conf':
     ensure => file,
     content => template('apache2/default-ssl.conf.erb'),
@@ -108,7 +87,42 @@ class apache2 (
     notify      => Service['apache2']
   }
 
-  if ($ssl_install_cert == true) {
+  if ($ssl_use_letsencrypt == true) {
+
+    apt::ppa { 'ppa:certbot/certbot': }
+
+    package { 'software-properties-common':
+      ensure => present
+    }
+
+    package { 'python-certbot-apache':
+      ensure => present,
+      require => [Apt::Ppa['ppa:certbot/certbot']]
+    }
+
+    # we need to generate the certs *before* we modify the default-ssl file
+    exec { 'generate certificates':
+      command => "certbot -n -m medinfo@pih.org --apache --agree-tos --domains ${site_domain} certonly",
+      user    => 'root',
+      require => [ Package['software-properties-common'], Package['python-certbot-apache'], Package['apache2'], File['/etc/apache2/sites-enabled/default-ssl.conf'] ],
+      subscribe => Package['python-certbot-apache'],
+      before => File['/etc/apache2/sites-available/default-ssl.conf'],
+      notify => Service['apache2']
+    }
+
+    # set up cron to renew certificates
+    cron { 'renew certificates':
+      ensure  => present,
+      command => 'certbot renew --pre-hook "service apache2 stop" --post-hook "service apache2 start"',
+      user    => 'root',
+      hour    => 00,
+      minute  => 00,
+      environment => 'MAILTO=${sysadmin_email}',
+      require => [ Exec['generate certificates'] ]
+    }
+
+  }
+  else {
     file { "${ssl_cert_dir}/${ssl_cert_file}":
       ensure => file,
       source => "puppet:///modules/apache2/etc/ssl/certs/${ssl_cert_file}",
