@@ -26,7 +26,8 @@ class apache2 (
   # ensure symlink created between sites enabled and sites available (should happen automatically but I blew this away in one case)
   file { '/etc/apache2/sites-enabled/default-ssl.conf':
     ensure  => link,
-    target  => '../sites-available/default-ssl.conf'
+    target  => '../sites-available/default-ssl.conf',
+    require => Package['apache2']
   }
 
   file { '/etc/logrotate.d/apache2':
