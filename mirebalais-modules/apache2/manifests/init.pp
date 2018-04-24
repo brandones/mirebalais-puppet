@@ -34,13 +34,20 @@ class apache2 (
     require => [Apt::Ppa['ppa:certbot/certbot']]
   }
 
+  # ensure symlink created between sites enabled and sites available (should happen automatically but I blew this away in one case)
+  file { '/etc/apache2/sites-enabled/default-ssl.conf':
+    ensure  => link,
+    target  => '../sites-available/default-ssl.conf'
+  }
+
   # we need to generate the certs *before* we modify the default-ssl file
   exec { 'generate certificates':
     command => "certbot -n -m medinfo@pih.org --apache --agree-tos --domains ${site_domain} certonly",
     user    => 'root',
     require => [ Package['software-properties-common'], Package['apache2'] ],
     subscribe => Package['python-certbot-apache'],
-    notify => Service['apache2']
+    notify => Service['apache2'],
+    require => File['/etc/apache2/sites-enabled/default-ssl.conf']
   }
 
   file { '/etc/logrotate.d/apache2':
@@ -82,13 +89,6 @@ class apache2 (
     content => template('apache2/default-ssl.conf.erb'),
     require => Exec['generate certificates'],
     notify => Service['apache2']
-  }
-
-  # ensure symlink created between sites enabled and sites available (should happen automatically but I blew this away in one case)
-  file { '/etc/apache2/sites-enabled/default-ssl.conf':
-    ensure  => link,
-    target  => '../sites-available/default-ssl.conf',
-    require => File['/etc/apache2/sites-available/default-ssl.conf']
   }
 
   file { '/var/www/html/.htaccess':
