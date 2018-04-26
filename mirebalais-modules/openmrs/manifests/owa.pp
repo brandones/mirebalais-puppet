@@ -15,7 +15,7 @@ class owa (
 
   file { "/home/${tomcat}/.OpenMRS/owa/cohortbuilder-${owa_cohort_builder_version}.zip":
     ensure  => present,
-    source  => "https://dl.bintray.com/openmrs/owa/cohortbuilder-${owa_cohort_builder_version}.zip",
+    source  => "http://dl.bintray.com/openmrs/owa/cohortbuilder-${owa_cohort_builder_version}.zip",
     owner   => $tomcat,
     group   => $tomcat,
     mode    => '0644',
