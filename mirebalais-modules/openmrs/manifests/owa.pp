@@ -1,4 +1,5 @@
 class owa (
+  $tomcat = hiera('tomcat'),
   $owa_cohort_builder_version = hiera('owa_cohort_builder_version'),
 ) {
 
