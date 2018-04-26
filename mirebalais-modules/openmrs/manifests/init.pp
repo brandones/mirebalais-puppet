@@ -158,6 +158,12 @@ class openmrs (
     }
   }
 
+  exec { 'tomcat-restart':
+    command     => "service ${tomcat} restart",
+    user        => 'root',
+    refreshonly => true
+  }
+
    # this is legacy, this is now handled by our custom app loader factor
    file { "/home/${tomcat}/.OpenMRS/appframework-config.json":
 	ensure => absent
