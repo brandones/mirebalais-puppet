@@ -1,4 +1,4 @@
-class openmrs (
+class owa (
   $owa_cohort_builder_version = hiera('owa_cohort_builder_version'),
 ) {
 
