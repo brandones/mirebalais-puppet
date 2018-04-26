@@ -46,7 +46,8 @@
     "conditionList",
     "socioEconomics",
     "hiv",
-    "vct"
+    "vct",
+    "orderEntry"
   ],
 
   "scheduleMonthlyDataExports": true,
