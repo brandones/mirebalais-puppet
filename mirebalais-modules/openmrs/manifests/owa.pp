@@ -13,13 +13,18 @@ class owa (
     require => User[$tomcat]
   }
 
+  # once we upgrade to Puppet 4.4+ we can just specific the file as as source (and therefore may not need to run this every time)
+  exec{'retrieve_cohort_builder_owa':
+    command => "/usr/bin/wget -q https://dl.bintray.com/openmrs/owa/cohortbuilder-${owa_cohort_builder_version}.zip -O /home/${tomcat}/.OpenMRS/owa/cohortbuilder-${owa_cohort_builder_version}.zip",
+    creates => "/home/${tomcat}/.OpenMRS/owa/cohortbuilder-${owa_cohort_builder_version}.zip",
+    require => File["/home/${tomcat}/.OpenMRS/owa"]
+  }
+
   file { "/home/${tomcat}/.OpenMRS/owa/cohortbuilder-${owa_cohort_builder_version}.zip":
-    ensure  => present,
-    source  => "http://dl.bintray.com/openmrs/owa/cohortbuilder-${owa_cohort_builder_version}.zip",
     owner   => $tomcat,
     group   => $tomcat,
     mode    => '0644',
-    require => File["/home/${tomcat}/.OpenMRS/owa"]
+    require => Exec['retrieve_cohort_builder_owa']
   }
 
 }
