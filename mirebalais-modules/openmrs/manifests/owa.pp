@@ -30,7 +30,7 @@ class owa (
     group   => $tomcat,
     mode    => '0644',
     require => Exec['retrieve_cohort_builder_owa'],
-    notify  => Service[$tomcat]
+    notify  => Exec['tomcat-restart']
   }
 
   # install order entry from bamboo
@@ -45,7 +45,7 @@ class owa (
     group   => $tomcat,
     mode    => '0644',
     require => Exec['retrieve_order_entry_owa'],
-    notify  => Service[$tomcat]
+    notify  => Exec['tomcat-restart']
   }
 
 
