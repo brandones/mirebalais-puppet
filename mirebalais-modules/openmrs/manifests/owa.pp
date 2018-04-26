@@ -34,7 +34,7 @@ class owa (
 
   # install order entry from bamboo
   exec{'retrieve_order_entry_owa':
-    command => "/usr/bin/wget -q http://bamboo.pih-emr.org/pihemr-repo/${package_release}/openmrs-owa-orderentry.zip -O /home/${tomcat}/.OpenMRS/owa/openmrs-owa-orderentry.zip",
+    command => "/usr/bin/wget -q http://bamboo.pih-emr.org/owa-repo/${package_release}openmrs-owa-orderentry.zip -O /home/${tomcat}/.OpenMRS/owa/openmrs-owa-orderentry.zip",
     creates => "/home/${tomcat}/.OpenMRS/owa/openmrs-owa-orderentry.zip",
     require => File["/home/${tomcat}/.OpenMRS/owa"]
   }
