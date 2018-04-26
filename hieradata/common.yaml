@@ -9,6 +9,9 @@ ntp_server_4: 3.ubuntu.pool.ntp.org
 pih_config: haiti,haiti-training
 site_domain: foo.org
 
+#owas
+owa_cohort_builder_version: 1.0.0
+
 package_release: 'unstable/'
 mysql_server_id: 1
 mysql_root_password: foo

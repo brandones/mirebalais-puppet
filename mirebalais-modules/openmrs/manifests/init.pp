@@ -41,6 +41,8 @@ class openmrs (
     $lacolline_password = decrypt(hiera('lacolline_password'))
   ){
 
+  include openmrs::owa
+
   file { '/etc/apt/apt.conf.d/99auth':
     ensure  => present,
     owner   => root,
