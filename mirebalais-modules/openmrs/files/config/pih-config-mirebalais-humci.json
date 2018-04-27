@@ -47,7 +47,8 @@
     "socioEconomics",
     "hiv",
     "vct",
-    "orderEntry"
+    "orderEntry",
+    "cohortBuilder"
   ],
 
   "scheduleMonthlyDataExports": true,
