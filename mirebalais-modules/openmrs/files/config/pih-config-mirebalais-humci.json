@@ -60,8 +60,8 @@
   "biometricsConfig": {
     "biometricEngine": "restBiometricEngine",
     "templateFormat": "PROPRIETARY",
-    "subjectUrl": "https://humci.pih-emr.org/biometrics/subject",
-    "matchUrl": "https://humci.pih-emr.org/biometrics/match",
+    "subjectUrl": "http://localhost:9000/subject",
+    "matchUrl": "http://localhost:9000/subject",
     "scanUrl": "https://localhost:9443/fingerprint/scan",
     "devicesUrl": "https://localhost:9443/fingerprint/devices"
   }
