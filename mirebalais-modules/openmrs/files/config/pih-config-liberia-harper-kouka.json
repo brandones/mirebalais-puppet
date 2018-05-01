@@ -1,6 +1,6 @@
 {
   "primaryIdentifierPrefix": "YY",
-  "providerIdentifierPrefix": "YY"
+  "providerIdentifierPrefix": "YY",
 
   "biometricsConfig": {
     "biometricEngine": "restBiometricEngine",
