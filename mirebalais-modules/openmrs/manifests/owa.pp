@@ -1,4 +1,4 @@
-class owa (
+class openmrs::owa (
   $tomcat = hiera('tomcat'),
   $owa_cohort_builder_version = hiera('owa_cohort_builder_version'),
   $package_release = hiera('package_release')
