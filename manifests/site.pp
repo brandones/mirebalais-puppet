@@ -205,7 +205,7 @@ node 'wellbody.pih-emr.org' {
   include crashplan
 }
 
-node 'kouka.pih-emr.org', 'padi.pih-emr.org', 'ci.pih-emr.org', 'ami.pih-emr.org', 'lespwa.pih-emr.org' {
+node 'kouka.pih-emr.org', 'padi.pih-emr.org', 'ci.pih-emr.org', 'ami.pih-emr.org', 'ami-azure.pih-emr.org', 'lespwa.pih-emr.org' {
 
   class { 'apt':
     always_apt_update => true,
