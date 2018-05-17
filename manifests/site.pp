@@ -53,7 +53,7 @@ node 'emr.hum.ht' {
   include mirebalais_reporting::production_setup
 }
 
-node 'humci.pih-emr.org' {
+node 'humci.pih-emr.org', 'humci-azure.pih-emr.org' {
   
   class { 'apt':
     always_apt_update => true,
