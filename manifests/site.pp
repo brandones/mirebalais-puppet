@@ -73,8 +73,8 @@ node 'humci.pih-emr.org', 'humci-azure.pih-emr.org' {
   include openmrs
   include openmrs::initial_setup
 
-  include mirth
-  include mirth::channel_setup
+  #include mirth
+  #include mirth::channel_setup
   
   #include monitoring
 }
