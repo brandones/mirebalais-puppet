@@ -130,7 +130,7 @@ node 'reporting.hum.ht' {
   include mirebalais_reporting::reporting_setup 
 }
 
-node 'pleebo.pih-emr.org', 'thomonde.pih-emr.org', 'lacolline.pih-emr.org', 'hinche-server.pih-emr.org' {
+node 'pleebo.pih-emr.org', 'thomonde.pih-emr.org', 'lacolline.pih-emr.org' {
 
   class { 'apt':
     always_apt_update => true,
@@ -155,6 +155,35 @@ node 'pleebo.pih-emr.org', 'thomonde.pih-emr.org', 'lacolline.pih-emr.org', 'hin
 
   include openmrs::backup
   include crashplan
+}
+
+node 'hinche-server.pih-emr.org' {
+
+  class { 'apt':
+    always_apt_update => true,
+  }
+
+  include security
+  include mailx
+  include ntpdate
+  include apt_upgrades
+  include wget
+
+  include java
+  include mysql_setup
+  include apache2
+  include tomcat
+
+  include openmrs
+  include openmrs::initial_setup
+  
+  #include monitoring
+  #include logging
+
+  include openmrs::backup
+
+  # Crashplan removed (May 2018)
+  #include crashplan
 }
 
 node 'zltraining.pih-emr.org' {
