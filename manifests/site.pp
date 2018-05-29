@@ -157,7 +157,7 @@ node 'pleebo.pih-emr.org', 'thomonde.pih-emr.org', 'lacolline.pih-emr.org' {
   include crashplan
 }
 
-node 'hinche-server.pih-emr.org' {
+node 'hinche-server.pih-emr.org', 'cercalasource.pih-emr.org', 'belladere.pih-emr.org' {
 
   class { 'apt':
     always_apt_update => true,
