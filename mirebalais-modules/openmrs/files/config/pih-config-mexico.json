@@ -1,0 +1,36 @@
+{
+  "welcomeMessage": "Bienvenido al EMR de Chiapas",
+  "browserWarning": "Please use the <b>Google Chrome</b> browser",
+  "country": "MEXICO",
+  "site": "CHIAPAS",
+  "components": [
+    "patientRegistration",
+    "checkIn",
+    "visitManagement",
+    "systemAdministration",
+    "myAccount",
+    "overviewReports",
+    "managePrinters",
+    "dataExports"
+  ],
+  "scheduleBackupReports": "false",
+  "dashboardUrl": "/registrationapp/registrationSummary.page?patientId={{patientId}}",
+  "visitsPageUrl": "/pihcore/visit/visit.page?patient={{patient.uuid}}#/visitList",
+  "visitsPageWithSpecificUrl": "/pihcore/visit/visit.page?patient={{patient.uuid}}&visit={{visit.uuid}}#/overview",
+  "providerIdentifierPrefix": "C",
+  "registrationConfig": {
+    "allowUnknownPatients": false,
+    "allowManualEntryOfPrimaryIdentifier": false,
+    "afterCreatedUrl": "registrationapp/registrationSummary.page?patientId={{patientId}}",
+    "similarPatientsSearch": {
+      "addressFields": {
+        "cityVillage": "1",
+        "address1": "1"
+      },
+      "personAttributeTypes": {
+        "First Name of Mother": "3",
+        "Telephone Number": "20"
+      }
+    }
+  }
+}
