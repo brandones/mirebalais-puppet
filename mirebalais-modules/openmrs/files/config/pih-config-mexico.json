@@ -32,5 +32,6 @@
         "Telephone Number": "20"
       }
     }
-  }
+  },
+  "dispositionConfig": "pih-dispositions-mexico.json"
 }
