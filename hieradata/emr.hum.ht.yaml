@@ -48,6 +48,7 @@ insurance_collection: false
 
 # TODO can be removed after next gold is cut
 primary_care_note: false
+lab_tracking: true
 
 # SSL certificates for HUM
 ssl_cert_dir: '/etc/ssl/certs'
