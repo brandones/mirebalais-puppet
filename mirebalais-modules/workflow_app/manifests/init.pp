@@ -2,7 +2,7 @@ class workflow_app (
 
 ) {
   exec { 'clean_workflow_app_directory':
-    command => "rm /var/www/html/workflow -r",
+    command => "rm /var/www/html/workflow -r -f",
     require =>  Package['apache2']
   }
 
