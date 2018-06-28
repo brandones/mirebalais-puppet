@@ -13,7 +13,7 @@ class workflow_app (
   }
 
   exec { 'extract_workflow_app':
-    command => "/bin/tar -xvf /var/www/html/openmrs-pwa-workflow.tar.gz",
+    command => "/bin/tar -xvf /var/www/html/openmrs-pwa-workflow.tar.gz -C /var/www/html",
     require => Exec["retrieve_workflow_app"]
   }
 
