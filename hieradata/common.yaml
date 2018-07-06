@@ -114,7 +114,8 @@ ssl_key_dir: "/etc/letsencrypt/live/%{hiera('site_domain')}"
 ssl_key_file: 'privkey.pem'
 ssl_use_letsencrypt: true
 
-java_memory_parameters: '-Xmx2048m -Xms512m -XX:PermSize=256m -XX:MaxPermSize=512m -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC'
+java_memory_parameters: '-Xmx2048m -Xms1024m'
+#-XX:PermSize=256m -XX:MaxPermSize=512m -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC
 
 java_debug_parameters: ''
 java_profiler: ''
