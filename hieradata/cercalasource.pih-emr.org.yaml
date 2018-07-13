@@ -11,7 +11,7 @@ remote_db_user: backups
 remote_db_server: amigo.pih-emr.org
 remote_backup_dir: haiti/cerca/db
 
-backup_file_prefix: hinche
+backup_file_prefix: cerca
 backup_db_password: ENC[vkWTaGabrix4EDOVYyoePsJhGlRZxdNy6y8QZ8r2H5I=]
 
 # Confirm uptime of server

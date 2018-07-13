@@ -29,7 +29,8 @@
     "hiv",
     "exportPatients",
     "importPatients",
-    "vct"
+    "vct",
+    "dispensing"
   ],
 
   "globalProperties": {
