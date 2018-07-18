@@ -44,7 +44,7 @@ node 'emr.hum.ht' {
 
   include mirth
   include mirth::channel_setup
-  
+
   #include monitoring
   include logging
 
@@ -54,7 +54,7 @@ node 'emr.hum.ht' {
 }
 
 node 'humci.pih-emr.org' {
-  
+
   class { 'apt':
     always_apt_update => true,
   }
@@ -75,13 +75,13 @@ node 'humci.pih-emr.org' {
 
   #include mirth
   #include mirth::channel_setup
-  
+
   #include monitoring
 }
 
 
 node 'emrtest.hum.ht', 'humdemo.pih-emr.org' {
-  
+
   class { 'apt':
     always_apt_update => true,
   }
@@ -99,7 +99,7 @@ node 'emrtest.hum.ht', 'humdemo.pih-emr.org' {
 
   include openmrs
   include openmrs::initial_setup
-  
+
   #include monitoring
   include logging
 }
@@ -123,11 +123,11 @@ node 'reporting.hum.ht' {
 
   include openmrs
   include openmrs::initial_setup
-  
+
   #include monitoring
-  include logging 
-	
-  include mirebalais_reporting::reporting_setup 
+  include logging
+
+  include mirebalais_reporting::reporting_setup
 }
 
 node 'pleebo.pih-emr.org', 'thomonde.pih-emr.org', 'lacolline.pih-emr.org' {
@@ -149,7 +149,7 @@ node 'pleebo.pih-emr.org', 'thomonde.pih-emr.org', 'lacolline.pih-emr.org' {
 
   include openmrs
   include openmrs::initial_setup
-  
+
   #include monitoring
   #include logging
 
@@ -176,7 +176,7 @@ node 'hinche-server.pih-emr.org', 'cercalasource.pih-emr.org', 'belladere.pih-em
 
   include openmrs
   include openmrs::initial_setup
-  
+
   #include monitoring
   #include logging
 
@@ -255,7 +255,29 @@ node 'kouka.pih-emr.org', 'padi.pih-emr.org', 'ci.pih-emr.org', 'ami.pih-emr.org
   include openmrs::initial_setup
 
   include workflow_app
-  
+
   #include monitoring
 }
 
+node 'companero.pih-emr.org' {
+
+  class { 'apt':
+    always_apt_update => true,
+  }
+
+  include security
+  include mailx
+  include ntpdate
+  include apt_upgrades
+  include wget
+
+  include java
+  include mysql_setup
+  include tomcat
+  include apache2
+
+  include openmrs
+  include openmrs::initial_setup
+
+  #include monitoring
+}
