@@ -5,7 +5,6 @@
   "site": "CHIAPAS",
   "components": [
     "allergies",
-    "checkIn",
     "clinicianDashboard",
     "dataExports",
     "managePrinters",
