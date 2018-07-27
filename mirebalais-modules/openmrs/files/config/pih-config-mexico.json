@@ -11,11 +11,12 @@
     "myAccount",
     "overviewReports",
     "patientRegistration",
-    "programs",
+    "primaryCare",
     "relationships",
     "systemAdministration",
     "todaysVisits",
     "visitManagement",
+    "visitNote",
     "vitals"
   ],
   "scheduleBackupReports": "false",
