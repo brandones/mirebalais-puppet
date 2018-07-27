@@ -12,11 +12,11 @@
     "overviewReports",
     "patientRegistration",
     "primaryCare",
-    "programs",
     "relationships",
     "systemAdministration",
     "todaysVisits",
     "visitManagement",
+    "visitNote",
     "vitals"
   ],
   "scheduleBackupReports": "false",
