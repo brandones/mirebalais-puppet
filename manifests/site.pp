@@ -259,7 +259,30 @@ node 'kouka.pih-emr.org', 'padi.pih-emr.org', 'ci.pih-emr.org', 'ami.pih-emr.org
   #include monitoring
 }
 
-node 'companero.pih-emr.org', 'companero-capitan.pih-emr.org' {
+node 'companero.pih-emr.org' {
+
+  class { 'apt':
+    always_apt_update => true,
+  }
+
+  include security
+  include mailx
+  include ntpdate
+  include apt_upgrades
+  include wget
+
+  include java
+  include mysql_setup
+  include tomcat
+  include apache2
+
+  include openmrs
+  include openmrs::initial_setup
+
+  #include monitoring
+}
+
+node 'companero-capitan' {
 
   class { 'apt':
     always_apt_update => true,
