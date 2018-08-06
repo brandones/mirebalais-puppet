@@ -297,6 +297,7 @@ node 'companero-capitan' {
   include java
   include mysql_setup
   include tomcat
+  #include apache2
 
   include openmrs
   include openmrs::initial_setup
