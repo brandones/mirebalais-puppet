@@ -1,5 +1,4 @@
 ---
-site_domain: 192.168.33.10
 pih_config: mexico
 
 mysql_root_password: ENC[oWqIfmn/ER4CYIvjJSpIzQ==]
