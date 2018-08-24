@@ -59,7 +59,7 @@ class openmrs (
     include_src => false,
   }
 
-  apt::source { 'pihemr':
+  apt::source { 'mirebalais':
     ensure      => absent,
     location    => 'http://bamboo.pih-emr.org/mirebalais-repo',
     release     => $package_release,
