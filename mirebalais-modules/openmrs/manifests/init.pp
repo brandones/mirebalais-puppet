@@ -59,6 +59,14 @@ class openmrs (
     include_src => false,
   }
 
+  apt::source { 'pihemr':
+    ensure      => absent,
+    location    => 'http://bamboo.pih-emr.org/mirebalais-repo',
+    release     => $package_release,
+    repos       => '',
+    include_src => false,
+  }
+
   package { 'pihemr':
     ensure  => latest,
     require => [ Package[$tomcat], Service[$tomcat], Service['mysqld'], Apt::Source['pihemr'],
