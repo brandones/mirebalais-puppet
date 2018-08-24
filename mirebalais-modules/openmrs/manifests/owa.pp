@@ -47,7 +47,7 @@ class openmrs::owa (
   }
 
   # install oncology owa from bamboo
-  exec{'retrieve_oncology_owa':
+ /* exec{'retrieve_oncology_owa':
     command => "/usr/bin/wget -q http://bamboo.pih-emr.org/owa-repo/${package_release}openmrs-owa-oncology.zip -O /home/${tomcat}/.OpenMRS/owa/openmrs-owa-oncology.zip",
     require => File["/home/${tomcat}/.OpenMRS/owa"]
   }
@@ -58,7 +58,7 @@ class openmrs::owa (
     mode    => '0644',
     require => Exec['retrieve_oncology_owa'],
     notify  => Exec['tomcat-restart']
-  }
+  }*/
 
 
 
