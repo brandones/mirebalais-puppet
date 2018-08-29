@@ -1,5 +1,5 @@
 {
-  "welcomeMessage": "Bienvenido al EMR de Chiapas",
+  "welcomeMessage": "Bienvenido al EMR de CES",
   "browserWarning": "Por favor utiliza <b>Google Chrome</b> como navagador",
   "country": "MEXICO",
   "site": "CHIAPAS",
@@ -24,6 +24,9 @@
   "visitsPageUrl": "/pihcore/visit/visit.page?patient={{patient.uuid}}#/visitList",
   "visitsPageWithSpecificUrl": "/pihcore/visit/visit.page?patient={{patient.uuid}}&visit={{visit.uuid}}#/overview",
   "providerIdentifierPrefix": "C",
+  "addressConfig": {
+    "manualFields": ["address1", "address2"]
+  },
   "registrationConfig": {
     "allowUnknownPatients": false,
     "allowManualEntryOfPrimaryIdentifier": false,
@@ -31,7 +34,7 @@
     "similarPatientsSearch": {
       "addressFields": {
         "cityVillage": "1",
-        "address1": "1"
+        "address2": "1"
       },
       "personAttributeTypes": {
         "First Name of Mother": "3",
