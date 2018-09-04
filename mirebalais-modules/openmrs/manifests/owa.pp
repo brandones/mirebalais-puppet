@@ -46,6 +46,20 @@ class openmrs::owa (
     notify  => Exec['tomcat-restart']
   }
 
+  # install lab workflow from bamboo
+  exec{'retrieve_lab_workflow_owa':
+    command => "/usr/bin/wget -q http://bamboo.pih-emr.org/owa-repo/${package_release}openmrs-owa-labworkflow.zip -O /home/${tomcat}/.OpenMRS/owa/openmrs-owa-labworkflow.zip",
+    require => File["/home/${tomcat}/.OpenMRS/owa"]
+  }
+
+  file { "/home/${tomcat}/.OpenMRS/owa/openmrs-owa-labworkflow.zip":
+    owner   => $tomcat,
+    group   => $tomcat,
+    mode    => '0644',
+    require => Exec['retrieve_lab_workflow_owa'],
+    notify  => Exec['tomcat-restart']
+  }
+
   # install oncology owa from bamboo
  /* exec{'retrieve_oncology_owa':
     command => "/usr/bin/wget -q http://bamboo.pih-emr.org/owa-repo/${package_release}openmrs-owa-oncology.zip -O /home/${tomcat}/.OpenMRS/owa/openmrs-owa-oncology.zip",
