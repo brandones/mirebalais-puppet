@@ -48,7 +48,7 @@ class openmrs::owa (
 
   # install lab workflow from bamboo
   exec{'retrieve_lab_workflow_owa':
-    command => "/usr/bin/wget -q http://bamboo.pih-emr.org/owa-repo/${package_release}openmrs-owa-labworkflow.zip -O /home/${tomcat}/.OpenMRS/owa/openmrs-owa-labworkflow.zip",
+    command => "/usr/bin/wget -q http://bamboo.pih-emr.org/owa-repo/${package_release}labworkflow.zip -O /home/${tomcat}/.OpenMRS/owa/labworkflow.zip",
     require => File["/home/${tomcat}/.OpenMRS/owa"]
   }
 
