@@ -15,9 +15,7 @@
     "systemAdministration",
     "myAccount",
     "overviewReports",
-    "dataExports",
-    "idcardPrinting",
-    "managePrinters"
+    "dataExports"
   ],
 
   "primaryIdentifierPrefix": "PL",
