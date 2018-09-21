@@ -32,7 +32,8 @@
         "exportPatients",
         "importPatients",
         "biometricsFingerPrints",
-        "socioEconomics"
+        "socioEconomics",
+        "vct"
     ],
 
     "globalProperties": {
