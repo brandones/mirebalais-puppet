@@ -3,10 +3,6 @@
   "site": "ZLTRAINING",
   "dossierIdentifierPrefix": "XX",
 
-  "components": [
-    "vct"
-  ],
-  
   "biometricsConfig": {
     "biometricEngine": "restBiometricEngine",
     "templateFormat": "PROPRIETARY",
