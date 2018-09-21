@@ -1,4 +1,8 @@
 {
+  "components": [
+    "vct"
+  ],
+
   "biometricsConfig": {
     "biometricEngine": "restBiometricEngine",
     "templateFormat": "PROPRIETARY",
