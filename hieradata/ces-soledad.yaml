@@ -1,5 +1,5 @@
 ---
-pih_config: mexico
+pih_config: mexico,mexico-soledad
 
 mysql_root_password: ENC[oWqIfmn/ER4CYIvjJSpIzQ==]
 mysql_bind_address: 0.0.0.0
