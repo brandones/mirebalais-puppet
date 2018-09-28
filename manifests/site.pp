@@ -282,7 +282,8 @@ node 'companero.pih-emr.org' {
   #include monitoring
 }
 
-node 'companero-capitan' {
+node 'ces-capitan', 'ces-honduras', 'ces-laguna', 'ces-letrero', 'ces-matazano', 'ces-monterrey',
+    'ces-plan', 'ces-reforma', 'ces-salvador', 'ces-soledad' {
 
   class { 'apt':
     always_apt_update => true,
