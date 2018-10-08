@@ -42,6 +42,17 @@
         "First Name of Mother": "3",
         "Telephone Number": "20"
       }
+    },
+    "demographics": {
+      "activeCasefinding": {
+        "required": false
+      },
+      "isImmigrant": {
+        "required": false
+      },
+      "isIndigenous": {
+        "required": false
+      }
     }
   },
   "dispositionConfig": "pih-dispositions-mexico.json"
