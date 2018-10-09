@@ -32,8 +32,13 @@ class openmrs::owa (
     notify  => Exec['tomcat-restart']
   }
 
-  # remove old order entry filename
+  # remove old order entry filename & directory
   file { "/home/${tomcat}/.OpenMRS/owa/openmrs-owa-orderentry.zip":
+    ensure   => absent,
+    notify  => Exec['tomcat-restart']
+  }
+
+  file { "/home/${tomcat}/.OpenMRS/owa/openmrs-owa-orderentry":
     ensure   => absent,
     notify  => Exec['tomcat-restart']
   }
@@ -52,8 +57,13 @@ class openmrs::owa (
     notify  => Exec['tomcat-restart']
   }
 
-  # remove old lab workflow filename
+  # remove old lab workflow filename and directory
   file { "/home/${tomcat}/.OpenMRS/owa/openmrs-owa-labworkflow.zip":
+    ensure   => absent,
+    notify  => Exec['tomcat-restart']
+  }
+
+  file { "/home/${tomcat}/.OpenMRS/owa/openmrs-owa-labworkflow":
     ensure   => absent,
     notify  => Exec['tomcat-restart']
   }
