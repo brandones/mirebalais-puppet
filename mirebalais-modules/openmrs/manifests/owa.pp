@@ -32,17 +32,29 @@ class openmrs::owa (
     notify  => Exec['tomcat-restart']
   }
 
+  # remove old order entry filename
+  file { "/home/${tomcat}/.OpenMRS/owa/openmrs-owa-orderentry.zip":
+    ensure   => absent,
+    notify  => Exec['tomcat-restart']
+  }
+
   # install order entry from bamboo
   exec{'retrieve_order_entry_owa':
-    command => "/usr/bin/wget -q http://bamboo.pih-emr.org/owa-repo/${package_release}openmrs-owa-orderentry.zip -O /home/${tomcat}/.OpenMRS/owa/openmrs-owa-orderentry.zip",
+    command => "/usr/bin/wget -q http://bamboo.pih-emr.org/owa-repo/${package_release}orderentry.zip -O /home/${tomcat}/.OpenMRS/owa/orderentry.zip",
     require => File["/home/${tomcat}/.OpenMRS/owa"]
   }
 
-  file { "/home/${tomcat}/.OpenMRS/owa/openmrs-owa-orderentry.zip":
+  file { "/home/${tomcat}/.OpenMRS/owa/orderentry.zip":
     owner   => $tomcat,
     group   => $tomcat,
     mode    => '0644',
     require => Exec['retrieve_order_entry_owa'],
+    notify  => Exec['tomcat-restart']
+  }
+
+  # remove old lab workflow filename
+  file { "/home/${tomcat}/.OpenMRS/owa/openmrs-owa-labworkflow.zip":
+    ensure   => absent,
     notify  => Exec['tomcat-restart']
   }
 
@@ -52,7 +64,7 @@ class openmrs::owa (
     require => File["/home/${tomcat}/.OpenMRS/owa"]
   }
 
-  file { "/home/${tomcat}/.OpenMRS/owa/openmrs-owa-labworkflow.zip":
+  file { "/home/${tomcat}/.OpenMRS/owa/labworkflow.zip":
     owner   => $tomcat,
     group   => $tomcat,
     mode    => '0644',
