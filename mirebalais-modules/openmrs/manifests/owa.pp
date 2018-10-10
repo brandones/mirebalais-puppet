@@ -40,6 +40,9 @@ class openmrs::owa (
 
   file { "/home/${tomcat}/.OpenMRS/owa/openmrs-owa-orderentry":
     ensure   => absent,
+    recurse => true,
+    purge   => true,
+    force   => true,
     notify  => Exec['tomcat-restart']
   }
 
@@ -64,7 +67,10 @@ class openmrs::owa (
   }
 
   file { "/home/${tomcat}/.OpenMRS/owa/openmrs-owa-labworkflow":
-    ensure   => absent,
+    ensure  => absent,
+    recurse => true,
+    purge   => true,
+    force   => true,
     notify  => Exec['tomcat-restart']
   }
 
