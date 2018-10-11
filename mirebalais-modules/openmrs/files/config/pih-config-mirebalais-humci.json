@@ -50,7 +50,8 @@
     "vct",
     "mch",
     "orderEntry",
-    "cohortBuilder"
+    "cohortBuilder",
+    "chemotherapy"
   ],
 
   "scheduleMonthlyDataExports": true,
