@@ -43,7 +43,7 @@
         "Telephone Number": "20"
       }
     },
-    "demographics": {
+    "social": {
       "activeCasefinding": {
         "required": false
       },
