@@ -36,7 +36,8 @@
     "relationships",
     "programs",
     "zika",
-    "biometricsFingerPrints"
+    "biometricsFingerPrints",
+    "patientDocuments"
   ],
 
   "dashboardUrl": "/coreapps/clinicianfacing/patient.page?patientId={{patientId}}&app=pih.app.clinicianDashboard",
