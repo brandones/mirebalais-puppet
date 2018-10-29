@@ -48,6 +48,12 @@
       "activeCasefinding": {
         "required": false
       },
+      "canRead": {
+        "required": false
+      },
+      "isDisabled": {
+        "required": false
+      },
       "isImmigrant": {
         "required": false
       },
