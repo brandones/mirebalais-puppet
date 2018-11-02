@@ -18,16 +18,15 @@ class openmrs::pwa (
     }
 
     # remove old directory
-    file { "${tomcat_webapp_dir}/openmrs-pwa-pih-liberia":
+    file { "${tomcat_webapp_dir}/pih-liberia":
       ensure   => absent,
-      notify  => Exec["extract pwa pih libera"],
-      refreshonly => true
+      require => Exec['retrieve_pih_liberia_pwa']
     }
 
-    exec { "extract pwa pih libera" :
+    exec { 'extract pwa pih liberia' :
       command => "tar -xvf ${tomcat_webapp_dir}/openmrs-pwa-pih-liberia.tar.gz",
-      notify  => Exec['tomcat-restart'],
-      refreshonly => true
+      require => Exec["${tomcat_webapp_dir}/openmrs-pwa-pih-liberia"],
+      notify  => Exec['tomcat-restart']
     }
   }
 
