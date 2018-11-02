@@ -13,8 +13,7 @@ class openmrs::pwa (
     exec { 'retrieve_pih_liberia_pwa':
       command => "/usr/bin/wget -q http://bamboo.pih-emr.org/pwa-repo/${package_release}
         openmrs-pwa-pih-liberia.tar.gz -O ${tomcat_webapp_dir}/openmrs-pwa-pih-liberia.tar.gz",
-      require => Service["$tomcat"],
-      notify => File["${tomcat_webapp_dir}/openmrs-pwa-pih-liberia"]
+      require => Service["$tomcat"]
     }
 
     # remove old directory
