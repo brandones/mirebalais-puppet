@@ -16,7 +16,7 @@ class openmrs (
     $radiology_contrast_studies = hiera('radiology_contrast_studies'),
     $appointmentscheduling_confidential= hiera('appointmentscheduling_confidential'),
     $insurance_collection = hiera('insurance_collection'),
-    $additional_haiti_identifiers = hiera('additional_haiti_identifiers')
+    $additional_haiti_identifiers = hiera('additional_haiti_identifiers'),
 
     # Mirebalais only
     $remote_zlidentifier_url = hiera('remote_zlidentifier_url'),
