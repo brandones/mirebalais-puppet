@@ -254,8 +254,6 @@ node 'kouka.pih-emr.org', 'padi.pih-emr.org', 'ci.pih-emr.org', 'ami.pih-emr.org
   include openmrs
   include openmrs::initial_setup
 
-  include workflow_app
-
   #include monitoring
 }
 
