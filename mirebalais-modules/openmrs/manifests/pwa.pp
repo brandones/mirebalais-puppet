@@ -1,4 +1,4 @@
-class openmrs::owa (
+class openmrs::pwa (
   $tomcat = hiera('tomcat'),
   $tomcat_webapp_dir = hiera('tomcat_webapp_dir'),
   $package_release = hiera('package_release'),
