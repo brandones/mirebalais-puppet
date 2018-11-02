@@ -14,23 +14,9 @@ class openmrs (
     #Feature_toggles
     $reportingui_ad_hoc_analysis = hiera('reportingui_ad_hoc_analysis'),
     $radiology_contrast_studies = hiera('radiology_contrast_studies'),
-    $death_note = hiera('death_note'),
     $appointmentscheduling_confidential= hiera('appointmentscheduling_confidential'),
-    $receipt_number = hiera('receipt_number'),
     $insurance_collection = hiera('insurance_collection'),
-    $primary_care_note = hiera('primary_care_note'),
-    $relationships = hiera('relationships'),
-    $programs_list = hiera('programs_list'),
-    $zika = hiera('zika'),
-    $hiv = hiera('hiv'),
-    $vct = hiera('vct'),
-    $patient_documents = hiera('patient_documents'),
-    $additional_haiti_identifiers = hiera('additional_haiti_identifiers'),
-    $chw_mgmt_app = hiera('chw_mgmt_app'),
-    $ncd_program = hiera('ncd_program'),
-    $lab_tracking = hiera('lab_tracking'),
-    $condition_list = hiera('condition_list'),
-    $fingerprints = hiera('fingerprints'),
+    $additional_haiti_identifiers = hiera('additional_haiti_identifiers')
 
     # Mirebalais only
     $remote_zlidentifier_url = hiera('remote_zlidentifier_url'),

@@ -8,10 +8,6 @@ openmrs_db_password: ENC[3RqMvut63WqWc8IDs/GOnQ==]
 # feature toggles
 additional_haiti_identifiers: true
 
-# TODO remove after next gold is cut
-hiv: true
-
-
 mysql_net_read_timeout: 120
 mysql_net_write_timeout: 120
 mysql_wait_timeout: 28800
