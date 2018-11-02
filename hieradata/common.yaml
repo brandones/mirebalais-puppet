@@ -36,6 +36,7 @@ backup_db_user: backup
 backup_db_password: foo
 tomcat: tomcat7
 tomcat_restart_nightly: false
+tomcat_webapp_dir: /var/lib/tomcat7/webapps
 
 backup_file_prefix: foo
 backup_hour: 1
@@ -88,23 +89,6 @@ radiology_contrast_studies: false
 appointmentscheduling_confidential: false
 additional_haiti_identifiers: false
 reportingui_ad_hoc_analysis: false
-
-# TODO these feature toggles can we removed entirely after next gold is cut and released
-primary_care_note: true
-relationships: true
-fingerprints: true
-zika: true
-ncd_program: true
-receipt_number: true
-socio_economics: true
-death_note: false
-hiv: false
-vct: false
-chw_mgmt_app: false
-lab_tracking: false
-patient_documents: false
-condition_list: false
-programs_list: false
 
 # SSL certificates--use letencrypt by default
 ssl_cert_dir: "/etc/letsencrypt/live/%{hiera('site_domain')}"
