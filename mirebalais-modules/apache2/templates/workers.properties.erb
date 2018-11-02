@@ -16,3 +16,9 @@ worker.<%= @biometrics_webapp_name %>.port=<%= @biometrics_port %>
 worker.<%= @biometrics_webapp_name %>.host=localhost
 worker.<%= @biometrics_webapp_name %>.type=ajp13
 <% end %>
+
+<% if @pwa_pih_liberia_enabled  == true %>
+worker.pih-liberia.port=8009
+worker.pih-liberia.host=localhost
+worker.pih-liberia.type=ajp13
+<% end %>
