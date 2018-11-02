@@ -25,7 +25,7 @@ class openmrs::pwa (
 
     exec { 'extract pwa pih liberia' :
       command => "tar -xvf ${tomcat_webapp_dir}/openmrs-pwa-pih-liberia.tar.gz",
-      require => Exec["${tomcat_webapp_dir}/openmrs-pwa-pih-liberia"],
+      require => Exec["${tomcat_webapp_dir}/pih-liberia"],
       notify  => Exec['tomcat-restart']
     }
   }
