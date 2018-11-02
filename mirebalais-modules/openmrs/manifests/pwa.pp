@@ -11,8 +11,7 @@ class openmrs::pwa (
   if ($pwa_pih_liberia) {
     # install PIH Liberia from bamboo
     exec { 'retrieve_pih_liberia_pwa':
-      command => "/usr/bin/wget -q http://bamboo.pih-emr.org/pwa-repo/${package_release}
-        openmrs-pwa-pih-liberia.tar.gz -O ${tomcat_webapp_dir}/openmrs-pwa-pih-liberia.tar.gz",
+      command => "/usr/bin/wget -q http://bamboo.pih-emr.org/pwa-repo/${package_release}openmrs-pwa-pih-liberia.tar.gz -O ${tomcat_webapp_dir}/openmrs-pwa-pih-liberia.tar.gz",
       require => Service["$tomcat"]
     }
 
