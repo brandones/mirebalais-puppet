@@ -77,7 +77,7 @@ services_enable: true
 junit_username: junit
 junit_password: Junit123
 
-pwa_pih_liberia: false
+pwa_pih_liberia_enabled: false
 
 # note that this should only be enabled if you are installing biometrics server on the same server as OpenMRS
 # Enabling fingerprinting and connecting to a biometrics server is done via pih-config

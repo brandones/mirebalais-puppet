@@ -12,7 +12,8 @@ class apache2 (
   $ssl_use_letsencrypt = hiera('ssl_use_letsencrypt'),
   $biometrics_enabled = hiera('biometrics_enabled'),
   $biometrics_webapp_name = hiera('biometrics_webapp_name'),
-  $biometrics_port = hiera('biometrics_port')
+  $biometrics_port = hiera('biometrics_port'),
+  $pwa_pih_liberia_enabled = hiera('pwa_pih_liberia_enabled')
 ){
 
   package { 'apache2':
