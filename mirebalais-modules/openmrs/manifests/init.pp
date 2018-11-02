@@ -28,6 +28,7 @@ class openmrs (
   ){
 
   include openmrs::owa
+  include openmrs::pwa
 
   file { '/etc/apt/apt.conf.d/99auth':
     ensure  => present,
