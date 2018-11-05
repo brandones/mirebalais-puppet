@@ -15,8 +15,9 @@ class apache2 (
   $biometrics_port = hiera('biometrics_port'),
   $pwa_enabled = hiera('pwa_enabled'),
   $pwa_webapp_name = hiera('pwa_webapp_name'),
-  $worker_list = "${webapp_name}#{pwa_webapp_name ? ',' : ''}${pwa_webapp_name}#{biometrics_webapp_name ? ',' : ''}${biometrics_webapp_name}"
 ){
+
+  $worker_list = "${webapp_name}#{pwa_webapp_name ? ',' : ''}${pwa_webapp_name}#{biometrics_webapp_name ? ',' : ''}${biometrics_webapp_name}"
 
   package { 'apache2':
     ensure => installed,
