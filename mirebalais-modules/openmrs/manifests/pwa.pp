@@ -35,6 +35,8 @@ class openmrs::pwa (
 
     exec { 'extract pwa' :
       command => "tar -xvf ${tomcat_webapp_dir}/${pwa_filename}",
+      owner   => $tomcat,
+      group   => $tomcat,
       require => File["${tomcat_webapp_dir}/${pwa_filename}"],
       notify  => Exec['tomcat-restart']
     }
