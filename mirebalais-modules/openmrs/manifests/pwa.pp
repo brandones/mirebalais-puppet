@@ -13,7 +13,7 @@ class openmrs::pwa (
   # TODO: come up with a more streamlined way to do this & handle versioning and whether we are installing a "stable" version or not, whether to switch Adds On and Bamboo, etc
 
   if ($pwa_enabled) {
-    # install PIH Liberia from bamboo
+    # install PWA from bamboo
     exec { 'retrieve_pwa':
       command => "/usr/bin/wget -q http://bamboo.pih-emr.org/pwa-repo/${package_release}${pwa_filename} -O ${tomcat_webapp_dir}/${pwa_filename}",
       require => Service["$tomcat"]
@@ -25,9 +25,17 @@ class openmrs::pwa (
       require => Exec['retrieve_pwa']
     }
 
+    # set owner to Tomcat
+    file { "${tomcat_webapp_dir}/${pwa_filename}":
+      owner   => $tomcat,
+      group   => $tomcat,
+      mode    => '0644',
+      require => File["${tomcat_webapp_dir}/${pwa_webapp_name}"],
+    }
+
     exec { 'extract pwa' :
       command => "tar -xvf ${tomcat_webapp_dir}/${pwa_filename}",
-      require => File["${tomcat_webapp_dir}/${pwa_webapp_name}"],
+      require => File["${tomcat_webapp_dir}/${pwa_filename}"],
       notify  => Exec['tomcat-restart']
     }
   }
