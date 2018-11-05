@@ -86,7 +86,7 @@ pwa_filename:
 # note that this should only be enabled if you are installing biometrics server on the same server as OpenMRS
 # Enabling fingerprinting and connecting to a biometrics server is done via pih-config
 biometrics_enabled: false
-biometrics_webapp_name: biometrics
+biometrics_webapp_name:
 biometrics_port: 9009
 
 # feature toggle settings
