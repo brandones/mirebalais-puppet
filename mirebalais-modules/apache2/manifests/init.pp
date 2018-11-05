@@ -17,15 +17,8 @@ class apache2 (
   $pwa_webapp_name = hiera('pwa_webapp_name'),
 ){
 
-  $worker_list = "${webapp_name}"
-
-  if ($pwa_enabled) {
-    $worker_list = "${worker_list},${pwa_webapp_name}"
-  }
-
-  if ($biometrics_enabled) {
-    $worker_list = "${worker_list},${biometrics_webapp_name}"
-  }
+  # really ugly way to do string concat, ignoring empties
+  $worker_list = join(split("${webapp_name} ${pwa_webapp_name} ${biometrics_webapp_name}", '\s+'), ',')
 
   package { 'apache2':
     ensure => installed,
