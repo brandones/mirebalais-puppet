@@ -13,7 +13,9 @@ class apache2 (
   $biometrics_enabled = hiera('biometrics_enabled'),
   $biometrics_webapp_name = hiera('biometrics_webapp_name'),
   $biometrics_port = hiera('biometrics_port'),
-  $pwa_pih_liberia_enabled = hiera('pwa_pih_liberia_enabled')
+  $pwa_enabled = hiera('pwa_pih_liberia_enabled'),
+  $pwa_webapp_name = hiera('pwa_webapp_name'),
+  $worker_list = "${webapp_name}#{pwa_webapp_name ? ',' : ''}${pwa_webapp_name}#{biometrics_webapp_name ? ',' : ''}${biometrics_webapp_name}"
 ){
 
   package { 'apache2':

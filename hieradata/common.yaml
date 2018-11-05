@@ -77,7 +77,11 @@ services_enable: true
 junit_username: junit
 junit_password: Junit123
 
-pwa_pih_liberia_enabled: false
+# pwa_configuration--currently supports only a single PWA per site, we will need update this long-term
+pwa_enabled: false
+pwa_webapp_name:
+pwa_filename:
+
 
 # note that this should only be enabled if you are installing biometrics server on the same server as OpenMRS
 # Enabling fingerprinting and connecting to a biometrics server is done via pih-config

@@ -13,10 +13,10 @@
 	JkMount /<%= @biometrics_webapp_name %>/*   <%= @biometrics_webapp_name %>
 <% end %>
 
-<% if @pwa_pih_liberia_enabled == true %>
-    JkMount /pih-liberia     pih-liberia
-	JkMount /pih-liberia/    pih-liberia
-	JkMount /pih-liberia/*   pih-liberia
+<% if @pwa_enabled == true %>
+    JkMount /<%= @pwa_webapp_name %>     <%= @pwa_webapp_name %>
+	JkMount /<%= @pwa_webapp_name %>/    <%= @pwa_webapp_name %>
+	JkMount /<%= @pwa_webapp_name %>/*   <%= @pwa_webapp_name %>
 <% end %>
 
 	<Directory />

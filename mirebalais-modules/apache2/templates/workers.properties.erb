@@ -1,11 +1,5 @@
 
-<% if @biometrics_enabled == true %>
-worker.list=<%= @webapp_name %>,<%= @biometrics_webapp_name %>
-<% end %>
-
-<% if @biometrics_enabled != true %>
-worker.list=<%= @webapp_name %>
-<% end %>
+worker.list=<%= @worker_list %>
 
 worker.<%= @webapp_name %>.port=8009
 worker.<%= @webapp_name %>.host=localhost
@@ -17,8 +11,8 @@ worker.<%= @biometrics_webapp_name %>.host=localhost
 worker.<%= @biometrics_webapp_name %>.type=ajp13
 <% end %>
 
-<% if @pwa_pih_liberia_enabled  == true %>
-worker.pih-liberia.port=8009
-worker.pih-liberia.host=localhost
-worker.pih-liberia.type=ajp13
+<% if @pwa_enabled  == true %>
+worker.<%= @pwa_webapp_name %>.port=8009
+worker.<%= @pwa_webapp_name %>.host=localhost
+worker.<%= @pwa_webapp_name %>.type=ajp13
 <% end %>

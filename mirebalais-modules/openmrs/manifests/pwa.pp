@@ -2,28 +2,32 @@ class openmrs::pwa (
   $tomcat = hiera('tomcat'),
   $tomcat_webapp_dir = hiera('tomcat_webapp_dir'),
   $package_release = hiera('package_release'),
-  $pwa_pih_liberia_enabled = hiera('pwa_pih_liberia_enabled')
+  $pwa_enabled = hiera('pwa_enabled'),
+  $pwa_filename = hiera('pwa_filename'),
+  $pwa_webapp_name = hiera('pwa_webapp_name')
 ) {
+
+  # currently supports only a single PWA per site, we will need update this long-term
 
   # TODO: once we upgrade to Puppet 4.4+ we can just specific the file as as source (and therefore may not need exec wget and download every run)
   # TODO: come up with a more streamlined way to do this & handle versioning and whether we are installing a "stable" version or not, whether to switch Adds On and Bamboo, etc
 
-  if ($pwa_pih_liberia_enabled) {
+  if ($pwa_enabled) {
     # install PIH Liberia from bamboo
-    exec { 'retrieve_pih_liberia_pwa':
-      command => "/usr/bin/wget -q http://bamboo.pih-emr.org/pwa-repo/${package_release}openmrs-pwa-pih-liberia.tar.gz -O ${tomcat_webapp_dir}/openmrs-pwa-pih-liberia.tar.gz",
+    exec { 'retrieve_pwa':
+      command => "/usr/bin/wget -q http://bamboo.pih-emr.org/pwa-repo/${package_release}${pwa_filename} -O ${tomcat_webapp_dir}/${pwa_filename}",
       require => Service["$tomcat"]
     }
 
     # remove old directory
-    file { "${tomcat_webapp_dir}/pih-liberia":
+    file { "${tomcat_webapp_dir}/${pih_webapp_name}":
       ensure   => absent,
-      require => Exec['retrieve_pih_liberia_pwa']
+      require => Exec['retrieve_pwa']
     }
 
-    exec { 'extract pwa pih liberia' :
-      command => "tar -xvf ${tomcat_webapp_dir}/openmrs-pwa-pih-liberia.tar.gz",
-      require => File["${tomcat_webapp_dir}/pih-liberia"],
+    exec { 'extract pwa' :
+      command => "tar -xvf ${tomcat_webapp_dir}/${pwa_filename}",
+      require => File["${tomcat_webapp_dir}/${pih_webapp_name}"],
       notify  => Exec['tomcat-restart']
     }
   }
