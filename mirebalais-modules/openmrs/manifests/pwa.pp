@@ -22,6 +22,8 @@ class openmrs::pwa (
     # remove old directory
     file { "${tomcat_webapp_dir}/${pwa_webapp_name}":
       ensure   => absent,
+      recurse => true,
+      force => true,
       require => Exec['retrieve_pwa']
     }
 
@@ -34,7 +36,7 @@ class openmrs::pwa (
     }
 
     exec { 'extract pwa' :
-      command => "tar -xvf ${tomcat_webapp_dir}/${pwa_filename}",
+      command => "tar -xvf ${tomcat_webapp_dir}/${pwa_filename} ${tomcat_webapp_dir}",
       user   => $tomcat,
       group   => $tomcat,
       require => File["${tomcat_webapp_dir}/${pwa_filename}"],
