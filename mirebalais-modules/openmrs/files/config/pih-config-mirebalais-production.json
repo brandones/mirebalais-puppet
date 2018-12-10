@@ -35,6 +35,8 @@
     "pathologyTracking",
     "relationships",
     "programs",
+    "chwApp",
+    "mch",
     "zika",
     "biometricsFingerPrints",
     "patientDocuments"
