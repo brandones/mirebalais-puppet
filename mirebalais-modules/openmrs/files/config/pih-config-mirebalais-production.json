@@ -36,6 +36,8 @@
     "primaryCare",
     "relationships",
     "programs",
+    "chwApp",
+    "mch",
     "zika",
     "biometricsFingerPrints",
     "patientDocuments"
