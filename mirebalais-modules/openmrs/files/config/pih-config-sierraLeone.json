@@ -23,6 +23,8 @@
   "visitsPageWithSpecificUrl": "/pihcore/visit/visit.page?patient={{patient.uuid}}&visit={{visit.uuid}}#/overview",
   "providerIdentifierPrefix": "W",
 
+  "dispositionConfig": "pih-dispositions-sierraLeone.json",
+
   "registrationConfig": {
     "allowUnknownPatients": false,
     "allowManualEntryOfPrimaryIdentifier": false,
