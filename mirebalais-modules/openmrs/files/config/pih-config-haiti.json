@@ -31,7 +31,9 @@
         "importPatients",
         "biometricsFingerPrints",
         "socioEconomics",
-        "vct"
+        "vct",
+        "edTriage",
+        "edTriageQueue"
     ],
 
     "globalProperties": {
