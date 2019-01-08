@@ -18,6 +18,7 @@
     "systemAdministration",
     "myAccount",
     "ncd",
+    "mch",
     "hiv",
     "vct",
     "labResults",
@@ -32,7 +33,9 @@
     "biometricsFingerPrints",
     "patientDocuments",
     "chwApp",
-    "conditionList"
+    "conditionList",
+    "primaryCare",
+    "socioEconomics"
   ],
 
   "primaryIdentifierPrefix": "HP",
