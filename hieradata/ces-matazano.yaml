@@ -1,4 +1,5 @@
 ---
+package_release: 'stable/'
 pih_config: mexico,mexico-matazano
 
 mysql_root_password: ENC[oWqIfmn/ER4CYIvjJSpIzQ==]
