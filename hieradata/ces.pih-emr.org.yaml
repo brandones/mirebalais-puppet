@@ -1,5 +1,6 @@
 ---
-site_domain: companero.pih-emr.org
+package_release: 'stable/'
+site_domain: ces.pih-emr.org
 pih_config: mexico,mexico-demo
 
 mysql_root_password: ENC[oWqIfmn/ER4CYIvjJSpIzQ==]
