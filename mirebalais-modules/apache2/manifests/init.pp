@@ -101,7 +101,7 @@ class apache2 (
     }
 
     package { 'python-certbot-apache':
-      ensure => latest,
+      ensure => present,
       require => [Apt::Ppa['ppa:certbot/certbot']]
     }
 
