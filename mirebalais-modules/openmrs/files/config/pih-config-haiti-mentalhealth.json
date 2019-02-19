@@ -15,7 +15,8 @@
     "systemAdministration",
     "dataExports",
     "exportPatients",
-    "importPatients"
+    "importPatients",
+    "programs"
   ],
 
   "globalProperties": {
