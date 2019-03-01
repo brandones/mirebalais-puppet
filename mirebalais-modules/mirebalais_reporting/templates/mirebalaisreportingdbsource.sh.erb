@@ -23,7 +23,7 @@ mysql -u ${USER} -p${PASSWORD} ${DB} < ${DIR}/openmrs.sql 2>/home/reporting/logs
 rm ${DIR}/openmrs.sql
 
 # Restart tomcat
-service tomcat7 start
+service tomcat7 restart
 
 # Update and run the pentaho pipeline
 cd /home/reporting/pih-pentaho
