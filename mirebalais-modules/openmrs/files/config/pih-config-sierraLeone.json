@@ -33,7 +33,9 @@
   "providerIdentifierPrefix": "W",
 
   "dispositionConfig": "pih-dispositions-sierraLeone.json",
-
+  "addressConfig": {
+    "manualFields": ["address1", "address2"]
+  },
   "registrationConfig": {
     "allowUnknownPatients": false,
     "allowManualEntryOfPrimaryIdentifier": false,
