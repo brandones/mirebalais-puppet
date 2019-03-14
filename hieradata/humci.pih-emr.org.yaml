@@ -3,9 +3,9 @@ webapp_name: mirebalais
 site_domain: humci.pih-emr.org
 pih_config: mirebalais,mirebalais-humci
 
-mysql_root_password: ENC[oWqIfmn/ER4CYIvjJSpIzQ==]
+mysql_root_password: ENC[sOgJVgAtuiZEFWosjSkpLw==]
 mysql_bind_address: 0.0.0.0
-openmrs_db_password: ENC[3RqMvut63WqWc8IDs/GOnQ==]
+openmrs_db_password: ENC[RsoubkPvCqn6WZSdDtBNTA==]
 mirth_password: ENC[rtk/p1SzQjT3zkMJx7DJ0g==]
 
 lacolline_server_url: 'http://boston.pih-emr.org:8080/openmrs'
