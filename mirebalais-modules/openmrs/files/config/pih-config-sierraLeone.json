@@ -35,7 +35,7 @@
   "dispositionConfig": "pih-dispositions-sierraLeone.json",
   "addressConfig": {
     "manualFields": ["address1", "address2"],
-    "shortcutField": "cityVillage"
+    "shortcutField": "stateProvince"
   },
   "registrationConfig": {
     "allowUnknownPatients": false,
