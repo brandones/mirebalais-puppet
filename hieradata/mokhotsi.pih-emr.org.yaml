@@ -3,6 +3,6 @@ site_domain: mokhotsi.pih-emr.org
 server_timezone: Africa/Maseru
 
 mysql_root_password: ENC[oWqIfmn/ER4CYIvjJSpIzQ==]
-openmrs_db_password: ENC[5WzkmR5AjO01BUQTOhfMkA==]
+openmrs_db_password: ENC[G3O8b34dKDJBdY4jNbyYvg==]
 
 java_memory_parameters: '-Xmx2048m -Xms1024m -XX:PermSize=256m -XX:MaxPermSize=512m -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC'
