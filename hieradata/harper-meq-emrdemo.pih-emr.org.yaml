@@ -4,7 +4,7 @@ pih_config: liberia,liberia-harper,liberia-harper-demo
 
 mysql_root_password: ENC[oWqIfmn/ER4CYIvjJSpIzQ==]
 mysql_bind_address: 0.0.0.0
-openmrs_db_password: ENC[3RqMvut63WqWc8IDs/GOnQ==]
+openmrs_db_password: ENC[QbRhyVSLijlWr2ciFk8bKg==]
 
 # Use our old godaddy cert until we've tested the letsencrypt one for a few months
 ssl_cert_dir: '/etc/ssl/certs'
