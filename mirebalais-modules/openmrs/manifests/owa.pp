@@ -19,7 +19,7 @@ class openmrs::owa (
   # TODO: come up with a more streamlined way to do this & handle versioning and whether we are installing a "stable" version or not, whether to switch Adds On and Bamboo, etc
 
   # install cohort builder from Add Ons
-  exec{'retrieve_cohort_builder_owa':
+  /*exec{'retrieve_cohort_builder_owa':
     command => "/usr/bin/wget -q https://dl.bintray.com/openmrs/owa/cohortbuilder-${owa_cohort_builder_version}.zip -O /home/${tomcat}/.OpenMRS/owa/cohortbuilder.zip",
     require => File["/home/${tomcat}/.OpenMRS/owa"]
   }
@@ -30,7 +30,7 @@ class openmrs::owa (
     mode    => '0644',
     require => Exec['retrieve_cohort_builder_owa'],
     notify  => Exec['tomcat-restart']
-  }
+  }*/
 
   # remove old order entry filename & directory
   file { "/home/${tomcat}/.OpenMRS/owa/openmrs-owa-orderentry.zip":

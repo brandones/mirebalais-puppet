@@ -10,8 +10,8 @@ pwa_enabled: true
 pwa_webapp_name: pwa
 pwa_filename: openmrs-pwa-pih-liberia.tar.gz
 
-
 # feature toggles
+htmlformentryui_simpleform_navbuttons: true
 
 #java_debug_parameters: '-Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5000'
 

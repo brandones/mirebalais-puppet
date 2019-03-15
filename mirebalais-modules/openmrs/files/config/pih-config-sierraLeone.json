@@ -12,6 +12,7 @@
     "checkIn",
     "visitManagement",
     "systemAdministration",
+    "visitNote",
     "myAccount",
     "overviewReports",
     "managePrinters",
@@ -32,7 +33,10 @@
   "providerIdentifierPrefix": "W",
 
   "dispositionConfig": "pih-dispositions-sierraLeone.json",
-
+  "addressConfig": {
+    "manualFields": ["address1", "address2"],
+    "shortcutField": "stateProvince"
+  },
   "registrationConfig": {
     "allowUnknownPatients": false,
     "allowManualEntryOfPrimaryIdentifier": false,
@@ -45,6 +49,11 @@
       "personAttributeTypes" : {
         "First Name of Mother": "3",
         "Telephone Number": "20"
+      }
+    },
+    "demographics": {
+      "mothersName": {
+        "required": false
       }
     }
   }
